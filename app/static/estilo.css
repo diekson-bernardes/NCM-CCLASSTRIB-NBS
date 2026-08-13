@@ -200,7 +200,9 @@ footer { border-top: 1px solid var(--borda); padding: 16px 28px; color: var(--su
 }
 
 @media print {
-  .topo, footer, .acoes-impressao { display: none !important; }
+  .topo, .acoes-impressao { display: none !important; }
+  /* o rodapé permanece: leva a ressalva e a assinatura para o PDF do cliente */
+  footer { border-top: 1px solid #c9ced8; margin-top: 18pt; padding: 10pt 0 0; }
   body { background: #fff; font-size: 11pt; }
   main { max-width: none; margin: 0; padding: 0; }
   .apresentacao .cartao, .apresentacao .fonte, .apresentacao .caso {
@@ -231,3 +233,6 @@ footer { border-top: 1px solid var(--borda); padding: 16px 28px; color: var(--su
 
 .rolagem { overflow-x: auto; }
 .rolagem table { min-width: 900px; }
+
+footer .assinatura { margin-top: 8px; color: var(--suave); }
+footer .assinatura strong { color: var(--texto); font-weight: 600; }
