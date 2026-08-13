@@ -169,6 +169,60 @@ def adicionar_ncm(cesta: dict, consulta: dict) -> dict:
     )
 
 
+def adicionar_lote(cesta: dict, lote: dict, rotulo: str = "") -> dict:
+    """Consulta em lote de NCM: entra na cesta como um item so."""
+    from .lote import linhas_detalhe as linhas_lote
+
+    resumo_lote = lote["resumo"]
+    rotulo = rotulo or f"Lote de {resumo_lote['total']} NCM"
+    linhas = []
+    for origem in linhas_lote(lote):
+        anexo = origem.get("Anexo LC 214/2025", "")
+        item = origem.get("Item do anexo", "")
+        referencia = origem.get("Referência", "")
+        linhas.append(
+            {
+                "Consulta": rotulo,
+                "Tipo": "Bem (NCM)",
+                "Código": origem.get("NCM", ""),
+                "Descrição": " — ".join(
+                    p for p in [referencia, origem.get("Descrição NCM", "")] if p
+                ),
+                "Item LC 116/03": "Não aplicável",
+                "NBS": "Não aplicável",
+                "Descrição NBS": "",
+                "indOP": origem.get("indOP aplicáveis", ""),
+                "cClassTrib": origem.get("cClassTrib", ""),
+                "Nome cClassTrib": origem.get("Nome cClassTrib", ""),
+                "CST IBS/CBS": origem.get("CST IBS/CBS", ""),
+                "Redução IBS (%)": origem.get("Redução IBS (%)", ""),
+                "Redução CBS (%)": origem.get("Redução CBS (%)", ""),
+                "Regime / confiança": origem.get("Regime", ""),
+                "Fundamento": " — ".join(
+                    p for p in [f"{anexo} item {item}".strip() if anexo else "",
+                                origem.get("Texto do anexo", "")] if p
+                ),
+                "Base legal": origem.get("Base legal", ""),
+                "Alertas": origem.get("Observação", ""),
+            }
+        )
+
+    return _guarda_item(
+        cesta,
+        {
+            "id": secrets.token_urlsafe(6),
+            "tipo": "lote",
+            "rotulo": rotulo,
+            "titulo": f"{resumo_lote['com_regime']} com regime diferenciado · "
+                      f"{resumo_lote['integral']} integral · "
+                      f"{resumo_lote['nao_localizados']} não localizado(s)",
+            "detalhe": f"{resumo_lote['total']} NCM · {len(linhas)} linha(s)",
+            "adicionado_em": _agora(),
+            "linhas": linhas,
+        },
+    )
+
+
 # ---------------------------------------------------------------------- saidas
 
 
@@ -196,7 +250,7 @@ def resumo(cesta: dict) -> dict:
     return {
         "consultas": len(cesta["itens"]),
         "consultas_cnae": sum(1 for i in cesta["itens"] if i["tipo"] == "cnae"),
-        "consultas_ncm": sum(1 for i in cesta["itens"] if i["tipo"] == "ncm"),
+        "consultas_ncm": sum(1 for i in cesta["itens"] if i["tipo"] in {"ncm", "lote"}),
         "linhas": len(todas),
         "codigos": len({l["Código"] for l in todas if l["Código"]}),
         "cclasstrib": len(por_classe),

@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+{% block titulo %}Consulta de NCM em lote{% endblock %}
+{% block conteudo %}
+
+{% if erro %}<div class="alerta erro">{{ erro }}</div>{% endif %}
+
+<section class="cartao">
+  <h1>Consulta de NCM em lote</h1>
+  <p class="ajuda">
+    Informe vários NCM de uma vez e receba o enquadramento de cada um — anexo da
+    LC 214/2025, cClassTrib, CST e percentuais de redução — em uma planilha só.
+    Útil para revisar o cadastro de produtos.
+  </p>
+
+  <form method="post" enctype="multipart/form-data">
+    <label class="campo">
+      <span>Planilha com os NCM (.xlsx ou .csv)</span>
+      <input type="file" name="planilha" accept=".xlsx,.xlsm,.csv,.txt">
+      <small>
+        A coluna é localizada pelo cabeçalho que contenha “NCM”. Havendo outra coluna de
+        texto (código interno, descrição do produto), ela é trazida como referência do item.
+      </small>
+    </label>
+
+    <label class="campo">
+      <span>Ou cole os códigos (um por linha)</span>
+      <textarea name="ncms" rows="6" placeholder="1006.40.00 ARROZ TIPO 1&#10;04011010 LEITE INTEGRAL&#10;30049099&#10;8703.23.10 SEDAN 1.0"></textarea>
+      <small>O texto após o código vira a referência daquele item. Até {{ limite }} códigos por lote.</small>
+    </label>
+
+    <button type="submit">Consultar lote</button>
+  </form>
+</section>
+
+{% if lote %}
+
+  {% for aviso in lote.avisos %}<div class="alerta">{{ aviso }}</div>{% endfor %}
+
+  <section class="cartao empresa">
+    <div>
+      <h2>Resultado do lote</h2>
+      <p class="ajuda">
+        {{ lote.resumo.total }} NCM consultado(s) —
+        {{ lote.resumo.com_regime }} com regime diferenciado,
+        {{ lote.resumo.integral }} em tributação integral,
+        {{ lote.resumo.nao_localizados }} não localizado(s).
+      </p>
+    </div>
+    <div class="downloads">
+      <form method="post" action="{{ url_for('cesta_adicionar') }}">
+        <input type="hidden" name="tipo" value="lote">
+        <input type="hidden" name="token" value="{{ token }}">
+        <button type="submit" class="botao secundario">+ Adicionar à cesta</button>
+      </form>
+      <a class="botao" href="{{ url_for('download_lote', token=token, formato='xlsx') }}">XLSX</a>
+      <a class="botao" href="{{ url_for('download_lote', token=token, formato='csv') }}">CSV</a>
+      <a class="botao" href="{{ url_for('download_lote', token=token, formato='json') }}">JSON</a>
+    </div>
+  </section>
+
+  <section class="indicadores">
+    <div><strong>{{ lote.resumo.total }}</strong><span>NCM no lote</span></div>
+    <div><strong>{{ lote.resumo.aliquota_zero }}</strong><span>com alíquota zero</span></div>
+    <div><strong>{{ lote.resumo.reducao_60 }}</strong><span>com redução de 60%</span></div>
+    <div><strong>{{ lote.resumo.reducao_30 }}</strong><span>com redução de 30%</span></div>
+    <div><strong>{{ lote.resumo.integral }}</strong><span>tributação integral</span></div>
+    <div><strong>{{ lote.resumo.imposto_seletivo }}</strong><span>com Imposto Seletivo</span></div>
+    <div><strong>{{ lote.resumo.excecoes }}</strong><span>com exceção em anexo</span></div>
+    <div><strong>{{ lote.resumo.nao_localizados }}</strong><span>não localizados</span></div>
+  </section>
+
+  {% if lote.resumo.nao_localizados or lote.resumo.nao_vigentes %}
+  <div class="alerta">
+    {% if lote.resumo.nao_localizados %}
+      {{ lote.resumo.nao_localizados }} código(s) não constam da tabela NCM vigente — confira
+      a digitação ou a reclassificação do produto.
+    {% endif %}
+    {% if lote.resumo.nao_vigentes %}
+      {{ lote.resumo.nao_vigentes }} código(s) com vigência encerrada.
+    {% endif %}
+  </div>
+  {% endif %}
+
+  {% if lote.resumo.por_anexo %}
+  <section class="cartao">
+    <h2>Anexos da LC 214/2025 alcançados</h2>
+    <table>
+      <thead><tr><th>Anexo</th><th>NCM no lote</th></tr></thead>
+      <tbody>
+        {% for g in lote.resumo.por_anexo %}
+        <tr><td>{{ g.anexo }}</td><td>{{ g.ncms }}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+  {% endif %}
+
+  <section class="cartao">
+    <h2>Enquadramento por NCM</h2>
+    <div class="rolagem">
+      <table>
+        <thead>
+          <tr>
+            <th>NCM</th><th>Referência</th><th>Descrição</th><th>Enquadramento</th>
+            <th>Anexo</th><th>cClassTrib</th><th>CST</th><th>Red. IBS/CBS</th><th>Atenção</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for r in lote.resultados %}
+          <tr>
+            <td>
+              {% if r.encontrado %}
+                <a href="{{ url_for('ncm_detalhe', codigo=r.ncm) }}"><code>{{ r.formatado }}</code></a>
+              {% else %}<code>{{ r.formatado }}</code>{% endif %}
+            </td>
+            <td>{{ r.referencia }}</td>
+            <td>{{ r.descricao }}</td>
+            <td>
+              {% if r.enquadramento == 'Regime diferenciado' %}<span class="tag alta">diferenciado</span>
+              {% elif r.enquadramento == 'Tributação integral' %}<span class="tag referencia">integral</span>
+              {% else %}<span class="tag baixa">não localizado</span>{% endif %}
+            </td>
+            <td>{% for a in r.anexos %}<small>{{ a }}</small>{% endfor %}</td>
+            <td>
+              {% for c in r.cclasstrib %}
+                <div><code>{{ c.cclasstrib }}</code><small>{{ c.nome }}</small></div>
+              {% endfor %}
+            </td>
+            <td>{% for c in r.cclasstrib %}<div>{{ c.cst }}</div>{% endfor %}</td>
+            <td>{% for c in r.cclasstrib %}<div>{{ c.p_red_ibs }} / {{ c.p_red_cbs }}</div>{% endfor %}</td>
+            <td>
+              {% if r.imposto_seletivo %}<span class="tag baixa">IS</span>{% endif %}
+              {% if r.excecoes %}<span class="tag media">exceção</span>{% endif %}
+              {% if r.encontrado and not r.vigente %}<span class="tag media">sem vigência</span>{% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <p class="ajuda">
+      O XLSX traz esta visão na aba <em>Resumo por NCM</em> e o detalhamento completo
+      (uma linha por cClassTrib, com o texto do anexo) na aba <em>Detalhado</em>.
+    </p>
+  </section>
+
+{% endif %}
+{% endblock %}

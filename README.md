@@ -54,6 +54,11 @@ Telas:
 
 - **Análise do cartão CNPJ** — upload do PDF e correlação completa.
 - **Consulta por NCM** — CST, cClassTrib, redução e indOP do produto (com export).
+- **Consulta de NCM em lote** (`/ncm/lote`) — lista colada ou planilha `.xlsx`/`.csv` com os
+  códigos: devolve o enquadramento de cada NCM (anexo, cClassTrib, CST, reduções), destaca os
+  não localizados, os do Imposto Seletivo e os citados em exceção, e exporta em XLSX (abas
+  *Resumo por NCM*, *Detalhado*, *Indicadores* e *Fontes*), CSV e JSON. A coluna de NCM é
+  achada pelo cabeçalho; as demais colunas de texto viram a referência do item.
 - **Consulta de tabelas** — busca por CNAE, item da LC 116, NBS, NCM, cClassTrib e indOP.
 - **Cesta** (`/cesta`) — acumula os resultados das consultas (cartão CNPJ e NCM) e gera **um
   relatório consolidado**: as duas origens são convertidas para o mesmo conjunto de colunas,
@@ -76,6 +81,7 @@ app/                aplicação Flask
   parser_cnpj.py    leitura do cartão CNPJ em PDF
   correlacao.py     motor de correlação por CNAE
   ncm.py            motor de consulta por NCM (anexos da LC 214/2025)
+  lote.py           leitura da lista/planilha de NCM e consulta em lote
   cesta.py          acúmulo das consultas e consolidação em colunas únicas
   relatorio.py      exportação XLSX / CSV / JSON
   main.py           rotas web

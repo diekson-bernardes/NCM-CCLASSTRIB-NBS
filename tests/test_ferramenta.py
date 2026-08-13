@@ -5,6 +5,7 @@ Execucao:  python -m unittest discover -s tests -v
 
 from __future__ import annotations
 
+import io
 import json
 import re
 import sys
@@ -13,6 +14,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
+from app import lote  # noqa: E402
 from app.cesta import COLUNAS  # noqa: E402
 from app.correlacao import correlacionar, linhas_detalhe, resumo  # noqa: E402
 from app.dados import base  # noqa: E402
@@ -256,6 +258,113 @@ class TestApp(unittest.TestCase):
         self.assertIn(f"{est['fontes']} documentos", corpo)
         # a apresentacao fica acessivel pelo menu de todas as telas
         self.assertIn("/apresentacao", self.cliente.get("/").get_data(as_text=True))
+
+
+def _planilha_de_ncms(linhas: list[list[str]]) -> io.BytesIO:
+    import openpyxl
+
+    wb = openpyxl.Workbook()
+    ws = wb.active
+    for linha in linhas:
+        ws.append(linha)
+    buffer = io.BytesIO()
+    wb.save(buffer)
+    buffer.seek(0)
+    return buffer
+
+
+class TestLoteNCM(unittest.TestCase):
+    """Consulta em lote: lista digitada ou planilha importada."""
+
+    def test_leitura_de_texto(self):
+        itens = lote.de_texto(
+            "1006.40.00 ARROZ TIPO 1\n04011010; LEITE\n8703.23.10 - SEDAN\nlinha sem codigo"
+        )
+        self.assertEqual([i["ncm"] for i in itens], ["10064000", "04011010", "87032310"])
+        self.assertEqual(itens[0]["referencia"], "ARROZ TIPO 1")
+
+    def test_leitura_de_planilha_com_cabecalho(self):
+        arquivo = _planilha_de_ncms([
+            ["Código interno", "Descrição do produto", "NCM"],
+            ["P-001", "Arroz tipo 1 5kg", "1006.40.00"],
+            ["P-002", "Leite integral", "04011010"],
+        ])
+        itens, avisos = lote.de_planilha("produtos.xlsx", arquivo.read())
+        self.assertEqual([i["ncm"] for i in itens], ["10064000", "04011010"])
+        # as colunas de texto viram a referencia do item
+        self.assertEqual(itens[0]["referencia"], "P-001 · Arroz tipo 1 5kg")
+        self.assertEqual(avisos, [])
+
+    def test_planilha_sem_coluna_ncm_avisa_e_varre(self):
+        arquivo = _planilha_de_ncms([
+            ["produto", "codigo"],
+            ["Arroz", "1006.40.00"],
+        ])
+        itens, avisos = lote.de_planilha("sem_cabecalho.xlsx", arquivo.read())
+        self.assertEqual([i["ncm"] for i in itens], ["10064000"])
+        self.assertTrue(any("célula a célula" in a for a in avisos))
+
+    def test_formato_nao_suportado(self):
+        with self.assertRaises(ValueError):
+            lote.de_planilha("antigo.xls", b"qualquer")
+
+    def test_processamento_e_resumo(self):
+        resultado = lote.processar(lote.de_texto(
+            "1006.40.00 ARROZ\n8703.23.10 SEDAN\n99999999 INEXISTENTE\n1006.40.00 REPETIDO"
+        ))
+        r = resultado["resumo"]
+        self.assertEqual(r["total"], 3)  # o repetido e consultado uma vez so
+        self.assertTrue(any("repetido" in a for a in resultado["avisos"]))
+        self.assertEqual(r["nao_localizados"], 1)
+        self.assertEqual(r["aliquota_zero"], 1)
+        self.assertEqual(r["imposto_seletivo"], 1)
+
+        arroz = next(x for x in resultado["resultados"] if x["ncm"] == "10064000")
+        self.assertEqual(arroz["enquadramento"], "Regime diferenciado")
+        self.assertIn("Anexo I item 1", arroz["anexos"])
+        self.assertEqual(arroz["cclasstrib"][0]["cclasstrib"], "200003")
+
+        # sem anexo, o candidato e a tributacao integral
+        sedan = next(x for x in resultado["resultados"] if x["ncm"] == "87032310")
+        self.assertEqual(sedan["enquadramento"], "Tributação integral")
+        self.assertEqual(sedan["cclasstrib"][0]["cclasstrib"], "000001")
+        self.assertTrue(sedan["imposto_seletivo"])
+
+    def test_fluxo_web_e_downloads(self):
+        app.config["TESTING"] = True
+        cliente = app.test_client()
+        self.assertEqual(cliente.get("/ncm/lote").status_code, 200)
+
+        arquivo = _planilha_de_ncms([["NCM", "Produto"], ["1006.40.00", "Arroz"]])
+        resposta = cliente.post(
+            "/ncm/lote",
+            data={"planilha": (arquivo, "produtos.xlsx"), "ncms": "8703.23.10 SEDAN"},
+            content_type="multipart/form-data",
+        )
+        self.assertEqual(resposta.status_code, 200)
+        corpo = resposta.get_data(as_text=True)
+        self.assertIn("200003", corpo)
+        self.assertIn("SEDAN", corpo)
+
+        token = corpo.split("/download-lote/")[1].split("/")[0]
+        for formato, assinatura in (("xlsx", b"PK"), ("csv", b"NCM"), ("json", b"{")):
+            arq = cliente.get(f"/download-lote/{token}/{formato}")
+            self.assertEqual(arq.status_code, 200, formato)
+            self.assertTrue(arq.data[:16].lstrip(b"\xef\xbb\xbf").startswith(assinatura))
+
+        # o lote inteiro entra na cesta como um item
+        cliente.post("/cesta/adicionar", data={"tipo": "lote", "token": token},
+                     follow_redirects=True)
+        payload = json.loads(cliente.get("/cesta/download/json").data)
+        self.assertEqual(payload["cesta"]["consultas"][0]["tipo"], "lote")
+        self.assertTrue(payload["resumo"]["linhas"])
+
+    def test_lote_vazio(self):
+        app.config["TESTING"] = True
+        cliente = app.test_client()
+        self.assertEqual(
+            cliente.post("/ncm/lote", data={"ncms": "sem codigo aqui"}).status_code, 400
+        )
 
 
 class TestCesta(unittest.TestCase):

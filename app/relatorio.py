@@ -313,3 +313,110 @@ def gerar_json_cesta(cesta: dict) -> bytes:
         "fontes": base().versao_fontes(),
     }
     return json.dumps(payload, ensure_ascii=False, indent=1).encode("utf-8")
+
+
+# ------------------------------------------------------------- lote de NCM
+
+CABECALHO_LOTE = ["Referência"] + CABECALHO_NCM
+
+
+def gerar_xlsx_lote(lote: dict) -> bytes:
+    """Planilha do lote: visao por NCM, detalhamento, indicadores e fontes."""
+    from .lote import COLUNAS_RESUMO, linhas_detalhe as detalhe, linhas_resumo
+
+    wb = Workbook()
+    ws = wb.active
+    ws.title = "Resumo por NCM"
+    ws.append(COLUNAS_RESUMO)
+    for celula in ws[1]:
+        celula.font = Font(bold=True, color="FFFFFF")
+        celula.fill = _AZUL
+        celula.alignment = Alignment(vertical="center", wrap_text=True)
+    for linha in linhas_resumo(lote):
+        ws.append([linha.get(c, "") for c in COLUNAS_RESUMO])
+    ws.freeze_panes = "A2"
+    ws.auto_filter.ref = ws.dimensions
+    _ajusta(ws, {1: 14, 2: 32, 3: 50, 4: 9, 5: 22, 6: 34, 7: 26, 8: 14,
+                 9: 14, 10: 14, 11: 16, 12: 16})
+
+    wsd = wb.create_sheet("Detalhado")
+    wsd.append(CABECALHO_LOTE)
+    for celula in wsd[1]:
+        celula.font = Font(bold=True, color="FFFFFF")
+        celula.fill = _AZUL
+        celula.alignment = Alignment(vertical="center", wrap_text=True)
+    for linha in detalhe(lote):
+        wsd.append([linha.get(c, "") for c in CABECALHO_LOTE])
+    wsd.freeze_panes = "A2"
+    wsd.auto_filter.ref = wsd.dimensions
+    _ajusta(wsd, {1: 30, 2: 14, 3: 50, 4: 9, 5: 26, 6: 18, 7: 14, 8: 70, 9: 12,
+                  10: 45, 11: 12, 12: 28, 13: 14, 14: 14, 15: 26, 16: 45, 17: 45})
+
+    r = lote["resumo"]
+    wsi = wb.create_sheet("Indicadores")
+    for chave, valor in [
+        ("Gerado em", datetime.now().strftime("%d/%m/%Y %H:%M")),
+        ("", ""),
+        ("NCMs consultados", r["total"]),
+        ("Localizados na tabela vigente", r["encontrados"]),
+        ("Não localizados", r["nao_localizados"]),
+        ("Com vigência encerrada", r["nao_vigentes"]),
+        ("", ""),
+        ("Com regime diferenciado", r["com_regime"]),
+        ("Tributação integral", r["integral"]),
+        ("Com alíquota zero (redução 100%)", r["aliquota_zero"]),
+        ("Com redução de 60%", r["reducao_60"]),
+        ("Com redução de 30%", r["reducao_30"]),
+        ("", ""),
+        ("Sujeitos ao Imposto Seletivo", r["imposto_seletivo"]),
+        ("Citados em cláusula de exceção", r["excecoes"]),
+    ]:
+        wsi.append([chave, valor])
+    wsi.append([])
+    wsi.append(["Anexo da LC 214/2025", "NCMs"])
+    for celula in wsi[wsi.max_row]:
+        celula.font = Font(bold=True)
+        celula.fill = _CINZA
+    for grupo in r["por_anexo"]:
+        wsi.append([grupo["anexo"], grupo["ncms"]])
+    if lote["avisos"]:
+        wsi.append([])
+        wsi.append(["Avisos da importação"])
+        for aviso in lote["avisos"]:
+            wsi.append(["", aviso])
+    for linha in wsi.iter_rows(min_col=1, max_col=1):
+        if linha[0].value:
+            linha[0].font = Font(bold=True)
+    _ajusta(wsi, {1: 40, 2: 70})
+
+    _aba_fontes(wb)
+
+    buffer = io.BytesIO()
+    wb.save(buffer)
+    return buffer.getvalue()
+
+
+def gerar_csv_lote(lote: dict) -> bytes:
+    from .lote import COLUNAS_RESUMO, linhas_resumo
+
+    buffer = io.StringIO()
+    escritor = csv.DictWriter(buffer, fieldnames=COLUNAS_RESUMO, delimiter=";",
+                              extrasaction="ignore")
+    escritor.writeheader()
+    for linha in linhas_resumo(lote):
+        escritor.writerow(linha)
+    return buffer.getvalue().encode("utf-8-sig")
+
+
+def gerar_json_lote(lote: dict) -> bytes:
+    from .lote import linhas_detalhe as detalhe, linhas_resumo
+
+    payload = {
+        "gerado_em": datetime.now().isoformat(timespec="seconds"),
+        "resumo": lote["resumo"],
+        "avisos": lote["avisos"],
+        "ncms": linhas_resumo(lote),
+        "linhas": detalhe(lote),
+        "fontes": base().versao_fontes(),
+    }
+    return json.dumps(payload, ensure_ascii=False, indent=1).encode("utf-8")

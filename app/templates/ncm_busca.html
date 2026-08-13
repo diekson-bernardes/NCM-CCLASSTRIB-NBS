@@ -15,6 +15,7 @@
     <input type="search" name="q" value="{{ termo }}"
            placeholder="1006.40.00, 0401 ou &quot;leite em pó&quot;" required>
     <button type="submit">Consultar</button>
+    <a class="botao secundario" href="{{ url_for('ncm_lote') }}">Consulta em lote</a>
   </form>
 
   {% if termo %}

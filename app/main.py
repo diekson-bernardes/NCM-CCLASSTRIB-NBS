@@ -17,13 +17,15 @@ from flask import (Flask, Response, abort, g, redirect, render_template, request
 from werkzeug.middleware.proxy_fix import ProxyFix
 
 from . import cesta as mod_cesta
+from . import lote as mod_lote
 from .correlacao import correlacionar, linhas_detalhe, resumo
 from .dados import base, normaliza
 from .ncm import consultar as consultar_ncm
 from .parser_cnpj import CartaoCNPJ, cnaes_de_texto_livre, ler_cartao, texto_do_pdf
-from .relatorio import (gerar_csv, gerar_csv_cesta, gerar_csv_ncm, gerar_json,
-                        gerar_json_cesta, gerar_json_ncm, gerar_xlsx,
-                        gerar_xlsx_cesta, gerar_xlsx_ncm)
+from .relatorio import (gerar_csv, gerar_csv_cesta, gerar_csv_lote, gerar_csv_ncm,
+                        gerar_json, gerar_json_cesta, gerar_json_lote,
+                        gerar_json_ncm, gerar_xlsx, gerar_xlsx_cesta,
+                        gerar_xlsx_lote, gerar_xlsx_ncm)
 
 app = Flask(__name__)
 app.config["MAX_CONTENT_LENGTH"] = 25 * 1024 * 1024
@@ -62,6 +64,7 @@ def _exige_autenticacao():
 # cache em memoria das ultimas analises (para download dos relatorios)
 ANALISES: "OrderedDict[str, dict]" = OrderedDict()
 CONSULTAS_NCM: "OrderedDict[str, dict]" = OrderedDict()
+LOTES: "OrderedDict[str, dict]" = OrderedDict()
 LIMITE_CACHE = 20
 
 
@@ -186,6 +189,75 @@ def ncm_detalhe(codigo: str):
     while len(CONSULTAS_NCM) > LIMITE_CACHE:
         CONSULTAS_NCM.popitem(last=False)
     return render_template("ncm.html", c=consulta, token=token)
+
+
+@app.route("/ncm/lote", methods=["GET", "POST"])
+def ncm_lote():
+    """Consulta em lote: lista digitada ou planilha (.xlsx/.csv) com os NCM."""
+    if request.method == "GET":
+        return render_template("ncm_lote.html", limite=mod_lote.LIMITE_ITENS)
+
+    itens: list[dict] = []
+    avisos: list[str] = []
+    arquivo = request.files.get("planilha")
+    texto = request.form.get("ncms", "").strip()
+
+    if arquivo and arquivo.filename:
+        try:
+            do_arquivo, avisos_arquivo = mod_lote.de_planilha(arquivo.filename, arquivo.read())
+        except Exception as exc:
+            return render_template(
+                "ncm_lote.html", limite=mod_lote.LIMITE_ITENS, erro=str(exc)
+            ), 400
+        itens += do_arquivo
+        avisos += avisos_arquivo
+    if texto:
+        itens += mod_lote.de_texto(texto)
+
+    if not itens:
+        return render_template(
+            "ncm_lote.html",
+            limite=mod_lote.LIMITE_ITENS,
+            erro="Nenhum NCM foi identificado. Cole os códigos no campo ou envie uma "
+                 "planilha com uma coluna de NCM.",
+        ), 400
+
+    lote = mod_lote.processar(itens)
+    lote["avisos"] = avisos + lote["avisos"]
+
+    token = secrets.token_urlsafe(9)
+    LOTES[token] = lote
+    while len(LOTES) > LIMITE_CACHE:
+        LOTES.popitem(last=False)
+
+    return render_template(
+        "ncm_lote.html",
+        limite=mod_lote.LIMITE_ITENS,
+        lote=lote,
+        linhas=mod_lote.linhas_resumo(lote),
+        token=token,
+    )
+
+
+@app.get("/download-lote/<token>/<formato>")
+def download_lote(token: str, formato: str):
+    lote = LOTES.get(token)
+    if not lote:
+        abort(404, "Lote expirado. Refaça a consulta.")
+    if formato == "xlsx":
+        conteudo = gerar_xlsx_lote(lote)
+        tipo = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    elif formato == "csv":
+        conteudo, tipo = gerar_csv_lote(lote), "text/csv; charset=utf-8"
+    elif formato == "json":
+        conteudo, tipo = gerar_json_lote(lote), "application/json"
+    else:
+        abort(404)
+    return Response(
+        conteudo,
+        mimetype=tipo,
+        headers={"Content-Disposition": f'attachment; filename="lote_ncm.{formato}"'},
+    )
 
 
 @app.get("/download-ncm/<token>/<formato>")
@@ -324,6 +396,11 @@ def cesta_adicionar():
         if not consulta:
             abort(404, "Consulta expirada. Refaça a busca do NCM.")
         mod_cesta.adicionar_ncm(cesta, consulta)
+    elif tipo == "lote":
+        lote = LOTES.get(token)
+        if not lote:
+            abort(404, "Lote expirado. Refaça a consulta em lote.")
+        mod_cesta.adicionar_lote(cesta, lote)
     else:
         abort(400)
 
