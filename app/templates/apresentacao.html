@@ -1,0 +1,301 @@
+{% extends "base.html" %}
+{% block titulo %}Apresentação da ferramenta{% endblock %}
+{% block conteudo %}
+
+<article class="apresentacao">
+
+  <header class="cartao capa">
+    <div>
+      <p class="eyebrow">Relatório de apresentação</p>
+      <h1>Correlação Fiscal RTC</h1>
+      <p class="linha-fina">
+        Ferramenta que parte do cartão CNPJ ou de um código NCM e devolve o enquadramento
+        no IBS/CBS — item da LC 116/03, NBS, indOP e cClassTrib — sempre com a fonte
+        oficial que sustenta cada resposta.
+      </p>
+      <div class="meta">
+        <span><b>Base legal</b> LC 214/2025 · EC 132/2023</span>
+        <span><b>Fontes oficiais</b> {{ est.fontes }} documentos versionados</span>
+        <span><b>Dados de</b> {{ est.gerado_em }}</span>
+      </div>
+    </div>
+    <div class="acoes-impressao">
+      <button type="button" class="botao" onclick="window.print()">Imprimir / salvar PDF</button>
+    </div>
+  </header>
+
+  <section class="cartao">
+    <p class="eyebrow">O problema</p>
+    <h2>Classificar cada operação virou pré-requisito para emitir documento fiscal</h2>
+    <p>
+      Com o IBS e a CBS, os documentos fiscais eletrônicos passaram a exigir campos que antes
+      não existiam: o <strong>cClassTrib</strong> (classificação tributária, ligada ao CST), o
+      <strong>indOP</strong> (indicador da operação, que define o local do fornecimento) e, nos
+      serviços, a <strong>NBS</strong>. A informação está publicada — mas espalhada por anexos
+      da NFS-e nacional, tabelas do Portal da NF-e, a nomenclatura do MDIC, a classificação do
+      IBGE e os anexos da própria LC 214/2025.
+    </p>
+    <p>
+      Na prática, responder “qual cClassTrib se aplica a esta atividade?” exige abrir cinco
+      planilhas e cruzar códigos à mão, atividade por atividade, produto por produto. A
+      ferramenta faz esse cruzamento em segundos e mostra a origem de cada vínculo.
+    </p>
+  </section>
+
+  <section>
+    <p class="eyebrow">O que foi entregue</p>
+    <h2>Duas entradas, uma mesma cadeia de correlação</h2>
+    <div class="trilhas">
+      <div class="cartao trilha">
+        <h3>Análise do cartão CNPJ</h3>
+        <p class="ajuda">
+          Upload do comprovante de inscrição em PDF. A ferramenta lê a identificação da empresa
+          e todas as atividades — principal e secundárias.
+        </p>
+        <ul class="cadeia">
+          <li><strong>CNAE</strong><small>subclasse de 7 dígitos, com a descrição oficial do IBGE</small></li>
+          <li><strong>Item da LC 116/03</strong><small>de-para oficial municipal ou sugestão por similaridade, sempre identificada</small></li>
+          <li><strong>NBS · indOP · cClassTrib</strong><small>Anexo VIII da NFS-e nacional, com o local de incidência</small></li>
+          <li><strong>CST e percentual de redução</strong><small>tabela de classificação tributária do Portal da NF-e</small></li>
+        </ul>
+        <p><a href="{{ url_for('inicio') }}">Abrir a análise do cartão CNPJ →</a></p>
+      </div>
+
+      <div class="cartao trilha">
+        <h3>Consulta por NCM</h3>
+        <p class="ajuda">
+          Busca por código ou por descrição do produto, independente do cartão CNPJ. Cobre
+          operações com bens, em que a NBS não se aplica.
+        </p>
+        <ul class="cadeia">
+          <li><strong>NCM</strong><small>nomenclatura vigente do Portal Único Siscomex, com a hierarquia do código</small></li>
+          <li><strong>Anexo da LC 214/2025</strong><small>o item da lei que cita aquele código — com o texto integral</small></li>
+          <li><strong>cClassTrib · CST · redução</strong><small>o código que remete ao anexo; na falta dele, tributação integral</small></li>
+          <li><strong>indOP de bem móvel</strong><small>presencial, com entrega ou não presencial, conforme o art. 11</small></li>
+        </ul>
+        <p><a href="{{ url_for('ncm_busca') }}">Abrir a consulta por NCM →</a></p>
+      </div>
+    </div>
+
+    <div class="alerta">
+      Para bens, a NBS não é aplicável — ela classifica serviços e intangíveis. Nesses casos a
+      ferramenta entrega a classificação por cClassTrib e indOP e sinaliza que o enquadramento
+      fino depende do NCM do produto.
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Cobertura</p>
+    <h2>O que já está carregado e conferido</h2>
+    <div class="indicadores">
+      <div><strong>{{ '{:,}'.format(est.ncm).replace(',', '.') }}</strong><span>códigos NCM ({{ '{:,}'.format(est.ncm_vigentes).replace(',', '.') }} vigentes de 8 dígitos)</span></div>
+      <div><strong>{{ '{:,}'.format(est.cnae).replace(',', '.') }}</strong><span>CNAEs com descrição e notas do IBGE</span></div>
+      <div><strong>{{ est.lc116 }}</strong><span>subitens da lista da LC 116/03</span></div>
+      <div><strong>{{ '{:,}'.format(est.nbs).replace(',', '.') }}</strong><span>códigos NBS 2.0</span></div>
+      <div><strong>{{ est.cclasstrib }}</strong><span>cClassTrib · {{ est.cst }} CST · {{ est.indop }} indOP</span></div>
+      <div><strong>{{ est.anexo_viii }}</strong><span>correlações do Anexo VIII ({{ est.anexo_viii_itens }} itens)</span></div>
+      <div><strong>{{ '{:,}'.format(est.vinculos_cnae).replace(',', '.') }}</strong><span>vínculos CNAE × LC 116 ({{ est.cnaes_vinculados }} CNAEs)</span></div>
+      <div><strong>{{ est.anexos_itens }}</strong><span>itens de anexos da LC 214 ({{ est.anexos_ncm }} NCM + {{ est.anexos_excecoes }} exceções)</span></div>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Na prática</p>
+    <h2>Três consultas reais</h2>
+
+    <div class="casos">
+      <div class="cartao caso">
+        <div class="entrada">
+          <span class="rotulo">CNAE</span>
+          <span class="valor">8630-5/01</span>
+          <span class="descr">Atividade médica ambulatorial com recursos para procedimentos cirúrgicos</span>
+        </div>
+        <dl>
+          <dt>Item LC 116</dt>
+          <dd>04.01 — Medicina e biomedicina <span class="tag media">redução 60%</span></dd>
+          <dt>cClassTrib</dt>
+          <dd><code>200029</code> Fornecimento dos serviços de saúde humana (Anexo III) — CST 200, art. 130</dd>
+          <dt>indOP</dt>
+          <dd><code>030101</code> presencial no estabelecimento · <code>030102</code> presencial fora dele · <code>100301</code> à distância</dd>
+          <dt>NBS</dt>
+          <dd><code>1.2301.22.00</code> Serviços médicos especializados</dd>
+        </dl>
+      </div>
+
+      <div class="cartao caso">
+        <div class="entrada">
+          <span class="rotulo">NCM</span>
+          <span class="valor">1006.40.00</span>
+          <span class="descr">Arroz quebrado (trinca de arroz)</span>
+        </div>
+        <dl>
+          <dt>Anexo</dt>
+          <dd>Anexo I, item 1 — “Arroz das subposições 1006.20 e 1006.30 e do código 1006.40.00 da NCM/SH” <span class="tag alta">alíquota zero</span></dd>
+          <dt>cClassTrib</dt>
+          <dd><code>200003</code> Vendas de produtos destinados à alimentação humana — CST 200, art. 125, redução de 100%</dd>
+          <dt>indOP</dt>
+          <dd>Família <code>0101xx</code> — bem móvel material, conforme a forma de entrega</dd>
+          <dt>Ressalva</dt>
+          <dd>O benefício depende também dos requisitos do próprio anexo; o texto do item é exibido para conferência</dd>
+        </dl>
+      </div>
+
+      <div class="cartao caso">
+        <div class="entrada">
+          <span class="rotulo">NCM</span>
+          <span class="valor">8703.23.10</span>
+          <span class="descr">Automóvel de passageiros, até seis ocupantes</span>
+        </div>
+        <dl>
+          <dt>Anexo</dt>
+          <dd>Nenhum anexo de regime diferenciado cita o código <span class="tag referencia">tributação integral</span></dd>
+          <dt>cClassTrib</dt>
+          <dd><code>000001</code> Situações tributadas integralmente pelo IBS e CBS — CST 000</dd>
+          <dt>Alerta</dt>
+          <dd><span class="tag baixa">Imposto Seletivo</span> bem listado no Anexo XVII — informado em grupo próprio do documento fiscal</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="cartao">
+    <p class="eyebrow">Confiabilidade</p>
+    <h2>Cada resposta carrega a sua origem</h2>
+    <table>
+      <thead>
+        <tr><th>Situação</th><th>Como a ferramenta apresenta</th><th>O que se espera do usuário</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>CNAE com vínculo em tabela oficial municipal</td>
+          <td><span class="tag alta">alta</span> com a tabela de origem nomeada</td>
+          <td>Conferência amostral</td>
+        </tr>
+        <tr>
+          <td>CNAE de serviço sem tabela que o cite</td>
+          <td><span class="tag media">média</span> / <span class="tag baixa">baixa</span> sugestão por similaridade, com o índice exibido</td>
+          <td>Validação do responsável tributário</td>
+        </tr>
+        <tr>
+          <td>NCM citado em anexo da LC 214/2025</td>
+          <td>cClassTrib do anexo, com o texto integral do item</td>
+          <td>Verificar os requisitos do anexo (destinação, registro, adquirente)</td>
+        </tr>
+        <tr>
+          <td>NCM citado em cláusula de exceção</td>
+          <td>Bloco “Exceções expressas” — nunca descartado em silêncio</td>
+          <td>Decidir o enquadramento à luz da exceção</td>
+        </tr>
+        <tr>
+          <td>Item da LC 116 ainda sem NBS no Anexo VIII</td>
+          <td>Alerta explícito de correlação pendente</td>
+          <td>Acompanhar a próxima versão do anexo</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="ajuda">
+      Nenhum resultado é apresentado como definitivo por si só. A ferramenta reduz o trabalho de
+      pesquisa e padroniza o critério; a decisão de enquadramento permanece com o responsável
+      tributário — e o material para decidir vem junto da resposta.
+    </p>
+  </section>
+
+  <section>
+    <p class="eyebrow">Base de conhecimento</p>
+    <h2>{{ est.fontes }} documentos oficiais, versionados e verificáveis</h2>
+    <div class="grade-fontes">
+      <div class="cartao fonte">
+        <span class="org">Portal Nacional da NFS-e</span>
+        <p>Anexo VIII (correlação item da LC 116 × NBS × indOP × cClassTrib), Anexo VII (indOP) e Anexo VI (leiautes).</p>
+        <small>v1.01.00 e v1.02.00 — NT 009</small>
+      </div>
+      <div class="cartao fonte">
+        <span class="org">Portal Nacional da NF-e</span>
+        <p>Tabelas de cClassTrib e CST, crédito presumido, alíquotas da CBS, códigos da lista de serviços e a NT 2025.002.</p>
+        <small>cClassTrib de 23/06/2026 · NT v1.51 de 04/08/2026</small>
+      </div>
+      <div class="cartao fonte">
+        <span class="org">MDIC</span>
+        <p>NBS 2.0, notas explicativas (NEBS) e o de-para das versões anteriores.</p>
+        <small>Portaria Conjunta RFB/SCS 2.000/2018</small>
+      </div>
+      <div class="cartao fonte">
+        <span class="org">Siscomex e IBGE</span>
+        <p>Nomenclatura NCM/SH vigente e a estrutura completa de subclasses CNAE com notas explicativas.</p>
+        <small>NCM vigente em 13/08/2026</small>
+      </div>
+      <div class="cartao fonte">
+        <span class="org">Legislação</span>
+        <p>Textos atualizados da LC 214/2025 (com as alterações da LC 227/2026) e da LC 116/2003, usados para extrair os anexos de NCM.</p>
+        <small>668 artigos · 13 anexos com códigos</small>
+      </div>
+      <div class="cartao fonte">
+        <span class="org">Municípios</span>
+        <p>Tabelas CNAE × lista de serviços de Anápolis/GO, Salvador/BA e Braço do Norte/SC — a camada que não tem equivalente nacional.</p>
+        <small>Portaria 463/2025 como base principal</small>
+      </div>
+    </div>
+    <p class="ajuda">
+      Todos os arquivos ficam guardados com o endereço de origem e o hash SHA-256 —
+      <a href="{{ url_for('fontes') }}">consulte a relação completa</a>. Um comando rebaixa as
+      fontes e aponta o que mudou desde a última coleta, essencial num cenário em que as tabelas
+      da reforma são revisadas várias vezes ao ano.
+    </p>
+  </section>
+
+  <section class="cartao">
+    <p class="eyebrow">Uso</p>
+    <h2>Telas e formatos de saída</h2>
+    <table>
+      <thead>
+        <tr><th>Tela</th><th>Para que serve</th><th>Saída</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><a href="{{ url_for('inicio') }}">Análise do cartão CNPJ</a></td><td>Enquadramento de todas as atividades da empresa a partir do PDF</td><td>XLSX · CSV · JSON</td></tr>
+        <tr><td><a href="{{ url_for('ncm_busca') }}">Consulta por NCM</a></td><td>CST, cClassTrib, redução e indOP de um produto</td><td>XLSX · CSV · JSON</td></tr>
+        <tr><td><a href="{{ url_for('cesta_ver') }}">Cesta</a></td><td>Acumula as consultas do trabalho e gera um relatório consolidado, com resumo por CST e cClassTrib</td><td>XLSX · CSV · JSON</td></tr>
+        <tr><td><a href="{{ url_for('consulta') }}">Consulta de tabelas</a></td><td>Busca direta por CNAE, item da LC 116, NBS, NCM, cClassTrib e indOP</td><td>Tela</td></tr>
+        <tr><td><a href="{{ url_for('fontes') }}">Fontes</a></td><td>Documento, órgão, versão, data e hash de cada arquivo usado</td><td>Tela</td></tr>
+      </tbody>
+    </table>
+    <p class="ajuda">
+      A planilha de exportação traz três abas: a correlação detalhada (uma linha por código), um
+      resumo com a identificação da empresa e a relação das fontes com hash — pronta para anexar
+      a um parecer ou a um plano de parametrização de ERP.
+    </p>
+    <p class="ajuda">
+      Quando o trabalho envolve vários CNPJs e produtos, cada consulta pode ser enviada à
+      <a href="{{ url_for('cesta_ver') }}">cesta</a>: ao final sai um único arquivo com todas as
+      linhas no mesmo layout, o resumo por CST e cClassTrib e a lista das consultas que o
+      compõem — inclusive a data de cada uma.
+    </p>
+  </section>
+
+  <section class="cartao">
+    <p class="eyebrow">Próximos passos</p>
+    <h2>Onde a ferramenta ganha mais precisão</h2>
+    <ul class="limpa">
+      <li>
+        <strong>Tabela do município do cliente.</strong> O de-para CNAE × LC 116 não tem versão
+        nacional. Incorporar a tabela oficial do município onde a empresa presta serviço eleva
+        aquelas atividades ao nível de confiança máximo.
+      </li>
+      <li>
+        <strong>Disponibilização.</strong> Hoje a ferramenta roda na máquina local. Para uso por
+        mais pessoas há três caminhos — rede privada entre os dispositivos da equipe, túnel seguro
+        a partir da máquina atual ou hospedagem em nuvem — todos exigindo autenticação antes da
+        exposição.
+      </li>
+      <li>
+        <strong>Rotina de atualização.</strong> Uma verificação mensal das fontes mantém as tabelas
+        alinhadas às notas técnicas; o processo já está documentado e automatizado.
+      </li>
+      <li>
+        <strong>Processamento em lote.</strong> A mesma cadeia pode receber uma lista de NCMs ou de
+        CNPJs e devolver a planilha consolidada, útil para revisar cadastros de produtos.
+      </li>
+    </ul>
+  </section>
+
+</article>
+{% endblock %}

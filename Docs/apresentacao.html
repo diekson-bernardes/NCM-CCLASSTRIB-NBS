@@ -1,0 +1,594 @@
+<title>Correlação Fiscal RTC</title>
+<style>
+  :root {
+    --ground: #f2f5f5;
+    --surface: #ffffff;
+    --surface-2: #eaeff0;
+    --ink: #11212a;
+    --ink-soft: #3c4f56;
+    --muted: #62777c;
+    --line: #d3dedf;
+    --accent: #0e6b61;
+    --accent-soft: #dceae7;
+    --ocre: #9a6612;
+    --ocre-soft: #f4ebd9;
+    --critico: #98392b;
+    --critico-soft: #f6e3df;
+    --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    --sans: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", sans-serif;
+    --mono: "Cascadia Mono", Consolas, ui-monospace, "SFMono-Regular", monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #0d1517;
+      --surface: #131e20;
+      --surface-2: #182528;
+      --ink: #e7efec;
+      --ink-soft: #c2d2cf;
+      --muted: #8ea3a2;
+      --line: #26383a;
+      --accent: #52c1b0;
+      --accent-soft: #133330;
+      --ocre: #d7a453;
+      --ocre-soft: #322612;
+      --critico: #dd7f6c;
+      --critico-soft: #34201c;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground: #0d1517;
+    --surface: #131e20;
+    --surface-2: #182528;
+    --ink: #e7efec;
+    --ink-soft: #c2d2cf;
+    --muted: #8ea3a2;
+    --line: #26383a;
+    --accent: #52c1b0;
+    --accent-soft: #133330;
+    --ocre: #d7a453;
+    --ocre-soft: #322612;
+    --critico: #dd7f6c;
+    --critico-soft: #34201c;
+  }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .pagina {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 28px 96px;
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+  }
+
+  .prosa { max-width: 68ch; }
+
+  h1, h2, h3 { font-family: var(--serif); font-weight: 600; text-wrap: balance; margin: 0; }
+  h1 { font-size: clamp(30px, 4.4vw, 44px); line-height: 1.15; letter-spacing: -0.015em; }
+  h2 { font-size: clamp(22px, 2.8vw, 28px); line-height: 1.25; }
+  h3 { font-size: 18px; line-height: 1.3; }
+  p { margin: 0; }
+
+  .eyebrow {
+    font-family: var(--sans);
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  code, .cod {
+    font-family: var(--mono);
+    font-size: 0.88em;
+    background: var(--surface-2);
+    border-radius: 4px;
+    padding: 1px 6px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+
+  /* ---------- cabeçalho ---------- */
+  header.capa {
+    border-bottom: 1px solid var(--line);
+    padding: 64px 0 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+  .capa .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 28px;
+    font-size: 13px;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+  .capa .meta b { color: var(--ink-soft); font-weight: 600; }
+  .linha-fina { font-family: var(--serif); font-size: clamp(17px, 2vw, 20px); color: var(--ink-soft); max-width: 60ch; }
+
+  /* ---------- seções ---------- */
+  section { display: flex; flex-direction: column; gap: 20px; }
+  .cabeca { display: flex; flex-direction: column; gap: 8px; }
+
+  /* ---------- números ---------- */
+  .numeros {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(158px, 1fr));
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .numeros div { background: var(--surface); padding: 16px 18px; display: flex; flex-direction: column; gap: 3px; }
+  .numeros b {
+    font-family: var(--serif);
+    font-size: 27px;
+    line-height: 1;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+  }
+  .numeros span { font-size: 12.5px; color: var(--muted); }
+
+  /* ---------- trilhas ---------- */
+  .trilhas { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
+  .trilha {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--accent);
+    border-radius: 3px;
+    padding: 22px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .trilha h3 { display: flex; align-items: baseline; gap: 10px; }
+  .cadeia { display: flex; flex-direction: column; gap: 0; margin: 0; padding: 0; list-style: none; }
+  .cadeia li { display: flex; flex-direction: column; gap: 2px; padding: 9px 0 9px 20px; position: relative; font-size: 14.5px; }
+  .cadeia li::before {
+    content: "";
+    position: absolute;
+    left: 4px; top: 16px;
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  .cadeia li:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    left: 7px; top: 23px; bottom: -2px;
+    width: 1px;
+    background: var(--line);
+  }
+  .cadeia small { color: var(--muted); font-size: 12.5px; }
+
+  /* ---------- tabelas ---------- */
+  .rolagem { overflow-x: auto; border: 1px solid var(--line); border-radius: 3px; background: var(--surface); }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; padding: 11px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  thead th {
+    background: var(--surface-2);
+    font-family: var(--sans);
+    font-size: 11.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  tbody tr:last-child td { border-bottom: 0; }
+  td.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  /* ---------- exemplos ---------- */
+  .casos { display: flex; flex-direction: column; gap: 16px; }
+  .caso {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    padding: 20px 22px;
+    display: grid;
+    grid-template-columns: minmax(190px, 240px) 1fr;
+    gap: 20px 26px;
+    align-items: start;
+  }
+  .caso .entrada { display: flex; flex-direction: column; gap: 6px; border-right: 1px solid var(--line); padding-right: 22px; }
+  .caso .entrada .rotulo { font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+  .caso .entrada .valor { font-family: var(--mono); font-size: 17px; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .caso .entrada .descr { font-size: 13px; color: var(--muted); }
+  .caso dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 6px 16px; font-size: 14.5px; }
+  .caso dt { color: var(--muted); font-size: 12.5px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 700; padding-top: 2px; }
+  .caso dd { margin: 0; }
+
+  .selo {
+    display: inline-block;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 2px 9px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .selo.zero { background: var(--accent-soft); color: var(--accent); }
+  .selo.reduz { background: var(--ocre-soft); color: var(--ocre); }
+  .selo.integral { background: var(--surface-2); color: var(--ink-soft); }
+  .selo.seletivo { background: var(--critico-soft); color: var(--critico); }
+
+  /* ---------- listas ---------- */
+  ul.limpa { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 9px; }
+  ul.limpa li { padding-left: 2px; }
+
+  .destaque {
+    border-left: 3px solid var(--ocre);
+    background: var(--ocre-soft);
+    color: var(--ink);
+    padding: 14px 18px;
+    border-radius: 0 3px 3px 0;
+    font-size: 14.5px;
+  }
+
+  .fontes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+  .fonte {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+  .fonte .org { font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+  .fonte p { font-size: 13.5px; color: var(--ink-soft); }
+  .fonte .ver { font-size: 12.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+  footer {
+    border-top: 1px solid var(--line);
+    padding-top: 24px;
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  @media (max-width: 620px) {
+    .caso { grid-template-columns: 1fr; }
+    .caso .entrada { border-right: 0; border-bottom: 1px solid var(--line); padding-right: 0; padding-bottom: 14px; }
+    .caso dl { grid-template-columns: 1fr; gap: 2px; }
+    .caso dt { padding-top: 8px; }
+  }
+</style>
+
+<div class="pagina">
+
+  <header class="capa">
+    <p class="eyebrow">Relatório de apresentação</p>
+    <h1>Correlação Fiscal RTC</h1>
+    <p class="linha-fina">
+      Ferramenta que parte do cartão CNPJ ou de um código NCM e devolve o
+      enquadramento no IBS/CBS — item da LC 116/03, NBS, indOP e cClassTrib —
+      sempre com a fonte oficial que sustenta cada resposta.
+    </p>
+    <div class="meta">
+      <span><b>Base legal</b> LC 214/2025 · EC 132/2023</span>
+      <span><b>Fontes oficiais</b> 22 documentos versionados</span>
+      <span><b>Coleta</b> agosto de 2026</span>
+    </div>
+  </header>
+
+  <section>
+    <div class="cabeca prosa">
+      <p class="eyebrow">O problema</p>
+      <h2>Classificar cada operação virou pré-requisito para emitir documento fiscal</h2>
+    </div>
+    <div class="prosa" style="display:flex; flex-direction:column; gap:14px;">
+      <p>
+        Com o IBS e a CBS, os documentos fiscais eletrônicos passaram a exigir campos que
+        antes não existiam: o <strong>cClassTrib</strong> (classificação tributária, ligado ao CST),
+        o <strong>indOP</strong> (indicador da operação, que define o local do fornecimento) e,
+        nos serviços, a <strong>NBS</strong>. A informação está publicada — mas espalhada por
+        anexos da NFS-e nacional, tabelas do Portal da NF-e, a nomenclatura do MDIC, a
+        classificação do IBGE e os anexos da própria LC 214/2025.
+      </p>
+      <p>
+        Na prática, responder “qual cClassTrib se aplica a esta atividade?” exige abrir cinco
+        planilhas e cruzar códigos à mão, atividade por atividade, produto por produto. A
+        ferramenta faz esse cruzamento em segundos e mostra a origem de cada vínculo.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="cabeca prosa">
+      <p class="eyebrow">O que foi entregue</p>
+      <h2>Duas entradas, uma mesma cadeia de correlação</h2>
+    </div>
+
+    <div class="trilhas">
+      <article class="trilha">
+        <h3>Análise do cartão CNPJ</h3>
+        <p style="font-size:14.5px; color:var(--ink-soft);">
+          Upload do comprovante de inscrição em PDF. A ferramenta lê a identificação da
+          empresa e todas as atividades — principal e secundárias.
+        </p>
+        <ul class="cadeia">
+          <li><strong>CNAE</strong><small>subclasse de 7 dígitos, com a descrição oficial do IBGE</small></li>
+          <li><strong>Item da LC 116/03</strong><small>de-para oficial municipal ou sugestão por similaridade, sempre identificada</small></li>
+          <li><strong>NBS · indOP · cClassTrib</strong><small>Anexo VIII da NFS-e nacional, com o local de incidência</small></li>
+          <li><strong>CST e percentual de redução</strong><small>tabela de classificação tributária do Portal da NF-e</small></li>
+        </ul>
+      </article>
+
+      <article class="trilha">
+        <h3>Consulta por NCM</h3>
+        <p style="font-size:14.5px; color:var(--ink-soft);">
+          Busca por código ou por descrição do produto, independente do cartão CNPJ.
+          Cobre operações com bens, onde a NBS não se aplica.
+        </p>
+        <ul class="cadeia">
+          <li><strong>NCM</strong><small>nomenclatura vigente do Portal Único Siscomex, com a hierarquia do código</small></li>
+          <li><strong>Anexo da LC 214/2025</strong><small>o item da lei que cita aquele código — com o texto integral</small></li>
+          <li><strong>cClassTrib · CST · redução</strong><small>o código que remete àquele anexo; na falta dele, tributação integral</small></li>
+          <li><strong>indOP de bem móvel</strong><small>presencial, com entrega ou não presencial, conforme o art. 11</small></li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="destaque prosa">
+      Para bens, a NBS não é aplicável — ela classifica serviços e intangíveis. Nesses casos a
+      ferramenta entrega a classificação por cClassTrib e indOP e sinaliza que o enquadramento
+      fino depende do NCM do produto.
+    </div>
+  </section>
+
+  <section>
+    <div class="cabeca prosa">
+      <p class="eyebrow">Cobertura</p>
+      <h2>O que já está carregado e conferido</h2>
+    </div>
+    <div class="numeros">
+      <div><b>15.156</b><span>códigos NCM (10.515 vigentes de 8 dígitos)</span></div>
+      <div><b>1.332</b><span>CNAEs com descrição e notas do IBGE</span></div>
+      <div><b>200</b><span>subitens da lista da LC 116/03</span></div>
+      <div><b>1.237</b><span>códigos NBS 2.0</span></div>
+      <div><b>164</b><span>cClassTrib · 18 CST · 39 indOP</span></div>
+      <div><b>296</b><span>correlações do Anexo VIII (207 itens)</span></div>
+      <div><b>1.237</b><span>vínculos CNAE × LC 116 (570 CNAEs)</span></div>
+      <div><b>351</b><span>itens de anexos da LC 214 (542 NCM + 53 exceções)</span></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="cabeca prosa">
+      <p class="eyebrow">Na prática</p>
+      <h2>Três consultas reais</h2>
+    </div>
+
+    <div class="casos">
+      <article class="caso">
+        <div class="entrada">
+          <span class="rotulo">CNAE</span>
+          <span class="valor">8630-5/01</span>
+          <span class="descr">Atividade médica ambulatorial com recursos para procedimentos cirúrgicos</span>
+        </div>
+        <dl>
+          <dt>Item LC 116</dt>
+          <dd>04.01 — Medicina e biomedicina <span class="selo reduz">redução 60%</span></dd>
+          <dt>cClassTrib</dt>
+          <dd><span class="cod">200029</span> Fornecimento dos serviços de saúde humana (Anexo III) — CST 200, art. 130</dd>
+          <dt>indOP</dt>
+          <dd><span class="cod">030101</span> presencial no estabelecimento · <span class="cod">030102</span> presencial fora dele · <span class="cod">100301</span> à distância</dd>
+          <dt>NBS</dt>
+          <dd><span class="cod">1.2301.22.00</span> Serviços médicos especializados</dd>
+        </dl>
+      </article>
+
+      <article class="caso">
+        <div class="entrada">
+          <span class="rotulo">NCM</span>
+          <span class="valor">1006.40.00</span>
+          <span class="descr">Arroz quebrado (trinca de arroz)</span>
+        </div>
+        <dl>
+          <dt>Anexo</dt>
+          <dd>Anexo I, item 1 — “Arroz das subposições 1006.20 e 1006.30 e do código 1006.40.00 da NCM/SH” <span class="selo zero">alíquota zero</span></dd>
+          <dt>cClassTrib</dt>
+          <dd><span class="cod">200003</span> Vendas de produtos destinados à alimentação humana — CST 200, art. 125, redução de 100%</dd>
+          <dt>indOP</dt>
+          <dd>Família <span class="cod">0101xx</span> — bem móvel material, conforme a forma de entrega</dd>
+          <dt>Ressalva</dt>
+          <dd>O benefício depende também dos requisitos do próprio anexo; o texto do item é exibido para conferência</dd>
+        </dl>
+      </article>
+
+      <article class="caso">
+        <div class="entrada">
+          <span class="rotulo">NCM</span>
+          <span class="valor">8703.23.10</span>
+          <span class="descr">Automóvel de passageiros, até seis ocupantes</span>
+        </div>
+        <dl>
+          <dt>Anexo</dt>
+          <dd>Nenhum anexo de regime diferenciado cita o código <span class="selo integral">tributação integral</span></dd>
+          <dt>cClassTrib</dt>
+          <dd><span class="cod">000001</span> Situações tributadas integralmente pelo IBS e CBS — CST 000</dd>
+          <dt>Alerta</dt>
+          <dd><span class="selo seletivo">Imposto Seletivo</span> bem listado no Anexo XVII — informado em grupo próprio do documento fiscal</dd>
+        </dl>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <div class="cabeca prosa">
+      <p class="eyebrow">Confiabilidade</p>
+      <h2>Cada resposta carrega a sua origem</h2>
+    </div>
+    <div class="rolagem">
+      <table>
+        <thead>
+          <tr><th>Situação</th><th>Como a ferramenta apresenta</th><th>O que se espera do usuário</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>CNAE com vínculo em tabela oficial municipal</td>
+            <td><span class="selo zero">alta</span> com a tabela de origem nomeada</td>
+            <td>Conferência amostral</td>
+          </tr>
+          <tr>
+            <td>CNAE de serviço sem tabela que o cite</td>
+            <td><span class="selo reduz">média / baixa</span> sugestão por similaridade, com o índice exibido</td>
+            <td>Validação do responsável tributário</td>
+          </tr>
+          <tr>
+            <td>NCM citado em anexo da LC 214/2025</td>
+            <td>cClassTrib do anexo, com o texto integral do item</td>
+            <td>Verificar os requisitos do anexo (destinação, registro, adquirente)</td>
+          </tr>
+          <tr>
+            <td>NCM citado em cláusula de exceção</td>
+            <td>Bloco “Exceções expressas” — nunca descartado em silêncio</td>
+            <td>Decidir o enquadramento à luz da exceção</td>
+          </tr>
+          <tr>
+            <td>Item da LC 116 ainda sem NBS no Anexo VIII</td>
+            <td>Alerta explícito de correlação pendente</td>
+            <td>Acompanhar a próxima versão do anexo</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="prosa" style="font-size:14.5px; color:var(--ink-soft);">
+      Nenhum resultado é apresentado como definitivo por si só. A ferramenta reduz o trabalho
+      de pesquisa e padroniza o critério; a decisão de enquadramento permanece com o
+      responsável tributário — e o material para decidir vem junto da resposta.
+    </p>
+  </section>
+
+  <section>
+    <div class="cabeca prosa">
+      <p class="eyebrow">Base de conhecimento</p>
+      <h2>22 documentos oficiais, versionados e verificáveis</h2>
+    </div>
+    <div class="fontes-grid">
+      <article class="fonte">
+        <span class="org">Portal Nacional da NFS-e</span>
+        <p>Anexo VIII (correlação item da LC 116 × NBS × indOP × cClassTrib), Anexo VII (indOP) e Anexo VI (leiautes).</p>
+        <span class="ver">v1.01.00 e v1.02.00 — NT 009</span>
+      </article>
+      <article class="fonte">
+        <span class="org">Portal Nacional da NF-e</span>
+        <p>Tabelas de cClassTrib e CST, crédito presumido, alíquotas da CBS, códigos da lista de serviços e a NT 2025.002.</p>
+        <span class="ver">cClassTrib de 23/06/2026 · NT v1.51 de 04/08/2026</span>
+      </article>
+      <article class="fonte">
+        <span class="org">MDIC</span>
+        <p>NBS 2.0, notas explicativas (NEBS) e o de-para das versões anteriores.</p>
+        <span class="ver">Portaria Conjunta RFB/SCS 2.000/2018</span>
+      </article>
+      <article class="fonte">
+        <span class="org">Siscomex e IBGE</span>
+        <p>Nomenclatura NCM/SH vigente e a estrutura completa de subclasses CNAE com notas explicativas.</p>
+        <span class="ver">NCM vigente em 13/08/2026</span>
+      </article>
+      <article class="fonte">
+        <span class="org">Legislação</span>
+        <p>Textos atualizados da LC 214/2025 (com as alterações da LC 227/2026) e da LC 116/2003, usados para extrair os anexos de NCM.</p>
+        <span class="ver">668 artigos · 13 anexos com códigos</span>
+      </article>
+      <article class="fonte">
+        <span class="org">Municípios</span>
+        <p>Tabelas CNAE × lista de serviços de Anápolis/GO, Salvador/BA e Braço do Norte/SC — a camada que não tem equivalente nacional.</p>
+        <span class="ver">Portaria 463/2025 como base principal</span>
+      </article>
+    </div>
+    <p class="prosa" style="font-size:14.5px; color:var(--ink-soft);">
+      Todos os arquivos ficam guardados com o endereço de origem e o hash SHA-256. Um comando
+      rebaixa as fontes e aponta exatamente o que mudou desde a última coleta — essencial num
+      cenário em que as tabelas da reforma são revisadas várias vezes ao ano.
+    </p>
+  </section>
+
+  <section>
+    <div class="cabeca prosa">
+      <p class="eyebrow">Uso</p>
+      <h2>Telas e formatos de saída</h2>
+    </div>
+    <div class="rolagem">
+      <table>
+        <thead>
+          <tr><th>Tela</th><th>Para que serve</th><th>Saída</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Análise do cartão CNPJ</td><td>Enquadramento de todas as atividades da empresa a partir do PDF</td><td class="num">XLSX · CSV · JSON</td></tr>
+          <tr><td>Consulta por NCM</td><td>CST, cClassTrib, redução e indOP de um produto</td><td class="num">XLSX · CSV · JSON</td></tr>
+          <tr><td>Cesta</td><td>Acumula as consultas do trabalho e gera um relatório consolidado, com resumo por CST e cClassTrib</td><td class="num">XLSX · CSV · JSON</td></tr>
+          <tr><td>Consulta de tabelas</td><td>Busca direta por CNAE, item da LC 116, NBS, NCM, cClassTrib e indOP</td><td class="num">Tela</td></tr>
+          <tr><td>Fontes</td><td>Documento, órgão, versão, data e hash de cada arquivo usado</td><td class="num">Tela</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="prosa" style="font-size:14.5px; color:var(--ink-soft);">
+      A planilha de exportação traz três abas: a correlação detalhada (uma linha por código),
+      um resumo com a identificação da empresa e a relação das fontes com hash — pronta para
+      anexar a um parecer ou a um plano de parametrização de ERP.
+    </p>
+    <p class="prosa" style="font-size:14.5px; color:var(--ink-soft);">
+      Quando o trabalho envolve vários CNPJs e produtos, cada consulta pode ser enviada à cesta:
+      ao final sai um único arquivo com todas as linhas no mesmo layout, o resumo por CST e
+      cClassTrib e a lista das consultas que o compõem, com a data de cada uma.
+    </p>
+  </section>
+
+  <section>
+    <div class="cabeca prosa">
+      <p class="eyebrow">Próximos passos</p>
+      <h2>Onde a ferramenta ganha mais precisão</h2>
+    </div>
+    <ul class="limpa prosa">
+      <li>
+        <strong>Tabela do município do cliente.</strong> O de-para CNAE × LC 116 não tem versão
+        nacional. Incorporar a tabela oficial do município onde a empresa presta serviço eleva
+        aquelas atividades para o nível de confiança máximo.
+      </li>
+      <li>
+        <strong>Disponibilização.</strong> Hoje a ferramenta roda na máquina local. Para uso por
+        mais pessoas há três caminhos — rede privada entre os dispositivos da equipe, túnel
+        seguro a partir da máquina atual ou hospedagem em nuvem — todos exigindo autenticação
+        antes da exposição.
+      </li>
+      <li>
+        <strong>Rotina de atualização.</strong> Uma verificação mensal das fontes mantém as
+        tabelas alinhadas às notas técnicas; o processo já está documentado e automatizado.
+      </li>
+      <li>
+        <strong>Processamento em lote.</strong> A mesma cadeia pode receber uma lista de NCMs ou
+        de CNPJs e devolver a planilha consolidada, útil para revisar cadastros de produtos.
+      </li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>
+      Documento de apresentação da ferramenta de correlação fiscal para a Reforma Tributária do
+      Consumo. As correlações refletem as versões das fontes oficiais coletadas em agosto de 2026;
+      o Anexo VIII da NFS-e nacional é declaradamente uma versão em evolução.
+    </p>
+    <p>O enquadramento fiscal definitivo é responsabilidade do contribuinte.</p>
+  </footer>
+
+</div>

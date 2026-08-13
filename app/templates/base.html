@@ -20,6 +20,10 @@
       <a href="{{ url_for('ncm_busca') }}">Consulta por NCM</a>
       <a href="{{ url_for('consulta') }}">Consulta de tabelas</a>
       <a href="{{ url_for('fontes') }}">Fontes (KB)</a>
+      <a href="{{ url_for('apresentacao') }}">Apresentação</a>
+      <a href="{{ url_for('cesta_ver') }}" class="link-cesta">
+        Cesta{% if cesta_qtd %} <span class="contador">{{ cesta_qtd }}</span>{% endif %}
+      </a>
     </nav>
   </header>
 

@@ -1,0 +1,151 @@
+{% extends "base.html" %}
+{% block titulo %}Cesta de consultas{% endblock %}
+{% block conteudo %}
+
+{% if incluido %}<div class="alerta">Consulta adicionada à cesta.</div>{% endif %}
+
+<section class="cartao empresa">
+  <div>
+    <h1>Cesta de consultas</h1>
+    <p class="ajuda">
+      {% if cesta and cesta.itens %}
+        {{ resumo.consultas }} consulta(s) acumulada(s) desde {{ cesta.criada_em }} —
+        {{ resumo.linhas }} linha(s) no relatório consolidado.
+      {% else %}
+        Ainda não há consultas acumuladas.
+      {% endif %}
+    </p>
+  </div>
+  {% if cesta and cesta.itens %}
+  <div class="downloads">
+    <a class="botao" href="{{ url_for('cesta_download', formato='xlsx') }}">XLSX consolidado</a>
+    <a class="botao" href="{{ url_for('cesta_download', formato='csv') }}">CSV</a>
+    <a class="botao" href="{{ url_for('cesta_download', formato='json') }}">JSON</a>
+  </div>
+  {% endif %}
+</section>
+
+{% if not cesta or not cesta.itens %}
+  <section class="cartao">
+    <h2>Como usar</h2>
+    <ul class="limpa">
+      <li>Faça uma <a href="{{ url_for('inicio') }}">análise de cartão CNPJ</a> ou uma
+        <a href="{{ url_for('ncm_busca') }}">consulta por NCM</a>.</li>
+      <li>Na tela do resultado, clique em <strong>Adicionar à cesta</strong>.</li>
+      <li>Repita para quantos CNPJs e NCMs precisar; ao final, exporte tudo em um único
+        arquivo com resumo por CST e cClassTrib e a relação das fontes.</li>
+    </ul>
+  </section>
+{% else %}
+
+  <section class="indicadores">
+    <div><strong>{{ resumo.consultas }}</strong><span>consultas ({{ resumo.consultas_cnae }} CNPJ · {{ resumo.consultas_ncm }} NCM)</span></div>
+    <div><strong>{{ resumo.codigos }}</strong><span>códigos distintos</span></div>
+    <div><strong>{{ resumo.linhas }}</strong><span>linhas consolidadas</span></div>
+    <div><strong>{{ resumo.cclasstrib }}</strong><span>cClassTrib distintos</span></div>
+    <div><strong>{{ resumo.aliquota_zero }}</strong><span>linhas com alíquota zero</span></div>
+    <div><strong>{{ resumo.reducao_60 }}</strong><span>linhas com redução de 60%</span></div>
+    <div><strong>{{ resumo.integral }}</strong><span>linhas de tributação integral</span></div>
+    <div><strong>{{ resumo.a_validar }}</strong><span>linhas a validar</span></div>
+  </section>
+
+  {% if resumo.a_validar or resumo.imposto_seletivo or resumo.excecoes %}
+  <div class="alerta">
+    Pontos que exigem conferência antes do envio:
+    {% if resumo.a_validar %}{{ resumo.a_validar }} linha(s) vindas de sugestão por similaridade;{% endif %}
+    {% if resumo.imposto_seletivo %} {{ resumo.imposto_seletivo }} linha(s) com Imposto Seletivo;{% endif %}
+    {% if resumo.excecoes %} {{ resumo.excecoes }} linha(s) em cláusula de exceção de anexo.{% endif %}
+  </div>
+  {% endif %}
+
+  <section class="cartao">
+    <h2>Consultas na cesta</h2>
+    <table>
+      <thead>
+        <tr><th>#</th><th>Tipo</th><th>Consulta</th><th>Detalhe</th><th>Adicionada em</th><th></th></tr>
+      </thead>
+      <tbody>
+        {% for item in cesta.itens %}
+        <tr>
+          <td>{{ loop.index }}</td>
+          <td><span class="tag {{ 'bens' if item.tipo == 'ncm' else 'principal' }}">{{ 'NCM' if item.tipo == 'ncm' else 'CNPJ' }}</span></td>
+          <td><strong>{{ item.rotulo }}</strong><small>{{ item.titulo }}</small></td>
+          <td>{{ item.detalhe }}</td>
+          <td>{{ item.adicionado_em }}</td>
+          <td>
+            <form method="post" action="{{ url_for('cesta_remover', item_id=item.id) }}">
+              <button type="submit" class="link-remover">remover</button>
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <form method="post" action="{{ url_for('cesta_limpar') }}" class="acao-limpar">
+      <button type="submit" class="link-remover">esvaziar a cesta</button>
+    </form>
+  </section>
+
+  <section class="cartao">
+    <h2>Distribuição do enquadramento</h2>
+    <div class="grade-info">
+      <article>
+        <h3>Por CST</h3>
+        <table>
+          <thead><tr><th>CST</th><th>Descrição</th><th>Linhas</th></tr></thead>
+          <tbody>
+            {% for g in resumo.top_cst %}
+            <tr><td><code>{{ g.cst }}</code></td><td>{{ g.descricao }}</td><td>{{ g.linhas }}</td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </article>
+      <article>
+        <h3>Por cClassTrib</h3>
+        <table>
+          <thead><tr><th>Código</th><th>Nome</th><th>Linhas</th></tr></thead>
+          <tbody>
+            {% for g in resumo.top_cclasstrib %}
+            <tr><td><code>{{ g.cclasstrib }}</code></td><td>{{ g.nome }}</td><td>{{ g.linhas }}</td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </article>
+    </div>
+  </section>
+
+  <section class="cartao">
+    <h2>Prévia do consolidado</h2>
+    <p class="ajuda">
+      Primeiras {{ previa|length }} de {{ resumo.linhas }} linha(s). O arquivo exportado traz
+      todas, mais as abas de resumo, de consultas e de fontes.
+    </p>
+    <div class="rolagem">
+      <table>
+        <thead>
+          <tr>
+            <th>Consulta</th><th>Código</th><th>Item LC 116</th><th>NBS</th>
+            <th>indOP</th><th>cClassTrib</th><th>CST</th><th>Red. IBS/CBS</th><th>Regime</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for l in previa %}
+          <tr>
+            <td>{{ l['Consulta'] }}</td>
+            <td><code>{{ l['Código'] }}</code></td>
+            <td>{{ l['Item LC 116/03'] }}</td>
+            <td>{{ l['NBS'] }}</td>
+            <td>{{ l['indOP'] }}</td>
+            <td><code>{{ l['cClassTrib'] }}</code><small>{{ l['Nome cClassTrib'] }}</small></td>
+            <td>{{ l['CST IBS/CBS'] }}</td>
+            <td>{{ l['Redução IBS (%)'] }} / {{ l['Redução CBS (%)'] }}</td>
+            <td>{{ l['Regime / confiança'] }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+{% endif %}
+{% endblock %}

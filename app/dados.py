@@ -160,6 +160,30 @@ class Base:
     def versao_fontes(self) -> list[dict]:
         return self.manifesto.get("fontes", [])
 
+    def estatisticas(self) -> dict:
+        """Numeros de cobertura usados na pagina de apresentacao."""
+        return {
+            "ncm": len(self.ncm),
+            "ncm_vigentes": sum(
+                1 for n in self.ncm if n.get("nivel") == 8 and n.get("vigente")
+            ),
+            "cnae": len(self.cnae),
+            "lc116": len(self.lc116),
+            "nbs": len(self.nbs),
+            "cclasstrib": len(self.cclasstrib),
+            "cst": len(self.cst),
+            "indop": len(self.indop),
+            "anexo_viii": len(self.anexo_viii),
+            "anexo_viii_itens": len({r["item"] for r in self.anexo_viii}),
+            "vinculos_cnae": len(self.cnae_lc116),
+            "cnaes_vinculados": len(self.itens_por_cnae),
+            "anexos_itens": len(self.lc214_anexos),
+            "anexos_ncm": sum(len(i["ncm_incluidos"]) for i in self.lc214_anexos),
+            "anexos_excecoes": sum(len(i["ncm_excecoes"]) for i in self.lc214_anexos),
+            "fontes": len(self.versao_fontes()),
+            "gerado_em": self.manifesto.get("gerado_em", "")[:10],
+        }
+
 
 @lru_cache(maxsize=1)
 def base() -> Base:

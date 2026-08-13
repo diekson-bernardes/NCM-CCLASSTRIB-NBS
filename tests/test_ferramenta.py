@@ -5,12 +5,15 @@ Execucao:  python -m unittest discover -s tests -v
 
 from __future__ import annotations
 
+import json
+import re
 import sys
 import unittest
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
+from app.cesta import COLUNAS  # noqa: E402
 from app.correlacao import correlacionar, linhas_detalhe, resumo  # noqa: E402
 from app.dados import base  # noqa: E402
 from app.main import app  # noqa: E402
@@ -241,6 +244,96 @@ class TestApp(unittest.TestCase):
         self.assertEqual(self.cliente.get("/consulta?tipo=nbs&q=hospedagem").status_code, 200)
         self.assertEqual(self.cliente.get("/fontes").status_code, 200)
         self.assertEqual(self.cliente.get("/cnae/6201501").status_code, 200)
+
+    def test_apresentacao_usa_numeros_dos_datasets(self):
+        resposta = self.cliente.get("/apresentacao")
+        self.assertEqual(resposta.status_code, 200)
+        corpo = resposta.get_data(as_text=True)
+        est = base().estatisticas()
+        # os numeros da pagina vem dos datasets, nao do texto fixo
+        self.assertIn(f"{est['ncm']:,}".replace(",", "."), corpo)
+        self.assertIn(str(est["cclasstrib"]), corpo)
+        self.assertIn(f"{est['fontes']} documentos", corpo)
+        # a apresentacao fica acessivel pelo menu de todas as telas
+        self.assertIn("/apresentacao", self.cliente.get("/").get_data(as_text=True))
+
+
+class TestCesta(unittest.TestCase):
+    """Rotina que acumula consultas e gera o relatorio consolidado."""
+
+    def setUp(self) -> None:
+        app.config["TESTING"] = True
+        self.cliente = app.test_client()
+
+    def _token_cnae(self, cnaes: str) -> str:
+        corpo = self.cliente.post("/analisar", data={"cnaes": cnaes}).get_data(as_text=True)
+        return corpo.split("/download/")[1].split("/")[0]
+
+    def _token_ncm(self, codigo: str) -> str:
+        corpo = self.cliente.get(f"/ncm/{codigo}").get_data(as_text=True)
+        return corpo.split("/download-ncm/")[1].split("/")[0]
+
+    def _adicionar(self, tipo: str, token: str):
+        return self.cliente.post(
+            "/cesta/adicionar", data={"tipo": tipo, "token": token}, follow_redirects=True
+        )
+
+    def test_cesta_vazia(self):
+        resposta = self.cliente.get("/cesta")
+        self.assertEqual(resposta.status_code, 200)
+        self.assertIn("Ainda não há consultas", resposta.get_data(as_text=True))
+        self.assertEqual(self.cliente.get("/cesta/download/xlsx").status_code, 404)
+
+    def test_acumula_cnae_e_ncm_no_mesmo_relatorio(self):
+        self.assertEqual(self._adicionar("cnae", self._token_cnae("8630-5/01")).status_code, 200)
+        self.assertEqual(self._adicionar("ncm", self._token_ncm("10064000")).status_code, 200)
+
+        payload = json.loads(self.cliente.get("/cesta/download/json").data)
+        self.assertEqual(payload["resumo"]["consultas"], 2)
+        self.assertEqual(payload["resumo"]["consultas_cnae"], 1)
+        self.assertEqual(payload["resumo"]["consultas_ncm"], 1)
+        self.assertGreater(payload["resumo"]["linhas"], 1)
+
+        tipos = {linha["Tipo"] for linha in payload["linhas"]}
+        self.assertIn("Serviço (CNAE)", tipos)
+        self.assertIn("Bem (NCM)", tipos)
+        # as duas origens compartilham o mesmo conjunto de colunas
+        for linha in payload["linhas"]:
+            self.assertEqual(list(linha.keys()), COLUNAS)
+
+        # o arroz do Anexo I entra como aliquota zero no consolidado
+        arroz = [l for l in payload["linhas"] if l["Código"] == "1006.40.00"]
+        self.assertTrue(any(l["cClassTrib"] == "200003" for l in arroz))
+        self.assertTrue(any(l["Redução IBS (%)"] == "100" for l in arroz))
+        self.assertTrue(all(l["NBS"] == "Não aplicável" for l in arroz))
+
+    def test_contador_no_menu_e_formatos(self):
+        self._adicionar("ncm", self._token_ncm("10064000"))
+        self.assertIn('class="contador"', self.cliente.get("/").get_data(as_text=True))
+        for formato, assinatura in (("xlsx", b"PK"), ("csv", b"Consulta"), ("json", b"{")):
+            resposta = self.cliente.get(f"/cesta/download/{formato}")
+            self.assertEqual(resposta.status_code, 200, formato)
+            inicio = resposta.data[:16].lstrip(b"\xef\xbb\xbf")
+            self.assertTrue(inicio.startswith(assinatura), f"{formato}: {inicio!r}")
+
+    def test_remover_e_limpar(self):
+        self._adicionar("ncm", self._token_ncm("10064000"))
+        self._adicionar("ncm", self._token_ncm("30049099"))
+        pagina = self.cliente.get("/cesta").get_data(as_text=True)
+        item = re.search(r"/cesta/remover/([\w-]+)", pagina).group(1)
+
+        self.cliente.post(f"/cesta/remover/{item}", follow_redirects=True)
+        payload = json.loads(self.cliente.get("/cesta/download/json").data)
+        self.assertEqual(payload["resumo"]["consultas"], 1)
+
+        self.cliente.post("/cesta/limpar", follow_redirects=True)
+        self.assertEqual(self.cliente.get("/cesta/download/json").status_code, 404)
+
+    def test_token_expirado_nao_entra_na_cesta(self):
+        self.assertEqual(
+            self.cliente.post("/cesta/adicionar", data={"tipo": "ncm", "token": "xxx"}).status_code,
+            404,
+        )
 
 
 if __name__ == "__main__":

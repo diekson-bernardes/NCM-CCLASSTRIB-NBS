@@ -10,17 +10,22 @@ import re
 import secrets
 from collections import OrderedDict
 
-from flask import (Flask, Response, abort, render_template, request, url_for)
+from flask import (Flask, Response, abort, g, redirect, render_template, request,
+                   url_for)
 
+from . import cesta as mod_cesta
 from .correlacao import correlacionar, linhas_detalhe, resumo
 from .dados import base, normaliza
 from .ncm import consultar as consultar_ncm
 from .parser_cnpj import CartaoCNPJ, cnaes_de_texto_livre, ler_cartao, texto_do_pdf
-from .relatorio import (gerar_csv, gerar_csv_ncm, gerar_json, gerar_json_ncm,
-                        gerar_xlsx, gerar_xlsx_ncm)
+from .relatorio import (gerar_csv, gerar_csv_cesta, gerar_csv_ncm, gerar_json,
+                        gerar_json_cesta, gerar_json_ncm, gerar_xlsx,
+                        gerar_xlsx_cesta, gerar_xlsx_ncm)
 
 app = Flask(__name__)
 app.config["MAX_CONTENT_LENGTH"] = 25 * 1024 * 1024
+
+COOKIE_CESTA = "rtc_cesta"
 
 # cache em memoria das ultimas analises (para download dos relatorios)
 ANALISES: "OrderedDict[str, dict]" = OrderedDict()
@@ -34,6 +39,36 @@ def guardar(cartao: dict, resultados: list[dict]) -> str:
     while len(ANALISES) > LIMITE_CACHE:
         ANALISES.popitem(last=False)
     return token
+
+
+# --------------------------------------------------------------------- cesta
+
+
+def cesta_do_visitante(criar: bool = False) -> dict | None:
+    """Cesta ligada ao cookie do navegador; criada sob demanda."""
+    ident = getattr(g, "cesta_id", None) or request.cookies.get(COOKIE_CESTA)
+    cesta = mod_cesta.obter(ident)
+    if cesta is None and criar:
+        ident, cesta = mod_cesta.nova_cesta()
+        g.cesta_id = ident
+        g.cesta_nova = True
+    return cesta
+
+
+@app.after_request
+def _grava_cookie_da_cesta(resposta):
+    if getattr(g, "cesta_nova", False):
+        resposta.set_cookie(
+            COOKIE_CESTA, g.cesta_id, max_age=60 * 60 * 24 * 30,
+            httponly=True, samesite="Lax",
+        )
+    return resposta
+
+
+@app.context_processor
+def _injeta_cesta():
+    cesta = cesta_do_visitante()
+    return {"cesta_qtd": len(cesta["itens"]) if cesta else 0}
 
 
 @app.route("/")
@@ -238,6 +273,87 @@ def detalhe_cnae(cnae: str):
 @app.get("/fontes")
 def fontes():
     return render_template("fontes.html", manifesto=base().manifesto)
+
+
+@app.post("/cesta/adicionar")
+def cesta_adicionar():
+    """Adiciona o resultado de uma consulta ja realizada a cesta do visitante."""
+    tipo = request.form.get("tipo", "")
+    token = request.form.get("token", "")
+    cesta = cesta_do_visitante(criar=True)
+
+    if tipo == "cnae":
+        analise = ANALISES.get(token)
+        if not analise:
+            abort(404, "Análise expirada. Refaça o envio do cartão CNPJ.")
+        mod_cesta.adicionar_cnae(cesta, analise["cartao"], analise["resultados"])
+    elif tipo == "ncm":
+        consulta = CONSULTAS_NCM.get(token)
+        if not consulta:
+            abort(404, "Consulta expirada. Refaça a busca do NCM.")
+        mod_cesta.adicionar_ncm(cesta, consulta)
+    else:
+        abort(400)
+
+    return redirect(url_for("cesta_ver", incluido=1))
+
+
+@app.get("/cesta")
+def cesta_ver():
+    cesta = cesta_do_visitante()
+    return render_template(
+        "cesta.html",
+        cesta=cesta,
+        resumo=mod_cesta.resumo(cesta) if cesta else None,
+        incluido=request.args.get("incluido") == "1",
+        colunas=mod_cesta.COLUNAS,
+        previa=mod_cesta.linhas(cesta)[:40] if cesta else [],
+    )
+
+
+@app.post("/cesta/remover/<item_id>")
+def cesta_remover(item_id: str):
+    cesta = cesta_do_visitante()
+    if cesta:
+        mod_cesta.remover(cesta, item_id)
+    return redirect(url_for("cesta_ver"))
+
+
+@app.post("/cesta/limpar")
+def cesta_limpar():
+    cesta = cesta_do_visitante()
+    if cesta:
+        mod_cesta.limpar(cesta)
+    return redirect(url_for("cesta_ver"))
+
+
+@app.get("/cesta/download/<formato>")
+def cesta_download(formato: str):
+    cesta = cesta_do_visitante()
+    if not cesta or not cesta["itens"]:
+        abort(404, "A cesta está vazia.")
+    if formato == "xlsx":
+        conteudo = gerar_xlsx_cesta(cesta)
+        tipo = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    elif formato == "csv":
+        conteudo, tipo = gerar_csv_cesta(cesta), "text/csv; charset=utf-8"
+    elif formato == "json":
+        conteudo, tipo = gerar_json_cesta(cesta), "application/json"
+    else:
+        abort(404)
+    return Response(
+        conteudo,
+        mimetype=tipo,
+        headers={
+            "Content-Disposition": f'attachment; filename="correlacao_consolidada.{formato}"'
+        },
+    )
+
+
+@app.get("/apresentacao")
+def apresentacao():
+    """Relatorio de apresentacao da ferramenta (uso comercial/cliente)."""
+    return render_template("apresentacao.html", est=base().estatisticas())
 
 
 def main() -> None:

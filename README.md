@@ -55,7 +55,18 @@ Telas:
 - **Análise do cartão CNPJ** — upload do PDF e correlação completa.
 - **Consulta por NCM** — CST, cClassTrib, redução e indOP do produto (com export).
 - **Consulta de tabelas** — busca por CNAE, item da LC 116, NBS, NCM, cClassTrib e indOP.
+- **Cesta** (`/cesta`) — acumula os resultados das consultas (cartão CNPJ e NCM) e gera **um
+  relatório consolidado**: as duas origens são convertidas para o mesmo conjunto de colunas,
+  com resumo por CST e cClassTrib, contagem de linhas por faixa de redução e destaque das
+  linhas que exigem conferência. Exporta XLSX (abas *Consolidado*, *Resumo*, *Consultas* e
+  *Fontes*), CSV e JSON. A cesta fica em memória, ligada a um cookie — nada de contribuinte
+  é gravado em disco.
 - **Fontes (KB)** — documentos usados, versão, data e SHA-256.
+- **Apresentação** (`/apresentacao`) — relatório para envio ao cliente: escopo, cobertura,
+  exemplos reais, critérios de confiança e fontes. Os números vêm dos datasets
+  (`Base.estatisticas()`), então a página nunca fica defasada; o botão *Imprimir / salvar PDF*
+  usa uma folha de estilo de impressão própria. Versão avulsa em
+  [`Docs/apresentacao.html`](Docs/apresentacao.html).
 
 ## Estrutura
 
@@ -65,6 +76,7 @@ app/                aplicação Flask
   parser_cnpj.py    leitura do cartão CNPJ em PDF
   correlacao.py     motor de correlação por CNAE
   ncm.py            motor de consulta por NCM (anexos da LC 214/2025)
+  cesta.py          acúmulo das consultas e consolidação em colunas únicas
   relatorio.py      exportação XLSX / CSV / JSON
   main.py           rotas web
 scripts/

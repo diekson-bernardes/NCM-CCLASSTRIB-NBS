@@ -185,3 +185,131 @@ def gerar_json(cartao: dict, resultados: list[dict]) -> bytes:
         "fontes": base().versao_fontes(),
     }
     return json.dumps(payload, ensure_ascii=False, indent=1).encode("utf-8")
+
+
+# ------------------------------------------------------------------ cesta
+
+def _aba_fontes(wb) -> None:
+    ws = wb.create_sheet("Fontes")
+    ws.append(["Arquivo (KB)", "Título", "Órgão", "Versão", "URL", "SHA-256", "Baixado em"])
+    for celula in ws[1]:
+        celula.font = Font(bold=True)
+        celula.fill = _CINZA
+    for fonte in base().versao_fontes():
+        ws.append([
+            fonte.get("arquivo", ""), fonte.get("titulo", ""), fonte.get("orgao", ""),
+            fonte.get("versao", ""), fonte.get("url", ""), fonte.get("sha256", "")[:16],
+            fonte.get("baixado_em", ""),
+        ])
+    _ajusta(ws, {1: 55, 2: 55, 3: 35, 4: 28, 5: 70, 6: 20, 7: 20})
+
+
+def gerar_xlsx_cesta(cesta: dict) -> bytes:
+    """Planilha consolidada da cesta: linhas, resumo, consultas e fontes."""
+    from .cesta import COLUNAS, linhas as linhas_cesta, resumo as resumo_cesta
+
+    wb = Workbook()
+    ws = wb.active
+    ws.title = "Consolidado"
+    ws.append(COLUNAS)
+    for celula in ws[1]:
+        celula.font = Font(bold=True, color="FFFFFF")
+        celula.fill = _AZUL
+        celula.alignment = Alignment(vertical="center", wrap_text=True)
+    for linha in linhas_cesta(cesta):
+        ws.append([linha.get(c, "") for c in COLUNAS])
+    ws.freeze_panes = "A2"
+    ws.auto_filter.ref = ws.dimensions
+    _ajusta(ws, {1: 26, 2: 16, 3: 14, 4: 45, 5: 14, 6: 15, 7: 45, 8: 22, 9: 12,
+                 10: 42, 11: 12, 12: 13, 13: 13, 14: 22, 15: 60, 16: 22, 17: 60})
+
+    r = resumo_cesta(cesta)
+    wsr = wb.create_sheet("Resumo")
+    for chave, valor in [
+        ("Gerado em", datetime.now().strftime("%d/%m/%Y %H:%M")),
+        ("Cesta criada em", cesta.get("criada_em", "")),
+        ("", ""),
+        ("Consultas", r["consultas"]),
+        ("  cartão CNPJ / CNAE", r["consultas_cnae"]),
+        ("  NCM", r["consultas_ncm"]),
+        ("Linhas consolidadas", r["linhas"]),
+        ("Códigos distintos", r["codigos"]),
+        ("cClassTrib distintos", r["cclasstrib"]),
+        ("", ""),
+        ("Linhas com alíquota zero (redução 100%)", r["aliquota_zero"]),
+        ("Linhas com redução de 60%", r["reducao_60"]),
+        ("Linhas com redução de 30%", r["reducao_30"]),
+        ("Linhas de tributação integral (CST 000)", r["integral"]),
+        ("Linhas a validar (similaridade)", r["a_validar"]),
+        ("Linhas com Imposto Seletivo", r["imposto_seletivo"]),
+        ("Linhas em cláusula de exceção", r["excecoes"]),
+    ]:
+        wsr.append([chave, valor])
+    wsr.append([])
+    wsr.append(["CST", "Descrição", "Linhas"])
+    for celula in wsr[wsr.max_row]:
+        celula.font = Font(bold=True)
+        celula.fill = _CINZA
+    for grupo in r["top_cst"]:
+        wsr.append([grupo["cst"], grupo["descricao"], grupo["linhas"]])
+    wsr.append([])
+    wsr.append(["cClassTrib", "Nome", "Linhas"])
+    for celula in wsr[wsr.max_row]:
+        celula.font = Font(bold=True)
+        celula.fill = _CINZA
+    for grupo in r["top_cclasstrib"]:
+        wsr.append([grupo["cclasstrib"], grupo["nome"], grupo["linhas"]])
+    for linha in wsr.iter_rows(min_col=1, max_col=1):
+        if linha[0].value and str(linha[0].value)[0].isupper():
+            linha[0].font = Font(bold=True)
+    _ajusta(wsr, {1: 42, 2: 60, 3: 12})
+
+    wsc = wb.create_sheet("Consultas")
+    wsc.append(["#", "Tipo", "Consulta", "Descrição", "Detalhe", "Adicionada em"])
+    for celula in wsc[1]:
+        celula.font = Font(bold=True)
+        celula.fill = _CINZA
+    for ordem, item in enumerate(cesta["itens"], start=1):
+        wsc.append([
+            ordem,
+            "Cartão CNPJ" if item["tipo"] == "cnae" else "NCM",
+            item["rotulo"], item["titulo"], item["detalhe"], item["adicionado_em"],
+        ])
+    _ajusta(wsc, {1: 5, 2: 14, 3: 26, 4: 55, 5: 30, 6: 18})
+
+    _aba_fontes(wb)
+
+    buffer = io.BytesIO()
+    wb.save(buffer)
+    return buffer.getvalue()
+
+
+def gerar_csv_cesta(cesta: dict) -> bytes:
+    from .cesta import COLUNAS, linhas as linhas_cesta
+
+    buffer = io.StringIO()
+    escritor = csv.DictWriter(buffer, fieldnames=COLUNAS, delimiter=";",
+                              extrasaction="ignore")
+    escritor.writeheader()
+    for linha in linhas_cesta(cesta):
+        escritor.writerow(linha)
+    return buffer.getvalue().encode("utf-8-sig")
+
+
+def gerar_json_cesta(cesta: dict) -> bytes:
+    from .cesta import linhas as linhas_cesta, resumo as resumo_cesta
+
+    payload = {
+        "gerado_em": datetime.now().isoformat(timespec="seconds"),
+        "cesta": {
+            "criada_em": cesta.get("criada_em", ""),
+            "consultas": [
+                {k: v for k, v in item.items() if k != "linhas"}
+                for item in cesta["itens"]
+            ],
+        },
+        "resumo": resumo_cesta(cesta),
+        "linhas": linhas_cesta(cesta),
+        "fontes": base().versao_fontes(),
+    }
+    return json.dumps(payload, ensure_ascii=False, indent=1).encode("utf-8")

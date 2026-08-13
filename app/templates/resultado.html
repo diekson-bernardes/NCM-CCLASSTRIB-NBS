@@ -13,6 +13,11 @@
     </p>
   </div>
   <div class="downloads">
+    <form method="post" action="{{ url_for('cesta_adicionar') }}">
+      <input type="hidden" name="tipo" value="cnae">
+      <input type="hidden" name="token" value="{{ token }}">
+      <button type="submit" class="botao secundario">+ Adicionar à cesta</button>
+    </form>
     <a class="botao" href="{{ url_for('download', token=token, formato='xlsx') }}">XLSX</a>
     <a class="botao" href="{{ url_for('download', token=token, formato='csv') }}">CSV</a>
     <a class="botao" href="{{ url_for('download', token=token, formato='json') }}">JSON</a>

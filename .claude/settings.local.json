@@ -15,7 +15,8 @@
       "Bash(PYTHONIOENCODING=utf-8 python -c ' *)",
       "Bash(python scripts/atualizar_kb.py --checar)",
       "Bash(python scripts/atualizar_kb.py --checar --filtro nfe-rtc)",
-      "Bash(python -)"
+      "Bash(python -)",
+      "Bash(PYTHONIOENCODING=utf-8 grep -n \"downloads\\\\|token\" app/templates/resultado.html)"
     ]
   }
 }
