@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block titulo %}Correlacao Fiscal RTC{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='estilo.css') }}">
+</head>
+<body>
+  <header class="topo">
+    <div class="marca">
+      <span class="logo">RTC</span>
+      <div>
+        <strong>Correlação CNAE → NBS → cClassTrib → indOP → LC 116/03</strong>
+        <small>Reforma Tributária do Consumo — IBS/CBS (LC 214/2025)</small>
+      </div>
+    </div>
+    <nav>
+      <a href="{{ url_for('inicio') }}">Análise do cartão CNPJ</a>
+      <a href="{{ url_for('ncm_busca') }}">Consulta por NCM</a>
+      <a href="{{ url_for('consulta') }}">Consulta de tabelas</a>
+      <a href="{{ url_for('fontes') }}">Fontes (KB)</a>
+    </nav>
+  </header>
+
+  <main>
+    {% block conteudo %}{% endblock %}
+  </main>
+
+  <footer>
+    <p>
+      Ferramenta de apoio. As correlações refletem o Anexo VIII da NFS-e nacional
+      (versão em evolução) e as tabelas oficiais do Portal da NF-e; o enquadramento
+      definitivo é responsabilidade do contribuinte.
+    </p>
+  </footer>
+</body>
+</html>

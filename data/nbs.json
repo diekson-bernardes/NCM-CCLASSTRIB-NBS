@@ -1,0 +1,6187 @@
+[
+ {
+  "nbs": "1.01",
+  "descricao": "Serviços de construção",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0101",
+  "descricao": "Serviços de construção de edificações",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0101.1",
+  "descricao": "Serviços de construção de edificações residenciais",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0101.11.00",
+  "descricao": "Serviços de construção de edificações residenciais de um e dois pavimentos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0101.12.00",
+  "descricao": "Serviços de construção de edificações residenciais com mais de dois pavimentos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0101.2",
+  "descricao": "Serviços de construção de edificações não residenciais",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0101.21.00",
+  "descricao": "Serviços de construção de edificações industriais",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0101.22.00",
+  "descricao": "Serviços de construção de edificações comerciais",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0101.29.00",
+  "descricao": "Serviços de construção de edificações não residenciais não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0101.30.00",
+  "descricao": "Serviços de construção de edificações de uso misto (residencial e não residencial)",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0102",
+  "descricao": "Serviços de construção de obras de engenharia civil",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0102.1",
+  "descricao": "Serviços de construção de autoestradas (exceto autoestradas elevadas), ruas, estradas, estradas férreas, pistas de pouso e de decolagem em aeroportos e infraestrutura aeroportuária",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0102.11.00",
+  "descricao": "Serviços de construção de autoestradas (exceto autoestradas elevadas), ruas e estradas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0102.12.00",
+  "descricao": "Serviços de construção de ferrovias",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0102.13.00",
+  "descricao": "Serviços de construção de pistas de pouso e decolagem em aeroportos e de infraestrutura aeroportuária",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0102.20.00",
+  "descricao": "Serviços de construção de pontes, autoestradas elevadas e túneis",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0102.3",
+  "descricao": "Serviços de construção de portos, vias navegáveis, represas, irrigação e outras obras hídricas",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0102.31.00",
+  "descricao": "Serviços de construção de infraestrutura de proteção e acesso aquaviário",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0102.32.00",
+  "descricao": "Serviços de construção de infraestrutura de acostagem aquaviária",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0102.33.00",
+  "descricao": "Serviços de construção de infraestrutura terrestre e de obras de engenharia afins nos portos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0102.34.00",
+  "descricao": "Serviços de construção de barragens",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0102.35",
+  "descricao": "Serviços de construção de adutoras em conduto livre, de sistemas de irrigação e relacionados ao controle dos cursos de água",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0102.35.10",
+  "descricao": "Serviços de construção de adutoras em conduto livre",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0102.35.20",
+  "descricao": "Serviços de construção de sistemas de irrigação",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0102.35.30",
+  "descricao": "Serviços de construção relacionada ao controle dos cursos de água, inclusive canalização",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0102.4",
+  "descricao": "Serviços de construção de dutos e de linhas de comunicação, ambos de longo curso, e de linhas de transmissão de alta tensão",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0102.41",
+  "descricao": "Serviços de construção de dutos de longo curso",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0102.41.10",
+  "descricao": "Serviços de construção de dutos de longo curso para o transporte de petróleo, seus derivados, e gás",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0102.41.20",
+  "descricao": "Serviços de construção de dutos de longo curso para o transporte e escoamento de águas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0102.41.90",
+  "descricao": "Serviços de construção de dutos de longo curso não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0102.42",
+  "descricao": "Serviços de construção de linhas de comunicação de longo curso e linhas de transmissão de alta tensão",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0102.42.10",
+  "descricao": "Serviços de construção de linhas de comunicação de longo curso",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0102.42.20",
+  "descricao": "Serviços de construção de linhas de transmissão de alta tensão",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0102.5",
+  "descricao": "Serviços de construção de dutos locais e de linhas locais de comunicação e de transmissão de baixa e média tensão e outros serviços de construção relacionados",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0102.51.00",
+  "descricao": "Serviços de construção de dutos locais",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0102.52",
+  "descricao": "Serviços de construção de linhas locais de comunicação e de transmissão de baixa e média tensão e outros serviços de construção relacionados",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0102.52.10",
+  "descricao": "Serviços de construção de linhas locais de comunicação",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0102.52.20",
+  "descricao": "Serviços de construção de linhas locais de transmissão de baixa e média tensão",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0102.53",
+  "descricao": "Serviços de construção de sistemas de esgotos e de sistemas de estações para elevação, tratamento e purificação de água",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0102.53.10",
+  "descricao": "Serviços de construção de sistemas de esgotos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0102.53.20",
+  "descricao": "Serviços de construção de sistemas de estações para elevação, tratamento e purificação de água",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0102.6",
+  "descricao": "Serviços de construção de instalações industriais",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0102.61.00",
+  "descricao": "Serviços de construção de usinas de geração de energia",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0102.69.00",
+  "descricao": "Serviços de construção de instalações industriais não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0102.70.00",
+  "descricao": "Serviços de construção de minas e suas unidades industriais",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0102.80.00",
+  "descricao": "Serviços de construção de instalações para recreação e atividades desportivas ao ar livre",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0102.90.00",
+  "descricao": "Serviços de construção de obras de engenharia civil não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0103",
+  "descricao": "Serviços de preparação do local da obra",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0103.10.00",
+  "descricao": "Serviços de demolição",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0103.20.00",
+  "descricao": "Serviços de preparação de terrenos e de canteiros de obras",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0103.30.00",
+  "descricao": "Serviços de escavação e remoção de terra",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0103.4",
+  "descricao": "Serviços de perfuração de poços de água e de instalação de sistemas sépticos",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0103.41.00",
+  "descricao": "Serviços de perfuração de poços de água",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0103.42.00",
+  "descricao": "Serviços de instalação de sistemas sépticos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0104.00.00",
+  "descricao": "Serviços de montagem e de edificação de construções pré-fabricadas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0105",
+  "descricao": "Serviços especializados de construção",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0105.1",
+  "descricao": "Serviços de estaqueamento e de fundação",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0105.11.00",
+  "descricao": "Serviços de estaqueamento",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0105.12.00",
+  "descricao": "Serviços de fundação",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0105.2",
+  "descricao": "Serviços de construção de estruturas",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0105.21.00",
+  "descricao": "Serviços de construção de estruturas de edificações",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0105.22.00",
+  "descricao": "Serviços de construção de estruturas de telhados e coberturas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0105.30.00",
+  "descricao": "Serviços de construção de telhados e coberturas e serviços de impermeabilização",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0105.40.00",
+  "descricao": "Serviços de concretagem",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0105.50.00",
+  "descricao": "Serviços de montagem de estruturas de aço",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0105.60.00",
+  "descricao": "Serviços de alvenaria",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0105.70.00",
+  "descricao": "Serviços de andaimes",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0105.90.00",
+  "descricao": "Serviços especializados de construção não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0106",
+  "descricao": "Serviços de instalação",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0106.1",
+  "descricao": "Serviços de instalação elétrica",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0106.11.00",
+  "descricao": "Serviços de instalação de fiação elétrica e componentes",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0106.12.00",
+  "descricao": "Serviços de instalação de alarmes contra incêndio",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0106.13.00",
+  "descricao": "Serviços de instalação de sistemas de alarmes antifurto",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0106.14.00",
+  "descricao": "Serviços de instalação de antenas residenciais",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0106.19.00",
+  "descricao": "Serviços de instalação elétrica não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0106.2",
+  "descricao": "Serviços de instalação de tubulação para fornecimento e escoamento de água",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0106.21.00",
+  "descricao": "Serviços de instalação de tubulação para fornecimento de água",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0106.22.00",
+  "descricao": "Serviços de instalação de tubulação para escoamento de água",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0106.3",
+  "descricao": "Serviços de instalação de equipamentos de aquecimento, de ventilação e de ar condicionado",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0106.31.00",
+  "descricao": "Serviços de instalação de equipamentos de aquecimento",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0106.32.00",
+  "descricao": "Serviços de instalação de equipamentos de ventilação e de ar condicionado",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0106.40.00",
+  "descricao": "Serviços de instalação de gás",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0106.50.00",
+  "descricao": "Serviços de instalação de isolamentos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0106.60.00",
+  "descricao": "Serviços de instalação de elevadores, esteiras e escadas rolantes",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0106.90.00",
+  "descricao": "Serviços de instalação não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0107",
+  "descricao": "Serviços de acabamento",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0107.10.00",
+  "descricao": "Serviços de vidraçaria",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0107.20.00",
+  "descricao": "Serviços de gesso e de estuque",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0107.30.00",
+  "descricao": "Serviços de pintura",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0107.40.00",
+  "descricao": "Serviços de revestimento de pisos e de paredes",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0107.50.00",
+  "descricao": "Serviços de carpintaria e de serralharia",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0107.60.00",
+  "descricao": "Serviços de instalação de cercas e grades",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0107.90.00",
+  "descricao": "Serviços de acabamento não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.02",
+  "descricao": "Serviços de intermediação na distribuição de mercadorias",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0201.00.00",
+  "descricao": "Serviços de intermediação na distribuição de mercadorias",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0202.00.00",
+  "descricao": "Comércio atacadista",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0203.00.00",
+  "descricao": "Comércio varejista",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0204.00.00",
+  "descricao": "Serviços de despacho aduaneiro",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0205.00.00",
+  "descricao": "Serviços de intermediação na comercialização de energia elétrica",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.03",
+  "descricao": "Fornecimento de alimentação e bebidas e serviços de hospedagem",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0301",
+  "descricao": "Fornecimento de alimentação, incluindo refeições",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0301.10.00",
+  "descricao": "Fornecimento de refeições acompanhado de serviços de restaurante",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0301.2",
+  "descricao": "Fornecimento de refeições com serviços limitados de restaurante",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0301.21.00",
+  "descricao": "Fornecimento de refeições pelo sistema de autosserviço (self-service)",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0301.22.00",
+  "descricao": "Fornecimento de comidas rápidas (fast-food)",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0301.29.00",
+  "descricao": "Fornecimento de refeições com serviços limitados de restaurante não classificado em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0301.3",
+  "descricao": "Fornecimento de alimentação, incluindo refeições, sob contrato",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0301.31.00",
+  "descricao": "Fornecimento de alimentação para eventos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0301.32.00",
+  "descricao": "Fornecimento de alimentação para operadores de transportes (comissaria ou catering)",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0301.39.00",
+  "descricao": "Fornecimento de alimentação, incluindo refeições, sob contrato não classificado em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0301.90.00",
+  "descricao": "Fornecimento de alimentação não classificado em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0302.00.00",
+  "descricao": "Fornecimento de bebidas em bares, cervejarias e outros",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0303",
+  "descricao": "Serviços de hospedagem para visitantes",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0303.1",
+  "descricao": "Serviços de hospedagem em quartos ou unidades de hospedagem para visitantes",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0303.11.00",
+  "descricao": "Serviços de hospedagem em quartos ou unidades de hospedagem para visitantes, com serviços diários de faxina",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0303.12.00",
+  "descricao": "Serviços de hospedagem em quartos ou unidades de hospedagem para visitantes, sem serviços diários de faxina",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0303.13.00",
+  "descricao": "Serviços de hospedagem em quartos ou unidades de hospedagem para visitantes, em propriedades partilhadas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0303.14.00",
+  "descricao": "Serviços de hospedagem em quartos ou unidades de hospedagem para visitantes, em quartos de múltipla ocupação",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0303.20.00",
+  "descricao": "Serviços de acampamentos turísticos (camping)",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0303.90.00",
+  "descricao": "Serviços de hospedagem para visitantes não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0304",
+  "descricao": "Serviços de hospedagem, exceto para visitantes",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0304.10.00",
+  "descricao": "Serviços de hospedagem em quartos ou unidades de hospedagem para estudantes em residências estudantis",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0304.20.00",
+  "descricao": "Serviços de hospedagem em quartos ou unidades de hospedagem para trabalhadores em hotéis ou campos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0304.90.00",
+  "descricao": "Serviços de hospedagem, exceto para visitantes não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.04",
+  "descricao": "Serviços de transporte de passageiros",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0401",
+  "descricao": "Serviços de transporte local de passageiros",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0401.1",
+  "descricao": "Serviços de transporte terrestre local de passageiros",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0401.11",
+  "descricao": "Serviços de transporte rodoviário local regular de passageiros",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0401.11.1",
+  "descricao": "Serviços de transporte rodoviário local regular de passageiros, exceto em áreas metropolitanas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0401.11.11",
+  "descricao": "Serviços de transporte rodoviário local prestados exclusivamente por meio de ônibus",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0401.11.19",
+  "descricao": "Serviços de transporte rodoviário local regular de passageiros, exceto em áreas metropolitanas não classificados em subitens anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0401.11.20",
+  "descricao": "Serviços de transporte rodoviário local regular de passageiros, em áreas metropolitanas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0401.12",
+  "descricao": "Serviços especiais de transporte rodoviário local regular de passageiros",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0401.12.10",
+  "descricao": "Serviços de transporte escolar",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0401.12.20",
+  "descricao": "Serviços de transporte para aeroportos (shuttle)",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0401.12.90",
+  "descricao": "Serviços especiais de transporte rodoviário local regular de passageiros não classificados em itens anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0401.13.00",
+  "descricao": "Serviços de táxi",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0401.14.00",
+  "descricao": "Serviços de carro com motorista, exceto táxi",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0401.15",
+  "descricao": "Serviços de transporte rodoviário local de passageiros por fretamento",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0401.15.10",
+  "descricao": "Serviços de fretamento contínuo, local",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0401.15.20",
+  "descricao": "Serviços de fretamento eventual ou turístico, local",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0401.16",
+  "descricao": "Serviços de transporte local de passageiros por veículos sobre trilhos",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0401.16.10",
+  "descricao": "Serviços de transporte ferroviário local de passageiros",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0401.16.20",
+  "descricao": "Serviços de transporte metroviário (metrô) local de passageiros",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0401.16.90",
+  "descricao": "Serviços de transporte local de passageiros por veículos sobre trilhos não classificados em itens anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0401.17",
+  "descricao": "Serviços de transporte terrestre para passeios turísticos (sightseeing)",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0401.17.10",
+  "descricao": "Serviços de transporte rodoviário para passeios turísticos (sightseeing)",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0401.17.20",
+  "descricao": "Serviços de transporte ferroviário para passeios turísticos (sightseeing)",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0401.17.90",
+  "descricao": "Serviços de transporte terrestre para passeios turísticos (sightseeing) não classificados em itens anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0401.19.00",
+  "descricao": "Serviços de transporte terrestre local de passageiros não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0401.2",
+  "descricao": "Serviços de transporte aquaviário local de passageiros",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0401.21",
+  "descricao": "Serviços de transporte aquaviário local de passageiros, por navegação interior",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0401.21.10",
+  "descricao": "Serviços de transporte aquaviário local de passageiros, por navegação interior, em embarcações para travessia",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0401.21.20",
+  "descricao": "Serviços de transporte aquaviário local de passageiros, por navegação interior, em embarcações para cruzeiros",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0401.21.90",
+  "descricao": "Serviços de transporte aquaviário local de passageiros, por navegação interior não classificados em itens anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0401.22.00",
+  "descricao": "Serviços de transporte aquaviário local de passageiros por fretamento",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0401.23.00",
+  "descricao": "Serviços de transporte aquaviário para passeios turísticos (sightseeing)",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0401.29.00",
+  "descricao": "Serviços de transporte aquaviário local de passageiros não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0401.30.00",
+  "descricao": "Serviços de transporte integrado local de passageiros",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0401.4",
+  "descricao": "Serviços de transporte aéreo local de passageiros",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0401.41.00",
+  "descricao": "Serviços de táxi aéreo local",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0401.42.00",
+  "descricao": "Serviços de transporte aéreo local de passageiros por fretamento",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0401.43.00",
+  "descricao": "Serviços de transporte aéreo para passeios turísticos (sightseeing)",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0401.49.00",
+  "descricao": "Serviços de transporte aéreo local de passageiros não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0401.90.00",
+  "descricao": "Serviços de transporte local de passageiros não classificados não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0402",
+  "descricao": "Serviços de transporte nacional, exceto local, de passageiros",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0402.1",
+  "descricao": "Serviços de transporte terrestre nacional, exceto local, de passageiros",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0402.11",
+  "descricao": "Serviços de transporte rodoviário nacional, exceto local, regular de passageiros",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0402.11.10",
+  "descricao": "Serviços de transporte rodoviário nacional, exceto local, prestados exclusivamente por meio de ônibus",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0402.11.90",
+  "descricao": "Serviços de transporte rodoviário nacional, exceto local, de passageiros, não classificados não classificados em subitens anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0402.12.00",
+  "descricao": "Serviços especiais de transporte rodoviário nacional, exceto local, regular de passageiros",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0402.13",
+  "descricao": "Serviços de transporte rodoviário nacional, exceto local, de passageiros, por fretamento",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0402.13.10",
+  "descricao": "Serviços de fretamento contínuo, nacional, exceto local",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0402.13.20",
+  "descricao": "Serviços de fretamento eventual ou turístico, nacional, exceto local",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0402.14.00",
+  "descricao": "Serviços de transporte ferroviário nacional, exceto local, de passageiros",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0402.19.00",
+  "descricao": "Serviços de transporte terrestre nacional, exceto local, de passageiros não classificados não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0402.2",
+  "descricao": "Serviços de transporte aquaviário nacional, exceto local, de passageiros",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0402.21",
+  "descricao": "Serviços de transporte aquaviário nacional, exceto local, de passageiros, por navegação interior",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0402.21.10",
+  "descricao": "Serviços de transporte aquaviário de passageiros, por navegação interior, em embarcações para travessia",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0402.21.20",
+  "descricao": "Serviços de transporte aquaviário de passageiros, por navegação interior, em embarcações para cruzeiros",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0402.21.90",
+  "descricao": "Serviços de transporte aquaviário nacional, exceto local, de passageiros, por navegação interior não classificados em itens anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0402.22.00",
+  "descricao": "Serviços de transporte aquaviário nacional costeiro de passageiros",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0402.23.00",
+  "descricao": "Serviços de transporte aquaviário nacional, exceto local, de passageiros por fretamento",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0402.29.00",
+  "descricao": "Serviços de transporte aquaviário nacional, exceto local, de passageiros não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0402.3",
+  "descricao": "Serviços de transporte aéreo nacional, exceto local, de passageiros",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0402.31.00",
+  "descricao": "Serviços de transporte aéreo nacional, exceto local, regular de passageiros",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0402.32.00",
+  "descricao": "Serviços de táxi aéreo nacional, exceto local",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0402.33.00",
+  "descricao": "Serviços de transporte aéreo nacional, exceto local, de passageiros, por fretamento",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0402.39.00",
+  "descricao": "Serviços de transporte aéreo nacional, exceto local, de passageiros não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0402.90.00",
+  "descricao": "Serviços de transporte nacional, exceto local, de passageiros não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0403",
+  "descricao": "Serviços de transporte internacional de passageiros",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0403.1",
+  "descricao": "Serviços regulares de transporte terrestre internacional de passageiros",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0403.11",
+  "descricao": "Serviços de transporte rodoviário internacional regular de passageiros",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0403.11.10",
+  "descricao": "Serviços de transporte de passageiros prestados exclusivamente por meio de ônibus",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0403.11.90",
+  "descricao": "Serviços de transporte rodoviário internacional de passageiros não classificados em itens anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0403.12.00",
+  "descricao": "Serviços de transporte rodoviário internacional de passageiros por fretamento",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0403.13",
+  "descricao": "Serviços de transporte internacional de passageiros por veículos sobre trilhos",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0403.13.10",
+  "descricao": "Serviços de transporte internacional ferroviário de passageiros",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0403.13.90",
+  "descricao": "Serviços de transporte internacional de passageiros por veículos sobre trilhos não classificados em itens anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0403.19.00",
+  "descricao": "Serviços de transporte terrestre internacional de passageiros não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0403.2",
+  "descricao": "Serviços de transporte aquaviário internacional de passageiros",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0403.21",
+  "descricao": "Serviços de transporte aquaviário internacional de passageiros, por navegação interior",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0403.21.10",
+  "descricao": "Serviços de transporte aquaviário internacional de passageiros, por navegação interior, em embarcações para travessia",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0403.21.20",
+  "descricao": "Serviços de transporte aquaviário internacional de passageiros, por navegação interior, em embarcações para cruzeiros",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0403.21.90",
+  "descricao": "Serviços de transporte aquaviário internacional de passageiros, por navegação interior não classificados em itens anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0403.22.00",
+  "descricao": "Serviços de transporte aquaviário internacional costeiro de passageiros",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0403.23.00",
+  "descricao": "Serviços de transporte aquaviário internacional transoceânico de passageiros",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0403.24.00",
+  "descricao": "Serviços de transporte aquaviário internacional de passageiros por fretamento",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0403.29.00",
+  "descricao": "Serviços de transporte aquaviário internacional de passageiros não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0403.3",
+  "descricao": "Serviços de transporte aéreo internacional de passageiros",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0403.31.00",
+  "descricao": "Serviços de transporte aéreo internacional regular de passageiros",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0403.32.00",
+  "descricao": "Serviços de táxi aéreo internacional",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0403.33.00",
+  "descricao": "Serviços de transporte aéreo internacional de passageiros por fretamento",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0403.39.00",
+  "descricao": "Serviços de transporte aéreo internacional de passageiros não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0403.90.00",
+  "descricao": "Serviços de transporte internacional de passageiros não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0404",
+  "descricao": "Locação de veículos de passageiros com operador",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0404.10.00",
+  "descricao": "Locação de veículos rodoviários de passageiros com motorista",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0404.20.00",
+  "descricao": "Locação de embarcações de passageiros com tripulação",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0404.30.00",
+  "descricao": "Locação de aeronaves de passageiros com tripulação",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0405.00.00",
+  "descricao": "Afretamento de embarcações de passageiros por tempo",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.05",
+  "descricao": "Serviços de transporte de cargas",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0501",
+  "descricao": "Serviços de transporte terrestre de cargas",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0501.1",
+  "descricao": "Serviços de transporte rodoviário de cargas",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0501.11",
+  "descricao": "Serviços de transporte rodoviário de cargas a granel",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0501.11.10",
+  "descricao": "Serviços de transporte rodoviário de cargas sólidas a granel",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0501.11.20",
+  "descricao": "Serviços de transporte rodoviário de cargas líquidas, ou liquefeitas, a granel",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0501.11.30",
+  "descricao": "Serviços de transporte rodoviário de cargas gasosas a granel",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0501.12",
+  "descricao": "Serviços de transporte rodoviário de carga geral, exceto em contêineres",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0501.12.10",
+  "descricao": "Serviços de transporte rodoviário de carga solta, não unitizada",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0501.12.20",
+  "descricao": "Serviços de transporte rodoviário de carga unitizada",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0501.12.30",
+  "descricao": "Serviços de transporte rodoviário de carga frigorificada ou climatizada",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0501.13",
+  "descricao": "Serviços de transporte rodoviário de cargas em contêineres",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0501.13.10",
+  "descricao": "Serviços de transporte rodoviário de cargas em contêineres frigorificados ou climatizados",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0501.13.20",
+  "descricao": "Serviços de transporte rodoviário de cargas em contêineres não frigorificados ou climatizados",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0501.14",
+  "descricao": "Serviços de transporte rodoviário de cargas especiais",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0501.14.10",
+  "descricao": "Serviços de transporte rodoviário de cargas vivas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0501.14.20",
+  "descricao": "Serviços de transporte rodoviário de mudanças domésticas e de mobília e outros objetos de escritório",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0501.14.30",
+  "descricao": "Serviços de transporte rodoviário de cargas de grande porte",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0501.14.40",
+  "descricao": "Serviços de transporte rodoviário de veículos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0501.14.5",
+  "descricao": "Serviços de transporte rodoviário de produtos perigosos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0501.14.51",
+  "descricao": "Serviços de transporte rodoviário de combustíveis, lubrificantes e GLP, inclusive apresentados em botijões metálicos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0501.14.52",
+  "descricao": "Serviços de transporte rodoviário de produtos químicos perigosos, exceto lubrificantes e GLP",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0501.14.59",
+  "descricao": "Serviços de transporte rodoviário de produtos perigosos não classificados em subitens anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0501.15.00",
+  "descricao": "Serviços de transporte rodoviário de cargas postais e malotes",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0501.19.00",
+  "descricao": "Serviços de transporte rodoviário de cargas não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0501.2",
+  "descricao": "Serviços de transporte ferroviário de cargas",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0501.21",
+  "descricao": "Serviços de transporte ferroviário de cargas a granel",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0501.21.10",
+  "descricao": "Serviços de transporte ferroviário de cargas sólidas a granel",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0501.21.20",
+  "descricao": "Serviços de transporte ferroviário de cargas líquidas, ou liquefeitas, a granel",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0501.21.30",
+  "descricao": "Serviços de transporte ferroviário de cargas gasosas a granel",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0501.22",
+  "descricao": "Serviços de transporte ferroviário de cargas geral, exceto em contêineres",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0501.22.10",
+  "descricao": "Serviços de transporte ferroviário de carga solta, não unitizada",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0501.22.20",
+  "descricao": "Serviços de transporte ferroviário de carga unitizada",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0501.22.30",
+  "descricao": "Serviços de transporte ferroviário de carga frigorificada ou climatizada",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0501.23",
+  "descricao": "Serviços de transporte ferroviário de cargas em contêineres",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0501.23.10",
+  "descricao": "Serviços de transporte ferroviário de cargas em contêineres frigorificados ou climatizados",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0501.23.20",
+  "descricao": "Serviços de transporte ferroviário de cargas em contêineres não frigorificados ou climatizados",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0501.24",
+  "descricao": "Serviços de transporte ferroviário de cargas especiais",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0501.24.10",
+  "descricao": "Serviços de transporte ferroviário de cargas vivas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0501.24.2",
+  "descricao": "Serviços de transporte ferroviário de produtos perigosos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0501.24.21",
+  "descricao": "Serviços de transporte ferroviário de combustíveis, lubrificantes e GLP, inclusive apresentados em botijões metálicos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0501.24.22",
+  "descricao": "Serviços de transporte ferroviário de produtos químicos perigosos, exceto lubrificantes e GLP",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0501.24.29",
+  "descricao": "Serviços de transporte ferroviário de produtos perigosos não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0501.25.00",
+  "descricao": "Serviços de transporte ferroviário de bens e valores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0501.29.00",
+  "descricao": "Serviços de transporte ferroviário de cargas não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0501.3",
+  "descricao": "Serviços de transporte de cargas por meio de dutos",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0501.31.00",
+  "descricao": "Serviços de transporte de petróleo, gás natural e combustível por meio de dutos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0501.32.00",
+  "descricao": "Serviços de transporte de minérios por meio de dutos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0501.39.00",
+  "descricao": "Serviços de transporte de cargas por meio de dutos não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0502",
+  "descricao": "Serviços de transporte aquaviário de cargas",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0502.1",
+  "descricao": "Serviços de transporte aquaviário por navegação interior de cargas",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0502.11",
+  "descricao": "Serviços de transporte aquaviário por navegação interior de cargas a granel",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0502.11.10",
+  "descricao": "Serviços de transporte aquaviário por navegação interior de cargas sólidas, a granel",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0502.11.20",
+  "descricao": "Serviços de transporte aquaviário por navegação interior de cargas líquidas, ou liquefeitas, a granel",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0502.11.30",
+  "descricao": "Serviços de transporte aquaviário por navegação interior de cargas gasosas a granel",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0502.12",
+  "descricao": "Serviços de transporte aquaviário por navegação interior de carga geral, exceto em contêineres",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0502.12.10",
+  "descricao": "Serviços de transporte aquaviário por navegação interior de carga solta, não unitizada",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0502.12.20",
+  "descricao": "Serviços de transporte aquaviário por navegação interior de carga unitizada",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0502.12.30",
+  "descricao": "Serviços de transporte aquaviário por navegação interior de carga frigorificada ou climatizada",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0502.13",
+  "descricao": "Serviços de transporte aquaviário por navegação interior de cargas em contêineres",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0502.13.10",
+  "descricao": "Serviços de transporte aquaviário por navegação interior de cargas em contêineres frigorificados ou climatizados",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0502.13.20",
+  "descricao": "Serviços de transporte aquaviário por navegação interior de cargas em contêineres não frigorificados ou climatizados",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0502.14",
+  "descricao": "Serviços de transporte aquaviário por navegação interior de cargas especiais",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0502.14.10",
+  "descricao": "Serviços de transporte aquaviário por navegação interior de cargas vivas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0502.14.20",
+  "descricao": "Serviços de transporte aquaviário por navegação interior de mudanças domésticas e de mobília e outros objetos de escritório",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0502.14.30",
+  "descricao": "Serviços de transporte aquaviário por navegação interior de cargas de grande porte",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0502.14.40",
+  "descricao": "Serviços de transporte aquaviário por navegação interior de veículos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0502.14.5",
+  "descricao": "Serviços de transporte aquaviário por navegação interior de produtos perigosos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0502.14.51",
+  "descricao": "Serviços de transporte aquaviário por navegação interior de combustíveis, lubrificantes e GLP, inclusive apresentado em botijões metálicos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0502.14.52",
+  "descricao": "Serviços de transporte aquaviário por navegação interior de produtos químicos perigosos, exceto lubrificantes e GLP",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0502.14.59",
+  "descricao": "Serviços de transporte aquaviário por navegação interior de produtos perigosos não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0502.14.90",
+  "descricao": "Serviços de transporte aquaviário por navegação interior de cargas especiais não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0502.19.00",
+  "descricao": "Serviços de transporte aquaviário por navegação interior de cargas não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0502.2",
+  "descricao": "Serviços de transporte aquaviário costeiro de cargas",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0502.21",
+  "descricao": "Serviços de transporte aquaviário costeiro de cargas a granel",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0502.21.10",
+  "descricao": "Serviços de transporte aquaviário costeiro de cargas sólidas a granel",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0502.21.20",
+  "descricao": "Serviços de transporte aquaviário costeiro de cargas líquidas ou liquefeitas, a granel",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0502.21.30",
+  "descricao": "Serviços de transporte aquaviário costeiro de cargas gasosas a granel",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0502.22",
+  "descricao": "Serviços de transporte aquaviário costeiro de cargas em geral, exceto em contêineres",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0502.22.10",
+  "descricao": "Serviços de transporte aquaviário costeiro de carga solta, não unitizada",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0502.22.20",
+  "descricao": "Serviços de transporte aquaviário costeiro de carga unitizada",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0502.22.30",
+  "descricao": "Serviços de transporte aquaviário costeiro de carga frigorificada ou climatizada",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0502.23",
+  "descricao": "Serviços de transporte aquaviário costeiro de cargas em contêineres",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0502.23.10",
+  "descricao": "Serviços de transporte aquaviário costeiro de cargas em contêineres frigorificados ou climatizados",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0502.23.20",
+  "descricao": "Serviços de transporte aquaviário costeiro de cargas em contêineres não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0502.24",
+  "descricao": "Serviços de transporte aquaviário costeiro de cargas especiais",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0502.24.10",
+  "descricao": "Serviços de transporte aquaviário costeiro de cargas vivas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0502.24.20",
+  "descricao": "Serviços de transporte aquaviário costeiro de mudanças domésticas e de mobília e outros objetos de escritório",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0502.24.30",
+  "descricao": "Serviços de transporte aquaviário costeiro de cargas de grande porte",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0502.24.40",
+  "descricao": "Serviços de transporte aquaviário costeiro de veículos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0502.24.5",
+  "descricao": "Serviços de transporte aquaviário costeiro de produtos perigosos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0502.24.51",
+  "descricao": "Serviços de transporte aquaviário costeiro de combustíveis, lubrificantes e GLP, inclusive apresentado em botijões metálicos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0502.24.52",
+  "descricao": "Serviços de transporte aquaviário costeiro de produtos químicos perigosos, exceto lubrificantes e GLP",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0502.24.59",
+  "descricao": "Serviços de transporte aquaviário costeiro de produtos perigosos não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0502.29.00",
+  "descricao": "Serviços de transportes aquaviário costeiro de cargas não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0502.3",
+  "descricao": "Serviços de transporte aquaviário transoceânico de cargas",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0502.31",
+  "descricao": "Serviços de transporte aquaviário transoceânico de cargas a granel",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0502.31.10",
+  "descricao": "Serviços de transporte aquaviário transoceânico de cargas sólidas a granel",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0502.31.20",
+  "descricao": "Serviços de transporte aquaviário transoceânico de cargas líquidas, ou liquefeitas, a granel",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0502.31.30",
+  "descricao": "Serviços de transporte aquaviário transoceânico de cargas gasosas a granel",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0502.32",
+  "descricao": "Serviços de transporte aquaviário transoceânico de carga geral, exceto em contêineres",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0502.32.10",
+  "descricao": "Serviços de transporte aquaviário transoceânico de carga solta, não unitizada",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0502.32.20",
+  "descricao": "Serviços de transporte aquaviário transoceânico de carga unitizada",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0502.32.30",
+  "descricao": "Serviços de transporte aquaviário transoceânico de carga frigorificada ou climatizada",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0502.33",
+  "descricao": "Serviços de transporte aquaviário transoceânico de cargas em contêineres",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0502.33.10",
+  "descricao": "Serviços de transporte aquaviário transoceânico de cargas em contêineres frigorificados ou climatizados",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0502.33.20",
+  "descricao": "Serviços de transporte aquaviário transoceânico de cargas em contêineres não frigorificados ou climatizados",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0502.34",
+  "descricao": "Serviços de transporte aquaviário transoceânico de cargas especiais",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0502.34.10",
+  "descricao": "Serviços de transporte aquaviário transoceânico de cargas vivas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0502.34.20",
+  "descricao": "Serviços de transporte aquaviário transoceânico de mudanças domésticas e de mobília e outros objetos de escritório",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0502.34.30",
+  "descricao": "Serviços de transporte aquaviário transoceânico de cargas de grande porte",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0502.34.40",
+  "descricao": "Serviços de transporte aquaviário transoceânico de veículos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0502.34.5",
+  "descricao": "Serviços de transporte aquaviário transoceânico de produtos perigosos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0502.34.51",
+  "descricao": "Serviços de transporte aquaviário transoceânico de combustíveis, lubrificantes e GLP, inclusive apresentado em botijões metálicos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0502.34.52",
+  "descricao": "Serviços de transporte aquaviário transoceânico de produtos químicos perigosos, exceto lubrificantes e GLP",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0502.34.59",
+  "descricao": "Serviços de transporte aquaviário transoceânico de produtos perigosos não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0502.39.00",
+  "descricao": "Serviços de transporte aquaviário transoceânico de cargas não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0503",
+  "descricao": "Serviços de transporte aéreo de cargas",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0503.1",
+  "descricao": "Serviços de transporte aéreo de cargas em contêineres",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0503.11.00",
+  "descricao": "Serviços de transporte aéreo de cargas em contêineres frigorificados ou climatizados",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0503.12.00",
+  "descricao": "Serviços de transporte aéreo de cargas em contêineres não frigorificados ou climatizados",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0503.2",
+  "descricao": "Serviços de transporte aéreo de cargas especiais",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0503.21.00",
+  "descricao": "Serviços de transporte aéreo de produtos perigosos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0503.22.00",
+  "descricao": "Serviços de transporte aéreo de cargas vivas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0503.23.00",
+  "descricao": "Serviços de transporte aéreo de máquinas e veículos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0503.24.00",
+  "descricao": "Serviços de transporte aéreo de produtos perecíveis",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0503.25.00",
+  "descricao": "Serviços de transporte aéreo de cargas frágeis",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0503.26.00",
+  "descricao": "Serviços de transporte aéreo de cargas controladas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0503.27.00",
+  "descricao": "Serviços de transporte aéreo de valores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0503.28.00",
+  "descricao": "Serviços de transporte aéreo de cargas postais, remessas expressas e cargas congêneres",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0503.29.00",
+  "descricao": "Serviços de transporte aéreo de cargas especiais não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0503.90.00",
+  "descricao": "Serviços de transporte aéreo de cargas não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0504",
+  "descricao": "Serviços de transporte multimodal de cargas",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0504.1",
+  "descricao": "Serviços de transporte multimodal de cargas a granel",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0504.11.00",
+  "descricao": "Serviços de transporte multimodal de cargas sólidas a granel",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0504.12.00",
+  "descricao": "Serviços de transporte multimodal de cargas líquidas, ou liquefeitas, a granel",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0504.13.00",
+  "descricao": "Serviços de transporte multimodal de cargas gasosas a granel",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0504.2",
+  "descricao": "Serviços de transporte multimodal de carga geral, exceto em contêineres",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0504.21.00",
+  "descricao": "Serviços de transporte multimodal de carga solta, não unitizada",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0504.22.00",
+  "descricao": "Serviços de transporte multimodal de carga unitizada",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0504.23.00",
+  "descricao": "Serviços de transporte multimodal de carga frigorificada ou climatizada",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0504.3",
+  "descricao": "Serviços de transporte multimodal de cargas em contêineres",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0504.31.00",
+  "descricao": "Serviços de transporte multimodal de cargas em contêineres frigorificados ou climatizados",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0504.32.00",
+  "descricao": "Serviços de transporte multimodal de cargas em contêineres não frigorificados ou climatizados",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0504.4",
+  "descricao": "Serviços de transporte multimodal de cargas especiais",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0504.41.00",
+  "descricao": "Serviços de transporte multimodal de cargas vivas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0504.42.00",
+  "descricao": "Serviços de transporte multimodal de mudanças domésticas e de mobília e outros objetos de escritório",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0504.43.00",
+  "descricao": "Serviços de transporte multimodal de cargas de grande porte",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0504.44.00",
+  "descricao": "Serviços de transporte multimodal de veículos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0504.45",
+  "descricao": "Serviços de transporte multimodal de produtos perigosos",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0504.45.10",
+  "descricao": "Serviços de transporte multimodal de combustíveis, lubrificantes e GLP, inclusive apresentado em botijões metálicos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0504.45.20",
+  "descricao": "Serviços de transporte multimodal de produtos químicos perigosos, exceto lubrificantes e GLP",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0504.45.90",
+  "descricao": "Serviços de transporte multimodal de produtos perigosos não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0504.49.00",
+  "descricao": "Serviços de transporte multimodal de cargas especiais não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0504.90.00",
+  "descricao": "Serviços de transporte multimodal de cargas não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0505",
+  "descricao": "Locação de veículos de cargas com operador",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0505.10.00",
+  "descricao": "Locação de veículos rodoviários de carga com operador",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0505.20.00",
+  "descricao": "Locação de embarcações de carga com tripulação",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0505.30.00",
+  "descricao": "Locação de aeronaves de carga com tripulação",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0506.00.00",
+  "descricao": "Afretamento de embarcações de carga por tempo",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.06",
+  "descricao": "Serviços de apoio aos transportes",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0601",
+  "descricao": "Serviços de manuseio de cargas",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0601.10.00",
+  "descricao": "Serviços de manuseio de contêineres",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0601.90.00",
+  "descricao": "Serviços de manuseio de cargas não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0602",
+  "descricao": "Serviços de armazenagem",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0602.10.00",
+  "descricao": "Serviços de armazenagem frigorificada",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0602.2",
+  "descricao": "Serviços de armazenagem de produtos perigosos",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0602.21.00",
+  "descricao": "Serviços de armazenagem de petróleo e seus derivados",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0602.22.00",
+  "descricao": "Serviços de armazenagem de combustíveis, lubrificantes e GLP, inclusive apresentado em botijões metálicos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0602.23.00",
+  "descricao": "Serviços de armazenagem de produtos químicos perigosos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0602.29.00",
+  "descricao": "Serviços de armazenagem de produtos perigosos não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0602.3",
+  "descricao": "Serviços de armazenagem de granéis sólidos, líquidos ou liquefeitos e gasosos",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0602.31.00",
+  "descricao": "Serviços de armazenagem de granéis sólidos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0602.32.00",
+  "descricao": "Serviços de armazenagem de granéis líquidos ou liquefeitos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0602.33.00",
+  "descricao": "Serviços de armazenagem de granéis gasosos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0602.90.00",
+  "descricao": "Serviços de armazenagem não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0603.00.00",
+  "descricao": "Serviços de apoio ao transporte ferroviário",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0604",
+  "descricao": "Serviços de apoio ao transporte rodoviário",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0604.10.00",
+  "descricao": "Serviços de estações rodoviárias",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0604.2",
+  "descricao": "Serviços de operação de rodovias, pontes e túneis",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0604.21.00",
+  "descricao": "Serviços de operação de rodovias",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0604.22.00",
+  "descricao": "Serviços de operação de pontes e túneis",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0604.30.00",
+  "descricao": "Serviços de estacionamento",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0604.40.00",
+  "descricao": "Serviços de reboque para veículos particulares e comerciais",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0604.90.00",
+  "descricao": "Serviços de apoio ao transporte rodoviário não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0605",
+  "descricao": "Serviços de apoio ao transporte aquaviário",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0605.10.00",
+  "descricao": "Serviços de operação de portos e canais, exceto manuseio de cargas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0605.20.00",
+  "descricao": "Serviços de praticagem e de atracação",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0605.30.00",
+  "descricao": "Serviços de salvamento de embarcações",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0605.40.00",
+  "descricao": "Serviços de navegação de apoio",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0605.90.00",
+  "descricao": "Serviços de apoio ao transporte aquaviário não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0606",
+  "descricao": "Serviços de apoio ao transporte aéreo e aeroespacial",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0606.1",
+  "descricao": "Serviços de apoio ao transporte aéreo",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0606.11.00",
+  "descricao": "Serviços de operação aeroportuária, exceto manuseio de cargas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0606.12.00",
+  "descricao": "Serviços de controle de tráfego aéreo",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0606.19.00",
+  "descricao": "Serviços de apoio ao transporte aéreo não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0606.20.00",
+  "descricao": "Serviços de apoio ao transporte aeroespacial",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0607.00.00",
+  "descricao": "Serviços de agenciamento de transporte de cargas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0608",
+  "descricao": "Serviços de apoio ao transporte multimodal de cargas",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0608.10.00",
+  "descricao": "Serviços de coleta e entrega de cargas no transporte multimodal",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0608.20.00",
+  "descricao": "Serviços de unitização ou desunitização de cargas no transporte multimodal",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0608.30.00",
+  "descricao": "Serviços de movimentação de cargas no transporte multimodal",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0608.40.00",
+  "descricao": "Serviços de consolidação ou desconsolidação documental de cargas no transporte multimodal",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0608.90.00",
+  "descricao": "Serviços de apoio ao transporte multimodal de cargas não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0609.00.00",
+  "descricao": "Serviços de apoio aos transportes não classificados em posições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.07",
+  "descricao": "Serviços postais",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0701.00.00",
+  "descricao": "Serviços postais e de telegrama",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0702.00.00",
+  "descricao": "Serviços de coleta, transporte, remessa ou entrega de documentos ou encomendas, exceto remessas expressas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0703.00.00",
+  "descricao": "Serviços de remessas expressas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.08",
+  "descricao": "Serviços de transmissão e distribuição de eletricidade",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0801",
+  "descricao": "Serviços de transmissão e distribuição de eletricidade",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0801.10.00",
+  "descricao": "Serviços de transmissão de eletricidade",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0801.20.00",
+  "descricao": "Serviços de distribuição de eletricidade",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0802",
+  "descricao": "Serviços de distribuição de água",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0802.10.00",
+  "descricao": "Serviços de distribuição de água por meio de tubulações, exceto vapor de água e água quente",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0802.20.00",
+  "descricao": "Serviços de distribuição de vapor de água, água quente e ar condicionado por meio de tubulações",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0802.30.00",
+  "descricao": "Serviços de distribuição de água, exceto por meio de tubulações",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0803.00.00",
+  "descricao": "Serviços de distribuição de gás canalizado",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.09",
+  "descricao": "Serviços financeiros e serviços relacionados",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0901",
+  "descricao": "Serviços financeiros, exceto bancos de investimento, serviços de seguros e previdência complementar",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0901.10.00",
+  "descricao": "Serviços de banco central",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0901.2",
+  "descricao": "Serviços de depósito",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0901.21.00",
+  "descricao": "Serviços de depósito para pessoas jurídicas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0901.22.00",
+  "descricao": "Serviços de depósito para pessoas físicas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0901.29.00",
+  "descricao": "Serviços de depósito para outros depositantes",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0901.3",
+  "descricao": "Serviços de concessão de crédito",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0901.31.00",
+  "descricao": "Serviços de financiamentos imobiliários residenciais",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0901.32.00",
+  "descricao": "Serviços de financiamentos imobiliários não residenciais",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0901.33.00",
+  "descricao": "Serviços de empréstimos e financiamentos pessoais",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0901.34.00",
+  "descricao": "Serviços de empréstimos e financiamentos comerciais",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0901.35.00",
+  "descricao": "Serviços de empréstimos e financiamentos industriais",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0901.36.00",
+  "descricao": "Serviços de empréstimos e financiamentos agropecuários",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0901.39.00",
+  "descricao": "Serviços de concessão de crédito não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0901.40.00",
+  "descricao": "Serviços de cartão de crédito",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0901.5",
+  "descricao": "Operações de arrendamento mercantil financeiro",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0901.51",
+  "descricao": "Arrendamento mercantil financeiro de máquinas e equipamentos",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0901.51.1",
+  "descricao": "Arrendamento mercantil financeiro de equipamentos de transporte",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0901.51.11",
+  "descricao": "Arrendamento mercantil financeiro de veículos rodoviários automotores para o transporte de passageiros",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0901.51.12",
+  "descricao": "Arrendamento mercantil financeiro de veículos rodoviários automotores para o transporte de mercadorias",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0901.51.13",
+  "descricao": "Arrendamento mercantil financeiro de veículos e equipamentos ferroviários",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0901.51.14",
+  "descricao": "Arrendamento mercantil financeiro de outros equipamentos de transporte terrestre, inclusive de veículos de uso misto",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0901.51.15",
+  "descricao": "Arrendamento mercantil financeiro de navios e outras embarcações",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0901.51.16",
+  "descricao": "Arrendamento mercantil financeiro de aeronaves",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0901.51.17",
+  "descricao": "Arrendamento mercantil financeiro de contêineres",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0901.51.2",
+  "descricao": "Arrendamento mercantil financeiro de outras máquinas e equipamentos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0901.51.21",
+  "descricao": "Arrendamento mercantil financeiro de máquinas e equipamentos agrícolas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0901.51.22",
+  "descricao": "Arrendamento mercantil financeiro de máquinas e equipamentos de construção",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0901.51.23",
+  "descricao": "Arrendamento mercantil financeiro de máquinas e equipamentos para escritórios, exceto computadores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0901.51.24",
+  "descricao": "Arrendamento mercantil financeiro de computadores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0901.51.25",
+  "descricao": "Arrendamento mercantil financeiro de equipamentos de telecomunicação",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0901.51.29",
+  "descricao": "Arrendamento mercantil financeiro de outras máquinas e equipamentos não classificado em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0901.52",
+  "descricao": "Arrendamento mercantil financeiro de outras mercadorias",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0901.52.10",
+  "descricao": "Arrendamento mercantil financeiro de televisões e outros eletroeletrônicos domésticos, bem como seus acessórios",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0901.52.20",
+  "descricao": "Arrendamento mercantil financeiro de mídias gravadas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0901.52.30",
+  "descricao": "Arrendamento mercantil financeiro de móveis e eletrodomésticos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0901.52.40",
+  "descricao": "Arrendamento mercantil financeiro de equipamentos para diversão e lazer",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0901.52.50",
+  "descricao": "Arrendamento mercantil financeiro de artigos de cama, mesa e banho",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0901.52.90",
+  "descricao": "Arrendamento mercantil financeiro de outras mercadorias não classificado em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0901.90.00",
+  "descricao": "Serviços financeiros, exceto bancos de investimento, serviços de seguros e previdência complementar não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0902",
+  "descricao": "Serviços de banco de investimento",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0902.10.00",
+  "descricao": "Serviços de valoração de ativos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0902.20.00",
+  "descricao": "Serviços de subscrição de valores mobiliários",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0902.30.00",
+  "descricao": "Serviços de fusões e aquisições",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0902.40.00",
+  "descricao": "Serviços de capital de risco e finanças corporativas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0902.90.00",
+  "descricao": "Serviços de banco de investimento não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0903",
+  "descricao": "Serviços de seguro e previdência complementar (excluídos os serviços de resseguro), exceto serviços de previdência social compulsória",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0903.1",
+  "descricao": "Serviços de seguro de vida e de previdência complementar, excluídos os serviços de resseguro",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0903.11.00",
+  "descricao": "Serviços de seguro de vida",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0903.12.00",
+  "descricao": "Serviços de previdência complementar aberta",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0903.13.00",
+  "descricao": "Serviços de previdência complementar fechada",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0903.2",
+  "descricao": "Serviços de seguro saúde e de acidentes",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0903.21.00",
+  "descricao": "Serviços de seguro saúde",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0903.22.00",
+  "descricao": "Serviços de seguro de acidentes",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0903.3",
+  "descricao": "Serviços de outros seguros, excluídos os serviços de resseguro",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0903.31.00",
+  "descricao": "Serviços de seguro de veículos rodoviários",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0903.32.00",
+  "descricao": "Serviços de seguro de veículos e equipamentos para transporte ferroviário, aquaviário e aéreo",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0903.33.00",
+  "descricao": "Serviços de seguro de cargas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0903.34.00",
+  "descricao": "Serviços de seguro de outras propriedades",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0903.35.00",
+  "descricao": "Serviços de seguro por responsabilidade civil",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0903.36.00",
+  "descricao": "Serviços de seguro de crédito e de caução",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0903.37.00",
+  "descricao": "Serviços de seguro de viagem",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0903.38.00",
+  "descricao": "Serviços de seguro rural",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0903.39.00",
+  "descricao": "Serviços de outros seguros, excluídos os serviços de resseguro não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0904",
+  "descricao": "Serviços de resseguro e retrocessão",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0904.10.00",
+  "descricao": "Serviços de resseguro de vida",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0904.2",
+  "descricao": "Serviços de resseguro saúde e de acidentes",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0904.21.00",
+  "descricao": "Serviços de resseguro saúde",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0904.22.00",
+  "descricao": "Serviços de resseguro de acidentes",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0904.3",
+  "descricao": "Serviços de outros resseguros",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0904.31.00",
+  "descricao": "Serviços de resseguro de veículos rodoviários",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0904.32.00",
+  "descricao": "Serviços de resseguro de veículos e equipamentos para transporte ferroviário, aquaviário e aéreo",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0904.33.00",
+  "descricao": "Serviços de resseguro de cargas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0904.34.00",
+  "descricao": "Serviços de resseguro de outras propriedades",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0904.35.00",
+  "descricao": "Serviços de resseguro de responsabilidade civil",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0904.36.00",
+  "descricao": "Serviços de resseguro de crédito e caução",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0904.37.00",
+  "descricao": "Serviços de resseguro rural",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0904.39.00",
+  "descricao": "Serviços de outros resseguros não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0904.40.00",
+  "descricao": "Serviços de retrocessão",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0905",
+  "descricao": "Serviços auxiliares aos serviços financeiros, exceto os relacionados a seguros e previdência complementar",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0905.1",
+  "descricao": "Serviços de corretagem de títulos, derivativos e commodities",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0905.11.00",
+  "descricao": "Serviços de corretagem de títulos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0905.12.00",
+  "descricao": "Serviços de corretagem de derivativos e commodities",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0905.13.00",
+  "descricao": "Serviços de compensação de transações financeiras, inclusive com ativos financeiros (clearinghouse)",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0905.2",
+  "descricao": "Serviços de gestão e administração de carteiras de ativos, fundos e trust",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0905.21.00",
+  "descricao": "Serviços de gestão e administração de carteiras de ativos, exceto fundos de pensão",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0905.22.00",
+  "descricao": "Serviços de administração fundos de investimento e fundos de pensão",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0905.23.00",
+  "descricao": "Serviços de gestão e administração de trust",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0905.30.00",
+  "descricao": "Serviços de guarda e custódia",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0905.40.00",
+  "descricao": "Serviços relacionados à administração de mercados financeiros",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0905.50.00",
+  "descricao": "Serviços de consultoria financeira",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0905.60.00",
+  "descricao": "Serviços de câmbio",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0905.70.00",
+  "descricao": "Serviços de classificação de risco (rating)",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0905.80.00",
+  "descricao": "Serviços fiduciários",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0905.90.00",
+  "descricao": "Serviços auxiliares aos serviços financeiros não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0906",
+  "descricao": "Serviços auxiliares a seguros, resseguros e previdência complementar",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0906.1",
+  "descricao": "Serviços de corretagem e agenciamento de seguros, resseguros e previdência complementar",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0906.11.00",
+  "descricao": "Serviços de agenciamento e corretagem de seguros, resseguros e previdência complementar, exceto de seguros saúde",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0906.12.00",
+  "descricao": "Serviços de corretagem de seguros saúde",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0906.20.00",
+  "descricao": "Serviços de perícia e avaliação de seguros e resseguros",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0906.30.00",
+  "descricao": "Serviços atuariais",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0906.40.00",
+  "descricao": "Serviços de gestão de fundos de previdência complementar",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0906.90.00",
+  "descricao": "Serviços auxiliares a seguros, resseguros e previdência complementar não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0907.00.00",
+  "descricao": "Serviços de seguro de recebíveis",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0908.00.00",
+  "descricao": "Fomento comercial (factoring)",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0909",
+  "descricao": "Serviços de holding de ativos financeiros",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0909.10.00",
+  "descricao": "Serviços de holding de patrimônio de empresas subsidiárias",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0909.20.00",
+  "descricao": "Serviços de holding de valores mobiliários e outros ativos financeiros e de fundos e entidades financeiras similares",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0910",
+  "descricao": "Serviços de planos privados de assistência à saúde e serviços relacionados",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.0910.10.00",
+  "descricao": "Serviços de planos privados de assistência à saúde",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0910.20.00",
+  "descricao": "Serviços de corretagem de planos privados de assistência à saúde",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0910.90.00",
+  "descricao": "Serviços de planos privados de assistência à saúde e serviços relacionados não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.0911.00.00",
+  "descricao": "Serviços financeiros e serviços relacionados não classificados em posições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.10",
+  "descricao": "Serviços imobiliários",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1001",
+  "descricao": "Serviços imobiliários sob comissão ou contrato",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1001.1",
+  "descricao": "Serviços de administração e locação de imóveis",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1001.11.00",
+  "descricao": "Serviços de administração e locação de imóveis residenciais",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1001.12",
+  "descricao": "Serviços de administração e locação de imóveis não residenciais",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1001.12.10",
+  "descricao": "Serviços de administração e locação, sublocação, arrendamento, direito de passagem ou permissão de uso, compartilhado ou não, de ferrovia, rodovia, postes, cabos, dutos e condutos de qualquer natureza",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1001.12.90",
+  "descricao": "Serviços de administração e locação de outros imóveis não residenciais",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1001.2",
+  "descricao": "Serviços de intermediação na compra e venda de imóveis",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1001.21.00",
+  "descricao": "Serviços de intermediação na compra e venda de imóveis residenciais",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1001.22.00",
+  "descricao": "Serviços de intermediação na compra e venda de imóveis não residenciais",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1001.30.00",
+  "descricao": "Serviços de avaliação de imóveis",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1001.40.00",
+  "descricao": "Serviços de consultoria imobiliária",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1001.50.00",
+  "descricao": "Serviços de assessoria de gestão condominial",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1001.90.00",
+  "descricao": "Serviços imobiliários não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1002",
+  "descricao": "Locação de imóveis",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1002.10.00",
+  "descricao": "Locação de imóveis residenciais",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1002.20.00",
+  "descricao": "Locação de imóveis não residenciais",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.11",
+  "descricao": "Arrendamento mercantil operacional, propriedade intelectual, franquias e outros direitos",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1101",
+  "descricao": "Arrendamento mercantil operacional ou locação de máquinas e equipamentos, sem operador",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1101.1",
+  "descricao": "Arrendamento mercantil operacional ou locação de equipamentos de transporte, sem operador",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1101.11.00",
+  "descricao": "Arrendamento mercantil operacional ou locação de veículos rodoviários automotores para o transporte de até oito passageiros, sem operador",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1101.12.00",
+  "descricao": "Arrendamento mercantil operacional ou locação de veículos rodoviários automotores para o transporte de cargas, sem operador",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1101.13.00",
+  "descricao": "Arrendamento mercantil operacional ou locação de veículos e equipamentos de transporte ferroviário, sem operador",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1101.14.00",
+  "descricao": "Arrendamento mercantil operacional ou locação de outros equipamentos de transporte terrestre, inclusive de veículos de uso misto, sem operador",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1101.15.00",
+  "descricao": "Arrendamento mercantil operacional ou locação de navios e outras embarcações, sem tripulação",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1101.16.00",
+  "descricao": "Arrendamento mercantil operacional ou locação de aeronaves, sem tripulação",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1101.17.00",
+  "descricao": "Arrendamento mercantil operacional ou locação de contêineres",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1101.20.00",
+  "descricao": "Arrendamento mercantil operacional ou locação de máquinas e equipamentos agrícolas, sem operador",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1101.30.00",
+  "descricao": "Arrendamento mercantil operacional ou locação de máquinas e equipamentos de construção, sem operador",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1101.40.00",
+  "descricao": "Arrendamento mercantil operacional ou locação de máquinas e equipamentos para escritórios, exceto computadores, sem operador",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1101.50.00",
+  "descricao": "Arrendamento mercantil operacional ou locação de computadores, sem operador",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1101.60.00",
+  "descricao": "Arrendamento mercantil operacional ou locação de equipamentos de telecomunicação, sem operador",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1101.90.00",
+  "descricao": "Arrendamento mercantil operacional ou locação de máquinas e equipamentos, sem operador, não classificado em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1102",
+  "descricao": "Arrendamento mercantil operacional ou locação de outras mercadorias",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1102.10.00",
+  "descricao": "Arrendamento mercantil operacional ou locação de televisão e outros eletroeletrônicos, bem como seus acessórios",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1102.20.00",
+  "descricao": "Arrendamento mercantil operacional ou locação de mídias gravadas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1102.30.00",
+  "descricao": "Arrendamento mercantil operacional ou locação de móveis e eletrodomésticos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1102.40.00",
+  "descricao": "Arrendamento mercantil operacional ou locação de equipamentos para diversão e lazer",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1102.50.00",
+  "descricao": "Arrendamento mercantil operacional ou locação de artigos de cama, mesa e banho",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1102.60.00",
+  "descricao": "Arrendamento mercantil operacional ou locação de roupas e calçados",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1102.90.00",
+  "descricao": "Arrendamento mercantil operacional ou locação de outras mercadorias não classificado em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1103",
+  "descricao": "Licenciamento de direitos de autor e de direitos conexos",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1103.10.00",
+  "descricao": "Licenciamento de direitos de obras literárias",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1103.2",
+  "descricao": "Licenciamento de direitos sobre programas de computador (software) e bancos de dados",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1103.21.00",
+  "descricao": "Licenciamento de direitos de produção, distribuição ou comercialização de programas de computador (software)",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1103.22.00",
+  "descricao": "Licenciamento de direitos de uso de programas de computador (software)",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1103.23.00",
+  "descricao": "Licenciamento de direitos sobre bancos de dados",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1103.29.00",
+  "descricao": "Licenciamento de direitos sobre programas de computador (software) e bancos de dados não classificado em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1103.3",
+  "descricao": "Licenciamento de direitos de obras audiovisuais",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1103.31.00",
+  "descricao": "Licenciamento de direitos de autor de obras cinematográficas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1103.32.00",
+  "descricao": "Licenciamento de direitos de autor de obras jornalísticas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1103.33.00",
+  "descricao": "Licenciamento de direitos de autor de obras publicitárias",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1103.34.00",
+  "descricao": "Licenciamento de direitos conexos de artistas intérpretes ou executantes em obras audiovisuais",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1103.35.00",
+  "descricao": "Licenciamento de direitos conexos de produtores de obras audiovisuais",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1103.36",
+  "descricao": "Licenciamento de direitos de obras audiovisuais destinadas à televisão",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1103.36.10",
+  "descricao": "Licenciamento de direitos de obras audiovisuais sobre transmissões de eventos esportivos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1103.36.20",
+  "descricao": "Licenciamento de direitos de obras audiovisuais sobre transmissões de programas televisivos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1103.36.90",
+  "descricao": "Licenciamento de direitos de obras audiovisuais sobre outras transmissões televisivas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1103.39.00",
+  "descricao": "Licenciamento de direitos de obras audiovisuais não classificado em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1103.4",
+  "descricao": "Licenciamento de direitos de obras musicais e fonogramas",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1103.41.00",
+  "descricao": "Licenciamento de direitos de autor de obras musicais ou literomusicais",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1103.42.00",
+  "descricao": "Licenciamento de direitos conexos de artistas intérpretes ou executantes",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1103.43.00",
+  "descricao": "Licenciamento de direitos conexos de produtores de fonogramas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1103.50.00",
+  "descricao": "Licenciamento de direitos relacionados à radiodifusão",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1103.90.00",
+  "descricao": "Licenciamento de direitos de autor e de direitos conexos não classificado em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1104",
+  "descricao": "Licenciamento de direitos sobre a propriedade industrial",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1104.10.00",
+  "descricao": "Licenciamento de direitos sobre patentes",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1104.20.00",
+  "descricao": "Licenciamento de direitos sobre marcas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1104.30.00",
+  "descricao": "Licenciamento de direitos sobre desenho industrial",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1104.90.00",
+  "descricao": "Licenciamento de direitos sobre a propriedade industrial não classificado em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1105",
+  "descricao": "Licenciamento de outros direitos",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1105.10.00",
+  "descricao": "Licenciamento de direitos sobre cultivares",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1105.20.00",
+  "descricao": "Licenciamento de direitos sobre topografias de circuitos integrados",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1105.30.00",
+  "descricao": "Licenciamento de direitos relativos à informação não divulgada",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1105.4",
+  "descricao": "Exploração de recursos naturais",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1105.41.00",
+  "descricao": "Exploração de recursos vegetais, inclusive florestais",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1105.42.00",
+  "descricao": "Exploração de recursos minerais",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1105.5",
+  "descricao": "Licenciamento de direitos sobre conhecimento tradicional",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1105.51.00",
+  "descricao": "Licenciamento de direitos sobre conhecimento tradicional associado a recursos genéticos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1105.59.00",
+  "descricao": "Licenciamento de direitos sobre conhecimento tradicional não classificado em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1105.60.00",
+  "descricao": "Licenciamento de direitos relativos ao acesso a recursos genéticos, exceto os decorrentes do conhecimento tradicional",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1105.70.00",
+  "descricao": "Licenciamento de direitos sobre informações relativas à experiência adquirida no setor industrial, comercial ou científico (know-how)",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1105.90.00",
+  "descricao": "Licenciamento de outros direitos não classificado em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1106",
+  "descricao": "Cessão temporária de direitos de autor e de direitos conexos",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1106.10.00",
+  "descricao": "Cessão temporária de direitos de obras literárias",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1106.20.00",
+  "descricao": "Cessão temporária de direitos sobre programas de computador (software)",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1106.3",
+  "descricao": "Cessão temporária de direitos sobre obras audiovisuais",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1106.31.00",
+  "descricao": "Cessão temporária de direitos de autor de obras cinematográficas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1106.32.00",
+  "descricao": "Cessão temporária de direitos de autor de obras jornalísticas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1106.33.00",
+  "descricao": "Cessão temporária de direitos de autor de obras publicitárias",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1106.34.00",
+  "descricao": "Cessão temporária de direitos conexos de artistas intérpretes ou executantes em obras audiovisuais",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1106.35.00",
+  "descricao": "Cessão temporária de direitos conexos de produtores de obras audiovisuais",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1106.36",
+  "descricao": "Cessão temporária de direitos de obras audiovisuais destinadas à televisão",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1106.36.10",
+  "descricao": "Cessão temporária de direitos de obras audiovisuais sobre transmissões de eventos esportivos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1106.36.20",
+  "descricao": "Cessão temporária de direitos de obras audiovisuais sobre transmissões de programas televisivos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1106.36.90",
+  "descricao": "Cessão temporária de direitos de obras audiovisuais sobre outras transmissões televisivas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1106.39.00",
+  "descricao": "Cessão temporária de direitos de obras audiovisuais não classificada em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1106.4",
+  "descricao": "Cessão temporária de direitos de obras musicais e fonogramas",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1106.41.00",
+  "descricao": "Cessão temporária de direitos de autor de obras musicais e literomusicais",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1106.42.00",
+  "descricao": "Cessão temporária de direitos conexos de artistas intérpretes ou executantes",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1106.43.00",
+  "descricao": "Cessão temporária de direitos conexos de produtores de fonogramas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1106.50.00",
+  "descricao": "Cessão temporária de direitos relacionados à radiodifusão",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1106.90.00",
+  "descricao": "Cessão temporária de direitos de autor e de direitos conexos não classificada em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1107",
+  "descricao": "Cessão definitiva de direitos de autor e de direitos conexos",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1107.10.00",
+  "descricao": "Cessão definitiva de direitos de obras literárias",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1107.20.00",
+  "descricao": "Cessão definitiva de direitos sobre programas de computador (software)",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1107.3",
+  "descricao": "Cessão definitiva de direitos de obras audiovisuais",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1107.31.00",
+  "descricao": "Cessão definitiva de direitos de obras cinematográficas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1107.32.00",
+  "descricao": "Cessão definitiva de direitos de obras jornalísticas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1107.33.00",
+  "descricao": "Cessão definitiva de direitos de obras publicitárias",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1107.39.00",
+  "descricao": "Cessão definitiva de direitos de obras audiovisuais não classificada em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1107.40.00",
+  "descricao": "Cessão definitiva de direitos de obras musicais e fonogramas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1107.50.00",
+  "descricao": "Cessão definitiva de direitos relacionados à radiodifusão",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1107.90.00",
+  "descricao": "Cessão definitiva de direitos de autor e de direitos conexos não classificada em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1108",
+  "descricao": "Cessão definitiva de direitos sobre a propriedade industrial",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1108.10.00",
+  "descricao": "Cessão definitiva de direitos sobre patentes",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1108.20.00",
+  "descricao": "Cessão definitiva de direitos sobre marcas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1108.30.00",
+  "descricao": "Cessão definitiva de direitos sobre desenho industrial",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1108.90.00",
+  "descricao": "Cessão definitiva de direitos sobre a propriedade industrial não classificada em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1109",
+  "descricao": "Cessão definitiva de outros direitos",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1109.10.00",
+  "descricao": "Cessão definitiva de direitos sobre cultivares",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1109.20.00",
+  "descricao": "Cessão definitiva de direitos sobre topografias de circuitos integrados",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1109.30.00",
+  "descricao": "Cessão definitiva de direitos relativos à informação não divulgada",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1109.90.00",
+  "descricao": "Cessão definitiva de outros direitos não classificada em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1110.00.00",
+  "descricao": "Franquia",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.12",
+  "descricao": "Serviços de pesquisa e desenvolvimento",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1201",
+  "descricao": "Serviços de pesquisa e desenvolvimento em ciências, engenharia e tecnologia",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1201.1",
+  "descricao": "Serviços de pesquisa e desenvolvimento em ciências",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1201.11.00",
+  "descricao": "Serviços de pesquisa e desenvolvimento em ciências físicas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1201.12.00",
+  "descricao": "Serviços de pesquisa e desenvolvimento em química e biologia",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1201.19.00",
+  "descricao": "Serviços de pesquisa e desenvolvimento em ciências não classificadas em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1201.20.00",
+  "descricao": "Serviços de pesquisa e desenvolvimento em biotecnologia",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1201.3",
+  "descricao": "Serviços de pesquisa e desenvolvimento em engenharia e tecnologia",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1201.31.00",
+  "descricao": "Serviços de pesquisa e desenvolvimento em Tecnologia da Informação e Comunicação (TIC)",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1201.32.00",
+  "descricao": "Serviços de pesquisa e desenvolvimento em nanotecnologia",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1201.33.00",
+  "descricao": "Serviços de pesquisa e desenvolvimento em engenharia e tecnologia nucleares",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1201.34.00",
+  "descricao": "Serviços de pesquisa e desenvolvimento em engenharia e tecnologia em micro-ondas de potência",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1201.39.00",
+  "descricao": "Serviços de pesquisa e desenvolvimento em engenharia e tecnologia não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1201.40.00",
+  "descricao": "Serviços de pesquisa e desenvolvimento em ciências médicas, odontológicas e farmacêuticas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1201.50.00",
+  "descricao": "Serviços de pesquisa e desenvolvimento em ciências agrárias",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1201.90.00",
+  "descricao": "Serviços de pesquisa e desenvolvimento em ciências, engenharia e tecnologia não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1202",
+  "descricao": "Serviços de pesquisa e desenvolvimento em ciências sociais e humanidades",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1202.10.00",
+  "descricao": "Serviços de pesquisa e desenvolvimento em psicologia",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1202.20.00",
+  "descricao": "Serviços de pesquisa e desenvolvimento em ciências econômicas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1202.30.00",
+  "descricao": "Serviços de pesquisa e desenvolvimento em direito",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1202.40.00",
+  "descricao": "Serviços de pesquisa e desenvolvimento em línguas e literatura",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1202.90.00",
+  "descricao": "Serviços de pesquisa e desenvolvimento em ciências sociais e humanidades não classificadas em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1203.00.00",
+  "descricao": "Serviços de pesquisa e desenvolvimento interdisciplinar",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.13",
+  "descricao": "Serviços jurídicos e contábeis",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1301",
+  "descricao": "Serviços jurídicos",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1301.10.00",
+  "descricao": "Serviços de representação e consultoria jurídica criminal",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1301.20.00",
+  "descricao": "Serviços de representação e consultoria jurídica em outras áreas do direito, exceto consultoria tributária",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1301.30.00",
+  "descricao": "Serviços de documentação e certificação, exceto os serviços notariais e de registro",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1301.40.00",
+  "descricao": "Serviços de arbitragem, conciliação e mediação",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1301.90.00",
+  "descricao": "Serviços jurídicos não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1302",
+  "descricao": "Serviços de auditoria, contabilidade e serviços relacionados",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1302.1",
+  "descricao": "Serviços de auditoria",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1302.11.00",
+  "descricao": "Serviços de auditoria contábil",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1302.19.00",
+  "descricao": "Serviços de auditoria não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1302.2",
+  "descricao": "Serviços de contabilidade e serviços relacionados",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1302.21.00",
+  "descricao": "Serviços de contabilidade",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1302.22.00",
+  "descricao": "Serviços de escrituração mercantil",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1302.23.00",
+  "descricao": "Serviços de folha de pagamento",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1303",
+  "descricao": "Serviços de consultoria tributária",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1303.10.00",
+  "descricao": "Serviços de consultoria tributária para pessoas jurídicas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1303.20.00",
+  "descricao": "Serviços de consultoria tributária para pessoas físicas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1304.00.00",
+  "descricao": "Serviços notariais e de registro",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.14",
+  "descricao": "Serviços profissionais, técnicos e empresariais (exceto pesquisa e desenvolvimento, tecnologia da informação e serviços jurídicos e contábeis)",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1401",
+  "descricao": "Serviços de gestão empresarial, consultoria em gestão empresarial e assessoria empresarial",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1401.1",
+  "descricao": "Serviços de consultoria em gestão empresarial",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1401.11.00",
+  "descricao": "Serviços de consultoria em gestão estratégica",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1401.12.00",
+  "descricao": "Serviços de consultoria em gestão financeira",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1401.13.00",
+  "descricao": "Serviços de consultoria em gestão de recursos humanos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1401.14.00",
+  "descricao": "Serviços de consultoria em gestão de marketing",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1401.15.00",
+  "descricao": "Serviços de consultoria em gestão operacional",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1401.16.00",
+  "descricao": "Serviços de consultoria em gestão energética",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1401.17.00",
+  "descricao": "Serviços de consultoria em gestão de cadeia logística",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1401.18.00",
+  "descricao": "Serviços de consultoria em gestão hospitalar",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1401.19.00",
+  "descricao": "Serviços de consultoria em gestão empresarial não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1401.2",
+  "descricao": "Serviços de gestão de negócios",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1401.21.00",
+  "descricao": "Serviços de gestão em processos de negócios",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1401.22.00",
+  "descricao": "Serviços de gestão hospitalar",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1401.29.00",
+  "descricao": "Serviços de gestão não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1401.3",
+  "descricao": "Serviços de assessoria empresarial",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1401.31.00",
+  "descricao": "Serviços de assessoria de imprensa",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1401.32.00",
+  "descricao": "Serviços de relações públicas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1401.39.00",
+  "descricao": "Serviços de assessoria empresarial não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1402",
+  "descricao": "Serviços de arquitetura, de planejamento urbano e de áreas rurais e de paisagismo",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1402.1",
+  "descricao": "Serviços de arquitetura",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1402.11.00",
+  "descricao": "Serviços de consultoria em arquitetura",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1402.12.00",
+  "descricao": "Serviços de arquitetura para projetos de construções residenciais",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1402.13.00",
+  "descricao": "Serviços de arquitetura para projetos de construções não residenciais",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1402.14.00",
+  "descricao": "Serviços de arquitetura para restauração de prédios históricos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1402.15.00",
+  "descricao": "Serviços de arquitetura relativos ao acompanhamento e fiscalização da execução de projetos arquitetônicos e urbanísticos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1402.2",
+  "descricao": "Serviços de planejamento urbano e de áreas rurais",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1402.21.00",
+  "descricao": "Serviços de planejamento urbano",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1402.22.00",
+  "descricao": "Serviços de planejamento de áreas rurais",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1402.3",
+  "descricao": "Serviços de paisagismo",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1402.31.00",
+  "descricao": "Serviços de consultoria em paisagismo",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1402.32.00",
+  "descricao": "Serviços de paisagismo, exceto consultoria",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1402.90.00",
+  "descricao": "Serviços de arquitetura, de planejamento urbano e de áreas rurais e de paisagismo não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1403",
+  "descricao": "Serviços de engenharia",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1403.10.00",
+  "descricao": "Serviços de consultoria em engenharia",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1403.2",
+  "descricao": "Serviços de engenharia para projetos específicos",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1403.21",
+  "descricao": "Serviços de engenharia para projetos de construção",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1403.21.10",
+  "descricao": "Serviços de engenharia para projetos de construção residencial",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1403.21.20",
+  "descricao": "Serviços de engenharia para projetos de construção não residencial",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1403.22",
+  "descricao": "Serviços de engenharia para projetos industriais e de fabricação, exceto para projetos de energia",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1403.22.1",
+  "descricao": "Serviços de engenharia para exploração de minerais, petróleo, gás e biocombustíveis",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1403.22.11",
+  "descricao": "Serviços de engenharia para projetos de exploração de minerais",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1403.22.12",
+  "descricao": "Serviços de engenharia para projetos de exploração de petróleo e gás",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1403.22.13",
+  "descricao": "Serviços de engenharia para projetos de refino de petróleo e petroquímica",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1403.22.14",
+  "descricao": "Serviços de engenharia para projetos de unidades de produção de biocombustíveis",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1403.22.2",
+  "descricao": "Serviços de engenharia para projetos de veículos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1403.22.21",
+  "descricao": "Serviços de engenharia para projetos de veículos terrestres",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1403.22.22",
+  "descricao": "Serviços de engenharia para projetos de embarcações",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1403.22.23",
+  "descricao": "Serviços de engenharia para projetos de veículos aéreos e aeroespaciais",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1403.22.90",
+  "descricao": "Serviços de engenharia para outros projetos industriais e de fabricação, exceto para projetos de energia",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1403.23.00",
+  "descricao": "Serviços de engenharia para projetos de infraestrutura de transportes",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1403.24.00",
+  "descricao": "Serviços de engenharia para projetos de energia",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1403.25.00",
+  "descricao": "Serviços de engenharia para projetos de telecomunicações, radiodifusão e televisão",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1403.26.00",
+  "descricao": "Serviços de engenharia para projetos de gerenciamento de resíduos (perigosos e não perigosos)",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1403.27.00",
+  "descricao": "Serviços de engenharia para projetos de distribuição de água e rede de esgoto",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1403.29.00",
+  "descricao": "Serviços de engenharia para outros projetos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1403.30.00",
+  "descricao": "Serviços de gerenciamento de projetos de construção",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1403.90.00",
+  "descricao": "Serviços de engenharia não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1404",
+  "descricao": "Serviços científicos e outros serviços técnicos",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1404.1",
+  "descricao": "Serviços geológicos, geofísicos e outros de prospecção",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1404.11.00",
+  "descricao": "Serviços de consultoria geológica e geofísica",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1404.12.00",
+  "descricao": "Serviços geofísicos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1404.13.00",
+  "descricao": "Serviços geoquímicos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1404.14.00",
+  "descricao": "Serviços de informações para avaliação e exploração de recursos naturais",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1404.19.00",
+  "descricao": "Serviços geológicos, geofísicos e outros de prospecção não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1404.2",
+  "descricao": "Serviços topográficos e cartográficos",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1404.21.00",
+  "descricao": "Serviços topográficos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1404.22.00",
+  "descricao": "Serviços cartográficos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1404.30.00",
+  "descricao": "Serviços meteorológicos e de previsão do tempo",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1404.4",
+  "descricao": "Serviços de análise e exames técnicos",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1404.41.00",
+  "descricao": "Serviços de análise e de exames técnicos sobre pureza e composição",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1404.42.00",
+  "descricao": "Serviços de análise e de exames técnicos de propriedades físicas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1404.43.00",
+  "descricao": "Serviços de análise e de exames técnicos de sistemas elétricos e mecânicos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1404.44.00",
+  "descricao": "Serviços de inspeção técnica de veículos de transporte rodoviário",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1404.49.00",
+  "descricao": "Serviços de análise e de exames técnicos não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1405",
+  "descricao": "Serviços veterinários",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1405.1",
+  "descricao": "Serviços veterinários para animais domésticos",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1405.11.00",
+  "descricao": "Serviços hospitalares, com ou sem internação, para animais domésticos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1405.12.00",
+  "descricao": "Serviços de atendimento, assistência ou tratamento para animais domésticos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1405.2",
+  "descricao": "Serviços veterinários para animais de corte",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1405.21.00",
+  "descricao": "Serviços hospitalares, com ou sem internação, para animais de corte",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1405.22.00",
+  "descricao": "Serviços de atendimento, assistência ou tratamento para animais de corte",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1405.30.00",
+  "descricao": "Serviços funerários, de cremação e de embalsamamento de animais",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1405.40.00",
+  "descricao": "Serviços de bancos de órgãos, sangue, sêmen, tecidos, óvulos e outros materiais biológicos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1405.50.00",
+  "descricao": "Planos de atendimento e assistência médico-veterinária",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1405.60.00",
+  "descricao": "Serviços de guarda, adestramento, embelezamento e alojamento",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1405.90.00",
+  "descricao": "Serviços veterinários não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1406",
+  "descricao": "Serviços de propaganda e de alocação de espaço ou tempo para propaganda",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1406.1",
+  "descricao": "Serviços de propaganda",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1406.11.00",
+  "descricao": "Serviços de campanhas publicitárias",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1406.12.00",
+  "descricao": "Serviços de marketing direto e mala direta",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1406.19.00",
+  "descricao": "Serviços de propaganda não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1406.20.00",
+  "descricao": "Aquisição ou venda de espaço ou tempo para propaganda, sob comissão",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1406.3",
+  "descricao": "Venda de espaço ou tempo para propaganda, exceto sob comissão",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1406.31.00",
+  "descricao": "Venda de espaço para propaganda em mídia impressa, exceto sob comissão",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1406.32.00",
+  "descricao": "Venda de tempo para propaganda em rádio e televisão, exceto sob comissão",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1406.33.00",
+  "descricao": "Venda de espaço para propaganda na rede mundial de computadores, exceto sob comissão",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1406.34.00",
+  "descricao": "Venda de espaço para propaganda em mídia exterior, exceto sob comissão",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1406.39.00",
+  "descricao": "Venda de espaço ou tempo para propaganda, exceto sob comissão não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1407.00.00",
+  "descricao": "Pesquisas de mercado e serviços de pesquisa de opinião pública",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1408",
+  "descricao": "Serviços fotográficos, videográficos e de processamento de fotografias",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1408.1",
+  "descricao": "Serviços fotográficos e videográficos",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1408.11.00",
+  "descricao": "Serviços fotográficos de retratos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1408.12.00",
+  "descricao": "Serviços fotográficos e videográficos para propaganda",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1408.13.00",
+  "descricao": "Serviços fotográficos e videográficos de eventos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1408.14.00",
+  "descricao": "Serviços fotográficos especiais",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1408.15.00",
+  "descricao": "Serviços de restauração e retoque de fotografias",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1408.19.00",
+  "descricao": "Serviços fotográficos e videográficos não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1408.20.00",
+  "descricao": "Serviços de processamento de fotografias",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1409",
+  "descricao": "Serviços especializados de design",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1409.1",
+  "descricao": "Serviços de design de interiores",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1409.11.00",
+  "descricao": "Serviços de design de interiores para espaços comerciais e públicos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1409.12.00",
+  "descricao": "Serviços de design de interiores para espaços residenciais",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1409.2",
+  "descricao": "Serviços de desenho industrial",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1409.21.00",
+  "descricao": "Serviços de desenho industrial de embalagens, expositores de loja e objetos promocionais para comunicação e vendas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1409.22.00",
+  "descricao": "Serviços de desenho industrial de produtos, utensílios, equipamentos, vestuário, calçados, ornamentos, joias e objetos pessoais",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1409.23.00",
+  "descricao": "Serviços de desenho industrial de máquinas, equipamentos, acessórios e objetos de uso industrial de qualquer natureza",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1409.24.00",
+  "descricao": "Serviços de desenho industrial de mobiliários e itens de decoração",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1409.25.00",
+  "descricao": "Serviços de desenho industrial de utensílios e equipamentos eletrodomésticos e eletroeletrônicos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1409.29.00",
+  "descricao": "Serviços de desenho industrial não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1409.30.00",
+  "descricao": "Serviços de design de marcas, imagens, objetos gráficos e digitais",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1409.90.00",
+  "descricao": "Serviços especializados de design não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1410",
+  "descricao": "Serviços de consultoria técnica e científica não classificados em posições anteriores",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1410.10.00",
+  "descricao": "Serviços de consultoria ambiental",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1410.90.00",
+  "descricao": "Serviços de consultoria técnica e científica não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1411.00.00",
+  "descricao": "Serviços de tradução e de intérpretes",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1412.00.00",
+  "descricao": "Serviços para registros de marcas comerciais e de franquias empresariais, exceto as licenças de uso de direito",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1413.00.00",
+  "descricao": "Serviços de prospecção de clientes",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1414.00.00",
+  "descricao": "Serviços de prospecção de fornecedores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1415.00.00",
+  "descricao": "Serviços profissionais, técnicos e gerenciais não classificados em posições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.15",
+  "descricao": "Serviços de tecnologia da informação",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1501",
+  "descricao": "Serviços de consultoria, de segurança e de suporte em tecnologia da informação (TI)",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1501.10.00",
+  "descricao": "Serviços de consultoria em tecnologia da informação (TI)",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1501.20.00",
+  "descricao": "Serviços de segurança em tecnologia da informação (TI)",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1501.30.00",
+  "descricao": "Serviços de suporte em tecnologia da informação (TI)",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1502",
+  "descricao": "Serviços de projeto e desenvolvimento de aplicativos e programas em tecnologia da informação (TI)",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1502.10.00",
+  "descricao": "Serviços de projeto, desenvolvimento e instalação de aplicativos e programas não personalizados (não customizados)",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1502.20.00",
+  "descricao": "Serviços de projeto e desenvolvimento, adaptação e instalação de aplicativos e programas personalizados (customizados)",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1502.30.00",
+  "descricao": "Serviços de projeto e desenvolvimento de estruturas e conteúdo de páginas eletrônicas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1502.40.00",
+  "descricao": "Serviços de projeto e desenvolvimento de estruturas e conteúdo de bancos de dados",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1502.50.00",
+  "descricao": "Serviços de integração de sistemas em tecnologia da informação (TI)",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1502.90.00",
+  "descricao": "Serviços de projeto e desenvolvimento de aplicativos e programas em tecnologia da informação (TI) não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1503.00.00",
+  "descricao": "Serviços de projeto e desenvolvimento de redes em tecnologia da informação (TI)",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1504.00.00",
+  "descricao": "Serviços de projeto e desenvolvimento de topografias de circuitos integrados",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1505.00.00",
+  "descricao": "Serviços de projeto de circuitos integrados",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1506",
+  "descricao": "Serviços de hospedagem e de disponibilização de infraestrutura em tecnologia da informação (TI)",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1506.10.00",
+  "descricao": "Serviços de hospedagem de sítios eletrônicos na rede mundial de computadores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1506.2",
+  "descricao": "Serviços de hospedagem de aplicativos e programas",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1506.21.00",
+  "descricao": "Serviços de hospedagem de aplicativos e programas software como serviço (SaaS)",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1506.22.00",
+  "descricao": "Serviços de fornecimento de infraestrutura como serviço (IaaS)",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1506.23.00",
+  "descricao": "Serviços de fornecimento de plataformas como serviço (PaaS)",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1506.29.00",
+  "descricao": "Serviços de hospedagem de aplicativos e programas não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1506.90.00",
+  "descricao": "Serviços de hospedagem e de disponibilização de infraestrutura em tecnologia da informação (TI) não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1507",
+  "descricao": "Serviços de gerenciamento de redes e de infraestrutura em tecnologia da informação (TI)",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1507.10.00",
+  "descricao": "Serviços de gerenciamento de redes em tecnologia da informação (TI)",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1507.20.00",
+  "descricao": "Serviços de gerenciamento de sistemas computacionais",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1507.90.00",
+  "descricao": "Serviços de gerenciamento de infraestrutura em tecnologia da informação (TI) não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1508.00.00",
+  "descricao": "Serviços de manutenção de aplicativos e programas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1509.00.00",
+  "descricao": "Serviços de processamento de dados",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1510.00.00",
+  "descricao": "Serviços de tecnologia da informação (TI) não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.16",
+  "descricao": "Reservado para possível uso futuro",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.17",
+  "descricao": "Serviços de telecomunicações, difusão e fornecimento de informações",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1701",
+  "descricao": "Telefonia e outros serviços de telecomunicações, exceto pela rede mundial de computadores",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1701.1",
+  "descricao": "Serviços de operadoras",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1701.11.00",
+  "descricao": "Serviços de interconexão pelo uso da rede fixa",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1701.12.00",
+  "descricao": "Serviços de interconexão pelo uso de rede móvel",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1701.19.00",
+  "descricao": "Serviços de operadoras não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1701.2",
+  "descricao": "Serviços de telecomunicações fixas",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1701.21.00",
+  "descricao": "Serviços de chamadas de telecomunicações fixas comutadas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1701.29.00",
+  "descricao": "Serviços de telecomunicações fixas não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1701.3",
+  "descricao": "Serviços de telecomunicações móveis",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1701.31.00",
+  "descricao": "Serviços de voz nas telecomunicações móveis",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1701.32.00",
+  "descricao": "Serviços de texto nas telecomunicações móveis",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1701.33.00",
+  "descricao": "Serviços de transmissão de dados nas telecomunicações móveis, exceto serviços de texto",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1701.34.00",
+  "descricao": "Serviços de telecomunicações móveis para usuários visitantes (roaming)",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1701.40.00",
+  "descricao": "Serviços de redes privadas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1701.5",
+  "descricao": "Serviços de transmissão de dados e serviços de exploração de linha dedicada",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1701.51.00",
+  "descricao": "Serviços de transmissão de dados local, nacional ou internacional",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1701.52.00",
+  "descricao": "Serviços de exploração de linha dedicada local, nacional ou internacional",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1701.90.00",
+  "descricao": "Serviços de telecomunicações, exceto pela rede mundial de computadores, não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1702",
+  "descricao": "Serviços de telecomunicações pela rede mundial de computadores",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1702.10.00",
+  "descricao": "Serviços de fornecimento de infraestrutura de acesso (backbone) à rede mundial de computadores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1702.2",
+  "descricao": "Serviços de acesso à rede mundial de computadores",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1702.21.00",
+  "descricao": "Serviços de acesso à rede mundial de computadores por banda estreita",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1702.22.00",
+  "descricao": "Serviços de acesso à rede mundial de computadores por banda larga",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1702.90.00",
+  "descricao": "Serviços de telecomunicações pela rede mundial de computadores não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1703",
+  "descricao": "Serviços de oferta de conteúdo de acesso imediato (on-line)",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1703.10.00",
+  "descricao": "Serviços de oferta de livros, jornais, periódicos, diretórios e malas diretas de acesso imediato (on-line)",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1703.2",
+  "descricao": "Serviços de oferta de áudio de acesso imediato (on-line)",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1703.21.00",
+  "descricao": "Serviços de oferta de áudio para download",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1703.22.00",
+  "descricao": "Serviços de oferta de áudio de conteúdo contínuo (streaming)",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1703.3",
+  "descricao": "Serviços de oferta de arquivos contendo filmes e vídeos de acesso imediato (on-line)",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1703.31.00",
+  "descricao": "Serviços de oferta de arquivos contendo filmes e vídeos para download",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1703.32.00",
+  "descricao": "Serviços de oferta de filmes e vídeos de conteúdo contínuo (streaming)",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1703.9",
+  "descricao": "Serviços de oferta de outros conteúdos de acesso imediato (on-line) pela rede mundial de computadores",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1703.91.00",
+  "descricao": "Serviços de oferta de jogos de acesso imediato (on-line)",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1703.92.00",
+  "descricao": "Serviços de oferta de conteúdo de portais de busca na rede mundial de computadores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1703.99.00",
+  "descricao": "Serviços de oferta de outros conteúdos de acesso imediato (on-line) não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1704",
+  "descricao": "Serviços de agências de notícias",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1704.10.00",
+  "descricao": "Serviços de agências de notícias para jornais e periódicos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1704.20.00",
+  "descricao": "Serviços de agências de notícias para mídia audiovisual",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1705",
+  "descricao": "Serviços de biblioteca e arquivo",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1705.10.00",
+  "descricao": "Serviços de biblioteca",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1705.20.00",
+  "descricao": "Serviços de arquivo",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1706",
+  "descricao": "Serviços de difusão, programação e distribuição de programas de rádio e televisão",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1706.1",
+  "descricao": "Serviços de programação dos canais de rádio e televisão",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1706.11.00",
+  "descricao": "Serviços de programação dos canais de rádio",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1706.12.00",
+  "descricao": "Serviços de programação dos canais de televisão",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1706.2",
+  "descricao": "Serviços de transmissão de sinais, sons e imagens de rádio e televisão, aberta ou por assinatura",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1706.21.00",
+  "descricao": "Serviços de transmissão de sinais, sons e imagens de rádio e televisão, aberta ou por assinatura",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1706.22.00",
+  "descricao": "Serviços de distribuição de pacotes básicos de programação de televisão por assinatura",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1706.23.00",
+  "descricao": "Serviços de distribuição de pacotes de programação adicional de televisão por assinatura",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1706.24.00",
+  "descricao": "Serviços de distribuição de programas de televisão por assinatura, na modalidade \"pague por exibição\" (pay-per-view)",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1706.90.00",
+  "descricao": "Serviços de difusão, programação e distribuição de programas de rádio e televisão não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.18",
+  "descricao": "Serviços de apoio às atividades empresariais",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1801",
+  "descricao": "Serviços de seleção de pessoal e fornecimento de mão de obra",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1801.1",
+  "descricao": "Serviços de recrutamento e seleção de pessoal",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1801.11.00",
+  "descricao": "Serviço de recrutamento e seleção de profissionais executivos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1801.12.00",
+  "descricao": "Serviço de recrutamento e seleção de profissionais, exceto executivos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1801.2",
+  "descricao": "Serviços de fornecimento de mão de obra",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1801.21.00",
+  "descricao": "Serviços de fornecimento de mão de obra terceirizada, exceto temporária",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1801.22.00",
+  "descricao": "Serviços de fornecimento de mão de obra temporária",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1801.29.00",
+  "descricao": "Serviços de fornecimento de mão de obra não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1802",
+  "descricao": "Serviços de investigação e segurança",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1802.10.00",
+  "descricao": "Serviços de investigação",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1802.20.00",
+  "descricao": "Serviços de consultoria em segurança",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1802.30.00",
+  "descricao": "Serviços de sistemas de segurança",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1802.40.00",
+  "descricao": "Serviços de carro-forte",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1802.50.00",
+  "descricao": "Serviços de guarda e escolta armada",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1802.90.00",
+  "descricao": "Serviços de segurança não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1803",
+  "descricao": "Serviços de limpeza",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1803.10.00",
+  "descricao": "Serviços gerais de limpeza",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1803.2",
+  "descricao": "Serviços especializados de limpeza",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1803.21.00",
+  "descricao": "Serviços de desinfecção e extermínio de pragas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1803.22.00",
+  "descricao": "Serviços de limpeza de janelas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1803.29.00",
+  "descricao": "Serviços especializados de limpeza não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1804.00.00",
+  "descricao": "Serviços de acondicionamento e empacotamento",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1805",
+  "descricao": "Serviços de planejamento de viagens e serviços relacionados",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1805.1",
+  "descricao": "Serviços de reservas para transporte de passageiros",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1805.11.00",
+  "descricao": "Serviços de reservas para transporte aéreo de passageiros",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1805.12.00",
+  "descricao": "Serviços de reservas para transporte ferroviário de passageiros",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1805.13.00",
+  "descricao": "Serviços de reservas para transporte rodoviário de passageiros",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1805.14.00",
+  "descricao": "Serviços de reservas de carros de aluguel",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1805.19.00",
+  "descricao": "Serviços de reservas para transporte de passageiros não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1805.2",
+  "descricao": "Serviços de reservas de hospedagem, reservas em cruzeiros e reservas de pacotes turísticos",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1805.21.00",
+  "descricao": "Serviços de reservas de hospedagem, exceto em unidades compartilhadas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1805.22.00",
+  "descricao": "Serviços de reservas e intercâmbio de unidades compartilhadas (time-share)",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1805.23.00",
+  "descricao": "Serviços de reservas em cruzeiros",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1805.24.00",
+  "descricao": "Serviços de reservas de pacotes turísticos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1805.3",
+  "descricao": "Outros serviços de reservas",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1805.31.00",
+  "descricao": "Serviços de reservas para centros de convenções, auditórios e salas de exposições",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1805.32.00",
+  "descricao": "Serviços de reservas de ingressos para eventos de entretenimento e recreativos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1805.39.00",
+  "descricao": "Serviços de reservas não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1805.40.00",
+  "descricao": "Serviços de operadoras de turismo",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1805.50.00",
+  "descricao": "Serviços de guias turísticos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1805.6",
+  "descricao": "Serviços de promoção turística e de informação a visitantes",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1805.61.00",
+  "descricao": "Serviços de promoção turística",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1805.62.00",
+  "descricao": "Serviços de informação a visitantes",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1806",
+  "descricao": "Outros serviços de apoio às atividades empresariais",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1806.10.00",
+  "descricao": "Serviços de informação cadastral e análise de crédito",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1806.20.00",
+  "descricao": "Serviços de cobrança",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1806.3",
+  "descricao": "Serviços de apoio às atividades empresariais por meio de telefone",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1806.31.00",
+  "descricao": "Serviços de call center",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1806.39.00",
+  "descricao": "Serviços de apoio às atividades empresariais por meio de telefone não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1806.40.00",
+  "descricao": "Serviços combinados de escritório e apoio administrativo",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1806.5",
+  "descricao": "Serviços especializados de apoio a escritório",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1806.51.00",
+  "descricao": "Serviços de fotocópias e outros serviços de reprodução de documentos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1806.52.00",
+  "descricao": "Serviços de execução e envio de mala direta e de elaboração de listas de endereços",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1806.53.00",
+  "descricao": "Serviços de preparação de documentos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1806.59.00",
+  "descricao": "Serviços especializados de apoio a escritório não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1806.6",
+  "descricao": "Serviços de assistência e organização de convenções, feiras de negócios, exposições e outros eventos",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1806.61.00",
+  "descricao": "Serviços de assistência e organização de convenções",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1806.62.00",
+  "descricao": "Serviços de assistência e organização de feiras de negócios",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1806.63.00",
+  "descricao": "Serviços de assistência e organização de exposições e outros eventos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1806.70.00",
+  "descricao": "Serviços de jardinagem",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1806.8",
+  "descricao": "Serviços de agenciamento de modelos, artistas e atletas",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1806.81.00",
+  "descricao": "Serviços de agenciamento de modelos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1806.82.00",
+  "descricao": "Serviços de agenciamento de artistas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1806.83.00",
+  "descricao": "Serviços de agenciamento de atletas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1806.90.00",
+  "descricao": "Serviços de apoio não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.19",
+  "descricao": "Serviços de apoio à agricultura, pecuária, silvicultura, pesca, aquicultura, extração mineral e à transmissão e distribuição de eletricidade, gás e água",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1901",
+  "descricao": "Serviços de apoio à agricultura, pecuária, produção florestal (silvicultura), pesca e aquicultura",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1901.10.00",
+  "descricao": "Serviços de apoio à agricultura",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1901.20.00",
+  "descricao": "Serviços de apoio à pecuária",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1901.30.00",
+  "descricao": "Serviços de apoio à produção florestal (silvicultura)",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1901.40.00",
+  "descricao": "Serviços de apoio à pesca",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1901.50.00",
+  "descricao": "Serviços de apoio à aquicultura",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1902",
+  "descricao": "Serviços de apoio à mineração",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1902.10.00",
+  "descricao": "Serviços de apoio à extração de petróleo e gás",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1902.90.00",
+  "descricao": "Serviços de apoio à mineração não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1903",
+  "descricao": "Serviços de apoio à transmissão e distribuição de eletricidade e à distribuição de gás e água",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1903.1",
+  "descricao": "Serviços de apoio à transmissão e distribuição de eletricidade",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.1903.11.00",
+  "descricao": "Serviços de apoio à transmissão de eletricidade",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1903.12.00",
+  "descricao": "Serviços de apoio à distribuição de eletricidade",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1903.20.00",
+  "descricao": "Serviços de apoio à distribuição de gás por meio de tubulações",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1903.30.00",
+  "descricao": "Serviços de apoio à distribuição de água por meio de tubulações, exceto vapor de água e água quente",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1903.40.00",
+  "descricao": "Serviços de apoio à distribuição de vapor de água, água quente e ar condicionado por meio de tubulações",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.1903.50.00",
+  "descricao": "Serviços de apoio à distribuição de água, exceto por meio de tubulações",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.20",
+  "descricao": "Serviços de manutenção, reparação e instalação (exceto construção)",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2001",
+  "descricao": "Serviços de manutenção e reparação de produtos metálicos, maquinários e equipamentos",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2001.10.00",
+  "descricao": "Serviços de manutenção e reparação de produtos metálicos, exceto maquinários e equipamentos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2001.20.00",
+  "descricao": "Serviços de manutenção e reparação de computadores e seus periféricos e de maquinário para escritório",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2001.3",
+  "descricao": "Serviços de manutenção e reparação de maquinários e equipamentos de transporte",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2001.31",
+  "descricao": "Serviços de manutenção e reparação de veículos rodoviários",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2001.31.10",
+  "descricao": "Serviços de manutenção e reparação de veículos rodoviários motorizados",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2001.31.20",
+  "descricao": "Serviços de manutenção e reparação de veículos rodoviários não motorizados",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2001.32.00",
+  "descricao": "Serviços de manutenção e reparação de veículos sobre trilhos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2001.33.00",
+  "descricao": "Serviços de manutenção e reparação de veículos aquaviários",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2001.34",
+  "descricao": "Serviços de manutenção e reparação de veículos de transporte aéreo e aeroespacial",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2001.34.10",
+  "descricao": "Serviços de manutenção e reparação de aeronaves, exceto de motores, turborreatores e turbopropulsores aeronáuticos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2001.34.20",
+  "descricao": "Serviços de manutenção e reparação de motores, turborreatores e turbopropulsores aeronáuticos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2001.34.30",
+  "descricao": "Serviços de manutenção e reparação de foguetes e equipamentos aeroespaciais",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2001.35.00",
+  "descricao": "Serviços de manutenção e reparação de veículos militares",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2001.39.00",
+  "descricao": "Serviços de manutenção e reparação de maquinários e equipamentos de transporte não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2001.40.00",
+  "descricao": "Serviços de manutenção e reparação de plataformas, inclusive navios-plataforma, para extração de petróleo e gás",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2001.50.00",
+  "descricao": "Serviços de manutenção e reparação de maquinários e equipamentos de uso industrial",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2001.60.00",
+  "descricao": "Serviços de manutenção e reparação de maquinários e equipamentos de uso comercial",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2001.70.00",
+  "descricao": "Serviços de manutenção e reparação de equipamentos e aparelhos de telecomunicações",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2001.8",
+  "descricao": "Serviços de manutenção e reparação de outros maquinários e equipamentos",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2001.81.00",
+  "descricao": "Serviços de manutenção e reparação de aparelhos eletroeletrônicos domésticos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2001.82.00",
+  "descricao": "Serviços de manutenção e reparação de instrumentos e equipamentos médico-hospitalares, odontológicos, óticos e de precisão",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2001.83.00",
+  "descricao": "Serviços de manutenção e reparação de equipamentos militares",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2001.89.00",
+  "descricao": "Serviços de manutenção e reparação de outros maquinários e equipamentos não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2002",
+  "descricao": "Serviços de manutenção e reparação de outros bens de consumo",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2002.10.00",
+  "descricao": "Serviços de manutenção e reparação de produtos de couro, calçados, malas e bolsas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2002.20.00",
+  "descricao": "Serviços de manutenção e reparação de relógios e joias",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2002.30.00",
+  "descricao": "Serviços de manutenção e reparação de móveis",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2002.40.00",
+  "descricao": "Serviços de manutenção de roupas e outros produtos têxteis",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2002.90.00",
+  "descricao": "Serviços de manutenção e reparação de outros bens de consumo não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2003",
+  "descricao": "Serviços de instalação, exceto os de construção",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2003.10.00",
+  "descricao": "Serviços de instalação de produtos metálicos, exceto maquinário e equipamentos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2003.2",
+  "descricao": "Serviços de instalação de maquinários, aparelhos e equipamentos",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2003.21",
+  "descricao": "Serviços de instalação de maquinários, aparelhos e equipamentos industriais",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2003.21.10",
+  "descricao": "Serviços de montagem sob encomenda de turbinas industriais",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2003.21.90",
+  "descricao": "Serviços de instalação de maquinários, aparelhos e equipamentos industriais não classificados em itens anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2003.22.00",
+  "descricao": "Serviços de instalação de computadores e seus periféricos e maquinário de escritório",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2003.23.00",
+  "descricao": "Serviços de instalação de equipamentos e aparelhos de comunicação, incluindo de rádio e de televisão",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2003.24.00",
+  "descricao": "Serviços de instalação de maquinários, equipamentos, instrumentos e aparelhos médico-hospitalares, óticos e de precisão",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2003.25",
+  "descricao": "Serviços de instalação de sensores e sistemas de armas e de instalação de maquinários, aparelhos e equipamentos de emprego militar",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2003.25.10",
+  "descricao": "Serviços de instalação de sensores e sistemas de armas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2003.25.20",
+  "descricao": "Serviços de instalação de maquinários, aparelhos e equipamentos de emprego militar",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2003.26",
+  "descricao": "Serviços de instalação de maquinários e equipamentos de transporte",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2003.26.10",
+  "descricao": "Serviços de montagem sob encomenda de motores, turborreatores e turbopropulsores aeronáuticos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2003.26.90",
+  "descricao": "Serviços de instalação de maquinários e equipamentos de transporte não classificados em itens anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2003.29.00",
+  "descricao": "Serviços de instalação de maquinários, aparelhos e equipamentos não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.21",
+  "descricao": "Serviços de publicação, impressão e reprodução",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2101",
+  "descricao": "Serviços de editoração, impressão, reprodução e publicação",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2101.10.00",
+  "descricao": "Serviços de editoração",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2101.2",
+  "descricao": "Serviços de impressão e reprodução de mídia gravada",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2101.21.00",
+  "descricao": "Serviços de impressão",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2101.22.00",
+  "descricao": "Serviços relacionados à impressão",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2101.23.00",
+  "descricao": "Serviços de reprodução de mídia gravada",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2101.30.00",
+  "descricao": "Serviços de publicação",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.22",
+  "descricao": "Serviços educacionais",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2201",
+  "descricao": "Serviços de educação básica",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2201.1",
+  "descricao": "Serviços de educação infantil",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2201.11.00",
+  "descricao": "Serviços de creche ou entidade equivalente",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2201.12.00",
+  "descricao": "Serviços de pré-escola",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2201.19.00",
+  "descricao": "Serviços de educação infantil não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2201.20.00",
+  "descricao": "Serviços de ensino fundamental",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2201.30.00",
+  "descricao": "Serviços de ensino médio",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2202.00.00",
+  "descricao": "Serviços de educação técnica de nível médio",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2203",
+  "descricao": "Serviços de educação de jovens e adultos",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2203.10.00",
+  "descricao": "Serviços de ensino fundamental de jovens e adultos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2203.20.00",
+  "descricao": "Serviços de ensino médio de jovens e adultos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2204",
+  "descricao": "Serviços de educação superior",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2204.10.00",
+  "descricao": "Serviços educacionais de graduação",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2204.20.00",
+  "descricao": "Serviços educacionais de pós-graduação",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2204.30.00",
+  "descricao": "Serviços educacionais de extensão",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2204.40.00",
+  "descricao": "Serviços educacionais de cursos sequenciais",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2205",
+  "descricao": "Outros serviços educacionais, incluindo de treinamento, e serviços de apoio aos serviços educacionais",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2205.1",
+  "descricao": "Outros serviços de educação, inclusive treinamento",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2205.11.00",
+  "descricao": "Serviços de educação com enfoque cultural",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2205.12.00",
+  "descricao": "Serviços de educação desportiva e recreacional",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2205.13.00",
+  "descricao": "Serviços de educação em línguas estrangeiras e de sinais",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2205.14.00",
+  "descricao": "Serviços de palestras e conferências",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2205.19.00",
+  "descricao": "Serviços de educação, inclusive treinamento não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2205.20.00",
+  "descricao": "Serviços de apoio aos serviços educacionais",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.23",
+  "descricao": "Serviços relacionados à saúde humana e de assistência social",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2301",
+  "descricao": "Serviços de saúde humana",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2301.1",
+  "descricao": "Serviços hospitalares",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2301.11.00",
+  "descricao": "Serviços cirúrgicos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2301.12.00",
+  "descricao": "Serviços ginecológicos e obstétricos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2301.13.00",
+  "descricao": "Serviços psiquiátricos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2301.14.00",
+  "descricao": "Serviços prestados em Unidades de Terapia Intensiva",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2301.15.00",
+  "descricao": "Serviços de atendimento de urgência",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2301.19.00",
+  "descricao": "Serviços hospitalares não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2301.2",
+  "descricao": "Serviços médicos não hospitalares e serviços odontológicos",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2301.21.00",
+  "descricao": "Serviços de clínica médica",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2301.22.00",
+  "descricao": "Serviços médicos especializados",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2301.23.00",
+  "descricao": "Serviços odontológicos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2301.9",
+  "descricao": "Outros serviços de saúde humana",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2301.91.00",
+  "descricao": "Serviços de enfermagem",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2301.92.00",
+  "descricao": "Serviços de fisioterapia",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2301.93.00",
+  "descricao": "Serviços laboratoriais",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2301.94.00",
+  "descricao": "Serviços de diagnóstico por imagem",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2301.95.00",
+  "descricao": "Serviços de bancos de material biológico humano",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2301.96.00",
+  "descricao": "Serviços de ambulância",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2301.97.00",
+  "descricao": "Serviços de assistência ao parto e pós-parto",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2301.98.00",
+  "descricao": "Serviços de psicologia",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2301.99.00",
+  "descricao": "Outros serviços de saúde humana não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2302",
+  "descricao": "Serviços de cuidado e assistência a idosos e pessoas com deficiência em unidades de acolhimento",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2302.10.00",
+  "descricao": "Serviços de cuidado em saúde em unidades de acolhimento",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2302.2",
+  "descricao": "Serviços de assistência a idosos e pessoas com deficiência em unidades de acolhimento",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2302.21.00",
+  "descricao": "Serviços de assistência a idosos em unidades de acolhimento",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2302.22.00",
+  "descricao": "Serviços de assistência a crianças e adolescentes com deficiência em unidades de acolhimento",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2302.23.00",
+  "descricao": "Serviços de assistência a adultos com deficiência em unidades de acolhimento",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2303.00.00",
+  "descricao": "Serviços de assistência social com acomodação",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2304",
+  "descricao": "Serviços de assistência social sem acomodação",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2304.1",
+  "descricao": "Serviços de reabilitação vocacional",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2304.11.00",
+  "descricao": "Serviços de reabilitação vocacional para pessoas com deficiência",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2304.12.00",
+  "descricao": "Serviços de reabilitação vocacional para desempregados",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2304.19.00",
+  "descricao": "Serviço de reabilitação vocacional não classificados nas subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2304.20.00",
+  "descricao": "Serviços de orientação e aconselhamento relacionados a crianças e adolescentes",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2304.90.00",
+  "descricao": "Serviços de assistência social sem acomodação não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.24",
+  "descricao": "Serviços de coleta, tratamento e eliminação de esgoto e resíduos e outros serviços de proteção ambiental",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2401.00.00",
+  "descricao": "Serviços de tratamento de água",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2402",
+  "descricao": "Serviços de esgoto, tratamento de esgotos e limpeza de fossas sépticas",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2402.10.00",
+  "descricao": "Serviços de esgoto e tratamento de esgotos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2402.20.00",
+  "descricao": "Serviços de esvaziamento e limpeza de fossas sépticas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2403",
+  "descricao": "Serviços de coleta de resíduos",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2403.1",
+  "descricao": "Serviços de coleta de resíduos perigosos",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2403.11.00",
+  "descricao": "Serviços de coleta de resíduos de serviços de saúde e outros resíduos biológicos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2403.12.00",
+  "descricao": "Serviços de coleta de resíduos perigosos industriais, exceto resíduos de serviços de saúde e outros resíduos biológicos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2403.19.00",
+  "descricao": "Serviços de coleta de outros resíduos perigosos não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2403.2",
+  "descricao": "Serviços de coleta de resíduos recicláveis não perigosos",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2403.21.00",
+  "descricao": "Serviços de coleta de resíduos recicláveis, não perigosos, de origem doméstica",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2403.22.00",
+  "descricao": "Serviços de coleta de resíduos recicláveis, não perigosos, exceto de origem doméstica",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2403.3",
+  "descricao": "Serviços de coleta de resíduos gerais",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2403.31.00",
+  "descricao": "Serviços de coleta de resíduos gerais de origem doméstica",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2403.32.00",
+  "descricao": "Serviços de coleta de resíduos gerais, exceto de origem doméstica",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2404",
+  "descricao": "Serviços de tratamento e eliminação de resíduos",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2404.1",
+  "descricao": "Serviços de triagem, preparação, consolidação e estocagem de resíduos",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2404.11.00",
+  "descricao": "Serviços de triagem, preparação, consolidação e estocagem de resíduos perigosos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2404.12.00",
+  "descricao": "Serviços de demolição e desmantelamento de embarcações, veículos e outros bens",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2404.13.00",
+  "descricao": "Serviços de triagem, preparação, consolidação e estocagem de resíduos recicláveis não perigosos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2404.19.00",
+  "descricao": "Serviços de triagem, preparação, consolidação e estocagem de resíduos não perigosos, exceto os recicláveis",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2404.2",
+  "descricao": "Serviços de tratamento e eliminação de resíduos perigosos",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2404.21.00",
+  "descricao": "Serviços de tratamento de resíduos perigosos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2404.22.00",
+  "descricao": "Serviços de eliminação de resíduos perigosos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2404.3",
+  "descricao": "Serviços de tratamento e eliminação de resíduos não perigosos",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2404.31.00",
+  "descricao": "Serviços de tratamento e eliminação de resíduos não perigosos em aterros sanitários",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2404.32.00",
+  "descricao": "Serviços de tratamento e eliminação de resíduos não perigosos em aterros, exceto os sanitários",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2404.33.00",
+  "descricao": "Serviços de incineração de resíduos não perigosos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2404.39.00",
+  "descricao": "Serviços de tratamento e eliminação de resíduos não perigosos não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2405",
+  "descricao": "Serviços de remediação e contenção de contaminantes",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2405.1",
+  "descricao": "Serviços de remediação e limpeza de áreas contaminadas",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2405.11.00",
+  "descricao": "Serviços de remediação e limpeza do ar",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2405.12.00",
+  "descricao": "Serviços de remediação e limpeza de águas de superfície",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2405.13.00",
+  "descricao": "Serviços de remediação e limpeza do solo e de águas subterrâneas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2405.14.00",
+  "descricao": "Serviços de remediação em edificações",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2405.20.00",
+  "descricao": "Serviços de contenção, controle e monitoramento de áreas contaminadas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2405.90.00",
+  "descricao": "Serviços de remediação não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2406",
+  "descricao": "Serviços de limpeza urbana e similares",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2406.10.00",
+  "descricao": "Serviços de varrição de vias e áreas públicas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2406.90.00",
+  "descricao": "Serviços de limpeza urbana e similares não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2407.00.00",
+  "descricao": "Serviços de proteção ambiental não classificados em posições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.25",
+  "descricao": "Serviços recreativos, culturais e desportivos",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2501",
+  "descricao": "Serviços de produção audiovisual, de apoio e relacionados",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2501.1",
+  "descricao": "Serviços de gravação de som",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2501.11.00",
+  "descricao": "Serviços de gravação de som em estúdio",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2501.12.00",
+  "descricao": "Serviços de gravação de som ao vivo",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2501.2",
+  "descricao": "Serviços de produção de programas de rádio e televisão, videoteipes e filmes",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2501.21.00",
+  "descricao": "Serviços de produção de programas de televisão, videoteipes e filmes",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2501.22.00",
+  "descricao": "Serviços de produção de programas de rádio",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2501.3",
+  "descricao": "Serviços de pós-produção de obras audiovisuais",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2501.31.00",
+  "descricao": "Serviços de edição de obras audiovisuais",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2501.32.00",
+  "descricao": "Serviços de duplicação e transferência de obras audiovisuais",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2501.33.00",
+  "descricao": "Serviços de correção de cor e restauração digital de obras audiovisuais",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2501.34.00",
+  "descricao": "Serviços de efeitos visuais em obras audiovisuais",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2501.35.00",
+  "descricao": "Serviços de animação",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2501.36.00",
+  "descricao": "Serviços de legendas, títulos e dublagem em obras audiovisuais",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2501.37.00",
+  "descricao": "Serviços de projeto e edição de som em obras audiovisuais",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2501.39.00",
+  "descricao": "Serviços de pós-produção de obras audiovisuais não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2501.40.00",
+  "descricao": "Serviços de agenciamento para a comercialização de obras audiovisuais",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2501.50.00",
+  "descricao": "Serviços de projeção de filmes",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2501.90.00",
+  "descricao": "Serviços de produção audiovisual, de apoio e relacionados não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2502",
+  "descricao": "Serviços de apresentação e promoção de atuações artísticas e outros serviços de entretenimento ao vivo",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2502.10.00",
+  "descricao": "Serviços de organização e promoção de atuações artísticas ao vivo",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2502.20.00",
+  "descricao": "Serviços de produção e apresentação de atuações artísticas ao vivo",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2502.30.00",
+  "descricao": "Serviços de apoio para atuações artísticas ao vivo",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2502.90.00",
+  "descricao": "Serviços de apresentação e promoção de atuações artísticas e outros serviços de entretenimento ao vivo não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2503",
+  "descricao": "Serviços de atuação artística e outros serviços artísticos",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2503.10.00",
+  "descricao": "Serviços de atuação artística",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2503.20.00",
+  "descricao": "Serviços de autores, compositores, escultores, pintores e outros artistas, exceto os de atuação artística",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2504",
+  "descricao": "Serviços de museus e de preservação e serviços de reservas botânica, zoológica e natural",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2504.1",
+  "descricao": "Serviços de museus e de preservação de locais e construções históricas",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2504.11.00",
+  "descricao": "Serviços de museus",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2504.12.00",
+  "descricao": "Serviços de preservação e operação de locais e construções históricas",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2504.2",
+  "descricao": "Serviços de reservas botânica, zoológica e natural",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2504.21.00",
+  "descricao": "Serviços de jardins botânico e zoológico",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2504.22.00",
+  "descricao": "Serviços de reserva natural, incluindo preservação de vida selvagem",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2505",
+  "descricao": "Serviços desportivos e recreacionais desportivos",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2505.10.00",
+  "descricao": "Serviços de organização e promoção de eventos desportivos e recreacionais desportivos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2505.20.00",
+  "descricao": "Serviços de clubes desportivos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2505.90.00",
+  "descricao": "Serviços desportivos e recreacionais desportivos não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2506.00.00",
+  "descricao": "Serviços fornecidos por atletas e desportistas, por conta própria, e serviços de apoio relacionados com desportes e recreação desportiva",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2507",
+  "descricao": "Serviços de parques de diversão e atrações similares",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2507.10.00",
+  "descricao": "Serviços de parques temáticos de diversão",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2507.90.00",
+  "descricao": "Serviços de parques de diversão e atrações similares não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2508.00.00",
+  "descricao": "Serviços recreativos, culturais e desportivos não classificados em posições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.26",
+  "descricao": "Serviços pessoais",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2601",
+  "descricao": "Serviços de lavanderia e tinturaria",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2601.10.00",
+  "descricao": "Serviços de limpeza de têxteis, exceto quando realizados a seco",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2601.20.00",
+  "descricao": "Serviços de limpeza a seco",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2601.30.00",
+  "descricao": "Serviços de tinturaria",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2601.40.00",
+  "descricao": "Serviços de passadoria de roupas e outros artigos têxteis",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2601.90.00",
+  "descricao": "Serviços de lavanderia não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2602",
+  "descricao": "Serviços de tratamento de beleza e bem-estar físico",
+  "nivel": "agrupamento"
+ },
+ {
+  "nbs": "1.2602.10.00",
+  "descricao": "Serviços de cabeleireiros e barbeiros",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2602.20.00",
+  "descricao": "Serviços de manicure, pedicure e tratamento cosmético",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2602.30.00",
+  "descricao": "Serviços de bem-estar físico",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2602.90.00",
+  "descricao": "Serviços de tratamento de beleza e bem-estar físico não classificados em subposições anteriores",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2603.00.00",
+  "descricao": "Serviços funerários, de cremação e de embalsamamento",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2604.00.00",
+  "descricao": "Serviços de confecção de roupas e outros artigos têxteis",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2605.00.00",
+  "descricao": "Serviços domésticos",
+  "nivel": "item"
+ },
+ {
+  "nbs": "1.2606.00.00",
+  "descricao": "Serviços pessoais não classificados em posições anteriores",
+  "nivel": "item"
+ }
+]

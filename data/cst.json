@@ -1,0 +1,74 @@
+[
+ {
+  "cst": "000",
+  "descricao": "Tributação integral"
+ },
+ {
+  "cst": "010",
+  "descricao": "Tributação com alíquotas uniformes"
+ },
+ {
+  "cst": "011",
+  "descricao": "Tributação com alíquotas uniformes reduzidas"
+ },
+ {
+  "cst": "200",
+  "descricao": "Alíquota reduzida"
+ },
+ {
+  "cst": "220",
+  "descricao": "Alíquota fixa"
+ },
+ {
+  "cst": "222",
+  "descricao": "Redução de base de cálculo"
+ },
+ {
+  "cst": "221",
+  "descricao": "Alíquota fixa proporcional"
+ },
+ {
+  "cst": "400",
+  "descricao": "Isenção"
+ },
+ {
+  "cst": "410",
+  "descricao": "Imunidade e não incidência"
+ },
+ {
+  "cst": "510",
+  "descricao": "Diferimento"
+ },
+ {
+  "cst": "515",
+  "descricao": "Diferimento com redução de alíquota"
+ },
+ {
+  "cst": "550",
+  "descricao": "Suspensão"
+ },
+ {
+  "cst": "620",
+  "descricao": "Tributação monofásica"
+ },
+ {
+  "cst": "800",
+  "descricao": "Transferência de crédito"
+ },
+ {
+  "cst": "810",
+  "descricao": "Ajuste de IBS na ZFM"
+ },
+ {
+  "cst": "811",
+  "descricao": "Ajustes"
+ },
+ {
+  "cst": "820",
+  "descricao": "Tributação em documento específico"
+ },
+ {
+  "cst": "830",
+  "descricao": "Exclusão de base de cálculo"
+ }
+]

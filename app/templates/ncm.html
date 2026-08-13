@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+{% block titulo %}NCM {{ c.formatado }}{% endblock %}
+{% block conteudo %}
+
+<section class="cartao empresa">
+  <div>
+    <h1>NCM {{ c.formatado }}
+      {% if c.vigente %}<span class="tag alta">vigente</span>
+      {% else %}<span class="tag baixa">fora de vigência</span>{% endif %}
+      {% if c.regimes %}<span class="tag media">regime diferenciado</span>
+      {% else %}<span class="tag bens">tributação integral</span>{% endif %}
+      {% if c.regimes_seletivo %}<span class="tag baixa">Imposto Seletivo</span>{% endif %}
+    </h1>
+    <p class="ajuda">{{ c.descricao }}</p>
+  </div>
+  <div class="downloads">
+    <a class="botao" href="{{ url_for('download_ncm', token=token, formato='xlsx') }}">XLSX</a>
+    <a class="botao" href="{{ url_for('download_ncm', token=token, formato='csv') }}">CSV</a>
+    <a class="botao" href="{{ url_for('download_ncm', token=token, formato='json') }}">JSON</a>
+  </div>
+</section>
+
+{% for alerta in c.alertas %}<div class="alerta">{{ alerta }}</div>{% endfor %}
+
+<section class="cartao">
+  <h2>Classificação tributária do IBS/CBS</h2>
+  <table>
+    <thead>
+      <tr><th>cClassTrib</th><th>CST</th><th>Base legal</th><th>Fundamento (anexo da LC 214/2025)</th></tr>
+    </thead>
+    <tbody>
+      {% for r in c.regimes %}
+        {% for classe in r.cclasstrib %}
+        <tr>
+          <td><code>{{ classe.cclasstrib }}</code><small>{{ classe.nome }}</small>
+            {% if classe.p_red_ibs == '100' %}<small>redução de 100% — alíquota zero</small>
+            {% elif classe.p_red_ibs not in ('', '0') %}<small>redução: IBS {{ classe.p_red_ibs }}% · CBS {{ classe.p_red_cbs }}%</small>
+            {% else %}<small>sem redução (alíquota padrão)</small>{% endif %}
+          </td>
+          <td><code>{{ classe.cst }}</code><small>{{ classe.cst_descricao }}</small></td>
+          <td>{{ classe.lc214 }}<small>{% if classe.usa_nfe %}válido em NF-e{% else %}não previsto para NF-e{% endif %}</small></td>
+          <td>
+            <strong>Anexo {{ r.anexo }}</strong>, item {{ r.item }}
+            <small>{{ r.descricao }}</small>
+            <small>referência casada: {{ r.referencias|join(', ') }}</small>
+          </td>
+        </tr>
+        {% else %}
+        <tr>
+          <td colspan="3"><small>Anexo sem cClassTrib específico na tabela da NF-e</small></td>
+          <td><strong>Anexo {{ r.anexo }}</strong>, item {{ r.item }}<small>{{ r.descricao }}</small></td>
+        </tr>
+        {% endfor %}
+      {% endfor %}
+      <tr>
+        <td><code>{{ c.padrao.cclasstrib }}</code><small>{{ c.padrao.nome }}</small></td>
+        <td><code>{{ c.padrao.cst }}</code><small>{{ c.padrao.cst_descricao }}</small></td>
+        <td><small>regra geral</small></td>
+        <td>{% if c.regimes %}Aplicável quando não atendidos os requisitos do anexo{% else %}Nenhum anexo da LC 214/2025 cita este NCM{% endif %}</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+{% if c.regimes_seletivo %}
+<section class="cartao">
+  <h2>Imposto Seletivo (Anexo XVII)</h2>
+  <p class="ajuda">
+    O IS não usa cClassTrib: é informado em grupo próprio do documento fiscal.
+  </p>
+  <table>
+    <thead><tr><th>Categoria</th><th>Texto do anexo</th><th>Referência casada</th></tr></thead>
+    <tbody>
+      {% for r in c.regimes_seletivo %}
+      <tr>
+        <td>{{ r.item }}</td>
+        <td>{{ r.descricao }}</td>
+        <td><code>{{ r.referencias|join(', ') }}</code></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+{% endif %}
+
+<section class="cartao">
+  <h2>indOP — indicadores de operação com bem móvel material</h2>
+  <p class="ajuda">
+    O indOP não depende do produto: identifica como o fornecimento ocorre e, com
+    isso, o local da operação (art. 11 da LC 214/2025).
+  </p>
+  <table>
+    <thead><tr><th>indOP</th><th>Característica do fornecimento</th><th>Local do fornecimento</th><th>Dispositivo</th></tr></thead>
+    <tbody>
+      {% for i in c.indops %}
+      <tr>
+        <td><code>{{ i.indop }}</code></td>
+        <td>{{ i.caracteristica }}</td>
+        <td>{{ i.local_fornecimento }}</td>
+        <td><small>{{ i.dispositivo_lc214 }}</small></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+
+{% if c.regimes_excluidos %}
+<section class="cartao">
+  <h2>Exceções expressas</h2>
+  <p class="ajuda">Anexos que citam este NCM para <strong>excluí-lo</strong> do benefício.</p>
+  <table>
+    <thead><tr><th>Anexo</th><th>Item</th><th>Texto</th><th>Código excluído</th></tr></thead>
+    <tbody>
+      {% for r in c.regimes_excluidos %}
+      <tr>
+        <td>Anexo {{ r.anexo }}</td>
+        <td>{{ r.item }}</td>
+        <td><small>{{ r.descricao }}</small></td>
+        <td><code>{{ r.excecoes|join(', ') }}</code></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+{% endif %}
+
+<section class="cartao">
+  <h2>Hierarquia da NCM</h2>
+  <table>
+    <thead><tr><th>Código</th><th>Nível</th><th>Descrição</th></tr></thead>
+    <tbody>
+      {% for n in c.hierarquia %}
+      <tr>
+        <td><code>{{ n.codigo }}</code></td>
+        <td><small>{{ n.nivel }} dígitos</small></td>
+        <td>{{ n.descricao }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+
+<p class="rodape-dados"><a href="{{ url_for('ncm_busca') }}">← nova consulta de NCM</a></p>
+{% endblock %}

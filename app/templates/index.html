@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block conteudo %}
+
+{% if erro %}<div class="alerta erro">{{ erro }}</div>{% endif %}
+
+<section class="cartao">
+  <h1>Analisar cartão CNPJ</h1>
+  <p class="ajuda">
+    Envie o <em>Comprovante de Inscrição e de Situação Cadastral</em> (cartão CNPJ) em PDF.
+    A ferramenta lê o CNAE principal e os secundários e devolve, para cada um, o item da
+    LC 116/03, os códigos NBS, o indicador de operação (indOP) e a classificação
+    tributária do IBS/CBS (cClassTrib).
+  </p>
+
+  <form method="post" action="{{ url_for('analisar') }}" enctype="multipart/form-data">
+    <label class="campo">
+      <span>Cartão CNPJ (PDF)</span>
+      <input type="file" name="cartao" accept="application/pdf">
+    </label>
+
+    <label class="campo">
+      <span>Ou informe CNAEs manualmente (um por linha)</span>
+      <textarea name="cnaes" rows="4" placeholder="62.01-5-01&#10;6202-3/00&#10;4711302"></textarea>
+    </label>
+
+    <button type="submit">Correlacionar</button>
+  </form>
+</section>
+
+<section class="cartao">
+  <h1>Consultar por NCM</h1>
+  <p class="ajuda">
+    Para operações com bens, informe o código NCM (ou parte da descrição do produto)
+    e veja o <strong>CST</strong>, o <strong>cClassTrib</strong> e o
+    <strong>indOP</strong> aplicáveis, com o anexo da LC 214/2025 que fundamenta o
+    regime.
+  </p>
+
+  <form method="get" action="{{ url_for('ncm_busca') }}" class="linha-form">
+    <input type="search" name="q" placeholder="1006.40.00, 04011010 ou &quot;leite em pó&quot;" required>
+    <button type="submit">Consultar NCM</button>
+  </form>
+</section>
+
+<section class="grade-info">
+  <article>
+    <h2>O que é gerado</h2>
+    <ul>
+      <li><strong>Item da LC 116/03</strong> — subitem da lista de serviços correspondente ao CNAE.</li>
+      <li><strong>NBS</strong> — códigos da Nomenclatura Brasileira de Serviços ligados ao item.</li>
+      <li><strong>indOP</strong> — indicador da operação (local do fornecimento, art. 11 da LC 214/2025).</li>
+      <li><strong>cClassTrib</strong> — código de classificação tributária do IBS/CBS e o CST correspondente.</li>
+    </ul>
+  </article>
+  <article>
+    <h2>Critérios de confiança</h2>
+    <ul>
+      <li><span class="tag alta">alta</span> vínculo CNAE → item vindo de tabela oficial municipal.</li>
+      <li><span class="tag media">média</span> / <span class="tag baixa">baixa</span> sugestão por similaridade textual — exige validação.</li>
+      <li><span class="tag bens">bens</span> CNAE de comércio/indústria/agro: NBS não se aplica; a classificação usa cClassTrib e indOP, com o enquadramento fino dependente do NCM.</li>
+    </ul>
+  </article>
+</section>
+
+<p class="rodape-dados">
+  Datasets gerados em {{ manifesto.gerado_em[:19].replace('T',' ') }} a partir de
+  {{ manifesto.fontes|length }} arquivos da pasta <code>KB</code>.
+</p>
+{% endblock %}

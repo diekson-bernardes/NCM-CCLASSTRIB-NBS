@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block titulo %}Consulta por NCM{% endblock %}
+{% block conteudo %}
+
+{% if erro %}<div class="alerta erro">{{ erro }}</div>{% endif %}
+
+<section class="cartao">
+  <h1>Consulta por NCM</h1>
+  <p class="ajuda">
+    Informe o código NCM completo (8 dígitos) para ir direto ao enquadramento, ou
+    parte do código/descrição para escolher na lista.
+  </p>
+
+  <form method="get" class="linha-form">
+    <input type="search" name="q" value="{{ termo }}"
+           placeholder="1006.40.00, 0401 ou &quot;leite em pó&quot;" required>
+    <button type="submit">Consultar</button>
+  </form>
+
+  {% if termo %}
+    <p class="ajuda">{{ total }} resultado(s){% if total >= 60 %} — exibindo os 60 primeiros{% endif %}.</p>
+    <table>
+      <thead><tr><th>NCM</th><th>Descrição</th><th>Nível</th><th>Situação</th></tr></thead>
+      <tbody>
+        {% for n in achados %}
+        <tr>
+          <td><a href="{{ url_for('ncm_detalhe', codigo=n.ncm) }}"><code>{{ n.codigo }}</code></a></td>
+          <td>{{ n.descricao }}</td>
+          <td><small>{{ n.nivel }} dígitos</small></td>
+          <td><small>{% if n.vigente %}vigente{% else %}encerrado em {{ n.data_fim }}{% endif %}</small></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% endif %}
+</section>
+{% endblock %}

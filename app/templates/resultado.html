@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+{% block titulo %}Resultado da correlação{% endblock %}
+{% block conteudo %}
+
+<section class="cartao empresa">
+  <div>
+    <h1>{{ cartao.nome_empresarial or 'Correlação de CNAEs' }}</h1>
+    <p class="ajuda">
+      {% if cartao.cnpj %}CNPJ {{ cartao.cnpj }} · {% endif %}
+      {% if cartao.nome_fantasia %}{{ cartao.nome_fantasia }} · {% endif %}
+      {% if cartao.municipio %}{{ cartao.municipio }}/{{ cartao.uf }} · {% endif %}
+      {% if cartao.situacao %}Situação: {{ cartao.situacao }}{% endif %}
+    </p>
+  </div>
+  <div class="downloads">
+    <a class="botao" href="{{ url_for('download', token=token, formato='xlsx') }}">XLSX</a>
+    <a class="botao" href="{{ url_for('download', token=token, formato='csv') }}">CSV</a>
+    <a class="botao" href="{{ url_for('download', token=token, formato='json') }}">JSON</a>
+  </div>
+</section>
+
+{% for aviso in cartao.avisos or [] %}
+  <div class="alerta">{{ aviso }}</div>
+{% endfor %}
+
+<section class="indicadores">
+  <div><strong>{{ resumo.cnaes }}</strong><span>CNAEs</span></div>
+  <div><strong>{{ resumo.servicos }}</strong><span>serviços (vínculo oficial)</span></div>
+  <div><strong>{{ resumo.servicos_sugeridos }}</strong><span>serviços (a validar)</span></div>
+  <div><strong>{{ resumo.bens }}</strong><span>operações com bens</span></div>
+  <div><strong>{{ resumo.itens_lc116 }}</strong><span>itens LC 116</span></div>
+  <div><strong>{{ resumo.nbs }}</strong><span>códigos NBS</span></div>
+  <div><strong>{{ resumo.cclasstrib }}</strong><span>cClassTrib</span></div>
+  <div><strong>{{ total_linhas }}</strong><span>linhas no relatório</span></div>
+</section>
+
+{% for r in resultados %}
+<section class="cartao cnae-bloco">
+  <header class="cnae-cabecalho">
+    <div>
+      <h2>{{ r.cnae_formatado }}
+        {% if r.principal %}<span class="tag principal">principal</span>{% endif %}
+        {% if r.natureza == 'servico' %}<span class="tag alta">serviço · vínculo oficial</span>
+        {% elif r.natureza == 'servico_sugerido' %}<span class="tag media">serviço · sugerido</span>
+        {% else %}<span class="tag bens">operação com bens</span>{% endif %}
+      </h2>
+      <p>{{ r.descricao_oficial or r.descricao_cartao }}</p>
+      <small>Seção {{ r.secao }} — {{ r.secao_descricao }}</small>
+    </div>
+  </header>
+
+  {% for alerta in r.alertas %}<div class="alerta">{{ alerta }}</div>{% endfor %}
+
+  {% for item in r.itens %}
+    <div class="item">
+      <h3>
+        Item LC 116/03 <code>{{ item.item }}</code> — {{ item.descricao }}
+        <span class="tag {{ item.confianca }}">{{ item.confianca }}{% if item.score < 1 %} · {{ item.score }}{% endif %}</span>
+      </h3>
+      <small class="origem">{{ item.origem }}{% if item.fontes %} — {{ item.fontes|join('; ') }}{% endif %}</small>
+
+      {% if item.variantes %}
+      <table>
+        <thead>
+          <tr>
+            <th>cClassTrib</th><th>CST</th><th>indOP aplicáveis</th>
+            <th>Local de incidência</th><th>NBS correlacionadas</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for v in item.variantes %}
+          <tr>
+            <td>
+              <code>{{ v.cclasstrib }}</code>
+              <small>{{ v.cclasstrib_info.nome }}</small>
+              {% if v.cclasstrib_info.lc214 %}<small>LC 214/2025: {{ v.cclasstrib_info.lc214 }}</small>{% endif %}
+              {% if not v.nbs %}<small class="nota">classificação alternativa do item (sem NBS específica)</small>{% endif %}
+            </td>
+            <td><code>{{ v.cclasstrib_info.cst }}</code><small>{{ v.cclasstrib_info.cst_descricao }}</small></td>
+            <td>
+              {% for i in v.indops %}
+                <div class="indop">
+                  <code>{{ i.indop }}</code> {{ i.tipo_operacao }}
+                  <small>{{ i.local_fornecimento }}</small>
+                  <small>{{ i.dispositivo_lc214 }}{% if i.ps_onerosa %} · onerosa: {{ i.ps_onerosa }} · adquirido do exterior: {{ i.adquirido_exterior }}{% endif %}</small>
+                </div>
+              {% else %}<small>—</small>{% endfor %}
+            </td>
+            <td>{{ v.local_incidencia }}</td>
+            <td>
+              {% if v.nbs %}
+              <details {% if v.nbs|length <= 3 %}open{% endif %}>
+                <summary>{{ v.nbs|length }} código(s) NBS</summary>
+                <ul class="lista-nbs">
+                  {% for n in v.nbs %}<li><code>{{ n.nbs }}</code> {{ n.descricao }}</li>{% endfor %}
+                </ul>
+              </details>
+              {% else %}<small>—</small>{% endif %}
+            </td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+      {% else %}
+        <div class="alerta">Item ainda sem correlação publicada no Anexo VIII.</div>
+      {% endif %}
+    </div>
+  {% endfor %}
+
+  {% if r.bens.aplicavel %}
+    <div class="item bens">
+      <h3>Trilha de operações com bens</h3>
+      <p><strong>NBS:</strong> {{ r.bens.nbs }}</p>
+      <p><strong>Item da LC 116/03:</strong> {{ r.bens.item_lc116 }}</p>
+      <table>
+        <thead><tr><th>indOP</th><th>Característica</th><th>Local do fornecimento</th><th>Dispositivo LC 214/2025</th></tr></thead>
+        <tbody>
+          {% for i in r.bens.indops %}
+          <tr>
+            <td><code>{{ i.indop }}</code></td>
+            <td>{{ i.caracteristica }}</td>
+            <td>{{ i.local_fornecimento }}</td>
+            <td>{{ i.dispositivo_lc214 }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <p>
+        <strong>cClassTrib de referência:</strong>
+        <code>{{ r.bens.cclasstrib_padrao.cclasstrib }}</code>
+        {{ r.bens.cclasstrib_padrao.nome }}
+        (CST {{ r.bens.cclasstrib_padrao.cst }} — {{ r.bens.cclasstrib_padrao.cst_descricao }})
+      </p>
+      <details>
+        <summary>{{ r.bens.alternativas|length }} classificações alternativas admitidas em NF-e (regimes específicos por NCM)</summary>
+        <ul class="lista-nbs">
+          {% for a in r.bens.alternativas %}
+          <li><code>{{ a.cclasstrib }}</code> {{ a.nome }} <small>CST {{ a.cst }} — {{ a.cst_descricao }}</small></li>
+          {% endfor %}
+        </ul>
+      </details>
+    </div>
+  {% endif %}
+</section>
+{% endfor %}
+
+<p class="rodape-dados"><a href="{{ url_for('inicio') }}">← nova análise</a></p>
+{% endblock %}

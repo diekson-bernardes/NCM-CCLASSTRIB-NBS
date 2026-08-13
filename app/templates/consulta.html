@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block titulo %}Consulta de tabelas{% endblock %}
+{% block conteudo %}
+
+<section class="cartao">
+  <h1>Consulta às tabelas oficiais</h1>
+  <form method="get" class="linha-form">
+    <select name="tipo">
+      <option value="cnae" {% if tipo=='cnae' %}selected{% endif %}>CNAE (subclasses IBGE)</option>
+      <option value="lc116" {% if tipo=='lc116' %}selected{% endif %}>Item da LC 116/03</option>
+      <option value="nbs" {% if tipo=='nbs' %}selected{% endif %}>NBS 2.0</option>
+      <option value="ncm" {% if tipo=='ncm' %}selected{% endif %}>NCM (bens)</option>
+      <option value="cclasstrib" {% if tipo=='cclasstrib' %}selected{% endif %}>cClassTrib (IBS/CBS)</option>
+      <option value="indop" {% if tipo=='indop' %}selected{% endif %}>indOP</option>
+    </select>
+    <input type="search" name="q" value="{{ termo }}" placeholder="código ou texto">
+    <button type="submit">Buscar</button>
+  </form>
+
+  {% if termo %}
+    <p class="ajuda">{{ total }} resultado(s){% if total > 200 %} — exibindo os 200 primeiros{% endif %}.</p>
+    <table>
+      <thead><tr><th>Código</th><th>Descrição</th><th>Complemento</th></tr></thead>
+      <tbody>
+        {% for a in achados %}
+        <tr>
+          <td><code>{{ a.codigo }}</code></td>
+          <td>{% if a.link %}<a href="{{ a.link }}">{{ a.descricao }}</a>{% else %}{{ a.descricao }}{% endif %}</td>
+          <td><small>{{ a.extra }}</small></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% endif %}
+</section>
+{% endblock %}

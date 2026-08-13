@@ -1,0 +1,8928 @@
+[
+ {
+  "cnae": "0161001",
+  "item": "07.13",
+  "fontes": [
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "0161003",
+  "item": "07.16",
+  "fontes": [
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "0162899",
+  "item": "05.08",
+  "fontes": [
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "0162899",
+  "item": "07.13",
+  "fontes": [
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "0162899",
+  "item": "17.01",
+  "fontes": [
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "0311604",
+  "item": "17.01",
+  "fontes": [
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "0311604",
+  "item": "20.01",
+  "fontes": [
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "0312404",
+  "item": "17.01",
+  "fontes": [
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "0312404",
+  "item": "20.01",
+  "fontes": [
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "0321305",
+  "item": "17.01",
+  "fontes": [
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "0321305",
+  "item": "20.01",
+  "fontes": [
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "0910600",
+  "item": "07.21",
+  "fontes": [
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "0990401",
+  "item": "07.21",
+  "fontes": [
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "0990402",
+  "item": "07.21",
+  "fontes": [
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "0990403",
+  "item": "07.21",
+  "fontes": [
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "1340501",
+  "item": "14.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "1340501",
+  "item": "14.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "1340501",
+  "item": "14.10",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "1340502",
+  "item": "14.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "1340502",
+  "item": "14.10",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "1340599",
+  "item": "14.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "1340599",
+  "item": "14.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "1340599",
+  "item": "14.10",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "1411802",
+  "item": "14.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "1411802",
+  "item": "14.10",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "1412601",
+  "item": "14.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "1412601",
+  "item": "14.10",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "1412602",
+  "item": "14.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "1412602",
+  "item": "14.10",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "1412603",
+  "item": "14.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "1412603",
+  "item": "14.10",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "1413401",
+  "item": "14.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "1413401",
+  "item": "14.10",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "1413402",
+  "item": "14.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "1413402",
+  "item": "14.10",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "1413403",
+  "item": "14.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "1413403",
+  "item": "14.10",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "1531902",
+  "item": "14.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "1531902",
+  "item": "14.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "1622699",
+  "item": "14.13",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "1629301",
+  "item": "14.07",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "1629301",
+  "item": "14.13",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "1741901",
+  "item": "13.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "1811301",
+  "item": "13.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "1811302",
+  "item": "13.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "1812100",
+  "item": "13.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "1813001",
+  "item": "13.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "1813099",
+  "item": "13.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "1821100",
+  "item": "13.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "1822901",
+  "item": "13.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "1822901",
+  "item": "14.08",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "1822999",
+  "item": "13.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "1822999",
+  "item": "14.08",
+  "fontes": [
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "1830001",
+  "item": "13.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "1830002",
+  "item": "13.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "1830002",
+  "item": "13.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "1830003",
+  "item": "01.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "1830003",
+  "item": "01.07",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "2121101",
+  "item": "04.07",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "2121102",
+  "item": "04.07",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "2121103",
+  "item": "04.07",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "2212900",
+  "item": "14.04",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "2330301",
+  "item": "07.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "2330305",
+  "item": "07.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "2391501",
+  "item": "07.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "2391501",
+  "item": "14.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "2391502",
+  "item": "14.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "2391503",
+  "item": "14.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "2391503",
+  "item": "40.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "2399101",
+  "item": "14.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "2399101",
+  "item": "14.13",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "2399101",
+  "item": "39.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "2399101",
+  "item": "40.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "2511000",
+  "item": "14.13",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "2512800",
+  "item": "14.13",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "2513600",
+  "item": "07.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "2513600",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "2513600",
+  "item": "14.06",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "2539001",
+  "item": "14.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "2539002",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "2539002",
+  "item": "14.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "2542000",
+  "item": "14.13",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "2599301",
+  "item": "07.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "2599301",
+  "item": "14.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "2599301",
+  "item": "14.13",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "2599302",
+  "item": "14.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "2610800",
+  "item": "14.06",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "2621300",
+  "item": "14.06",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "2722802",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "2722802",
+  "item": "14.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "2930101",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "2930103",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "2950600",
+  "item": "14.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "3101200",
+  "item": "14.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3101200",
+  "item": "14.13",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3211601",
+  "item": "39.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3250703",
+  "item": "04.14",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3250706",
+  "item": "04.14",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3250709",
+  "item": "04.13",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3299003",
+  "item": "24.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "3299004",
+  "item": "24.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3311200",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3311200",
+  "item": "14.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3312102",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "3312102",
+  "item": "14.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3312102",
+  "item": "31.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3312103",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3312103",
+  "item": "14.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3312103",
+  "item": "31.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3312104",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "3312104",
+  "item": "14.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3313901",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "3313901",
+  "item": "14.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3313902",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "3313902",
+  "item": "14.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3313999",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3313999",
+  "item": "14.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3314701",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "3314701",
+  "item": "14.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3314702",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "3314702",
+  "item": "14.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3314703",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3314703",
+  "item": "14.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3314704",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3314704",
+  "item": "14.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3314705",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "3314705",
+  "item": "14.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3314706",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3314706",
+  "item": "14.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3314707",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3314707",
+  "item": "14.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3314708",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3314708",
+  "item": "14.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3314709",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3314709",
+  "item": "14.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3314710",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3314710",
+  "item": "14.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3314710",
+  "item": "31.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3314711",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "3314711",
+  "item": "14.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3314712",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3314712",
+  "item": "14.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3314713",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "3314713",
+  "item": "14.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3314714",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3314714",
+  "item": "14.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3314715",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3314715",
+  "item": "14.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3314716",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "3314716",
+  "item": "14.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3314717",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3314717",
+  "item": "14.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3314718",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3314718",
+  "item": "14.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3314719",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3314719",
+  "item": "14.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3314720",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3314720",
+  "item": "14.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3314721",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3314721",
+  "item": "14.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3314722",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "3314722",
+  "item": "14.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3314799",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3314799",
+  "item": "14.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3315500",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3315500",
+  "item": "14.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3316301",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "3316301",
+  "item": "14.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3316302",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3316302",
+  "item": "14.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3317101",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "3317101",
+  "item": "14.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3317102",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "3317102",
+  "item": "14.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3319800",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "3319800",
+  "item": "14.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3321000",
+  "item": "07.02",
+  "fontes": [
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "3321000",
+  "item": "14.06",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "3329501",
+  "item": "14.06",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3329501",
+  "item": "14.13",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "3329599",
+  "item": "14.06",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "3513100",
+  "item": "10.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3514000",
+  "item": "03.04",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3514000",
+  "item": "07.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3514000",
+  "item": "07.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3514000",
+  "item": "07.19",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3514000",
+  "item": "10.10",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3514000",
+  "item": "17.22",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3520402",
+  "item": "03.04",
+  "fontes": [
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "3600601",
+  "item": "07.12",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3600602",
+  "item": "16.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3701100",
+  "item": "07.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3701100",
+  "item": "07.12",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3702900",
+  "item": "07.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3702900",
+  "item": "07.10",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "3702900",
+  "item": "07.12",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3811400",
+  "item": "07.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3811400",
+  "item": "07.10",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3811400",
+  "item": "07.12",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3811400",
+  "item": "07.18",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3812200",
+  "item": "07.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3812200",
+  "item": "07.10",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3812200",
+  "item": "07.12",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3812200",
+  "item": "07.18",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3821100",
+  "item": "07.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "3821100",
+  "item": "07.10",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3821100",
+  "item": "07.12",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "3822000",
+  "item": "07.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3822000",
+  "item": "07.10",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3822000",
+  "item": "07.12",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3831901",
+  "item": "07.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3831999",
+  "item": "07.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "3832700",
+  "item": "07.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3839401",
+  "item": "07.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3839401",
+  "item": "07.12",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3839499",
+  "item": "07.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "3900500",
+  "item": "07.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3900500",
+  "item": "07.12",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "3900500",
+  "item": "07.18",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "4120400",
+  "item": "07.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4120400",
+  "item": "07.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4211101",
+  "item": "07.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4211101",
+  "item": "07.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4211102",
+  "item": "07.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "4211102",
+  "item": "07.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "4211102",
+  "item": "07.10",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4212000",
+  "item": "07.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4212000",
+  "item": "07.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4213800",
+  "item": "07.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4213800",
+  "item": "07.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4221901",
+  "item": "07.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "4221901",
+  "item": "07.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4221902",
+  "item": "07.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "4221902",
+  "item": "07.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4221903",
+  "item": "07.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4221903",
+  "item": "07.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "4221904",
+  "item": "07.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "4221904",
+  "item": "07.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4221905",
+  "item": "07.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4221905",
+  "item": "07.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "4222701",
+  "item": "07.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4222701",
+  "item": "07.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4222702",
+  "item": "07.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4223500",
+  "item": "07.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "4223500",
+  "item": "07.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4291000",
+  "item": "07.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4292801",
+  "item": "07.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4292801",
+  "item": "14.06",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4292802",
+  "item": "07.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4299501",
+  "item": "07.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "4299501",
+  "item": "07.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4299599",
+  "item": "07.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "4299599",
+  "item": "07.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4299599",
+  "item": "07.17",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "4311801",
+  "item": "07.04",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4311802",
+  "item": "07.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4312600",
+  "item": "07.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4313400",
+  "item": "07.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4313400",
+  "item": "17.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4319300",
+  "item": "07.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "4321500",
+  "item": "07.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4321500",
+  "item": "07.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4321500",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4321500",
+  "item": "14.06",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4322301",
+  "item": "07.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4322301",
+  "item": "07.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4322302",
+  "item": "07.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "4322302",
+  "item": "07.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4322302",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "4322302",
+  "item": "14.06",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4322303",
+  "item": "07.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "4322303",
+  "item": "07.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4322303",
+  "item": "14.01",
+  "fontes": [
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "4322303",
+  "item": "14.06",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "4329101",
+  "item": "14.06",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4329102",
+  "item": "14.06",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "4329103",
+  "item": "07.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4329103",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4329103",
+  "item": "14.06",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4329104",
+  "item": "07.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4329104",
+  "item": "07.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4329104",
+  "item": "14.06",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4329105",
+  "item": "07.08",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4329199",
+  "item": "07.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "4330401",
+  "item": "07.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4330401",
+  "item": "07.08",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4330402",
+  "item": "07.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4330402",
+  "item": "07.06",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "4330402",
+  "item": "14.13",
+  "fontes": [
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "4330403",
+  "item": "07.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4330403",
+  "item": "07.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4330403",
+  "item": "07.06",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4330403",
+  "item": "14.07",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4330404",
+  "item": "07.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4330404",
+  "item": "07.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4330405",
+  "item": "07.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "4330405",
+  "item": "07.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "4330405",
+  "item": "07.06",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "4330405",
+  "item": "07.07",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "4330405",
+  "item": "07.08",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "4330499",
+  "item": "07.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4330499",
+  "item": "07.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4330499",
+  "item": "07.06",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4391600",
+  "item": "07.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4399101",
+  "item": "07.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4399101",
+  "item": "07.19",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4399102",
+  "item": "03.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "4399102",
+  "item": "07.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4399103",
+  "item": "07.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4399103",
+  "item": "07.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4399104",
+  "item": "03.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4399104",
+  "item": "14.14",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4399105",
+  "item": "07.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4399199",
+  "item": "07.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "4399199",
+  "item": "07.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "4399199",
+  "item": "07.10",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4512901",
+  "item": "10.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4512901",
+  "item": "10.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "4512902",
+  "item": "10.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "4512902",
+  "item": "10.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "4520001",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "4520001",
+  "item": "14.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4520002",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4520002",
+  "item": "14.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "4520002",
+  "item": "14.12",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "4520003",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "4520004",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "4520004",
+  "item": "14.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4520004",
+  "item": "14.12",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4520005",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "4520005",
+  "item": "14.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "4520006",
+  "item": "14.04",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "4520007",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "4520007",
+  "item": "14.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4520007",
+  "item": "14.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4520007",
+  "item": "14.06",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4520007",
+  "item": "14.12",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4520008",
+  "item": "14.11",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4530706",
+  "item": "10.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4530706",
+  "item": "10.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4542101",
+  "item": "10.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4542101",
+  "item": "10.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4542102",
+  "item": "10.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4542102",
+  "item": "10.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4543900",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "4543900",
+  "item": "14.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4543900",
+  "item": "14.12",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4611700",
+  "item": "10.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4612500",
+  "item": "10.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4612500",
+  "item": "10.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4613300",
+  "item": "10.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4613300",
+  "item": "10.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4614100",
+  "item": "10.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4614100",
+  "item": "10.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4615000",
+  "item": "10.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4615000",
+  "item": "10.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4616800",
+  "item": "10.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4616800",
+  "item": "10.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4617600",
+  "item": "10.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4617600",
+  "item": "10.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4618401",
+  "item": "10.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4618401",
+  "item": "10.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4618402",
+  "item": "10.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4618402",
+  "item": "10.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4618403",
+  "item": "10.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4618403",
+  "item": "10.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4618499",
+  "item": "10.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4618499",
+  "item": "10.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4619200",
+  "item": "10.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4619200",
+  "item": "10.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4751202",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "4771702",
+  "item": "04.07",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "4771703",
+  "item": "04.07",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "4911600",
+  "item": "16.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4912402",
+  "item": "16.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "4912403",
+  "item": "16.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4921301",
+  "item": "16.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "4923001",
+  "item": "16.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4923002",
+  "item": "16.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "4924800",
+  "item": "16.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4924800",
+  "item": "16.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4929901",
+  "item": "16.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "4929903",
+  "item": "09.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "4929903",
+  "item": "09.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4929904",
+  "item": "09.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4929904",
+  "item": "09.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4929999",
+  "item": "16.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4930201",
+  "item": "16.01",
+  "fontes": [
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "4930201",
+  "item": "16.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4930203",
+  "item": "16.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4930204",
+  "item": "16.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4940000",
+  "item": "16.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4950700",
+  "item": "16.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "4950700",
+  "item": "16.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5021101",
+  "item": "16.01",
+  "fontes": [
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "5021101",
+  "item": "16.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5022001",
+  "item": "16.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5022001",
+  "item": "16.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5030101",
+  "item": "20.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5030102",
+  "item": "20.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5030103",
+  "item": "20.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5091201",
+  "item": "16.01",
+  "fontes": [
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "5091201",
+  "item": "16.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5099801",
+  "item": "16.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5099899",
+  "item": "16.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5112999",
+  "item": "16.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "5112999",
+  "item": "16.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5211701",
+  "item": "11.04",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5211701",
+  "item": "20.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5211702",
+  "item": "11.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5211702",
+  "item": "11.04",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5211799",
+  "item": "11.04",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "5211799",
+  "item": "20.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "5212500",
+  "item": "11.04",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5212500",
+  "item": "14.14",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5212500",
+  "item": "17.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5212500",
+  "item": "20.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5221400",
+  "item": "03.04",
+  "fontes": [
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "5221400",
+  "item": "22.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "5222200",
+  "item": "20.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5223100",
+  "item": "11.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5229001",
+  "item": "17.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5229001",
+  "item": "17.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "5229001",
+  "item": "17.12",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5229002",
+  "item": "14.14",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5229099",
+  "item": "11.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "5229099",
+  "item": "11.04",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5229099",
+  "item": "17.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5229099",
+  "item": "26.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5231101",
+  "item": "20.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5231102",
+  "item": "11.04",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5231102",
+  "item": "14.14",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5231102",
+  "item": "20.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5231103",
+  "item": "20.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5232000",
+  "item": "10.06",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5239700",
+  "item": "20.01",
+  "fontes": [
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "5239701",
+  "item": "20.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5239799",
+  "item": "20.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5240101",
+  "item": "20.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "5240199",
+  "item": "11.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5240199",
+  "item": "20.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5250801",
+  "item": "33.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5250802",
+  "item": "33.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5250803",
+  "item": "10.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "5250804",
+  "item": "17.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5250805",
+  "item": "20.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "5250805",
+  "item": "20.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "5250805",
+  "item": "20.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "5310501",
+  "item": "26.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5310502",
+  "item": "26.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5320201",
+  "item": "26.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "5320202",
+  "item": "26.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5510801",
+  "item": "09.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5510802",
+  "item": "09.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5510803",
+  "item": "09.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5590601",
+  "item": "09.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5590602",
+  "item": "09.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5590603",
+  "item": "09.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5590699",
+  "item": "09.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "5620102",
+  "item": "17.11",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "5811500",
+  "item": "10.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5811500",
+  "item": "17.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5812301",
+  "item": "17.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5812302",
+  "item": "17.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5813100",
+  "item": "17.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5819100",
+  "item": "17.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "5821200",
+  "item": "17.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5822101",
+  "item": "17.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5822102",
+  "item": "17.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5823900",
+  "item": "17.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5829800",
+  "item": "17.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "5911101",
+  "item": "13.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5911101",
+  "item": "13.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5911102",
+  "item": "17.06",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5911199",
+  "item": "12.13",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5911199",
+  "item": "13.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5912001",
+  "item": "13.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5912002",
+  "item": "13.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "5912099",
+  "item": "13.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5912099",
+  "item": "13.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5913800",
+  "item": "01.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5913800",
+  "item": "10.10",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "5914600",
+  "item": "12.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5914600",
+  "item": "12.16",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "5920100",
+  "item": "13.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6021700",
+  "item": "12.13",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6022501",
+  "item": "10.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6022502",
+  "item": "10.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6110803",
+  "item": "01.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6141800",
+  "item": "01.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6190601",
+  "item": "01.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6190601",
+  "item": "01.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6190601",
+  "item": "01.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6190601",
+  "item": "01.04",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6190601",
+  "item": "01.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6190601",
+  "item": "01.08",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6190602",
+  "item": "01.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6190699",
+  "item": "10.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6190699",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6190699",
+  "item": "14.06",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6201500",
+  "item": "01.01",
+  "fontes": [
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6201500",
+  "item": "01.02",
+  "fontes": [
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6201500",
+  "item": "01.04",
+  "fontes": [
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6201500",
+  "item": "01.08",
+  "fontes": [
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6201501",
+  "item": "01.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6201501",
+  "item": "01.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6201501",
+  "item": "01.04",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6201501",
+  "item": "01.08",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6201502",
+  "item": "01.08",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6201502",
+  "item": "13.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6201502",
+  "item": "23.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6202300",
+  "item": "01.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6202300",
+  "item": "01.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6202300",
+  "item": "01.04",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6202300",
+  "item": "01.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6203100",
+  "item": "01.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6203100",
+  "item": "01.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6203100",
+  "item": "01.04",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6203100",
+  "item": "01.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6204000",
+  "item": "01.06",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6204000",
+  "item": "01.07",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6209100",
+  "item": "01.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6209100",
+  "item": "01.07",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6311900",
+  "item": "01.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6311900",
+  "item": "01.08",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6319400",
+  "item": "01.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6319400",
+  "item": "01.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6319400",
+  "item": "01.06",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6319400",
+  "item": "01.07",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6319400",
+  "item": "01.08",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6319400",
+  "item": "01.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6391700",
+  "item": "10.07",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6399200",
+  "item": "17.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6421200",
+  "item": "15.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6421200",
+  "item": "15.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6421200",
+  "item": "15.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6421200",
+  "item": "15.04",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6421200",
+  "item": "15.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6421200",
+  "item": "15.06",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6421200",
+  "item": "15.07",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6421200",
+  "item": "15.08",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6421200",
+  "item": "15.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6421200",
+  "item": "15.10",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6421200",
+  "item": "15.11",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6421200",
+  "item": "15.12",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6421200",
+  "item": "15.13",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6421200",
+  "item": "15.14",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6421200",
+  "item": "15.15",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6421200",
+  "item": "15.16",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6421200",
+  "item": "15.17",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6421200",
+  "item": "15.18",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6422100",
+  "item": "15.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6422100",
+  "item": "15.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6422100",
+  "item": "15.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6422100",
+  "item": "15.04",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6422100",
+  "item": "15.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6422100",
+  "item": "15.06",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6422100",
+  "item": "15.07",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6422100",
+  "item": "15.08",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6422100",
+  "item": "15.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6422100",
+  "item": "15.10",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6422100",
+  "item": "15.11",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6422100",
+  "item": "15.12",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6422100",
+  "item": "15.13",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6422100",
+  "item": "15.14",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6422100",
+  "item": "15.15",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6422100",
+  "item": "15.16",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6422100",
+  "item": "15.17",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6422100",
+  "item": "15.18",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6423900",
+  "item": "15.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6423900",
+  "item": "15.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6423900",
+  "item": "15.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6423900",
+  "item": "15.04",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6423900",
+  "item": "15.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6423900",
+  "item": "15.06",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6423900",
+  "item": "15.07",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6423900",
+  "item": "15.08",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6423900",
+  "item": "15.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6423900",
+  "item": "15.10",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6423900",
+  "item": "15.11",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6423900",
+  "item": "15.12",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6423900",
+  "item": "15.13",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6423900",
+  "item": "15.14",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6423900",
+  "item": "15.15",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6423900",
+  "item": "15.16",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6423900",
+  "item": "15.17",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6423900",
+  "item": "15.18",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424701",
+  "item": "15.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424701",
+  "item": "15.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424701",
+  "item": "15.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424701",
+  "item": "15.04",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424701",
+  "item": "15.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424701",
+  "item": "15.06",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424701",
+  "item": "15.07",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424701",
+  "item": "15.08",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424701",
+  "item": "15.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424701",
+  "item": "15.10",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424701",
+  "item": "15.11",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424701",
+  "item": "15.12",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424701",
+  "item": "15.13",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424701",
+  "item": "15.14",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424701",
+  "item": "15.15",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424701",
+  "item": "15.16",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424701",
+  "item": "15.17",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424701",
+  "item": "15.18",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424702",
+  "item": "15.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424702",
+  "item": "15.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424702",
+  "item": "15.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424702",
+  "item": "15.04",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424702",
+  "item": "15.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424702",
+  "item": "15.06",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424702",
+  "item": "15.07",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424702",
+  "item": "15.08",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424702",
+  "item": "15.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424702",
+  "item": "15.10",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424702",
+  "item": "15.11",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424702",
+  "item": "15.12",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424702",
+  "item": "15.13",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424702",
+  "item": "15.14",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424702",
+  "item": "15.15",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424702",
+  "item": "15.16",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424702",
+  "item": "15.17",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424702",
+  "item": "15.18",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424703",
+  "item": "15.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424703",
+  "item": "15.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424703",
+  "item": "15.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424703",
+  "item": "15.04",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424703",
+  "item": "15.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424703",
+  "item": "15.06",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424703",
+  "item": "15.07",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424703",
+  "item": "15.08",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424703",
+  "item": "15.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424703",
+  "item": "15.10",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424703",
+  "item": "15.11",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424703",
+  "item": "15.12",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424703",
+  "item": "15.13",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424703",
+  "item": "15.14",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424703",
+  "item": "15.15",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424703",
+  "item": "15.16",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424703",
+  "item": "15.17",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424703",
+  "item": "15.18",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424704",
+  "item": "15.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424704",
+  "item": "15.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424704",
+  "item": "15.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424704",
+  "item": "15.04",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424704",
+  "item": "15.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424704",
+  "item": "15.06",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424704",
+  "item": "15.07",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424704",
+  "item": "15.08",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424704",
+  "item": "15.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424704",
+  "item": "15.10",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424704",
+  "item": "15.11",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424704",
+  "item": "15.12",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424704",
+  "item": "15.13",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424704",
+  "item": "15.14",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424704",
+  "item": "15.15",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424704",
+  "item": "15.16",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424704",
+  "item": "15.17",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6424704",
+  "item": "15.18",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6431000",
+  "item": "15.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6431000",
+  "item": "15.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6431000",
+  "item": "15.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6431000",
+  "item": "15.04",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6431000",
+  "item": "15.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6431000",
+  "item": "15.06",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6431000",
+  "item": "15.07",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6431000",
+  "item": "15.08",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6431000",
+  "item": "15.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6431000",
+  "item": "15.10",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6431000",
+  "item": "15.11",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6431000",
+  "item": "15.12",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6431000",
+  "item": "15.13",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6431000",
+  "item": "15.14",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6431000",
+  "item": "15.15",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6431000",
+  "item": "15.16",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6431000",
+  "item": "15.17",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6431000",
+  "item": "15.18",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6432800",
+  "item": "15.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6432800",
+  "item": "15.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6432800",
+  "item": "15.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6432800",
+  "item": "15.04",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6432800",
+  "item": "15.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6432800",
+  "item": "15.06",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6432800",
+  "item": "15.07",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6432800",
+  "item": "15.08",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6432800",
+  "item": "15.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6432800",
+  "item": "15.10",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6432800",
+  "item": "15.11",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6432800",
+  "item": "15.12",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6432800",
+  "item": "15.13",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6432800",
+  "item": "15.14",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6432800",
+  "item": "15.15",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6432800",
+  "item": "15.16",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6432800",
+  "item": "15.17",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6432800",
+  "item": "15.18",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6433600",
+  "item": "15.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6433600",
+  "item": "15.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6433600",
+  "item": "15.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6433600",
+  "item": "15.04",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6433600",
+  "item": "15.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6433600",
+  "item": "15.06",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6433600",
+  "item": "15.07",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6433600",
+  "item": "15.08",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6433600",
+  "item": "15.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6433600",
+  "item": "15.10",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6433600",
+  "item": "15.11",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6433600",
+  "item": "15.12",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6433600",
+  "item": "15.13",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6433600",
+  "item": "15.14",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6433600",
+  "item": "15.15",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6433600",
+  "item": "15.16",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6433600",
+  "item": "15.17",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6433600",
+  "item": "15.18",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6434400",
+  "item": "15.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6435201",
+  "item": "15.18",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6435202",
+  "item": "15.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6435202",
+  "item": "15.08",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6435202",
+  "item": "15.18",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6435203",
+  "item": "15.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6435203",
+  "item": "15.07",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6435203",
+  "item": "15.08",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6435203",
+  "item": "15.18",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6436100",
+  "item": "15.08",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6437900",
+  "item": "15.08",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6438701",
+  "item": "15.13",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6438799",
+  "item": "15.13",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6440900",
+  "item": "15.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6450600",
+  "item": "15.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6450600",
+  "item": "15.07",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6470101",
+  "item": "15.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6470102",
+  "item": "15.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6470103",
+  "item": "15.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6491300",
+  "item": "17.23",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6492100",
+  "item": "15.10",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6493000",
+  "item": "17.12",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6499901",
+  "item": "15.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6499902",
+  "item": "15.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6499904",
+  "item": "15.18",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6499905",
+  "item": "15.08",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6499999",
+  "item": "15.12",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6511101",
+  "item": "10.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6511101",
+  "item": "18.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6511102",
+  "item": "25.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6512000",
+  "item": "10.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6512000",
+  "item": "18.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6520100",
+  "item": "10.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6520100",
+  "item": "18.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6530800",
+  "item": "10.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6550200",
+  "item": "04.22",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6550200",
+  "item": "04.23",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6550200",
+  "item": "05.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6611801",
+  "item": "10.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6611802",
+  "item": "17.12",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6611803",
+  "item": "17.12",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6611804",
+  "item": "17.12",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6612601",
+  "item": "10.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6612601",
+  "item": "17.20",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6612601",
+  "item": "17.23",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6612602",
+  "item": "10.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6612602",
+  "item": "17.20",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6612602",
+  "item": "17.23",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6612603",
+  "item": "10.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6612603",
+  "item": "15.13",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6612603",
+  "item": "17.20",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6612603",
+  "item": "17.23",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6612604",
+  "item": "10.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6612604",
+  "item": "10.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6612605",
+  "item": "10.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6612605",
+  "item": "10.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6612605",
+  "item": "17.20",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6613400",
+  "item": "15.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6619301",
+  "item": "15.10",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6619301",
+  "item": "15.12",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6619301",
+  "item": "15.16",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6619302",
+  "item": "15.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6619302",
+  "item": "15.04",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6619302",
+  "item": "15.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6619302",
+  "item": "15.08",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6619302",
+  "item": "15.10",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6619302",
+  "item": "17.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6619303",
+  "item": "10.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6619304",
+  "item": "15.07",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6619305",
+  "item": "15.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6619399",
+  "item": "10.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6619399",
+  "item": "15.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6619399",
+  "item": "15.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6619399",
+  "item": "17.20",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6619399",
+  "item": "17.23",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6621501",
+  "item": "17.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6621501",
+  "item": "17.16",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6621501",
+  "item": "18.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6621501",
+  "item": "28.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6621502",
+  "item": "17.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6621502",
+  "item": "17.16",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6621502",
+  "item": "17.18",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6621502",
+  "item": "17.20",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6622300",
+  "item": "10.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6622300",
+  "item": "10.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6629100",
+  "item": "10.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6629100",
+  "item": "17.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6629100",
+  "item": "18.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6629100",
+  "item": "28.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6630400",
+  "item": "15.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6630400",
+  "item": "17.12",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6821801",
+  "item": "10.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6821801",
+  "item": "28.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6821802",
+  "item": "10.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6822600",
+  "item": "17.12",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6911701",
+  "item": "17.14",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6911702",
+  "item": "17.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6911702",
+  "item": "17.15",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6911703",
+  "item": "10.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6912500",
+  "item": "21.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6920601",
+  "item": "17.16",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6920601",
+  "item": "17.19",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "6920602",
+  "item": "17.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6920602",
+  "item": "17.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6920602",
+  "item": "17.16",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "6920602",
+  "item": "17.19",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7020400",
+  "item": "17.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7020400",
+  "item": "17.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7020400",
+  "item": "17.17",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7020400",
+  "item": "17.20",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7111100",
+  "item": "07.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7111100",
+  "item": "07.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7111100",
+  "item": "07.19",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7112000",
+  "item": "07.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7112000",
+  "item": "07.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7112000",
+  "item": "07.19",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7112000",
+  "item": "17.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7112000",
+  "item": "28.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7119701",
+  "item": "07.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7119701",
+  "item": "07.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7119701",
+  "item": "07.20",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7119702",
+  "item": "07.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7119702",
+  "item": "07.20",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7119703",
+  "item": "07.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7119703",
+  "item": "23.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7119703",
+  "item": "32.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "7119704",
+  "item": "17.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "7119799",
+  "item": "07.20",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "7119799",
+  "item": "17.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7119799",
+  "item": "17.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7119799",
+  "item": "17.20",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7119799",
+  "item": "31.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "7120100",
+  "item": "17.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7210000",
+  "item": "02.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "7210000",
+  "item": "30.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "7220700",
+  "item": "02.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "7311400",
+  "item": "10.07",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7311400",
+  "item": "10.08",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7311400",
+  "item": "17.06",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7311400",
+  "item": "17.25",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7312200",
+  "item": "10.08",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "7319001",
+  "item": "17.06",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "7319002",
+  "item": "17.06",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7319003",
+  "item": "17.06",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7319004",
+  "item": "17.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7319099",
+  "item": "10.07",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7319099",
+  "item": "10.08",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7319099",
+  "item": "17.06",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "7320300",
+  "item": "17.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7320300",
+  "item": "17.21",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7410202",
+  "item": "07.11",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7410203",
+  "item": "23.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7410299",
+  "item": "07.11",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7410299",
+  "item": "23.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7420001",
+  "item": "13.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "7420002",
+  "item": "13.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "7420003",
+  "item": "13.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7420004",
+  "item": "13.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7420004",
+  "item": "13.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7420005",
+  "item": "13.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7420005",
+  "item": "13.04",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7490101",
+  "item": "17.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7490102",
+  "item": "07.21",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7490102",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7490103",
+  "item": "05.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "7490103",
+  "item": "17.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "7490103",
+  "item": "17.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7490103",
+  "item": "17.20",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7490104",
+  "item": "10.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7490104",
+  "item": "10.04",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7490104",
+  "item": "10.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7490104",
+  "item": "10.08",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7490104",
+  "item": "10.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7490105",
+  "item": "10.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "7490105",
+  "item": "10.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "7490105",
+  "item": "37.01",
+  "fontes": [
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "7490199",
+  "item": "07.22",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "7490199",
+  "item": "08.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7490199",
+  "item": "17.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "7490199",
+  "item": "17.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "7490199",
+  "item": "17.21",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "7490199",
+  "item": "17.23",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7490199",
+  "item": "23.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "7490199",
+  "item": "28.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "7490199",
+  "item": "36.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "7500100",
+  "item": "05.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7500100",
+  "item": "05.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7500100",
+  "item": "05.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7500100",
+  "item": "05.04",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7500100",
+  "item": "05.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7500100",
+  "item": "05.06",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7500100",
+  "item": "05.07",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7732202",
+  "item": "03.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7739003",
+  "item": "03.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "7740300",
+  "item": "03.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7740300",
+  "item": "17.08",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7740300",
+  "item": "17.12",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7810800",
+  "item": "17.04",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7820500",
+  "item": "17.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7830200",
+  "item": "17.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "7911200",
+  "item": "09.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7912100",
+  "item": "09.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7912100",
+  "item": "09.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "7990200",
+  "item": "09.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "7990200",
+  "item": "09.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8011101",
+  "item": "11.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8011101",
+  "item": "11.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8011101",
+  "item": "17.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8011102",
+  "item": "05.08",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8012900",
+  "item": "26.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8020000",
+  "item": "11.02",
+  "fontes": [
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "8020001",
+  "item": "11.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8020002",
+  "item": "11.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8020002",
+  "item": "11.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8030700",
+  "item": "34.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8111700",
+  "item": "07.10",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8111700",
+  "item": "17.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "8121400",
+  "item": "07.10",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8122200",
+  "item": "07.13",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8129000",
+  "item": "07.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "8129000",
+  "item": "07.10",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "8129000",
+  "item": "07.13",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8130300",
+  "item": "07.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8130300",
+  "item": "07.10",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8130300",
+  "item": "07.11",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8211300",
+  "item": "03.03",
+  "fontes": [
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "8211300",
+  "item": "17.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8211300",
+  "item": "17.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "8211300",
+  "item": "17.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "8219901",
+  "item": "13.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8219901",
+  "item": "13.04",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8219999",
+  "item": "17.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8220200",
+  "item": "17.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8230001",
+  "item": "12.08",
+  "fontes": [
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "8230001",
+  "item": "17.10",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "8230001",
+  "item": "17.11",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8230002",
+  "item": "03.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8230002",
+  "item": "17.11",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8291100",
+  "item": "17.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8291100",
+  "item": "17.22",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "8291100",
+  "item": "17.23",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8292000",
+  "item": "14.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8299701",
+  "item": "17.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "8299702",
+  "item": "10.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "8299702",
+  "item": "17.12",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8299703",
+  "item": "24.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "8299704",
+  "item": "17.13",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8299705",
+  "item": "10.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "8299705",
+  "item": "15.10",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8299706",
+  "item": "15.07",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8299706",
+  "item": "15.10",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8299706",
+  "item": "19.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8299707",
+  "item": "01.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8299707",
+  "item": "12.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8299799",
+  "item": "03.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8299799",
+  "item": "06.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8299799",
+  "item": "10.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8299799",
+  "item": "10.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8299799",
+  "item": "10.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8299799",
+  "item": "10.04",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8299799",
+  "item": "11.04",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8299799",
+  "item": "13.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8299799",
+  "item": "14.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8299799",
+  "item": "17.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8299799",
+  "item": "17.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8299799",
+  "item": "17.12",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8299799",
+  "item": "23.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8299799",
+  "item": "24.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8299799",
+  "item": "28.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8299799",
+  "item": "33.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8299799",
+  "item": "37.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8511200",
+  "item": "08.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8512100",
+  "item": "08.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8513900",
+  "item": "08.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8520100",
+  "item": "08.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8531700",
+  "item": "08.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8532500",
+  "item": "08.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "8533300",
+  "item": "08.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8541400",
+  "item": "08.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8542200",
+  "item": "08.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8550301",
+  "item": "17.12",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8550302",
+  "item": "08.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "8591100",
+  "item": "06.04",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8592901",
+  "item": "06.04",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8592902",
+  "item": "08.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8592903",
+  "item": "08.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8592999",
+  "item": "08.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "8593700",
+  "item": "08.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8599601",
+  "item": "08.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8599602",
+  "item": "08.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8599603",
+  "item": "08.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8599604",
+  "item": "08.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "8599605",
+  "item": "08.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8599699",
+  "item": "08.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "8599699",
+  "item": "17.24",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "8610101",
+  "item": "04.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8610102",
+  "item": "04.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8621601",
+  "item": "04.21",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8621602",
+  "item": "04.21",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "8622400",
+  "item": "04.21",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "8630501",
+  "item": "04.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8630501",
+  "item": "04.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "8630501",
+  "item": "04.08",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8630501",
+  "item": "04.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8630501",
+  "item": "04.11",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8630502",
+  "item": "04.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "8630502",
+  "item": "04.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8630502",
+  "item": "04.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "8630503",
+  "item": "04.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "8630503",
+  "item": "04.08",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8630503",
+  "item": "04.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8630503",
+  "item": "04.11",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8630504",
+  "item": "04.12",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8630506",
+  "item": "04.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8630507",
+  "item": "04.18",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8630507",
+  "item": "04.19",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8630599",
+  "item": "04.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "8630599",
+  "item": "04.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8630599",
+  "item": "04.08",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8630599",
+  "item": "04.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8630599",
+  "item": "04.11",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8640201",
+  "item": "04.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8640201",
+  "item": "04.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8640202",
+  "item": "04.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8640202",
+  "item": "04.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8640202",
+  "item": "04.20",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8640202",
+  "item": "30.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8640203",
+  "item": "04.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8640203",
+  "item": "04.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8640204",
+  "item": "04.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8640205",
+  "item": "04.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "8640206",
+  "item": "04.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8640207",
+  "item": "04.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8640208",
+  "item": "04.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "8640209",
+  "item": "04.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "8640210",
+  "item": "04.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8640211",
+  "item": "04.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8640212",
+  "item": "04.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8640212",
+  "item": "04.19",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8640212",
+  "item": "04.20",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8640213",
+  "item": "04.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8640213",
+  "item": "04.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8640214",
+  "item": "04.19",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "8640214",
+  "item": "04.20",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8640299",
+  "item": "04.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8640299",
+  "item": "04.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8650001",
+  "item": "04.06",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8650002",
+  "item": "04.10",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8650003",
+  "item": "04.15",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8650003",
+  "item": "04.16",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8650004",
+  "item": "04.08",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8650005",
+  "item": "04.08",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8650006",
+  "item": "04.08",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8650007",
+  "item": "04.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "8650099",
+  "item": "04.04",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "8650099",
+  "item": "04.07",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8650099",
+  "item": "04.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8650099",
+  "item": "04.13",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "8650099",
+  "item": "04.21",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8660700",
+  "item": "17.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8660700",
+  "item": "17.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8660700",
+  "item": "17.12",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8690901",
+  "item": "04.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "8690901",
+  "item": "04.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "8690902",
+  "item": "04.19",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8690902",
+  "item": "04.20",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8690903",
+  "item": "04.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8690904",
+  "item": "06.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8690999",
+  "item": "04.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8690999",
+  "item": "04.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8690999",
+  "item": "04.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "8690999",
+  "item": "04.11",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "8690999",
+  "item": "04.19",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "8690999",
+  "item": "04.21",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8711501",
+  "item": "04.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8711501",
+  "item": "04.17",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8711502",
+  "item": "04.17",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8711503",
+  "item": "04.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8711503",
+  "item": "04.17",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "8711503",
+  "item": "04.21",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8711504",
+  "item": "04.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8711504",
+  "item": "04.17",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "8711505",
+  "item": "04.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8711505",
+  "item": "04.17",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8712300",
+  "item": "04.21",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "8720401",
+  "item": "04.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8720401",
+  "item": "04.15",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8720401",
+  "item": "04.16",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8720401",
+  "item": "04.17",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "8720401",
+  "item": "27.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8720499",
+  "item": "04.15",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8720499",
+  "item": "04.16",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8720499",
+  "item": "04.17",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "8720499",
+  "item": "27.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8730101",
+  "item": "04.17",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8730101",
+  "item": "27.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8730102",
+  "item": "04.17",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8730102",
+  "item": "27.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8730199",
+  "item": "04.17",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8730199",
+  "item": "27.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8800600",
+  "item": "04.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "8800600",
+  "item": "27.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9001901",
+  "item": "12.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9001901",
+  "item": "12.13",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9001902",
+  "item": "12.07",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9001902",
+  "item": "12.12",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9001902",
+  "item": "12.13",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9001902",
+  "item": "12.14",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9001902",
+  "item": "12.15",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9001902",
+  "item": "12.16",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9001903",
+  "item": "12.07",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9001903",
+  "item": "12.13",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9001903",
+  "item": "12.15",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9001904",
+  "item": "12.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "9001904",
+  "item": "12.13",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "9001905",
+  "item": "12.10",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "9001905",
+  "item": "12.13",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9001906",
+  "item": "12.14",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9001999",
+  "item": "12.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9001999",
+  "item": "12.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9001999",
+  "item": "12.04",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9001999",
+  "item": "12.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9001999",
+  "item": "12.07",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9002701",
+  "item": "35.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "9002701",
+  "item": "40.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "9002702",
+  "item": "40.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9003500",
+  "item": "03.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "9101500",
+  "item": "29.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9102301",
+  "item": "03.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9102301",
+  "item": "38.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "9102302",
+  "item": "07.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "9102302",
+  "item": "07.10",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9103100",
+  "item": "12.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9200301",
+  "item": "19.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9200302",
+  "item": "12.10",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9200399",
+  "item": "12.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "9200399",
+  "item": "19.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "9311500",
+  "item": "03.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9312300",
+  "item": "03.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9312300",
+  "item": "08.02",
+  "fontes": [
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "9313100",
+  "item": "06.04",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9319101",
+  "item": "12.11",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9319101",
+  "item": "12.13",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9319199",
+  "item": "06.04",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9319199",
+  "item": "12.11",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "9321200",
+  "item": "12.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9329801",
+  "item": "12.06",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "9329802",
+  "item": "12.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9329803",
+  "item": "12.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9329804",
+  "item": "12.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9329899",
+  "item": "03.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9329899",
+  "item": "10.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9329899",
+  "item": "11.01",
+  "fontes": [
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "9329899",
+  "item": "12.08",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9329899",
+  "item": "12.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9329899",
+  "item": "12.13",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9329899",
+  "item": "12.17",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "9430800",
+  "item": "17.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "9493600",
+  "item": "12.15",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "9511800",
+  "item": "01.07",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9511800",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9511800",
+  "item": "14.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "9511800",
+  "item": "31.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9512600",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "9512600",
+  "item": "14.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "9512600",
+  "item": "31.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9521500",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "9521500",
+  "item": "14.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9521500",
+  "item": "31.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9529101",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "9529102",
+  "item": "24.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9529103",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9529103",
+  "item": "14.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9529104",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "9529104",
+  "item": "14.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9529105",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9529105",
+  "item": "14.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9529105",
+  "item": "14.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9529105",
+  "item": "14.11",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9529106",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9529106",
+  "item": "14.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9529199",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9529199",
+  "item": "14.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9529199",
+  "item": "14.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9601701",
+  "item": "14.10",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9601702",
+  "item": "14.10",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9601703",
+  "item": "14.10",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9602501",
+  "item": "06.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9602502",
+  "item": "06.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9602502",
+  "item": "06.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "9602502",
+  "item": "06.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9602502",
+  "item": "06.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9603301",
+  "item": "25.04",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9603301",
+  "item": "25.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9603302",
+  "item": "25.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9603303",
+  "item": "25.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9603304",
+  "item": "25.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9603304",
+  "item": "25.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9603304",
+  "item": "25.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9603305",
+  "item": "25.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9603305",
+  "item": "25.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9603399",
+  "item": "25.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "9603399",
+  "item": "25.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9609202",
+  "item": "10.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9609202",
+  "item": "17.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9609203",
+  "item": "05.08",
+  "fontes": [
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "9609204",
+  "item": "12.09",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9609204",
+  "item": "13.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "9609205",
+  "item": "06.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9609206",
+  "item": "06.06",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9609207",
+  "item": "05.08",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9609208",
+  "item": "05.08",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9609299",
+  "item": "06.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9609299",
+  "item": "06.02",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "9609299",
+  "item": "06.03",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9609299",
+  "item": "06.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9609299",
+  "item": "11.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9609299",
+  "item": "14.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "9609299",
+  "item": "14.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "9609299",
+  "item": "17.01",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "9609299",
+  "item": "17.12",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)",
+   "Salvador-BA (SEFAZ, tabela CNAE x Lista)"
+  ]
+ },
+ {
+  "cnae": "9700500",
+  "item": "07.10",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9700500",
+  "item": "07.11",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ },
+ {
+  "cnae": "9700500",
+  "item": "17.05",
+  "fontes": [
+   "Anapolis-GO (Portaria 463/2025)"
+  ]
+ }
+]

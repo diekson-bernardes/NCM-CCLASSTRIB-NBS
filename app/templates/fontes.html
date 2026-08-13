@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block titulo %}Fontes (KB){% endblock %}
+{% block conteudo %}
+
+<section class="cartao">
+  <h1>Fontes utilizadas</h1>
+  <p class="ajuda">
+    Todos os arquivos ficam versionados na pasta <code>KB</code> do projeto.
+    Datasets gerados em {{ manifesto.gerado_em[:19].replace('T',' ') }}.
+  </p>
+
+  <table>
+    <thead>
+      <tr><th>Documento</th><th>Órgão / versão</th><th>Arquivo em KB</th><th>SHA-256</th></tr>
+    </thead>
+    <tbody>
+      {% for f in manifesto.fontes %}
+      <tr>
+        <td>
+          {% if f.url %}<a href="{{ f.url }}" target="_blank" rel="noopener">{{ f.titulo or f.arquivo }}</a>
+          {% else %}{{ f.titulo or f.arquivo }}{% endif %}
+          {% if f.uso %}<small>{{ f.uso }}</small>{% endif %}
+        </td>
+        <td>{{ f.orgao or '—' }}<small>{{ f.versao or '' }}</small></td>
+        <td><code>{{ f.arquivo }}</code><small>{{ (f.bytes / 1024)|round|int }} KB · baixado em {{ f.baixado_em[:10] }}</small></td>
+        <td><small>{{ f.sha256[:16] }}</small></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+{% endblock %}
