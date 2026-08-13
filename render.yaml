@@ -1,0 +1,18 @@
+# Blueprint do Render — https://render.com/docs/blueprint-spec
+# Ao conectar o repositorio, o Render le este arquivo e cria o servico sozinho.
+services:
+  - type: web
+    name: correlacao-rtc
+    runtime: python
+    plan: free
+    region: oregon
+    branch: master
+    buildCommand: pip install -r requirements.txt
+    # 1 worker: o estado (analises, consultas de NCM e cesta) vive na memoria do processo
+    startCommand: gunicorn wsgi:app --workers 1 --threads 4 --timeout 120 --bind 0.0.0.0:$PORT
+    healthCheckPath: /
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12.7"
+      # Para exigir usuario e senha, defina RTC_USUARIO e RTC_SENHA no painel do
+      # Render (Environment). Sem essas variaveis o acesso e aberto.

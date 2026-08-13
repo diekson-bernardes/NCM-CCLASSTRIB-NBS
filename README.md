@@ -100,6 +100,25 @@ Não existe tabela nacional oficial de CNAE × item da LC 116/03; o de-para usa 
 Portaria 463/2025 de Anápolis/GO e a tabela da SEFAZ Salvador/BA (1.237 vínculos,
 570 CNAEs). Veja [`Docs/METODOLOGIA.md`](Docs/METODOLOGIA.md).
 
+## Publicação
+
+A ferramenta precisa de um host que execute Python — GitHub Pages não serve (só arquivos
+estáticos). O repositório já traz `wsgi.py`, `render.yaml` e `Procfile`; o passo a passo
+para publicar no Render, com deploy automático a cada push, está em
+[`Docs/DEPLOY.md`](Docs/DEPLOY.md).
+
+Em servidor, use sempre **um worker**:
+
+```bash
+gunicorn wsgi:app --workers 1 --threads 4 --bind 0.0.0.0:$PORT
+```
+
+As análises, as consultas de NCM e a cesta ficam na memória do processo; com vários
+workers os downloads falhariam de forma intermitente.
+
+O acesso é aberto por padrão. Definindo `RTC_USUARIO` e `RTC_SENHA` no ambiente do host,
+todas as telas passam a exigir autenticação básica.
+
 ## Manutenção
 
 As tabelas da reforma mudam com frequência:

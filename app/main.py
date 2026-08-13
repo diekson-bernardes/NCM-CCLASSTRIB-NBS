@@ -6,12 +6,15 @@ Execucao:
 
 from __future__ import annotations
 
+import hmac
+import os
 import re
 import secrets
 from collections import OrderedDict
 
 from flask import (Flask, Response, abort, g, redirect, render_template, request,
                    url_for)
+from werkzeug.middleware.proxy_fix import ProxyFix
 
 from . import cesta as mod_cesta
 from .correlacao import correlacionar, linhas_detalhe, resumo
@@ -26,6 +29,35 @@ app = Flask(__name__)
 app.config["MAX_CONTENT_LENGTH"] = 25 * 1024 * 1024
 
 COOKIE_CESTA = "rtc_cesta"
+
+# Hospedado (Render e afins), a aplicacao fica atras de um proxy que termina o
+# HTTPS: sem isso o Flask monta as URLs como http e marca o cookie da cesta como
+# inseguro.
+if os.environ.get("RTC_ATRAS_DE_PROXY", "1") != "0":
+    app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=1)
+
+# Acesso aberto por padrao. Definindo RTC_USUARIO e RTC_SENHA no ambiente do host,
+# todas as telas passam a exigir autenticacao basica.
+USUARIO = os.environ.get("RTC_USUARIO", "")
+SENHA = os.environ.get("RTC_SENHA", "")
+
+
+@app.before_request
+def _exige_autenticacao():
+    if not SENHA:
+        return None
+    credencial = request.authorization
+    if (
+        credencial
+        and hmac.compare_digest(credencial.username or "", USUARIO)
+        and hmac.compare_digest(credencial.password or "", SENHA)
+    ):
+        return None
+    return Response(
+        "Acesso restrito.",
+        401,
+        {"WWW-Authenticate": 'Basic realm="Correlacao Fiscal RTC"'},
+    )
 
 # cache em memoria das ultimas analises (para download dos relatorios)
 ANALISES: "OrderedDict[str, dict]" = OrderedDict()
@@ -357,8 +389,13 @@ def apresentacao():
 
 
 def main() -> None:
+    """Execucao local. Em servidor use o wsgi.py (gunicorn/waitress)."""
     base()  # carrega datasets antes de subir o servidor
-    app.run(host="127.0.0.1", port=5000, debug=False)
+    app.run(
+        host=os.environ.get("RTC_HOST", "127.0.0.1"),
+        port=int(os.environ.get("PORT") or 5000),
+        debug=False,
+    )
 
 
 if __name__ == "__main__":
