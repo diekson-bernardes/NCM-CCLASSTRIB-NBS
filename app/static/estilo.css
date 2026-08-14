@@ -282,3 +282,6 @@ body.tela-login { background: var(--azul); }
 .rotina input { margin-top: 3px; }
 .rotina small { display: block; color: var(--suave); font-size: 12px; }
 .rotinas-lista small { display: block; }
+
+.acoes-usuario a { font-size: 13px; font-weight: 600; }
+.acao-criar { display: flex; gap: 10px; align-items: center; }

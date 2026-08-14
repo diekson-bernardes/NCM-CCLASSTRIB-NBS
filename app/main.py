@@ -167,7 +167,7 @@ def _so_administrador():
 
 
 def _tela_usuarios(erro: str = "", criado: str = "", formulario: dict | None = None,
-                   status: int = 200):
+                   status: int = 200, alterado: str = ""):
     return render_template(
         "usuarios.html",
         linhas=auth.painel(),
@@ -175,6 +175,7 @@ def _tela_usuarios(erro: str = "", criado: str = "", formulario: dict | None = N
         rotinas=auth.ROTINAS,
         erro=erro,
         criado=criado,
+        alterado=alterado,
         formulario=formulario or {},
     ), status
 
@@ -183,7 +184,8 @@ def _tela_usuarios(erro: str = "", criado: str = "", formulario: dict | None = N
 def usuarios():
     """Painel de usuarios e uso - restrito ao administrador."""
     _so_administrador()
-    return _tela_usuarios(criado=request.args.get("criado", ""))
+    return _tela_usuarios(criado=request.args.get("criado", ""),
+                          alterado=request.args.get("alterado", ""))
 
 
 @app.post("/usuarios/criar")
@@ -208,6 +210,51 @@ def usuarios_criar():
             status=400,
         )
     return redirect(url_for("usuarios", criado=novo["login"]))
+
+
+@app.get("/usuarios/editar/<login>")
+def usuarios_editar(login: str):
+    _so_administrador()
+    usuario = auth.obter(login)
+    if not usuario:
+        abort(404)
+    return render_template(
+        "usuario_editar.html",
+        alvo=usuario,
+        rotinas=auth.ROTINAS,
+        opcoes=auth.opcoes_de_limite(),
+        embutido=usuario["login"] in auth.EMBUTIDOS,
+        consumo=auth.consumo(usuario["login"]),
+    )
+
+
+@app.post("/usuarios/editar/<login>")
+def usuarios_salvar(login: str):
+    _so_administrador()
+    usuario = auth.obter(login)
+    if not usuario:
+        abort(404)
+    limite = request.form.get("limite", "")
+    try:
+        auth.editar_usuario(
+            login,
+            nome=request.form.get("nome", ""),
+            senha=request.form.get("senha", ""),
+            limite=None if limite == "ilimitado" else limite,
+            rotinas=request.form.getlist("rotinas"),
+        )
+    except ValueError as exc:
+        return render_template(
+            "usuario_editar.html",
+            alvo={**usuario, "nome": request.form.get("nome", usuario["nome"]),
+                  "limite": limite, "rotinas": request.form.getlist("rotinas")},
+            rotinas=auth.ROTINAS,
+            opcoes=auth.opcoes_de_limite(),
+            embutido=usuario["login"] in auth.EMBUTIDOS,
+            consumo=auth.consumo(usuario["login"]),
+            erro=str(exc),
+        ), 400
+    return redirect(url_for("usuarios", alterado=usuario["login"]))
 
 
 @app.post("/usuarios/remover/<login>")

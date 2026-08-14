@@ -431,6 +431,84 @@ class TestGestaoDeUsuarios(unittest.TestCase):
         auth._USUARIOS_CARREGADOS = False
         self.assertEqual(auth.obter("persistente")["limite"], 200)
 
+    def test_edicao_de_nome_cota_e_rotinas(self):
+        self._criar("editavel", senha="edita2026", limite="100", rotinas=["ncm", "lote"])
+        self.assertEqual(self.admin.get("/usuarios/editar/editavel").status_code, 200)
+
+        resposta = self.admin.post(
+            "/usuarios/editar/editavel",
+            data={"nome": "Escritório Beta", "senha": "", "limite": "250",
+                  "rotinas": ["ncm", "lote", "cesta"]},
+            follow_redirects=True,
+        )
+        self.assertEqual(resposta.status_code, 200)
+        usuario = auth.obter("editavel")
+        self.assertEqual(usuario["nome"], "Escritório Beta")
+        self.assertEqual(usuario["limite"], 250)
+        self.assertEqual(usuario["rotinas"], ["ncm", "lote", "cesta"])
+        # senha em branco mantem a atual
+        self.assertIsNotNone(auth.autenticar("editavel", "edita2026"))
+
+    def test_edicao_troca_a_senha(self):
+        self._criar("troca_senha", senha="antiga123", limite="50", rotinas=["ncm"])
+        self.admin.post(
+            "/usuarios/editar/troca_senha",
+            data={"nome": "", "senha": "nova12345", "limite": "50", "rotinas": ["ncm"]},
+            follow_redirects=True,
+        )
+        self.assertIsNotNone(auth.autenticar("troca_senha", "nova12345"))
+        self.assertIsNone(auth.autenticar("troca_senha", "antiga123"))
+
+    def test_edicao_valida_cota_e_rotinas(self):
+        self._criar("valida", senha="valida123", limite="50", rotinas=["ncm"])
+        fora_do_multiplo = self.admin.post(
+            "/usuarios/editar/valida", data={"limite": "75", "rotinas": ["ncm"]}
+        )
+        self.assertEqual(fora_do_multiplo.status_code, 400)
+        self.assertIn("múltipla de 50", fora_do_multiplo.get_data(as_text=True))
+
+        sem_rotina = self.admin.post("/usuarios/editar/valida", data={"limite": "50"})
+        self.assertEqual(sem_rotina.status_code, 400)
+        self.assertIn("ao menos uma rotina", sem_rotina.get_data(as_text=True))
+        # nada mudou
+        self.assertEqual(auth.obter("valida")["limite"], 50)
+
+    def test_usuario_de_fabrica_nao_e_editavel(self):
+        tela = self.admin.get("/usuarios/editar/Teste")
+        self.assertEqual(tela.status_code, 200)
+        self.assertIn("fixo do sistema", tela.get_data(as_text=True))
+
+        salvar = self.admin.post(
+            "/usuarios/editar/Teste", data={"limite": "50", "rotinas": ["ncm"]}
+        )
+        self.assertEqual(salvar.status_code, 400)
+        self.assertEqual(auth.obter("Teste")["limite"], auth.LIMITE_TESTE)
+
+    def test_edicao_persiste_em_disco(self):
+        self._criar("persiste_edicao", senha="persiste1", limite="50", rotinas=["ncm"])
+        self.admin.post(
+            "/usuarios/editar/persiste_edicao",
+            data={"nome": "Depois", "senha": "", "limite": "300", "rotinas": ["cesta"]},
+            follow_redirects=True,
+        )
+        auth.USUARIOS.pop("persiste_edicao")
+        auth._USUARIOS_CARREGADOS = False
+        usuario = auth.obter("persiste_edicao")
+        self.assertEqual(usuario["limite"], 300)
+        self.assertEqual(usuario["rotinas"], ["cesta"])
+
+    def test_somente_administrador_edita(self):
+        self._criar("alvo_edicao", senha="alvo1234", limite="50", rotinas=["ncm"])
+        for login, senha in (("Cliente", "Cliente"), ("Teste", "123")):
+            cliente = cliente_logado(login, senha)
+            self.assertEqual(cliente.get("/usuarios/editar/alvo_edicao").status_code, 403)
+            self.assertEqual(
+                cliente.post("/usuarios/editar/alvo_edicao",
+                             data={"limite": "500", "rotinas": ["ncm"]}).status_code,
+                403,
+            )
+        self.assertEqual(auth.obter("alvo_edicao")["limite"], 50)
+
     def test_remocao(self):
         self._criar("temporario")
         self.assertEqual(

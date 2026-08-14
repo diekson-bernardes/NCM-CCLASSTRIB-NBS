@@ -3,6 +3,7 @@
 {% block conteudo %}
 
 {% if criado %}<div class="alerta">Usuário <strong>{{ criado }}</strong> criado.</div>{% endif %}
+{% if alterado %}<div class="alerta">Usuário <strong>{{ alterado }}</strong> atualizado.</div>{% endif %}
 {% if erro %}<div class="alerta erro">{{ erro }}</div>{% endif %}
 
 <section class="cartao">
@@ -26,7 +27,7 @@
       <tr>
         <td>
           <strong>{{ l.login }}</strong>
-          <small>{{ l.nome }}{% if l.criado_em %} · criado em {{ l.criado_em }}{% endif %}</small>
+          <small>{{ l.nome }}{% if l.criado_em %} · criado em {{ l.criado_em }}{% endif %}{% if l.alterado_em %} · alterado em {{ l.alterado_em }}{% endif %}</small>
         </td>
         <td>
           {% if l.papel == 'administrador' %}<span class="tag principal">administrador</span>
@@ -48,6 +49,9 @@
           {% else %}{{ l.restante }}{% endif %}
         </td>
         <td class="acoes-usuario">
+          {% if not l.embutido %}
+          <a href="{{ url_for('usuarios_editar', login=l.login) }}">editar</a>
+          {% endif %}
           {% if l.consultas %}
           <form method="post" action="{{ url_for('usuarios_zerar', login=l.login) }}">
             <button type="submit" class="link-remover">zerar contagem</button>

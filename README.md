@@ -129,9 +129,11 @@ O administrador cria novos usuários em `/usuarios`, informando login, senha, a 
 análise do cartão CNPJ, consulta por NCM, NCM em lote, cesta, consulta de tabelas, fontes
 e apresentação. O menu se ajusta ao que o usuário pode acessar, uma rotina bloqueada
 responde com a tela “Rotina não liberada”, e o login leva à primeira rotina disponível.
-Só o administrador libera rotinas — e ele mesmo acessa todas. Os usuários criados têm perfil de cliente,
-ficam em `var/usuarios.json` (senha em hash, fora do versionamento) e podem ser removidos
-pelo painel; os três usuários de fábrica não.
+Só o administrador libera rotinas — e ele mesmo acessa todas. Os usuários criados têm perfil de cliente e ficam em
+`var/usuarios.json` (senha em hash, fora do versionamento). No painel o administrador
+também **edita** (nome, senha, cota e rotinas — senha em branco mantém a atual) e
+**remove** esses usuários; os três de fábrica não são editáveis nem removíveis, pois vivem
+no código e mudam por variável de ambiente.
 
 As senhas ficam no repositório apenas como hash (pbkdf2-sha256) e podem ser trocadas por
 variável de ambiente. A contagem de uso é gravada em `var/uso.json` (fora do versionamento).

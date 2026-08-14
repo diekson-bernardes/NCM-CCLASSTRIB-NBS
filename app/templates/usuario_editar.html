@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block titulo %}Editar usuário{% endblock %}
+{% block conteudo %}
+
+{% if erro %}<div class="alerta erro">{{ erro }}</div>{% endif %}
+
+<section class="cartao">
+  <h1>Editar {{ alvo.login }}</h1>
+  <p class="ajuda">
+    {{ alvo.nome }} ·
+    {% if alvo.limite is none %}cota ilimitada{% else %}cota de {{ alvo.limite }} consultas{% endif %}
+    · {{ consumo }} consulta(s) já utilizada(s)
+  </p>
+
+  {% if embutido %}
+    <div class="alerta">
+      <strong>{{ alvo.login }}</strong> é um usuário fixo do sistema: a senha é definida no
+      código ou pela variável de ambiente correspondente, e ele tem acesso a todas as
+      rotinas. Para um usuário com cota e rotinas ajustáveis, crie um novo no painel.
+    </div>
+    <p><a class="botao" href="{{ url_for('usuarios') }}">Voltar</a></p>
+  {% else %}
+
+  <form method="post" action="{{ url_for('usuarios_salvar', login=alvo.login) }}"
+        class="form-usuario">
+    <label class="campo">
+      <span>Login</span>
+      <input type="text" value="{{ alvo.login }}" disabled>
+      <small>O login não muda; para trocá-lo, crie outro usuário e remova este.</small>
+    </label>
+
+    <label class="campo">
+      <span>Nome</span>
+      <input type="text" name="nome" value="{{ alvo.nome }}">
+    </label>
+
+    <label class="campo">
+      <span>Nova senha</span>
+      <input type="password" name="senha" autocomplete="new-password"
+             placeholder="deixe em branco para manter">
+    </label>
+
+    <label class="campo">
+      <span>Consultas</span>
+      <select name="limite">
+        <option value="ilimitado" {% if alvo.limite is none %}selected{% endif %}>Ilimitado</option>
+        {% for o in opcoes %}
+        <option value="{{ o }}" {% if alvo.limite == o %}selected{% endif %}>{{ o }} consultas</option>
+        {% endfor %}
+      </select>
+      <small>A contagem já utilizada é mantida; use “zerar contagem” no painel se precisar.</small>
+    </label>
+
+    <fieldset class="rotinas-campo">
+      <legend>Rotinas liberadas</legend>
+      {% for chave, r in rotinas.items() %}
+      <label class="rotina">
+        <input type="checkbox" name="rotinas" value="{{ chave }}"
+               {% if alvo.rotinas is none or chave in alvo.rotinas %}checked{% endif %}>
+        <span>{{ r.nome }}<small>{{ r.descricao }}</small></span>
+      </label>
+      {% endfor %}
+    </fieldset>
+
+    <div class="acao-criar">
+      <button type="submit">Salvar alterações</button>
+      <a class="botao secundario" href="{{ url_for('usuarios') }}">Cancelar</a>
+    </div>
+  </form>
+  {% endif %}
+</section>
+{% endblock %}

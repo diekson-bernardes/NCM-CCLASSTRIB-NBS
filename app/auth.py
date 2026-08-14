@@ -138,6 +138,7 @@ def _carrega_usuarios() -> None:
             "hash": registro.get("hash", ""),
             "env": "",
             "criado_em": registro.get("criado_em", ""),
+            "alterado_em": registro.get("alterado_em", ""),
         }
 
 
@@ -254,6 +255,46 @@ def criar_usuario(login: str, senha: str, limite: str | int | None,
         }
         _grava_usuarios()
     return obter(login)
+
+
+MANTER = object()  # sentinela: campo nao enviado no formulario de edicao
+
+
+def editar_usuario(login: str, nome=MANTER, senha=MANTER, limite=MANTER,
+                   rotinas=MANTER) -> dict:
+    """Altera um usuario criado no painel. Campos omitidos ficam como estao.
+
+    Senha em branco mantem a atual. Os usuarios de fabrica nao sao editaveis por
+    aqui: eles vivem no codigo e mudam por variavel de ambiente.
+    """
+    nome_login = _busca_login(login)
+    if not nome_login:
+        raise ValueError("Usuário não encontrado.")
+    if nome_login in EMBUTIDOS:
+        raise ValueError(
+            f"O usuário “{nome_login}” é fixo do sistema: a senha muda por variável de "
+            f"ambiente e a cota e as rotinas são as de acesso total."
+        )
+
+    usuario = USUARIOS[nome_login]
+    novos: dict = {}
+
+    if nome is not MANTER:
+        novos["nome"] = (nome or "").strip() or nome_login
+    if limite is not MANTER:
+        novos["limite"] = validar_limite(limite)
+    if rotinas is not MANTER:
+        novos["rotinas"] = validar_rotinas(rotinas)
+    if senha is not MANTER and senha:
+        if len(senha) < MINIMO_SENHA:
+            raise ValueError(f"A senha deve ter ao menos {MINIMO_SENHA} caracteres.")
+        novos["hash"] = generate_password_hash(senha, method="pbkdf2:sha256:600000")
+
+    with _TRAVA:
+        usuario.update(novos)
+        usuario["alterado_em"] = datetime.now().strftime("%d/%m/%Y %H:%M")
+        _grava_usuarios()
+    return obter(nome_login)
 
 
 def remover_usuario(login: str) -> None:
@@ -395,6 +436,7 @@ def painel() -> list[dict]:
                             else max(0, usuario["limite"] - usadas),
                 "embutido": login in EMBUTIDOS,
                 "criado_em": usuario.get("criado_em", ""),
+                "alterado_em": usuario.get("alterado_em", ""),
                 "rotinas": rotinas_do_usuario({"papel": usuario["papel"],
                                                "rotinas": usuario.get("rotinas")}),
                 "todas_rotinas": usuario["papel"] == "administrador"
