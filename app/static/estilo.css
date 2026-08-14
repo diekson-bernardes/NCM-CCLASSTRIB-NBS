@@ -299,3 +299,8 @@ body.tela-login { background: var(--azul); }
   background: #fafbfd; border: 1px solid var(--borda); border-radius: 8px;
   padding: 14px 16px; margin-bottom: 10px;
 }
+
+.subtitulo-ferramenta {
+  font-family: Consolas, ui-monospace, monospace; font-size: 13px;
+  color: var(--azul-claro); margin: 0 0 10px;
+}

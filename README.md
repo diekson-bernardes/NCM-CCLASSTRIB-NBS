@@ -1,4 +1,6 @@
-# Correlação CNAE → NBS → cClassTrib → indOP → item da LC 116/03
+# Classificador da Reforma Tributária
+
+**CNAE, LC 116/03, NBS, CST e cClassTrib, Nota Explicativa NEBS, NCM**
 
 Ferramenta web local que lê o **cartão CNPJ em PDF** (Comprovante de Inscrição e de
 Situação Cadastral da RFB) e devolve, para o CNAE principal e cada CNAE secundário,
