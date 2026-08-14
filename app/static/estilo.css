@@ -236,3 +236,26 @@ footer { border-top: 1px solid var(--borda); padding: 16px 28px; color: var(--su
 
 footer .assinatura { margin-top: 8px; color: var(--suave); }
 footer .assinatura strong { color: var(--texto); font-weight: 600; }
+
+/* ------------------------------------------------------- acesso e sessão */
+.sessao { display: flex; align-items: center; gap: 12px; font-size: 13px; color: #fff; }
+.sessao .quem { font-weight: 600; }
+.sessao .cota {
+  background: rgba(255,255,255,.16); border-radius: 999px; padding: 2px 10px; font-size: 12px;
+}
+.sessao .cota.esgotada { background: var(--vermelho); }
+.sessao a { color: #fff; opacity: .85; text-decoration: underline; }
+.sessao a:hover { opacity: 1; }
+
+body.tela-login { background: var(--azul); }
+.acesso {
+  max-width: 380px; margin: 0 auto; padding: 12vh 20px 40px;
+  display: flex; flex-direction: column; gap: 14px;
+}
+.acesso .cartao { padding: 26px 26px 28px; }
+.acesso button { width: 100%; margin-top: 6px; }
+.marca-login { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+.marca-login .logo { background: var(--azul); color: #fff; }
+.marca-login small { display: block; color: var(--suave); font-size: 12px; }
+.rodape-acesso { text-align: center; color: rgba(255,255,255,.75); font-size: 12px; }
+.rodape-acesso strong { color: #fff; font-weight: 600; }

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block titulo %}Limite de consultas atingido{% endblock %}
+{% block conteudo %}
+
+<section class="cartao">
+  <h1>Limite de consultas atingido</h1>
+  <p class="ajuda">
+    O usuário <strong>{{ usuario.login }}</strong> é de demonstração e tem
+    {{ usuario.limite }} consultas disponíveis. Você já utilizou {{ consumo }}.
+  </p>
+
+  <p>
+    As telas continuam abertas: você pode navegar pelos resultados já obtidos, usar a
+    <a href="{{ url_for('cesta_ver') }}">cesta</a>, baixar os relatórios gerados e
+    consultar as <a href="{{ url_for('consulta') }}">tabelas oficiais</a> e as
+    <a href="{{ url_for('fontes') }}">fontes</a>. O que ficou indisponível são novas
+    consultas de enquadramento.
+  </p>
+
+  <p>
+    Para continuar, entre com um usuário sem limitação ou peça ao administrador que
+    zere a contagem.
+  </p>
+
+  <p><a class="botao" href="{{ url_for('sair') }}">Entrar com outro usuário</a></p>
+</section>
+{% endblock %}

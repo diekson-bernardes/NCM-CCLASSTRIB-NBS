@@ -24,7 +24,22 @@
       <a href="{{ url_for('cesta_ver') }}" class="link-cesta">
         Cesta{% if cesta_qtd %} <span class="contador">{{ cesta_qtd }}</span>{% endif %}
       </a>
+      {% if usuario and usuario.papel == 'administrador' %}
+        <a href="{{ url_for('usuarios') }}">Usuários</a>
+      {% endif %}
     </nav>
+
+    {% if usuario %}
+    <div class="sessao">
+      <span class="quem">{{ usuario.login }}</span>
+      {% if consultas_restantes is not none %}
+        <span class="cota {% if consultas_restantes == 0 %}esgotada{% endif %}">
+          {{ consultas_restantes }} consulta(s) restante(s)
+        </span>
+      {% endif %}
+      <a href="{{ url_for('sair') }}">sair</a>
+    </div>
+    {% endif %}
   </header>
 
   <main>

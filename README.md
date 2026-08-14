@@ -106,6 +106,25 @@ Não existe tabela nacional oficial de CNAE × item da LC 116/03; o de-para usa 
 Portaria 463/2025 de Anápolis/GO e a tabela da SEFAZ Salvador/BA (1.237 vínculos,
 570 CNAEs). Veja [`Docs/METODOLOGIA.md`](Docs/METODOLOGIA.md).
 
+## Acesso
+
+Todas as telas exigem login ([`app/auth.py`](app/auth.py)):
+
+| Usuário | Perfil | Limite |
+|---|---|---|
+| `admin` | administrador — vê o painel de usuários em `/usuarios` | sem limitação |
+| `Cliente` | uso normal | sem limitação |
+| `Teste` | demonstração | 10 consultas |
+
+Consomem cota as ações que produzem enquadramento — análise de cartão CNPJ, consulta de
+NCM, consulta em lote e detalhe de CNAE. Navegar, buscar nas tabelas e baixar um relatório
+já gerado não consomem; uma consulta que falha também não. Esgotada a cota, o usuário
+`Teste` continua navegando, mas não faz novas consultas até o administrador zerar a
+contagem em `/usuarios`.
+
+As senhas ficam no repositório apenas como hash (pbkdf2-sha256) e podem ser trocadas por
+variável de ambiente. A contagem de uso é gravada em `var/uso.json` (fora do versionamento).
+
 ## Publicação
 
 A ferramenta precisa de um host que execute Python — GitHub Pages não serve (só arquivos
@@ -122,8 +141,9 @@ gunicorn wsgi:app --workers 1 --threads 4 --bind 0.0.0.0:$PORT
 As análises, as consultas de NCM e a cesta ficam na memória do processo; com vários
 workers os downloads falhariam de forma intermitente.
 
-O acesso é aberto por padrão. Definindo `RTC_USUARIO` e `RTC_SENHA` no ambiente do host,
-todas as telas passam a exigir autenticação básica.
+Defina `RTC_SECRET_KEY` no host para que as sessões de login sobrevivam a um reinício, e
+`RTC_SENHA_ADMIN` / `RTC_SENHA_CLIENTE` / `RTC_SENHA_TESTE` para publicar com senhas
+diferentes das de desenvolvimento.
 
 ## Manutenção
 

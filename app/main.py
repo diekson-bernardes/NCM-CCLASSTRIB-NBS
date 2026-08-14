@@ -6,16 +6,16 @@ Execucao:
 
 from __future__ import annotations
 
-import hmac
 import os
 import re
 import secrets
 from collections import OrderedDict
 
 from flask import (Flask, Response, abort, g, redirect, render_template, request,
-                   url_for)
+                   session, url_for)
 from werkzeug.middleware.proxy_fix import ProxyFix
 
+from . import auth
 from . import cesta as mod_cesta
 from . import lote as mod_lote
 from .correlacao import correlacionar, linhas_detalhe, resumo
@@ -38,28 +38,105 @@ COOKIE_CESTA = "rtc_cesta"
 if os.environ.get("RTC_ATRAS_DE_PROXY", "1") != "0":
     app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=1)
 
-# Acesso aberto por padrao. Definindo RTC_USUARIO e RTC_SENHA no ambiente do host,
-# todas as telas passam a exigir autenticacao basica.
-USUARIO = os.environ.get("RTC_USUARIO", "")
-SENHA = os.environ.get("RTC_SENHA", "")
+# Sessao de login. Em servidor, defina RTC_SECRET_KEY para que as sessoes
+# sobrevivam a um reinicio; sem ela, cada start invalida os logins abertos.
+app.secret_key = os.environ.get("RTC_SECRET_KEY") or secrets.token_hex(32)
+
+# Telas abertas (sem login) e acoes que consomem cota de consulta
+LIVRES = {"entrar", "sair", "static"}
+CONSOME_COTA = {"analisar", "ncm_detalhe", "ncm_lote", "detalhe_cnae"}
 
 
 @app.before_request
-def _exige_autenticacao():
-    if not SENHA:
+def _exige_login():
+    endpoint = request.endpoint or ""
+    if endpoint in LIVRES:
         return None
-    credencial = request.authorization
-    if (
-        credencial
-        and hmac.compare_digest(credencial.username or "", USUARIO)
-        and hmac.compare_digest(credencial.password or "", SENHA)
-    ):
-        return None
-    return Response(
-        "Acesso restrito.",
-        401,
-        {"WWW-Authenticate": 'Basic realm="Correlacao Fiscal RTC"'},
+
+    usuario = auth.obter(session.get("login", ""))
+    if not usuario:
+        session.clear()
+        if request.method == "POST" or endpoint.startswith("download"):
+            return redirect(url_for("entrar"))
+        return redirect(url_for("entrar", proxima=request.full_path.rstrip("?")))
+
+    # a consulta em lote so cobra cota no envio; a tela em si e livre
+    cobra = endpoint in CONSOME_COTA and not (
+        endpoint == "ncm_lote" and request.method == "GET"
     )
+    if cobra and not auth.pode_consultar(usuario["login"]):
+        return render_template("limite.html", usuario=usuario,
+                               consumo=auth.consumo(usuario["login"])), 403
+
+    g.usuario = usuario
+    g.cobrar_consulta = cobra
+    return None
+
+
+@app.after_request
+def _cobra_consulta(resposta):
+    """Debita a cota apenas quando a consulta foi de fato executada."""
+    if getattr(g, "cobrar_consulta", False) and resposta.status_code < 400:
+        auth.registrar_consulta(g.usuario["login"])
+        g.cobrar_consulta = False
+    return resposta
+
+
+@app.context_processor
+def _injeta_usuario():
+    usuario = getattr(g, "usuario", None)
+    return {
+        "usuario": usuario,
+        "consultas_restantes": auth.restante(usuario["login"]) if usuario else None,
+    }
+
+
+@app.route("/entrar", methods=["GET", "POST"])
+def entrar():
+    if request.method == "GET":
+        if auth.obter(session.get("login", "")):
+            return redirect(url_for("inicio"))
+        return render_template("login.html", proxima=request.args.get("proxima", ""))
+
+    usuario = auth.autenticar(request.form.get("login", ""), request.form.get("senha", ""))
+    if not usuario:
+        return render_template(
+            "login.html",
+            erro="Usuário ou senha inválidos.",
+            login=request.form.get("login", ""),
+            proxima=request.form.get("proxima", ""),
+        ), 401
+
+    session.clear()
+    session["login"] = usuario["login"]
+    session.permanent = False
+
+    destino = request.form.get("proxima", "")
+    if destino.startswith("/") and not destino.startswith("//"):
+        return redirect(destino)
+    return redirect(url_for("inicio"))
+
+
+@app.get("/sair")
+def sair():
+    session.clear()
+    return redirect(url_for("entrar"))
+
+
+@app.get("/usuarios")
+def usuarios():
+    """Painel de uso - restrito ao administrador."""
+    if g.usuario["papel"] != "administrador":
+        abort(403)
+    return render_template("usuarios.html", linhas=auth.painel())
+
+
+@app.post("/usuarios/zerar/<login>")
+def usuarios_zerar(login: str):
+    if g.usuario["papel"] != "administrador":
+        abort(403)
+    auth.zerar(login)
+    return redirect(url_for("usuarios"))
 
 # cache em memoria das ultimas analises (para download dos relatorios)
 ANALISES: "OrderedDict[str, dict]" = OrderedDict()

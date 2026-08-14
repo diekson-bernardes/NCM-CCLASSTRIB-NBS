@@ -45,17 +45,26 @@ A partir daí, todo `git push` no branch `master` dispara um novo deploy.
 
 ## Acesso
 
-O serviço sobe **aberto**: quem tiver a URL usa a ferramenta. Para exigir usuário e
-senha, no painel do Render → **Environment** → adicione:
+O site exige login em todas as telas. Os usuários são `admin` (administrador),
+`Cliente` (uso normal) e `Teste` (demonstração, 10 consultas) — detalhes no README.
+
+No painel do Render → **Environment**, defina:
 
 ```
-RTC_USUARIO = fiscal
-RTC_SENHA   = <uma senha forte>
+RTC_SECRET_KEY   = <string aleatória longa>
+RTC_SENHA_ADMIN  = <senha forte>
+RTC_SENHA_CLIENTE = <senha forte>
+RTC_SENHA_TESTE  = <senha da demonstração>
 ```
 
-Ao salvar, o Render reinicia o serviço e todas as telas passam a pedir autenticação
-básica. Removendo as variáveis, volta a ficar aberto. A senha fica só no painel do host,
-nunca no repositório.
+`RTC_SECRET_KEY` faz as sessões sobreviverem a um reinício — sem ela, cada deploy
+desconecta quem estava logado. As três senhas substituem as de desenvolvimento sem
+alterar o repositório; as senhas nunca ficam no código em texto puro, só como hash.
+
+**Atenção à cota no plano gratuito:** a contagem do usuário `Teste` é gravada em
+`var/uso.json`, e o disco do Render free é efêmero — a cada deploy ou hibernação ela
+volta a zero. Para uma contagem que persista, o caminho é um banco (Postgres do próprio
+Render) ou um disco persistente no plano pago.
 
 ## Atualizações
 

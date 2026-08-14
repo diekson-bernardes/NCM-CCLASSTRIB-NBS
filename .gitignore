@@ -24,3 +24,6 @@ Desktop.ini
 # Lixo de terminal (redirecionamentos acidentais)
 cls
 nul
+
+# Contagem de uso por usuario (nao versionada)
+var/

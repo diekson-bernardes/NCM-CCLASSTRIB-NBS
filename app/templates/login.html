@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Entrar — Correlação Fiscal RTC</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='estilo.css') }}">
+</head>
+<body class="tela-login">
+  <main class="acesso">
+    <div class="cartao">
+      <div class="marca-login">
+        <span class="logo">RTC</span>
+        <div>
+          <strong>Correlação Fiscal RTC</strong>
+          <small>CNAE · NCM · NBS · cClassTrib · indOP</small>
+        </div>
+      </div>
+
+      {% if erro %}<div class="alerta erro">{{ erro }}</div>{% endif %}
+
+      <form method="post" action="{{ url_for('entrar') }}">
+        <input type="hidden" name="proxima" value="{{ proxima or '' }}">
+        <label class="campo">
+          <span>Usuário</span>
+          <input type="text" name="login" value="{{ login or '' }}" autocomplete="username"
+                 autofocus required>
+        </label>
+        <label class="campo">
+          <span>Senha</span>
+          <input type="password" name="senha" autocomplete="current-password" required>
+        </label>
+        <button type="submit">Entrar</button>
+      </form>
+    </div>
+
+    <p class="rodape-acesso">
+      Acesso restrito. Desenvolvido por <strong>Diekson Bernardes</strong>
+    </p>
+  </main>
+</body>
+</html>

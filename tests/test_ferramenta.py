@@ -14,7 +14,12 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from app import lote  # noqa: E402
+# a cota dos testes vive num arquivo temporario, fora de var/uso.json
+import os, tempfile  # noqa: E402
+os.environ.setdefault("RTC_ARQUIVO_USO",
+                      str(Path(tempfile.mkdtemp()) / "uso_teste.json"))
+
+from app import auth, lote  # noqa: E402
 from app.cesta import COLUNAS  # noqa: E402
 from app.correlacao import correlacionar, linhas_detalhe, resumo  # noqa: E402
 from app.dados import base  # noqa: E402
@@ -55,6 +60,14 @@ GO
 SITUAÇÃO CADASTRAL
 ATIVA
 """
+
+
+def cliente_logado(login: str = "admin", senha: str = "2026"):
+    """Cliente de teste ja autenticado - o site exige login em todas as telas."""
+    app.config["TESTING"] = True
+    cliente = app.test_client()
+    cliente.post("/entrar", data={"login": login, "senha": senha})
+    return cliente
 
 
 class TestLeituraCartao(unittest.TestCase):
@@ -196,8 +209,7 @@ class TestConsultaNCM(unittest.TestCase):
 
 class TestApp(unittest.TestCase):
     def setUp(self) -> None:
-        app.config["TESTING"] = True
-        self.cliente = app.test_client()
+        self.cliente = cliente_logado()
 
     def test_pagina_inicial(self):
         self.assertEqual(self.cliente.get("/").status_code, 200)
@@ -258,6 +270,90 @@ class TestApp(unittest.TestCase):
         self.assertIn(f"{est['fontes']} documentos", corpo)
         # a apresentacao fica acessivel pelo menu de todas as telas
         self.assertIn("/apresentacao", self.cliente.get("/").get_data(as_text=True))
+
+
+class TestAcesso(unittest.TestCase):
+    """Login, papeis e cota de consultas."""
+
+    def setUp(self) -> None:
+        app.config["TESTING"] = True
+        self.cliente = app.test_client()
+        auth.zerar()
+
+    def tearDown(self) -> None:
+        auth.zerar()
+
+    def test_sem_login_redireciona_guardando_o_destino(self):
+        resposta = self.cliente.get("/ncm")
+        self.assertEqual(resposta.status_code, 302)
+        self.assertIn("/entrar", resposta.headers["Location"])
+        self.assertIn("proxima", resposta.headers["Location"])
+        self.assertEqual(self.cliente.get("/entrar").status_code, 200)
+
+    def test_credenciais(self):
+        self.assertIsNone(auth.autenticar("admin", "senha errada"))
+        self.assertIsNone(auth.autenticar("inexistente", "2026"))
+        for login, senha, papel in (
+            ("admin", "2026", "administrador"),
+            ("Teste", "123", "teste"),
+            ("Cliente", "Cliente", "cliente"),
+        ):
+            usuario = auth.autenticar(login, senha)
+            self.assertIsNotNone(usuario, login)
+            self.assertEqual(usuario["papel"], papel)
+        # o login nao diferencia maiusculas, a senha sim
+        self.assertIsNotNone(auth.autenticar("ADMIN", "2026"))
+        self.assertIsNone(auth.autenticar("admin", "2026 "))
+
+    def test_senha_invalida_na_tela(self):
+        resposta = self.cliente.post("/entrar", data={"login": "admin", "senha": "x"})
+        self.assertEqual(resposta.status_code, 401)
+        self.assertIn("inválidos", resposta.get_data(as_text=True))
+
+    def test_painel_de_usuarios_e_do_administrador(self):
+        self.assertEqual(cliente_logado("admin", "2026").get("/usuarios").status_code, 200)
+        self.assertEqual(cliente_logado("Cliente", "Cliente").get("/usuarios").status_code, 403)
+        self.assertEqual(cliente_logado("Teste", "123").get("/usuarios").status_code, 403)
+
+    def test_usuarios_sem_limite(self):
+        for login, senha in (("admin", "2026"), ("Cliente", "Cliente")):
+            cliente = cliente_logado(login, senha)
+            for _ in range(12):
+                self.assertEqual(cliente.get("/ncm/10064000").status_code, 200)
+            self.assertIsNone(auth.restante(login))
+
+    def test_usuario_teste_para_na_decima_consulta(self):
+        cliente = cliente_logado("Teste", "123")
+        for numero in range(1, 11):
+            self.assertEqual(cliente.get("/ncm/10064000").status_code, 200, numero)
+            self.assertEqual(auth.restante("Teste"), 10 - numero)
+
+        bloqueada = cliente.get("/ncm/10064000")
+        self.assertEqual(bloqueada.status_code, 403)
+        self.assertIn("Limite de consultas", bloqueada.get_data(as_text=True))
+        self.assertEqual(cliente.post("/analisar", data={"cnaes": "6201-5/01"}).status_code, 403)
+
+        # navegar, buscar e ver a cesta continuam liberados
+        for rota in ("/", "/consulta?tipo=nbs&q=hospedagem", "/cesta", "/fontes"):
+            self.assertEqual(cliente.get(rota).status_code, 200, rota)
+
+    def test_consulta_que_falha_nao_consome_cota(self):
+        cliente = cliente_logado("Teste", "123")
+        self.assertEqual(cliente.post("/ncm/lote", data={"ncms": "nada aqui"}).status_code, 400)
+        self.assertEqual(auth.restante("Teste"), 10)
+
+    def test_administrador_zera_a_contagem(self):
+        cliente_logado("Teste", "123").get("/ncm/10064000")
+        self.assertEqual(auth.consumo("Teste"), 1)
+        admin = cliente_logado("admin", "2026")
+        self.assertEqual(admin.post("/usuarios/zerar/Teste", follow_redirects=True).status_code, 200)
+        self.assertEqual(auth.consumo("Teste"), 0)
+
+    def test_sair_encerra_a_sessao(self):
+        cliente = cliente_logado("Cliente", "Cliente")
+        self.assertEqual(cliente.get("/").status_code, 200)
+        cliente.get("/sair")
+        self.assertEqual(cliente.get("/").status_code, 302)
 
 
 def _planilha_de_ncms(linhas: list[list[str]]) -> io.BytesIO:
@@ -331,8 +427,7 @@ class TestLoteNCM(unittest.TestCase):
         self.assertTrue(sedan["imposto_seletivo"])
 
     def test_fluxo_web_e_downloads(self):
-        app.config["TESTING"] = True
-        cliente = app.test_client()
+        cliente = cliente_logado()
         self.assertEqual(cliente.get("/ncm/lote").status_code, 200)
 
         arquivo = _planilha_de_ncms([["NCM", "Produto"], ["1006.40.00", "Arroz"]])
@@ -360,8 +455,7 @@ class TestLoteNCM(unittest.TestCase):
         self.assertTrue(payload["resumo"]["linhas"])
 
     def test_lote_vazio(self):
-        app.config["TESTING"] = True
-        cliente = app.test_client()
+        cliente = cliente_logado()
         self.assertEqual(
             cliente.post("/ncm/lote", data={"ncms": "sem codigo aqui"}).status_code, 400
         )
@@ -371,8 +465,7 @@ class TestCesta(unittest.TestCase):
     """Rotina que acumula consultas e gera o relatorio consolidado."""
 
     def setUp(self) -> None:
-        app.config["TESTING"] = True
-        self.cliente = app.test_client()
+        self.cliente = cliente_logado()
 
     def _token_cnae(self, cnaes: str) -> str:
         corpo = self.cliente.post("/analisar", data={"cnaes": cnaes}).get_data(as_text=True)
