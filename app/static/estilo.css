@@ -285,3 +285,17 @@ body.tela-login { background: var(--azul); }
 
 .acoes-usuario a { font-size: 13px; font-weight: 600; }
 .acao-criar { display: flex; gap: 10px; align-items: center; }
+
+.link-nebs {
+  font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .4px;
+  color: var(--azul-claro); text-decoration: none; border: 1px solid var(--azul-claro);
+  border-radius: 999px; padding: 0 7px; margin-left: 4px; white-space: nowrap;
+}
+.link-nebs:hover { background: var(--azul-claro); color: #fff; }
+
+.nota-nebs .titulo-nota { font-weight: 600; margin: 2px 0 10px; }
+.texto-nebs {
+  white-space: pre-wrap; font-size: 14.5px; line-height: 1.55;
+  background: #fafbfd; border: 1px solid var(--borda); border-radius: 8px;
+  padding: 14px 16px; margin-bottom: 10px;
+}

@@ -60,6 +60,9 @@ Telas:
   *Resumo por NCM*, *Detalhado*, *Indicadores* e *Fontes*), CSV e JSON. A coluna de NCM é
   achada pelo cabeçalho; as demais colunas de texto viram a referência do item.
 - **Consulta de tabelas** — busca por CNAE, item da LC 116, NBS, NCM, cClassTrib e indOP.
+  Um código NBS abre a tela `/nbs/<código>` com as **notas explicativas (NEBS)** do próprio
+  código e dos níveis superiores, mais os itens da LC 116 correlacionados. Nos resultados do
+  cartão CNPJ, cada NBS listada traz o link **NEBS** para essa mesma tela.
 - **Cesta** (`/cesta`) — acumula os resultados das consultas (cartão CNPJ e NCM) e gera **um
   relatório consolidado**: as duas origens são convertidas para o mesmo conjunto de colunas,
   com resumo por CST e cClassTrib, contagem de linhas por faixa de redução e destaque das

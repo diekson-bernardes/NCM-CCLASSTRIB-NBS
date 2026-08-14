@@ -97,7 +97,14 @@
               <details {% if v.nbs|length <= 3 %}open{% endif %}>
                 <summary>{{ v.nbs|length }} código(s) NBS</summary>
                 <ul class="lista-nbs">
-                  {% for n in v.nbs %}<li><code>{{ n.nbs }}</code> {{ n.descricao }}</li>{% endfor %}
+                  {% for n in v.nbs %}
+                  <li>
+                    <a href="{{ url_for('nbs_detalhe', codigo=n.nbs) }}"
+                       title="Ver a nota explicativa (NEBS) desta NBS"><code>{{ n.nbs }}</code></a>
+                    {{ n.descricao }}
+                    <a class="link-nebs" href="{{ url_for('nbs_detalhe', codigo=n.nbs) }}">NEBS</a>
+                  </li>
+                  {% endfor %}
                 </ul>
               </details>
               {% else %}<small>—</small>{% endif %}

@@ -130,6 +130,20 @@ Limites: a lei condiciona vários regimes a requisitos não expressos no código
 (destinação, registro sanitário, tipo de adquirente). A ferramenta entrega o
 enquadramento **candidato** com o texto integral do item do anexo para conferência.
 
+## 6.1 Notas explicativas da NBS (NEBS)
+
+O PDF do Anexo II (NEBS 2.0) é lido pelo `build_dataset.py`: cada cabeçalho no formato
+`1.0102.61 Serviços de …` abre uma nota, cujo texto vai até o cabeçalho seguinte. Dois
+cuidados evitam entradas falsas — a linha de rodapé `(Fl. N do Anexo II …)` é descartada, e
+um código citado no meio de uma frase que caia no início da linha seguinte só é aceito como
+cabeçalho se o texto que o segue começar com maiúscula (as citações continuam em minúscula,
+como “e 1.0403, a locação de veículos…”). Títulos quebrados em duas linhas são recompostos.
+
+As notas do PDF vão até a subposição (`1.1502.10`), enquanto a tabela da NBS usa o item
+completo (`1.1502.10.00`): a ligação é feita por prefixo, e as notas dos níveis superiores
+aparecem como contexto, depois da mais específica. Com esse encadeamento, os 930 itens da
+NBS 2.0 têm nota.
+
 ## 7. Datasets gerados
 
 | Arquivo | Registros | Origem |
@@ -140,6 +154,7 @@ enquadramento **candidato** com o texto integral do item do anexo para conferên
 | `data/cst.json` | 18 | idem |
 | `data/lc116.json` | 200 | Tabela cListServ (Portal NF-e) |
 | `data/nbs.json` | 1.237 | NBS 2.0 (MDIC) |
+| `data/nebs.json` | 879 | notas explicativas (NEBS 2.0), extraídas do PDF |
 | `data/cnae.json` | 1.332 | API do IBGE |
 | `data/cnae_lc116.json` | 1.237 | tabelas municipais |
 | `data/ncm.json` | 15.156 | NCM/SH do Portal Único Siscomex |

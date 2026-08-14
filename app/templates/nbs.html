@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block titulo %}NBS {{ codigo }}{% endblock %}
+{% block conteudo %}
+
+<section class="cartao">
+  <h1>NBS <code>{{ codigo }}</code></h1>
+  {% if registro %}
+    <p class="ajuda">{{ registro.descricao }}</p>
+  {% else %}
+    <div class="alerta">
+      Este código não consta da tabela NBS 2.0; abaixo estão as notas do nível
+      correspondente.
+    </div>
+  {% endif %}
+</section>
+
+{% if notas %}
+  {% for nota in notas %}
+  <section class="cartao nota-nebs">
+    <h2>
+      Nota explicativa <code>{{ nota.nbs }}</code>
+      {% if not loop.first %}<span class="tag referencia">nível superior</span>{% endif %}
+    </h2>
+    <p class="titulo-nota">{{ nota.titulo }}</p>
+    <div class="texto-nebs">{{ nota.texto }}</div>
+    <small>NEBS 2.0 — Anexo II da Portaria Conjunta RFB/SCS nº 2.000/2018, pág. {{ nota.pagina }}</small>
+  </section>
+  {% endfor %}
+{% else %}
+  <section class="cartao">
+    <div class="alerta">Não há nota explicativa publicada para este código.</div>
+  </section>
+{% endif %}
+
+{% if itens_lc116 %}
+<section class="cartao">
+  <h2>Itens da LC 116/03 correlacionados a esta NBS</h2>
+  <p class="ajuda">Correlação do Anexo VIII da NFS-e nacional.</p>
+  <table>
+    <thead><tr><th>Item</th><th>Descrição</th></tr></thead>
+    <tbody>
+      {% for i in itens_lc116 %}
+      <tr><td><code>{{ i.item }}</code></td><td>{{ i.descricao }}</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+{% endif %}
+{% endblock %}

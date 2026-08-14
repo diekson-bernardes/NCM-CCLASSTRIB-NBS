@@ -161,6 +161,61 @@ class TestCorrelacao(unittest.TestCase):
             self.assertIn(item["confianca"], {"media", "baixa"})
 
 
+class TestNotasNBS(unittest.TestCase):
+    """Notas explicativas (NEBS) ligadas ao codigo NBS consultado."""
+
+    def test_dataset_das_notas(self):
+        self.assertGreater(len(base().nebs), 800)
+        # todo item da NBS 2.0 alcanca alguma nota, por prefixo
+        itens = [n["nbs"] for n in base().nbs if n["nivel"] == "item"]
+        sem_nota = [c for c in itens if not base().notas_nbs(c)]
+        self.assertEqual(sem_nota, [])
+
+    def test_nota_do_item_e_do_nivel_superior(self):
+        notas = base().notas_nbs("1.1502.10.00")
+        self.assertTrue(notas)
+        # a mais especifica vem primeiro
+        self.assertEqual(notas[0]["nbs"], "1.1502.10")
+        self.assertIn("Esta subposição inclui", notas[0]["texto"])
+        self.assertIn("1.1502", [n["nbs"] for n in notas])
+
+    def test_tela_da_nbs(self):
+        cliente = cliente_logado()
+        resposta = cliente.get("/nbs/1.1502.10.00")
+        self.assertEqual(resposta.status_code, 200)
+        corpo = resposta.get_data(as_text=True)
+        self.assertIn("Esta subposição inclui", corpo)
+        self.assertIn("Nota explicativa", corpo)
+        self.assertIn("01.01", corpo)  # item da LC 116 correlacionado
+        self.assertEqual(cliente.get("/nbs/9.9999.99.99").status_code, 404)
+
+    def test_links_a_partir_do_cnae_e_da_busca(self):
+        cliente = cliente_logado()
+        resultado = cliente.post("/analisar", data={"cnaes": "6201-5/01"}).get_data(as_text=True)
+        self.assertIn('class="link-nebs"', resultado)
+        self.assertIn("/nbs/1.1502", resultado)
+
+        busca = cliente.get("/consulta?tipo=nbs&q=1.1502").get_data(as_text=True)
+        self.assertIn("/nbs/1.1502.10.00", busca)
+        self.assertIn("com nota explicativa", busca)
+
+    def test_nebs_alcancavel_por_quem_so_tem_o_cartao(self):
+        try:
+            auth.criar_usuario("so_cartao", "cartao2026", 50, rotinas=["cartao"])
+            cliente = cliente_logado("so_cartao", "cartao2026")
+            self.assertEqual(cliente.get("/nbs/1.1502.10.00").status_code, 200)
+            # quem nao tem cartao nem tabelas continua bloqueado
+            auth.criar_usuario("so_lote", "lote2026", 50, rotinas=["lote"])
+            bloqueado = cliente_logado("so_lote", "lote2026").get("/nbs/1.1502.10.00")
+            self.assertEqual(bloqueado.status_code, 403)
+        finally:
+            for login in ("so_cartao", "so_lote"):
+                try:
+                    auth.remover_usuario(login)
+                except ValueError:
+                    pass
+
+
 class TestConsultaNCM(unittest.TestCase):
     def test_ncm_da_cesta_basica(self):
         """Arroz do Anexo I: aliquota zero via cClassTrib 200003."""

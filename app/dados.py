@@ -49,6 +49,7 @@ class Base:
     def __init__(self) -> None:
         self.lc116: list[dict] = _ler("lc116.json")
         self.nbs: list[dict] = _ler("nbs.json")
+        self.nebs: list[dict] = _ler("nebs.json")
         self.indop: list[dict] = _ler("indop.json")
         self.cclasstrib: list[dict] = _ler("cclasstrib.json")
         self.cst: list[dict] = _ler("cst.json")
@@ -64,6 +65,7 @@ class Base:
         self.por_indop = {i["indop"]: i for i in self.indop}
         self.por_cclasstrib = {c["cclasstrib"]: c for c in self.cclasstrib}
         self.por_nbs = {n["nbs"]: n for n in self.nbs}
+        self.por_nebs = {n["nbs"]: n for n in self.nebs}
 
         self.itens_por_cnae: dict[str, list[dict]] = {}
         for vinculo in self.cnae_lc116:
@@ -152,6 +154,29 @@ class Base:
             for i in self.indop
             if i["usa_nfe"] and normaliza(i["tipo_operacao"]).startswith("bem movel")
         ]
+
+    def notas_nbs(self, codigo: str) -> list[dict]:
+        """Notas explicativas (NEBS) do codigo, da mais especifica a mais geral.
+
+        O PDF das NEBS traz as notas ate a subposicao (1.1502.10), enquanto a
+        tabela usa o item (1.1502.10.00): a ligacao e feita por prefixo, e as
+        notas dos niveis superiores entram como contexto.
+        """
+        partes = (codigo or "").split(".")
+        candidatos: list[str] = []
+        for i in range(len(partes), 0, -1):
+            candidatos.append(".".join(partes[:i]))
+            ultimo = partes[i - 1]
+            if len(ultimo) == 2:  # subposicao 1.0102.61 -> agrupamento 1.0102.6
+                candidatos.append(".".join(partes[: i - 1] + [ultimo[0]]))
+
+        notas, vistos = [], set()
+        for chave in candidatos:
+            nota = self.por_nebs.get(chave)
+            if nota and nota["nbs"] not in vistos:
+                vistos.add(nota["nbs"])
+                notas.append(nota)
+        return notas
 
     def descricao_nbs(self, codigo: str) -> str:
         registro = self.por_nbs.get(codigo)

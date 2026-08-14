@@ -85,7 +85,17 @@ def _exige_login():
 
     g.usuario = usuario
 
-    rotina = ROTINA_DO_ENDPOINT.get(endpoint)
+    if endpoint == "nbs_detalhe":
+        # a nota explicativa e alcancada tanto pela consulta de tabelas quanto
+        # pelo resultado do cartao CNPJ: basta uma das duas rotinas
+        if not any(auth.pode_acessar(usuario, r) for r in ("tabelas", "cartao")):
+            return render_template(
+                "sem_permissao.html", rotina=auth.ROTINAS["tabelas"],
+                liberadas=[auth.ROTINAS[r] for r in auth.rotinas_do_usuario(usuario)],
+            ), 403
+        rotina = None
+    else:
+        rotina = ROTINA_DO_ENDPOINT.get(endpoint)
     if rotina and not auth.pode_acessar(usuario, rotina):
         if endpoint == "inicio":
             return redirect(primeira_tela(usuario))
@@ -545,8 +555,13 @@ def consulta():
         elif alvo == "nbs":
             for n in b.nbs:
                 if chave in normaliza(n["descricao"]) or chave in n["nbs"]:
-                    achados.append({"codigo": n["nbs"], "descricao": n["descricao"],
-                                    "extra": n["nivel"], "link": ""})
+                    notas = b.notas_nbs(n["nbs"])
+                    achados.append({
+                        "codigo": n["nbs"],
+                        "descricao": n["descricao"],
+                        "extra": n["nivel"] + (" · com nota explicativa" if notas else ""),
+                        "link": url_for("nbs_detalhe", codigo=n["nbs"]),
+                    })
         elif alvo == "lc116":
             for i in b.lc116:
                 if chave in normaliza(i["descricao"]) or chave in i["item"]:
@@ -572,6 +587,28 @@ def consulta():
 
     return render_template("consulta.html", termo=termo, tipo=alvo, achados=achados[:200],
                            total=len(achados))
+
+
+@app.get("/nbs/<codigo>")
+def nbs_detalhe(codigo: str):
+    """Codigo NBS com as notas explicativas (NEBS) correspondentes."""
+    b = base()
+    registro = b.por_nbs.get(codigo)
+    notas = b.notas_nbs(codigo)
+    if not registro and not notas:
+        abort(404, f"NBS {codigo} não localizada.")
+
+    itens = sorted(
+        {r["item"] for r in b.anexo_viii for n in r["nbs"] if n["nbs"] == codigo}
+    )
+    return render_template(
+        "nbs.html",
+        codigo=codigo,
+        registro=registro,
+        notas=notas,
+        itens_lc116=[{"item": i, "descricao": b.por_item.get(i, {}).get("descricao", "")}
+                     for i in itens],
+    )
 
 
 @app.get("/cnae/<cnae>")

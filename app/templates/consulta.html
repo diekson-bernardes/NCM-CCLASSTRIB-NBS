@@ -24,7 +24,10 @@
       <tbody>
         {% for a in achados %}
         <tr>
-          <td><code>{{ a.codigo }}</code></td>
+          <td>
+            {% if a.link %}<a href="{{ a.link }}"><code>{{ a.codigo }}</code></a>
+            {% else %}<code>{{ a.codigo }}</code>{% endif %}
+          </td>
           <td>{% if a.link %}<a href="{{ a.link }}">{{ a.descricao }}</a>{% else %}{{ a.descricao }}{% endif %}</td>
           <td><small>{{ a.extra }}</small></td>
         </tr>

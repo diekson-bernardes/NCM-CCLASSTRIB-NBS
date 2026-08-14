@@ -98,6 +98,70 @@ def build_nbs() -> list[dict]:
     return itens
 
 
+# ---------------------------------------------------------------------- NEBS
+
+
+# cabecalho de nota: "1.0102.61 Servicos de construcao de usinas..."
+RE_NEBS = re.compile(r"^(\d\.\d{2}(?:\d{2})?(?:\.\d{1,2}){0,2})\s+(\S.*)$")
+# inicios tipicos do corpo da nota (nao sao continuacao de titulo)
+RE_CORPO = re.compile(
+    r"^(Est[aeã]\w*|Inclui|Exclu\w+|Compreende|Observa\w+|[-–•]|\d+\s*[-–])",
+    re.IGNORECASE,
+)
+
+
+def build_nebs() -> list[dict]:
+    """Le as Notas Explicativas (NEBS) do PDF, uma entrada por codigo NBS.
+
+    O texto de cada codigo vai do seu cabecalho ate o cabecalho seguinte. Os
+    codigos do PDF vao ate a subposicao (ex.: 1.0102.61), enquanto a tabela da
+    NBS usa o item completo (1.0102.61.00) - a ligacao entre os dois e feita na
+    consulta, por prefixo.
+    """
+    import pdfplumber
+
+    arq = _unico("nbs/NEBS_2.0_AnexoII_notas_explicativas.pdf")
+    notas: list[dict] = []
+    atual: dict | None = None
+
+    with pdfplumber.open(arq) as pdf:
+        for pagina in pdf.pages:
+            for linha in (pagina.extract_text() or "").splitlines():
+                linha = linha.strip()
+                if not linha or linha.startswith("(Fl."):
+                    continue
+
+                achado = RE_NEBS.match(linha)
+                # um codigo citado no meio da frase pode cair no inicio da linha
+                # seguinte; cabecalho de verdade sempre abre com maiuscula
+                if achado and not achado.group(2)[:1].isupper():
+                    achado = None
+                if achado:
+                    atual = {
+                        "nbs": achado.group(1),
+                        "titulo": _txt(achado.group(2)),
+                        "paragrafos": [],
+                        "pagina": pagina.page_number,
+                    }
+                    notas.append(atual)
+                    continue
+
+                if atual is None:
+                    continue  # texto de apresentacao, antes da primeira nota
+
+                # titulo quebrado em duas linhas: completa o cabecalho
+                if not atual["paragrafos"] and not RE_CORPO.match(linha) and len(linha) < 70:
+                    atual["titulo"] = _txt(f"{atual['titulo']} {linha}")
+                    continue
+
+                atual["paragrafos"].append(linha)
+
+    for nota in notas:
+        nota["texto"] = "\n".join(nota.pop("paragrafos")).strip()
+
+    return [n for n in notas if n["texto"]]
+
+
 # --------------------------------------------------------------- indOP / RTC
 
 
@@ -608,6 +672,8 @@ def main() -> int:
     gravar("lc116.json", lc116)
 
     gravar("nbs.json", build_nbs())
+    print("Lendo as notas explicativas da NBS (PDF) ...")
+    gravar("nebs.json", build_nebs())
     gravar("indop.json", build_indop())
 
     classes, cst = build_cclasstrib()
