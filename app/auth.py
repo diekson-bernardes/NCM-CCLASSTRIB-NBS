@@ -276,11 +276,16 @@ def pode_consultar(login: str) -> bool:
     return disponivel is None or disponivel > 0
 
 
-def registrar_consulta(login: str) -> int:
-    """Soma uma consulta ao usuario e devolve o total ja usado."""
+def registrar_consulta(login: str, quantidade: int = 1) -> int:
+    """Soma consultas ao usuario e devolve o total ja usado.
+
+    A consulta em lote debita uma consulta por NCM processado.
+    """
+    if quantidade <= 0:
+        return consumo(login)
     with _TRAVA:
         _carrega()
-        _USO[login] = _USO.get(login, 0) + 1
+        _USO[login] = _USO.get(login, 0) + quantidade
         _grava()
         return _USO[login]
 

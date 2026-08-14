@@ -555,6 +555,50 @@ class TestLoteNCM(unittest.TestCase):
         self.assertEqual(payload["cesta"]["consultas"][0]["tipo"], "lote")
         self.assertTrue(payload["resumo"]["linhas"])
 
+    def test_lote_debita_uma_consulta_por_ncm(self):
+        auth.zerar("Teste")
+        cliente = cliente_logado("Teste", "123")
+        resposta = cliente.post(
+            "/ncm/lote", data={"ncms": "1006.40.00\n04011010\n84713012"}
+        )
+        self.assertEqual(resposta.status_code, 200)
+        self.assertEqual(auth.consumo("Teste"), 3)
+        self.assertEqual(auth.restante("Teste"), 7)
+        auth.zerar("Teste")
+
+    def test_lote_e_cortado_no_saldo_e_a_exportacao_acompanha(self):
+        auth.zerar("Teste")
+        for _ in range(8):  # sobram 2 das 10 consultas
+            auth.registrar_consulta("Teste")
+        cliente = cliente_logado("Teste", "123")
+
+        codigos = ["1006.40.00", "04011010", "84713012", "87032310", "34011190"]
+        resposta = cliente.post("/ncm/lote", data={"ncms": "\n".join(codigos)})
+        self.assertEqual(resposta.status_code, 200)
+
+        token = resposta.get_data(as_text=True).split("/download-lote/")[1].split("/")[0]
+        payload = json.loads(cliente.get(f"/download-lote/{token}/json").data)
+        # so os dois primeiros entraram - e a planilha exportada traz apenas eles
+        self.assertEqual(payload["resumo"]["total"], 2)
+        self.assertEqual(len(payload["ncms"]), 2)
+        self.assertTrue(any("ficaram de fora" in a for a in payload["avisos"]))
+        self.assertEqual(auth.restante("Teste"), 0)
+
+        # esgotada a cota, um novo lote nem chega a ser processado
+        self.assertEqual(
+            cliente.post("/ncm/lote", data={"ncms": "1006.40.00"}).status_code, 403
+        )
+        auth.zerar("Teste")
+
+    def test_lote_sem_limite_nao_e_cortado(self):
+        cliente = cliente_logado("Cliente", "Cliente")
+        codigos = ["1006.40.00", "04011010", "84713012", "87032310"]
+        resposta = cliente.post("/ncm/lote", data={"ncms": "\n".join(codigos)})
+        token = resposta.get_data(as_text=True).split("/download-lote/")[1].split("/")[0]
+        payload = json.loads(cliente.get(f"/download-lote/{token}/json").data)
+        self.assertEqual(payload["resumo"]["total"], 4)
+        self.assertIsNone(auth.restante("Cliente"))
+
     def test_lote_vazio(self):
         cliente = cliente_logado()
         self.assertEqual(

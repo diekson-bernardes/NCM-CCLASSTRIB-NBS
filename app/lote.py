@@ -168,8 +168,13 @@ def _classes_do_resultado(consulta: dict) -> list[dict]:
     return classes
 
 
-def processar(itens: list[dict]) -> dict:
-    """Consulta cada NCM uma vez e monta o resultado do lote."""
+def processar(itens: list[dict], cota: int | None = None) -> dict:
+    """Consulta cada NCM uma vez e monta o resultado do lote.
+
+    Cada codigo consultado consome uma consulta da cota do usuario. Quando `cota`
+    e informada (usuario com limite), o lote e cortado no saldo disponivel e o
+    que ficou de fora e relatado nos avisos - a exportacao sai com o que coube.
+    """
     avisos: list[str] = []
     vistos: dict[str, dict] = {}
     duplicados = 0
@@ -191,6 +196,16 @@ def processar(itens: list[dict]) -> dict:
         vistos = dict(list(vistos.items())[:LIMITE_ITENS])
     if duplicados:
         avisos.append(f"{duplicados} código(s) repetido(s) foram consultados uma vez só.")
+
+    fora_da_cota = 0
+    if cota is not None and len(vistos) > cota:
+        fora_da_cota = len(vistos) - cota
+        avisos.append(
+            f"Sua cota permite mais {cota} consulta(s): foram processados os "
+            f"{cota} primeiros códigos e {fora_da_cota} ficaram de fora — a planilha "
+            f"exportada traz apenas os processados."
+        )
+        vistos = dict(list(vistos.items())[:cota])
 
     resultados: list[dict] = []
     for codigo, item in vistos.items():
@@ -237,7 +252,13 @@ def processar(itens: list[dict]) -> dict:
             }
         )
 
-    return {"resultados": resultados, "avisos": avisos, "resumo": resumo(resultados)}
+    return {
+        "resultados": resultados,
+        "avisos": avisos,
+        "resumo": resumo(resultados),
+        "consultas": len(resultados),   # o que sera debitado da cota
+        "fora_da_cota": fora_da_cota,
+    }
 
 
 def resumo(resultados: list[dict]) -> dict:

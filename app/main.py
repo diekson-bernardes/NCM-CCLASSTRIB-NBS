@@ -75,9 +75,13 @@ def _exige_login():
 
 @app.after_request
 def _cobra_consulta(resposta):
-    """Debita a cota apenas quando a consulta foi de fato executada."""
+    """Debita a cota apenas quando a consulta foi de fato executada.
+
+    A quantidade e 1 por padrao; a consulta em lote define g.consultas com o
+    numero de NCMs efetivamente processados.
+    """
     if getattr(g, "cobrar_consulta", False) and resposta.status_code < 400:
-        auth.registrar_consulta(g.usuario["login"])
+        auth.registrar_consulta(g.usuario["login"], getattr(g, "consultas", 1))
         g.cobrar_consulta = False
     return resposta
 
@@ -346,8 +350,13 @@ def ncm_lote():
                  "planilha com uma coluna de NCM.",
         ), 400
 
-    lote = mod_lote.processar(itens)
+    # cada NCM consultado consome uma consulta: o lote e cortado no saldo do usuario
+    lote = mod_lote.processar(itens, cota=auth.restante(g.usuario["login"]))
     lote["avisos"] = avisos + lote["avisos"]
+
+    # debita aqui (e nao no after_request) para que a tela ja mostre o saldo novo
+    auth.registrar_consulta(g.usuario["login"], lote["consultas"])
+    g.cobrar_consulta = False
 
     token = secrets.token_urlsafe(9)
     LOTES[token] = lote

@@ -28,6 +28,14 @@
       <small>O texto após o código vira a referência daquele item. Até {{ limite }} códigos por lote.</small>
     </label>
 
+    {% if consultas_restantes is not none %}
+    <div class="alerta">
+      Cada NCM do lote consome uma consulta da sua cota. Você tem
+      <strong>{{ consultas_restantes }}</strong> disponível(is) — enviando mais códigos que
+      isso, o lote é processado até o saldo e o restante fica de fora.
+    </div>
+    {% endif %}
+
     <button type="submit">Consultar lote</button>
   </form>
 </section>
@@ -44,6 +52,10 @@
         {{ lote.resumo.com_regime }} com regime diferenciado,
         {{ lote.resumo.integral }} em tributação integral,
         {{ lote.resumo.nao_localizados }} não localizado(s).
+        {% if consultas_restantes is not none %}
+          Consumiu {{ lote.consultas }} consulta(s) da cota; restam
+          {{ consultas_restantes }}.
+        {% endif %}
       </p>
     </div>
     <div class="downloads">

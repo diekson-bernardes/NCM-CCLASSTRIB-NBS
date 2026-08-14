@@ -117,7 +117,9 @@ Todas as telas exigem login ([`app/auth.py`](app/auth.py)):
 | `Teste` | demonstração | 10 consultas |
 
 Consomem cota as ações que produzem enquadramento — análise de cartão CNPJ, consulta de
-NCM, consulta em lote e detalhe de CNAE. Navegar, buscar nas tabelas e baixar um relatório
+NCM, consulta em lote (**uma consulta por NCM processado**) e detalhe de CNAE. Um lote maior
+que o saldo é processado até onde a cota alcança, e a planilha exportada traz exatamente os
+códigos processados, com aviso de quantos ficaram de fora. Navegar, buscar nas tabelas e baixar um relatório
 já gerado não consomem; uma consulta que falha também não. Esgotada a cota, o usuário
 `Teste` continua navegando, mas não faz novas consultas até o administrador zerar a
 contagem em `/usuarios`.
