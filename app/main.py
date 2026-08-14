@@ -46,6 +46,29 @@ app.secret_key = os.environ.get("RTC_SECRET_KEY") or secrets.token_hex(32)
 LIVRES = {"entrar", "sair", "static"}
 CONSOME_COTA = {"analisar", "ncm_detalhe", "ncm_lote", "detalhe_cnae"}
 
+# Cada endpoint pertence a uma rotina; a liberacao e definida pelo administrador
+# no cadastro do usuario. Endpoints fora deste mapa (ex.: /usuarios) tem regra
+# propria.
+ROTINA_DO_ENDPOINT = {
+    "inicio": "cartao", "analisar": "cartao", "detalhe_cnae": "cartao",
+    "download": "cartao",
+    "ncm_busca": "ncm", "ncm_detalhe": "ncm", "download_ncm": "ncm",
+    "ncm_lote": "lote", "download_lote": "lote",
+    "cesta_ver": "cesta", "cesta_adicionar": "cesta", "cesta_remover": "cesta",
+    "cesta_limpar": "cesta", "cesta_download": "cesta",
+    "consulta": "tabelas",
+    "fontes": "fontes",
+    "apresentacao": "apresentacao",
+}
+
+
+def primeira_tela(usuario: dict) -> str:
+    """Primeira rotina liberada - para onde mandar quem nao pode ver a inicial."""
+    liberadas = auth.rotinas_do_usuario(usuario)
+    if not liberadas:
+        return url_for("sair")
+    return url_for(auth.ROTINAS[liberadas[0]]["rota"])
+
 
 @app.before_request
 def _exige_login():
@@ -60,6 +83,17 @@ def _exige_login():
             return redirect(url_for("entrar"))
         return redirect(url_for("entrar", proxima=request.full_path.rstrip("?")))
 
+    g.usuario = usuario
+
+    rotina = ROTINA_DO_ENDPOINT.get(endpoint)
+    if rotina and not auth.pode_acessar(usuario, rotina):
+        if endpoint == "inicio":
+            return redirect(primeira_tela(usuario))
+        return render_template(
+            "sem_permissao.html", rotina=auth.ROTINAS[rotina],
+            liberadas=[auth.ROTINAS[r] for r in auth.rotinas_do_usuario(usuario)],
+        ), 403
+
     # a consulta em lote so cobra cota no envio; a tela em si e livre
     cobra = endpoint in CONSOME_COTA and not (
         endpoint == "ncm_lote" and request.method == "GET"
@@ -68,7 +102,6 @@ def _exige_login():
         return render_template("limite.html", usuario=usuario,
                                consumo=auth.consumo(usuario["login"])), 403
 
-    g.usuario = usuario
     g.cobrar_consulta = cobra
     return None
 
@@ -92,6 +125,7 @@ def _injeta_usuario():
     return {
         "usuario": usuario,
         "consultas_restantes": auth.restante(usuario["login"]) if usuario else None,
+        "pode": lambda rotina: auth.pode_acessar(usuario, rotina),
     }
 
 
@@ -118,7 +152,7 @@ def entrar():
     destino = request.form.get("proxima", "")
     if destino.startswith("/") and not destino.startswith("//"):
         return redirect(destino)
-    return redirect(url_for("inicio"))
+    return redirect(primeira_tela(usuario))
 
 
 @app.get("/sair")
@@ -138,6 +172,7 @@ def _tela_usuarios(erro: str = "", criado: str = "", formulario: dict | None = N
         "usuarios.html",
         linhas=auth.painel(),
         opcoes=auth.opcoes_de_limite(),
+        rotinas=auth.ROTINAS,
         erro=erro,
         criado=criado,
         formulario=formulario or {},
@@ -162,12 +197,14 @@ def usuarios_criar():
             senha=request.form.get("senha", ""),
             limite=None if limite == "ilimitado" else limite,
             nome=request.form.get("nome", ""),
+            rotinas=request.form.getlist("rotinas"),
         )
     except ValueError as exc:
         return _tela_usuarios(
             erro=str(exc),
             formulario={"login": login, "nome": request.form.get("nome", ""),
-                        "limite": limite},
+                        "limite": limite,
+                        "rotinas": request.form.getlist("rotinas")},
             status=400,
         )
     return redirect(url_for("usuarios", criado=novo["login"]))

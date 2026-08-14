@@ -16,14 +16,17 @@
       </div>
     </div>
     <nav>
-      <a href="{{ url_for('inicio') }}">Análise do cartão CNPJ</a>
-      <a href="{{ url_for('ncm_busca') }}">Consulta por NCM</a>
-      <a href="{{ url_for('consulta') }}">Consulta de tabelas</a>
-      <a href="{{ url_for('fontes') }}">Fontes (KB)</a>
-      <a href="{{ url_for('apresentacao') }}">Apresentação</a>
+      {% if pode('cartao') %}<a href="{{ url_for('inicio') }}">Análise do cartão CNPJ</a>{% endif %}
+      {% if pode('ncm') %}<a href="{{ url_for('ncm_busca') }}">Consulta por NCM</a>{% endif %}
+      {% if pode('lote') %}<a href="{{ url_for('ncm_lote') }}">NCM em lote</a>{% endif %}
+      {% if pode('tabelas') %}<a href="{{ url_for('consulta') }}">Consulta de tabelas</a>{% endif %}
+      {% if pode('fontes') %}<a href="{{ url_for('fontes') }}">Fontes (KB)</a>{% endif %}
+      {% if pode('apresentacao') %}<a href="{{ url_for('apresentacao') }}">Apresentação</a>{% endif %}
+      {% if pode('cesta') %}
       <a href="{{ url_for('cesta_ver') }}" class="link-cesta">
         Cesta{% if cesta_qtd %} <span class="contador">{{ cesta_qtd }}</span>{% endif %}
       </a>
+      {% endif %}
       {% if usuario and usuario.papel == 'administrador' %}
         <a href="{{ url_for('usuarios') }}">Usuários</a>
       {% endif %}

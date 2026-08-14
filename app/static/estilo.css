@@ -271,3 +271,14 @@ body.tela-login { background: var(--azul); }
 .form-usuario .acao-criar { margin: 14px 0; }
 .acoes-usuario { display: flex; gap: 14px; align-items: baseline; }
 .acoes-usuario form { margin: 0; }
+
+.rotinas-campo {
+  grid-column: 1 / -1; margin: 6px 0 4px; padding: 14px 16px;
+  border: 1px solid var(--borda); border-radius: 8px;
+}
+.rotinas-campo legend { font-size: 13px; font-weight: 600; padding: 0 6px; }
+.rotinas-campo { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 8px 18px; }
+.rotina { display: flex; gap: 8px; align-items: flex-start; font-size: 14px; }
+.rotina input { margin-top: 3px; }
+.rotina small { display: block; color: var(--suave); font-size: 12px; }
+.rotinas-lista small { display: block; }

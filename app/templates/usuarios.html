@@ -17,8 +17,8 @@
   <table>
     <thead>
       <tr>
-        <th>Usuário</th><th>Perfil</th><th>Limite</th><th>Consultas</th>
-        <th>Restantes</th><th>Ações</th>
+        <th>Usuário</th><th>Perfil</th><th>Rotinas liberadas</th><th>Limite</th>
+        <th>Consultas</th><th>Restantes</th><th>Ações</th>
       </tr>
     </thead>
     <tbody>
@@ -33,6 +33,12 @@
           {% elif l.papel == 'cliente' %}<span class="tag alta">cliente</span>
           {% else %}<span class="tag media">teste</span>{% endif %}
           {% if not l.embutido %}<small>criado no painel</small>{% endif %}
+        </td>
+        <td class="rotinas-lista">
+          {% if l.todas_rotinas %}<span class="tag alta">todas</span>
+          {% else %}
+            {% for chave in l.rotinas %}<small>{{ rotinas[chave].nome }}</small>{% endfor %}
+          {% endif %}
         </td>
         <td>{% if l.limite is none %}ilimitado{% else %}{{ l.limite }} consultas{% endif %}</td>
         <td>{{ l.consultas }}</td>
@@ -63,8 +69,9 @@
 <section class="cartao">
   <h2>Criar usuário</h2>
   <p class="ajuda">
-    O usuário criado tem perfil de cliente e acessa todas as telas. A cota vai de 50 em 50
-    consultas, ou pode ser ilimitada.
+    O usuário criado tem perfil de cliente e enxerga apenas as rotinas marcadas abaixo —
+    o menu se ajusta ao que ele pode acessar. A cota vai de 50 em 50 consultas, ou pode
+    ser ilimitada. Só o administrador libera rotinas.
   </p>
 
   <form method="post" action="{{ url_for('usuarios_criar') }}" class="form-usuario">
@@ -98,6 +105,17 @@
         {% endfor %}
       </select>
     </label>
+
+    <fieldset class="rotinas-campo">
+      <legend>Rotinas liberadas</legend>
+      {% for chave, r in rotinas.items() %}
+      <label class="rotina">
+        <input type="checkbox" name="rotinas" value="{{ chave }}"
+               {% if not formulario.rotinas or chave in formulario.rotinas %}checked{% endif %}>
+        <span>{{ r.nome }}<small>{{ r.descricao }}</small></span>
+      </label>
+      {% endfor %}
+    </fieldset>
 
     <div class="acao-criar">
       <button type="submit">Criar usuário</button>

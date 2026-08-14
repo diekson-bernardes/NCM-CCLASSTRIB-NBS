@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block titulo %}Rotina não liberada{% endblock %}
+{% block conteudo %}
+
+<section class="cartao">
+  <h1>Rotina não liberada</h1>
+  <p class="ajuda">
+    O seu usuário não tem acesso a <strong>{{ rotina.nome }}</strong>.
+    Só o administrador libera rotinas.
+  </p>
+
+  {% if liberadas %}
+  <h2>O que está liberado para você</h2>
+  <ul class="limpa">
+    {% for r in liberadas %}
+    <li><a href="{{ url_for(r.rota) }}">{{ r.nome }}</a> — {{ r.descricao }}</li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p>Nenhuma rotina está liberada para este usuário. Procure o administrador.</p>
+  {% endif %}
+</section>
+{% endblock %}

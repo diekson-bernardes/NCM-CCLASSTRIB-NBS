@@ -36,11 +36,52 @@ LIMITE_TESTE = 10
 MULTIPLO_CONSULTAS = 50  # cotas criadas pelo administrador vao de 50 em 50
 MINIMO_SENHA = 3
 
+# Rotinas do sistema. O administrador escolhe quais ficam liberadas para cada
+# usuario criado; "rotinas": None significa acesso a todas.
+ROTINAS: dict[str, dict] = {
+    "cartao": {
+        "nome": "Análise do cartão CNPJ",
+        "descricao": "Enquadramento das atividades a partir do PDF ou de CNAEs digitados",
+        "rota": "inicio",
+    },
+    "ncm": {
+        "nome": "Consulta por NCM",
+        "descricao": "CST, cClassTrib, redução e indOP de um produto",
+        "rota": "ncm_busca",
+    },
+    "lote": {
+        "nome": "Consulta de NCM em lote",
+        "descricao": "Lista ou planilha de produtos processada de uma vez",
+        "rota": "ncm_lote",
+    },
+    "cesta": {
+        "nome": "Cesta e relatório consolidado",
+        "descricao": "Acúmulo das consultas e exportação consolidada",
+        "rota": "cesta_ver",
+    },
+    "tabelas": {
+        "nome": "Consulta de tabelas",
+        "descricao": "Busca em CNAE, LC 116, NBS, NCM, cClassTrib e indOP",
+        "rota": "consulta",
+    },
+    "fontes": {
+        "nome": "Fontes (KB)",
+        "descricao": "Documentos oficiais usados, com versão e hash",
+        "rota": "fontes",
+    },
+    "apresentacao": {
+        "nome": "Apresentação",
+        "descricao": "Relatório de apresentação da ferramenta",
+        "rota": "apresentacao",
+    },
+}
+
 USUARIOS: dict[str, dict] = {
     "admin": {
         "nome": "Administrador",
         "papel": "administrador",
         "limite": None,
+        "rotinas": None,
         "hash": "pbkdf2:sha256:600000$oflE0nGciW1cxFfK$"
                 "6a8c6527eb05ad02fa725dceb6a6f4ad422eab3a812cdf8bf35ab0c7aa2188ef",
         "env": "RTC_SENHA_ADMIN",
@@ -49,6 +90,7 @@ USUARIOS: dict[str, dict] = {
         "nome": "Cliente",
         "papel": "cliente",
         "limite": None,
+        "rotinas": None,
         "hash": "pbkdf2:sha256:600000$0tbachYHAUYg0EG6$"
                 "5386a6bffb5cef49c1684bef3f341916a2ef6499e822daf2abfc534de7c4f052",
         "env": "RTC_SENHA_CLIENTE",
@@ -57,6 +99,7 @@ USUARIOS: dict[str, dict] = {
         "nome": "Usuário de teste",
         "papel": "teste",
         "limite": LIMITE_TESTE,
+        "rotinas": None,
         "hash": "pbkdf2:sha256:600000$NTiLb52dEhLUG7QS$"
                 "1b65ede152b6970325fd93605908204ce13f0eaa093c1ede95ff71d2d7d10fdc",
         "env": "RTC_SENHA_TESTE",
@@ -91,6 +134,7 @@ def _carrega_usuarios() -> None:
             "nome": registro.get("nome") or login,
             "papel": registro.get("papel", "cliente"),
             "limite": registro.get("limite"),
+            "rotinas": registro.get("rotinas"),
             "hash": registro.get("hash", ""),
             "env": "",
             "criado_em": registro.get("criado_em", ""),
@@ -151,8 +195,38 @@ def validar_limite(valor: str | int | None) -> int | None:
     return numero
 
 
+def validar_rotinas(rotinas) -> list[str] | None:
+    """Normaliza a lista de rotinas liberadas. None = todas."""
+    if rotinas is None:
+        return None
+    escolhidas = [r for r in rotinas if r in ROTINAS]
+    if not escolhidas:
+        raise ValueError("Selecione ao menos uma rotina para o usuário.")
+    if len(escolhidas) == len(ROTINAS):
+        return None  # todas liberadas
+    return [r for r in ROTINAS if r in escolhidas]  # mantem a ordem do menu
+
+
+def pode_acessar(usuario: dict | None, rotina: str) -> bool:
+    """O administrador acessa tudo; os demais, apenas as rotinas liberadas."""
+    if not usuario:
+        return False
+    if usuario.get("papel") == "administrador":
+        return True
+    liberadas = usuario.get("rotinas")
+    return liberadas is None or rotina in liberadas
+
+
+def rotinas_do_usuario(usuario: dict | None) -> list[str]:
+    if not usuario:
+        return []
+    if usuario.get("papel") == "administrador" or usuario.get("rotinas") is None:
+        return list(ROTINAS)
+    return [r for r in ROTINAS if r in usuario["rotinas"]]
+
+
 def criar_usuario(login: str, senha: str, limite: str | int | None,
-                  nome: str = "") -> dict:
+                  nome: str = "", rotinas=None) -> dict:
     """Cadastra um usuario novo. Levanta ValueError com a mensagem do problema."""
     _carrega_usuarios()
     login = (login or "").strip()
@@ -166,12 +240,14 @@ def criar_usuario(login: str, senha: str, limite: str | int | None,
         raise ValueError(f"A senha deve ter ao menos {MINIMO_SENHA} caracteres.")
 
     quantidade = validar_limite(limite)
+    liberadas = validar_rotinas(rotinas)
 
     with _TRAVA:
         USUARIOS[login] = {
             "nome": (nome or "").strip() or login,
             "papel": "cliente",
             "limite": quantidade,
+            "rotinas": liberadas,
             "hash": generate_password_hash(senha, method="pbkdf2:sha256:600000"),
             "env": "",
             "criado_em": datetime.now().strftime("%d/%m/%Y %H:%M"),
@@ -319,6 +395,10 @@ def painel() -> list[dict]:
                             else max(0, usuario["limite"] - usadas),
                 "embutido": login in EMBUTIDOS,
                 "criado_em": usuario.get("criado_em", ""),
+                "rotinas": rotinas_do_usuario({"papel": usuario["papel"],
+                                               "rotinas": usuario.get("rotinas")}),
+                "todas_rotinas": usuario["papel"] == "administrador"
+                                 or usuario.get("rotinas") is None,
             }
         )
     return linhas

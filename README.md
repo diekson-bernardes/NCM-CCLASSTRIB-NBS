@@ -124,8 +124,12 @@ já gerado não consomem; uma consulta que falha também não. Esgotada a cota, 
 `Teste` continua navegando, mas não faz novas consultas até o administrador zerar a
 contagem em `/usuarios`.
 
-O administrador cria novos usuários em `/usuarios`, informando login, senha e a cota —
-**múltiplos de 50** consultas ou **ilimitado**. Os usuários criados têm perfil de cliente,
+O administrador cria novos usuários em `/usuarios`, informando login, senha, a cota —
+**múltiplos de 50** consultas ou **ilimitado** — e **quais rotinas** ficam liberadas:
+análise do cartão CNPJ, consulta por NCM, NCM em lote, cesta, consulta de tabelas, fontes
+e apresentação. O menu se ajusta ao que o usuário pode acessar, uma rotina bloqueada
+responde com a tela “Rotina não liberada”, e o login leva à primeira rotina disponível.
+Só o administrador libera rotinas — e ele mesmo acessa todas. Os usuários criados têm perfil de cliente,
 ficam em `var/usuarios.json` (senha em hash, fora do versionamento) e podem ser removidos
 pelo painel; os três usuários de fábrica não.
 

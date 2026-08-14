@@ -373,13 +373,11 @@ class TestGestaoDeUsuarios(unittest.TestCase):
                 pass
         auth.zerar()
 
-    def _criar(self, login, senha="segredo123", limite="100", **extra):
+    def _criar(self, login, senha="segredo123", limite="100", rotinas=None, **extra):
         self._criados.append(login)
-        return self.admin.post(
-            "/usuarios/criar",
-            data={"login": login, "senha": senha, "limite": limite, **extra},
-            follow_redirects=True,
-        )
+        dados = {"login": login, "senha": senha, "limite": limite, **extra}
+        dados["rotinas"] = rotinas if rotinas is not None else list(auth.ROTINAS)
+        return self.admin.post("/usuarios/criar", data=dados, follow_redirects=True)
 
     def test_cria_com_cota_multipla_de_50(self):
         resposta = self._criar("escritorio_alfa", limite="150", nome="Escritório Alfa")
@@ -443,6 +441,62 @@ class TestGestaoDeUsuarios(unittest.TestCase):
         # os usuarios de fabrica nao podem ser removidos
         self.assertEqual(self.admin.post("/usuarios/remover/admin").status_code, 400)
         self.assertIsNotNone(auth.obter("admin"))
+
+    def test_cria_com_rotinas_selecionadas(self):
+        self._criar("parcial", senha="parcial2026", limite="100",
+                    rotinas=["ncm", "lote"])
+        self.assertEqual(auth.obter("parcial")["rotinas"], ["ncm", "lote"])
+        # marcar todas equivale a acesso total (rotinas = None)
+        self._criar("completo", senha="completo2026", limite="50",
+                    rotinas=list(auth.ROTINAS))
+        self.assertIsNone(auth.obter("completo")["rotinas"])
+
+    def test_recusa_usuario_sem_nenhuma_rotina(self):
+        resposta = self.admin.post(
+            "/usuarios/criar",
+            data={"login": "sem_rotina", "senha": "senha123", "limite": "50"},
+        )
+        self.assertEqual(resposta.status_code, 400)
+        self.assertIn("ao menos uma rotina", resposta.get_data(as_text=True))
+        self.assertIsNone(auth.obter("sem_rotina"))
+
+    def test_rotina_nao_liberada_e_bloqueada(self):
+        self._criar("so_ncm", senha="ncm2026", limite="100", rotinas=["ncm", "lote"])
+        cliente = cliente_logado("so_ncm", "ncm2026")
+
+        for rota in ("/ncm", "/ncm/lote", "/ncm/10064000"):
+            self.assertEqual(cliente.get(rota).status_code, 200, rota)
+
+        for rota in ("/cesta", "/consulta", "/fontes", "/apresentacao", "/cnae/6201501"):
+            resposta = cliente.get(rota)
+            self.assertEqual(resposta.status_code, 403, rota)
+            self.assertIn("Rotina não liberada", resposta.get_data(as_text=True))
+
+        # a tela inicial nao liberada leva para a primeira rotina disponivel
+        inicial = cliente.get("/")
+        self.assertEqual(inicial.status_code, 302)
+        self.assertTrue(inicial.headers["Location"].endswith("/ncm"))
+
+    def test_menu_mostra_apenas_o_que_esta_liberado(self):
+        self._criar("menu_curto", senha="menu2026", limite="50", rotinas=["ncm"])
+        pagina = cliente_logado("menu_curto", "menu2026").get("/ncm").get_data(as_text=True)
+        self.assertIn(">Consulta por NCM<", pagina)
+        self.assertNotIn("Análise do cartão CNPJ", pagina)
+        self.assertNotIn("link-cesta", pagina)
+
+    def test_login_leva_a_primeira_rotina_liberada(self):
+        self._criar("entra_no_lote", senha="lote2026", limite="50", rotinas=["lote", "cesta"])
+        cliente = app.test_client()
+        resposta = cliente.post(
+            "/entrar", data={"login": "entra_no_lote", "senha": "lote2026"}
+        )
+        self.assertTrue(resposta.headers["Location"].endswith("/ncm/lote"))
+
+    def test_usuarios_de_fabrica_acessam_tudo(self):
+        for login, senha in (("admin", "2026"), ("Cliente", "Cliente"), ("Teste", "123")):
+            cliente = cliente_logado(login, senha)
+            for rota in ("/", "/ncm", "/ncm/lote", "/cesta", "/consulta", "/fontes"):
+                self.assertEqual(cliente.get(rota).status_code, 200, f"{login} {rota}")
 
     def test_apenas_administrador_gerencia(self):
         for login, senha in (("Cliente", "Cliente"), ("Teste", "123")):
