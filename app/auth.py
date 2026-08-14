@@ -28,8 +28,13 @@ from werkzeug.security import check_password_hash, generate_password_hash
 
 RAIZ = Path(__file__).resolve().parents[1]
 ARQUIVO_USO = Path(os.environ.get("RTC_ARQUIVO_USO", RAIZ / "var" / "uso.json"))
+ARQUIVO_USUARIOS = Path(
+    os.environ.get("RTC_ARQUIVO_USUARIOS", RAIZ / "var" / "usuarios.json")
+)
 
 LIMITE_TESTE = 10
+MULTIPLO_CONSULTAS = 50  # cotas criadas pelo administrador vao de 50 em 50
+MINIMO_SENHA = 3
 
 USUARIOS: dict[str, dict] = {
     "admin": {
@@ -58,21 +63,134 @@ USUARIOS: dict[str, dict] = {
     },
 }
 
+EMBUTIDOS = set(USUARIOS)  # usuarios de fabrica, que nao podem ser removidos
+
 _TRAVA = threading.Lock()
 _USO: dict[str, int] = {}
 _CARREGADO = False
+_USUARIOS_CARREGADOS = False
 
 
 # ------------------------------------------------------------------ usuarios
 
 
+def _carrega_usuarios() -> None:
+    """Traz para a memoria os usuarios criados pelo administrador."""
+    global _USUARIOS_CARREGADOS
+    if _USUARIOS_CARREGADOS:
+        return
+    _USUARIOS_CARREGADOS = True
+    try:
+        dados = json.loads(ARQUIVO_USUARIOS.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return
+    for login, registro in (dados.get("usuarios") or {}).items():
+        if login in EMBUTIDOS:
+            continue
+        USUARIOS[login] = {
+            "nome": registro.get("nome") or login,
+            "papel": registro.get("papel", "cliente"),
+            "limite": registro.get("limite"),
+            "hash": registro.get("hash", ""),
+            "env": "",
+            "criado_em": registro.get("criado_em", ""),
+        }
+
+
+def _grava_usuarios() -> None:
+    criados = {
+        login: {k: v for k, v in dados.items() if k != "env"}
+        for login, dados in USUARIOS.items()
+        if login not in EMBUTIDOS
+    }
+    try:
+        ARQUIVO_USUARIOS.parent.mkdir(parents=True, exist_ok=True)
+        ARQUIVO_USUARIOS.write_text(
+            json.dumps(
+                {
+                    "atualizado_em": datetime.now().isoformat(timespec="seconds"),
+                    "usuarios": criados,
+                },
+                ensure_ascii=False,
+                indent=1,
+            ),
+            encoding="utf-8",
+        )
+    except OSError:
+        pass
+
+
 def _busca_login(login: str) -> str | None:
     """Aceita o login sem diferenciar maiusculas (admin, Admin, ADMIN)."""
+    _carrega_usuarios()
     alvo = (login or "").strip().casefold()
     for nome in USUARIOS:
         if nome.casefold() == alvo:
             return nome
     return None
+
+
+def validar_limite(valor: str | int | None) -> int | None:
+    """Converte o limite informado; None = ilimitado.
+
+    Cotas criadas pelo administrador sao sempre multiplos de 50.
+    """
+    if valor in (None, "", "ilimitado", "Ilimitado"):
+        return None
+    try:
+        numero = int(str(valor).strip())
+    except (TypeError, ValueError):
+        raise ValueError("Informe a quantidade de consultas em números.")
+    if numero <= 0:
+        raise ValueError("A quantidade de consultas deve ser maior que zero.")
+    if numero % MULTIPLO_CONSULTAS:
+        raise ValueError(
+            f"A quantidade de consultas deve ser múltipla de {MULTIPLO_CONSULTAS} "
+            f"(ex.: 50, 100, 150) ou ilimitada."
+        )
+    return numero
+
+
+def criar_usuario(login: str, senha: str, limite: str | int | None,
+                  nome: str = "") -> dict:
+    """Cadastra um usuario novo. Levanta ValueError com a mensagem do problema."""
+    _carrega_usuarios()
+    login = (login or "").strip()
+    if not login:
+        raise ValueError("Informe o login do usuário.")
+    if len(login) > 40 or any(c.isspace() for c in login):
+        raise ValueError("O login deve ser uma palavra de até 40 caracteres, sem espaços.")
+    if _busca_login(login):
+        raise ValueError(f"Já existe um usuário com o login “{login}”.")
+    if len(senha or "") < MINIMO_SENHA:
+        raise ValueError(f"A senha deve ter ao menos {MINIMO_SENHA} caracteres.")
+
+    quantidade = validar_limite(limite)
+
+    with _TRAVA:
+        USUARIOS[login] = {
+            "nome": (nome or "").strip() or login,
+            "papel": "cliente",
+            "limite": quantidade,
+            "hash": generate_password_hash(senha, method="pbkdf2:sha256:600000"),
+            "env": "",
+            "criado_em": datetime.now().strftime("%d/%m/%Y %H:%M"),
+        }
+        _grava_usuarios()
+    return obter(login)
+
+
+def remover_usuario(login: str) -> None:
+    """Remove um usuario criado pelo administrador (os de fabrica ficam)."""
+    nome = _busca_login(login)
+    if not nome:
+        raise ValueError("Usuário não encontrado.")
+    if nome in EMBUTIDOS:
+        raise ValueError(f"O usuário “{nome}” é fixo do sistema e não pode ser removido.")
+    with _TRAVA:
+        USUARIOS.pop(nome, None)
+        _grava_usuarios()
+    zerar(nome)
 
 
 def autenticar(login: str, senha: str) -> dict | None:
@@ -181,6 +299,7 @@ def zerar(login: str | None = None) -> None:
 def painel() -> list[dict]:
     """Situacao de uso de cada usuario - exibida ao administrador."""
     _carrega()
+    _carrega_usuarios()
     linhas = []
     for login, usuario in USUARIOS.items():
         usadas = _USO.get(login, 0)
@@ -193,6 +312,13 @@ def painel() -> list[dict]:
                 "consultas": usadas,
                 "restante": None if usuario["limite"] is None
                             else max(0, usuario["limite"] - usadas),
+                "embutido": login in EMBUTIDOS,
+                "criado_em": usuario.get("criado_em", ""),
             }
         )
     return linhas
+
+
+def opcoes_de_limite(maximo: int = 500) -> list[int]:
+    """Cotas oferecidas na tela: 50, 100, 150 ... ate o maximo."""
+    return list(range(MULTIPLO_CONSULTAS, maximo + 1, MULTIPLO_CONSULTAS))

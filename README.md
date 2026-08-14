@@ -122,6 +122,11 @@ já gerado não consomem; uma consulta que falha também não. Esgotada a cota, 
 `Teste` continua navegando, mas não faz novas consultas até o administrador zerar a
 contagem em `/usuarios`.
 
+O administrador cria novos usuários em `/usuarios`, informando login, senha e a cota —
+**múltiplos de 50** consultas ou **ilimitado**. Os usuários criados têm perfil de cliente,
+ficam em `var/usuarios.json` (senha em hash, fora do versionamento) e podem ser removidos
+pelo painel; os três usuários de fábrica não.
+
 As senhas ficam no repositório apenas como hash (pbkdf2-sha256) e podem ser trocadas por
 variável de ambiente. A contagem de uso é gravada em `var/uso.json` (fora do versionamento).
 

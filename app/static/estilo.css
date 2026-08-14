@@ -259,3 +259,15 @@ body.tela-login { background: var(--azul); }
 .marca-login small { display: block; color: var(--suave); font-size: 12px; }
 .rodape-acesso { text-align: center; color: rgba(255,255,255,.75); font-size: 12px; }
 .rodape-acesso strong { color: #fff; font-weight: 600; }
+
+.form-usuario {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0 18px; align-items: end;
+}
+.form-usuario input[type=text], .form-usuario input[type=password], .form-usuario select {
+  width: 100%; padding: 8px 10px; border: 1px solid var(--borda); border-radius: 6px;
+  font: inherit; background: #fff;
+}
+.form-usuario .acao-criar { margin: 14px 0; }
+.acoes-usuario { display: flex; gap: 14px; align-items: baseline; }
+.acoes-usuario form { margin: 0; }

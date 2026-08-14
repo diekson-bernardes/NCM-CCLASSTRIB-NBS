@@ -123,18 +123,65 @@ def sair():
     return redirect(url_for("entrar"))
 
 
-@app.get("/usuarios")
-def usuarios():
-    """Painel de uso - restrito ao administrador."""
+def _so_administrador():
     if g.usuario["papel"] != "administrador":
         abort(403)
-    return render_template("usuarios.html", linhas=auth.painel())
+
+
+def _tela_usuarios(erro: str = "", criado: str = "", formulario: dict | None = None,
+                   status: int = 200):
+    return render_template(
+        "usuarios.html",
+        linhas=auth.painel(),
+        opcoes=auth.opcoes_de_limite(),
+        erro=erro,
+        criado=criado,
+        formulario=formulario or {},
+    ), status
+
+
+@app.get("/usuarios")
+def usuarios():
+    """Painel de usuarios e uso - restrito ao administrador."""
+    _so_administrador()
+    return _tela_usuarios(criado=request.args.get("criado", ""))
+
+
+@app.post("/usuarios/criar")
+def usuarios_criar():
+    _so_administrador()
+    login = request.form.get("login", "")
+    limite = request.form.get("limite", "")
+    try:
+        novo = auth.criar_usuario(
+            login=login,
+            senha=request.form.get("senha", ""),
+            limite=None if limite == "ilimitado" else limite,
+            nome=request.form.get("nome", ""),
+        )
+    except ValueError as exc:
+        return _tela_usuarios(
+            erro=str(exc),
+            formulario={"login": login, "nome": request.form.get("nome", ""),
+                        "limite": limite},
+            status=400,
+        )
+    return redirect(url_for("usuarios", criado=novo["login"]))
+
+
+@app.post("/usuarios/remover/<login>")
+def usuarios_remover(login: str):
+    _so_administrador()
+    try:
+        auth.remover_usuario(login)
+    except ValueError as exc:
+        return _tela_usuarios(erro=str(exc), status=400)
+    return redirect(url_for("usuarios"))
 
 
 @app.post("/usuarios/zerar/<login>")
 def usuarios_zerar(login: str):
-    if g.usuario["papel"] != "administrador":
-        abort(403)
+    _so_administrador()
     auth.zerar(login)
     return redirect(url_for("usuarios"))
 

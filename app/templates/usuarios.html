@@ -2,6 +2,9 @@
 {% block titulo %}Usuários e uso{% endblock %}
 {% block conteudo %}
 
+{% if criado %}<div class="alerta">Usuário <strong>{{ criado }}</strong> criado.</div>{% endif %}
+{% if erro %}<div class="alerta erro">{{ erro }}</div>{% endif %}
+
 <section class="cartao">
   <h1>Usuários e uso</h1>
   <p class="ajuda">
@@ -12,28 +15,41 @@
 
   <table>
     <thead>
-      <tr><th>Usuário</th><th>Perfil</th><th>Limite</th><th>Consultas</th><th>Restantes</th><th></th></tr>
+      <tr>
+        <th>Usuário</th><th>Perfil</th><th>Limite</th><th>Consultas</th>
+        <th>Restantes</th><th>Ações</th>
+      </tr>
     </thead>
     <tbody>
       {% for l in linhas %}
       <tr>
-        <td><strong>{{ l.login }}</strong><small>{{ l.nome }}</small></td>
+        <td>
+          <strong>{{ l.login }}</strong>
+          <small>{{ l.nome }}{% if l.criado_em %} · criado em {{ l.criado_em }}{% endif %}</small>
+        </td>
         <td>
           {% if l.papel == 'administrador' %}<span class="tag principal">administrador</span>
           {% elif l.papel == 'cliente' %}<span class="tag alta">cliente</span>
           {% else %}<span class="tag media">teste</span>{% endif %}
+          {% if not l.embutido %}<small>criado no painel</small>{% endif %}
         </td>
-        <td>{% if l.limite is none %}sem limitação{% else %}{{ l.limite }} consultas{% endif %}</td>
+        <td>{% if l.limite is none %}ilimitado{% else %}{{ l.limite }} consultas{% endif %}</td>
         <td>{{ l.consultas }}</td>
         <td>
           {% if l.restante is none %}—
           {% elif l.restante == 0 %}<span class="tag baixa">esgotado</span>
           {% else %}{{ l.restante }}{% endif %}
         </td>
-        <td>
+        <td class="acoes-usuario">
           {% if l.consultas %}
           <form method="post" action="{{ url_for('usuarios_zerar', login=l.login) }}">
             <button type="submit" class="link-remover">zerar contagem</button>
+          </form>
+          {% endif %}
+          {% if not l.embutido %}
+          <form method="post" action="{{ url_for('usuarios_remover', login=l.login) }}"
+                onsubmit="return confirm('Remover o usuário {{ l.login }}?');">
+            <button type="submit" class="link-remover">remover</button>
           </form>
           {% endif %}
         </td>
@@ -44,12 +60,58 @@
 </section>
 
 <section class="cartao">
+  <h2>Criar usuário</h2>
+  <p class="ajuda">
+    O usuário criado tem perfil de cliente e acessa todas as telas. A cota vai de 50 em 50
+    consultas, ou pode ser ilimitada.
+  </p>
+
+  <form method="post" action="{{ url_for('usuarios_criar') }}" class="form-usuario">
+    <label class="campo">
+      <span>Login</span>
+      <input type="text" name="login" value="{{ formulario.login or '' }}"
+             maxlength="40" placeholder="sem espaços" required>
+    </label>
+
+    <label class="campo">
+      <span>Nome (opcional)</span>
+      <input type="text" name="nome" value="{{ formulario.nome or '' }}"
+             placeholder="Escritório Fulano">
+    </label>
+
+    <label class="campo">
+      <span>Senha</span>
+      <input type="password" name="senha" autocomplete="new-password" required>
+    </label>
+
+    <label class="campo">
+      <span>Consultas</span>
+      <select name="limite">
+        <option value="ilimitado" {% if formulario.limite in (none, '', 'ilimitado') %}selected{% endif %}>
+          Ilimitado
+        </option>
+        {% for o in opcoes %}
+        <option value="{{ o }}" {% if formulario.limite == o|string %}selected{% endif %}>
+          {{ o }} consultas
+        </option>
+        {% endfor %}
+      </select>
+    </label>
+
+    <div class="acao-criar">
+      <button type="submit">Criar usuário</button>
+    </div>
+  </form>
+</section>
+
+<section class="cartao">
   <h2>Como trocar as senhas em produção</h2>
   <p class="ajuda">
-    As senhas ficam gravadas como hash no código. No servidor, defina as variáveis de
-    ambiente <code>RTC_SENHA_ADMIN</code>, <code>RTC_SENHA_CLIENTE</code> e
+    As senhas dos usuários fixos ficam gravadas como hash no código. No servidor, defina as
+    variáveis de ambiente <code>RTC_SENHA_ADMIN</code>, <code>RTC_SENHA_CLIENTE</code> e
     <code>RTC_SENHA_TESTE</code> para substituí-las sem alterar o repositório — e
-    <code>RTC_SECRET_KEY</code> para que as sessões sobrevivam a um reinício.
+    <code>RTC_SECRET_KEY</code> para que as sessões sobrevivam a um reinício. Os usuários
+    criados aqui ficam em <code>var/usuarios.json</code>, também com a senha em hash.
   </p>
 </section>
 {% endblock %}

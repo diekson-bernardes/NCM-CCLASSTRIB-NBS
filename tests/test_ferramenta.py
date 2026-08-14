@@ -16,8 +16,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 # a cota dos testes vive num arquivo temporario, fora de var/uso.json
 import os, tempfile  # noqa: E402
-os.environ.setdefault("RTC_ARQUIVO_USO",
-                      str(Path(tempfile.mkdtemp()) / "uso_teste.json"))
+_TEMP = Path(tempfile.mkdtemp())
+os.environ.setdefault("RTC_ARQUIVO_USO", str(_TEMP / "uso_teste.json"))
+os.environ.setdefault("RTC_ARQUIVO_USUARIOS", str(_TEMP / "usuarios_teste.json"))
 
 from app import auth, lote  # noqa: E402
 from app.cesta import COLUNAS  # noqa: E402
@@ -354,6 +355,106 @@ class TestAcesso(unittest.TestCase):
         self.assertEqual(cliente.get("/").status_code, 200)
         cliente.get("/sair")
         self.assertEqual(cliente.get("/").status_code, 302)
+
+
+class TestGestaoDeUsuarios(unittest.TestCase):
+    """Criacao de usuarios pelo administrador, com cota multipla de 50."""
+
+    def setUp(self) -> None:
+        app.config["TESTING"] = True
+        self.admin = cliente_logado("admin", "2026")
+        self._criados: list[str] = []
+
+    def tearDown(self) -> None:
+        for login in self._criados:
+            try:
+                auth.remover_usuario(login)
+            except ValueError:
+                pass
+        auth.zerar()
+
+    def _criar(self, login, senha="segredo123", limite="100", **extra):
+        self._criados.append(login)
+        return self.admin.post(
+            "/usuarios/criar",
+            data={"login": login, "senha": senha, "limite": limite, **extra},
+            follow_redirects=True,
+        )
+
+    def test_cria_com_cota_multipla_de_50(self):
+        resposta = self._criar("escritorio_alfa", limite="150", nome="Escritório Alfa")
+        self.assertEqual(resposta.status_code, 200)
+        self.assertIn("escritorio_alfa", resposta.get_data(as_text=True))
+        usuario = auth.obter("escritorio_alfa")
+        self.assertEqual(usuario["limite"], 150)
+        self.assertEqual(usuario["papel"], "cliente")
+
+    def test_cria_ilimitado(self):
+        self._criar("parceiro_x", limite="ilimitado")
+        self.assertIsNone(auth.obter("parceiro_x")["limite"])
+        self.assertIsNone(auth.restante("parceiro_x"))
+
+    def test_recusa_cota_fora_do_multiplo(self):
+        resposta = self._criar("qualquer", limite="75")
+        self.assertEqual(resposta.status_code, 400)
+        self.assertIn("múltipla de 50", resposta.get_data(as_text=True))
+        self.assertIsNone(auth.obter("qualquer"))
+
+    def test_recusa_login_duplicado_espaco_e_senha_curta(self):
+        self._criar("repetido")
+        for dados, trecho in (
+            ({"login": "repetido", "senha": "outra123", "limite": "50"}, "Já existe"),
+            ({"login": "com espaco", "senha": "senha123", "limite": "50"}, "sem espaços"),
+            ({"login": "curto", "senha": "a", "limite": "50"}, "ao menos"),
+            ({"login": "admin", "senha": "senha123", "limite": "50"}, "Já existe"),
+        ):
+            resposta = self.admin.post("/usuarios/criar", data=dados)
+            self.assertEqual(resposta.status_code, 400, dados["login"])
+            self.assertIn(trecho, resposta.get_data(as_text=True))
+
+    def test_usuario_criado_entra_e_respeita_a_cota(self):
+        self._criar("cliente_novo", senha="novo2026", limite="50")
+        cliente = cliente_logado("cliente_novo", "novo2026")
+        self.assertEqual(cliente.get("/").status_code, 200)
+        self.assertEqual(cliente.get("/usuarios").status_code, 403)  # nao e administrador
+
+        self.assertEqual(cliente.get("/ncm/10064000").status_code, 200)
+        self.assertEqual(auth.restante("cliente_novo"), 49)
+
+        for _ in range(49):
+            auth.registrar_consulta("cliente_novo")
+        self.assertFalse(auth.pode_consultar("cliente_novo"))
+        self.assertEqual(cliente.get("/ncm/10064000").status_code, 403)
+
+    def test_persistencia_em_disco(self):
+        self._criar("persistente", limite="200")
+        # simula um reinicio: esquece o que esta em memoria e recarrega do arquivo
+        auth.USUARIOS.pop("persistente")
+        auth._USUARIOS_CARREGADOS = False
+        self.assertEqual(auth.obter("persistente")["limite"], 200)
+
+    def test_remocao(self):
+        self._criar("temporario")
+        self.assertEqual(
+            self.admin.post("/usuarios/remover/temporario", follow_redirects=True).status_code,
+            200,
+        )
+        self.assertIsNone(auth.obter("temporario"))
+        # os usuarios de fabrica nao podem ser removidos
+        self.assertEqual(self.admin.post("/usuarios/remover/admin").status_code, 400)
+        self.assertIsNotNone(auth.obter("admin"))
+
+    def test_apenas_administrador_gerencia(self):
+        for login, senha in (("Cliente", "Cliente"), ("Teste", "123")):
+            cliente = cliente_logado(login, senha)
+            self.assertEqual(cliente.get("/usuarios").status_code, 403)
+            self.assertEqual(
+                cliente.post("/usuarios/criar",
+                             data={"login": "invasor", "senha": "123456", "limite": "50"}
+                             ).status_code,
+                403,
+            )
+        self.assertIsNone(auth.obter("invasor"))
 
 
 def _planilha_de_ncms(linhas: list[list[str]]) -> io.BytesIO:

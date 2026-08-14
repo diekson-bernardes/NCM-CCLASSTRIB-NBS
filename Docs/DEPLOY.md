@@ -61,10 +61,11 @@ RTC_SENHA_TESTE  = <senha da demonstração>
 desconecta quem estava logado. As três senhas substituem as de desenvolvimento sem
 alterar o repositório; as senhas nunca ficam no código em texto puro, só como hash.
 
-**Atenção à cota no plano gratuito:** a contagem do usuário `Teste` é gravada em
-`var/uso.json`, e o disco do Render free é efêmero — a cada deploy ou hibernação ela
-volta a zero. Para uma contagem que persista, o caminho é um banco (Postgres do próprio
-Render) ou um disco persistente no plano pago.
+**Atenção ao plano gratuito:** a contagem de consultas (`var/uso.json`) e os usuários
+criados pelo administrador (`var/usuarios.json`) ficam em disco, e o disco do Render free
+é efêmero — a cada deploy ou hibernação, a contagem zera e os usuários criados pelo painel
+desaparecem (os três de fábrica continuam, pois estão no código). Para que persistam, o
+caminho é um banco (Postgres do próprio Render) ou um disco persistente no plano pago.
 
 ## Atualizações
 
