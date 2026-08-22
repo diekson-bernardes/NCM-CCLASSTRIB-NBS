@@ -1,0 +1,1784 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Análise Tributária — PGDAS-D Simples Nacional</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', system-ui, sans-serif; background: #0f1117; color: #e2e8f0; min-height: 100vh; }
+
+header {
+  background: linear-gradient(135deg, #1a1f2e 0%, #0f1117 100%);
+  border-bottom: 1px solid #2d3748;
+  padding: 18px 32px; display: flex; align-items: center; gap: 14px;
+}
+.logo { width: 42px; height: 42px; background: linear-gradient(135deg, #3b82f6, #8b5cf6); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+header h1 { font-size: 19px; font-weight: 700; color: #f1f5f9; }
+header p  { font-size: 12px; color: #64748b; margin-top: 2px; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 28px 20px; }
+
+/* Upload */
+.upload-zone {
+  border: 2px dashed #2d3748; border-radius: 16px; padding: 40px 24px;
+  text-align: center; cursor: pointer; transition: all .25s;
+  background: #1a1f2e; position: relative;
+}
+.upload-zone:hover, .upload-zone.drag-over { border-color: #3b82f6; background: #1e2a42; }
+.upload-zone input[type="file"] { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%; }
+.upload-zone h2 { font-size: 17px; color: #cbd5e1; margin-bottom: 6px; }
+.upload-zone p  { font-size: 13px; color: #64748b; }
+.btn-upload { display: inline-block; margin-top: 14px; background: #3b82f6; color: #fff; padding: 9px 22px; border-radius: 8px; font-size: 13px; font-weight: 600; pointer-events: none; }
+
+.status-bar { display: none; background: #1a1f2e; border: 1px solid #2d3748; border-radius: 10px; padding: 12px 18px; margin-top: 14px; font-size: 14px; color: #94a3b8; align-items: center; gap: 10px; }
+.status-bar.show { display: flex; }
+.spinner { width: 16px; height: 16px; border: 2px solid #2d3748; border-top-color: #3b82f6; border-radius: 50%; animation: spin .7s linear infinite; flex-shrink: 0; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Dashboard */
+#dashboard { display: none; margin-top: 28px; }
+#dashboard.show { display: block; }
+
+/* Empresa */
+.empresa-card {
+  background: linear-gradient(135deg, #1e2a42 0%, #1a1f2e 100%);
+  border: 1px solid #2d3748; border-radius: 14px;
+  padding: 18px 22px; margin-bottom: 20px;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px;
+}
+.ef label { font-size: 11px; color: #64748b; text-transform: uppercase; letter-spacing: .05em; display: block; margin-bottom: 3px; }
+.ef span  { font-size: 13px; color: #e2e8f0; font-weight: 600; }
+
+/* KPIs */
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(195px, 1fr)); gap: 14px; margin-bottom: 20px; }
+.kpi { background: #1a1f2e; border: 1px solid #2d3748; border-radius: 14px; padding: 18px; }
+.kpi .kl { font-size: 11px; color: #64748b; margin-bottom: 6px; }
+.kpi .kv { font-size: 22px; font-weight: 700; }
+.kpi .ks { font-size: 11px; color: #64748b; margin-top: 3px; }
+.kpi.blue   { border-top: 3px solid #3b82f6; } .kpi.blue   .kv { color: #60a5fa; }
+.kpi.red    { border-top: 3px solid #ef4444; } .kpi.red    .kv { color: #f87171; }
+.kpi.purple { border-top: 3px solid #a855f7; } .kpi.purple .kv { color: #c084fc; }
+.kpi.green  { border-top: 3px solid #22c55e; } .kpi.green  .kv { color: #4ade80; }
+.kpi.orange { border-top: 3px solid #f97316; } .kpi.orange .kv { color: #fb923c; }
+
+/* Carga total */
+.carga-total {
+  background: linear-gradient(135deg, #1a1f40 0%, #2d1f42 100%);
+  border: 1px solid #4c1d95; border-radius: 14px;
+  padding: 20px 28px; display: flex; align-items: center;
+  justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-bottom: 24px;
+}
+.ct-left .ct-label { font-size: 13px; color: #a78bfa; font-weight: 600; }
+.ct-left .ct-value { font-size: 38px; font-weight: 800; color: #c084fc; letter-spacing: -.02em; line-height: 1.1; }
+.ct-left .ct-desc  { font-size: 12px; color: #7c3aed; margin-top: 3px; }
+.ct-right { flex: 1; min-width: 200px; }
+.carga-bar-bg   { height: 10px; background: #2d1f42; border-radius: 999px; overflow: hidden; margin-bottom: 6px; }
+.carga-bar-fill { height: 100%; background: linear-gradient(90deg, #7c3aed, #c084fc); border-radius: 999px; transition: width 1s ease; width: 0; }
+.carga-bar-labels { display: flex; justify-content: space-between; font-size: 10px; color: #64748b; }
+
+/* Section title */
+.section-title { font-size: 13px; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.section-title::after { content: ''; flex: 1; height: 1px; background: #2d3748; }
+
+/* ── Estabelecimento container ── */
+.est-wrap { margin-bottom: 24px; }
+.est-container { border: 1px solid #2d3748; border-radius: 14px; overflow: hidden; margin-bottom: 16px; }
+.est-header {
+  background: linear-gradient(135deg, #1e2a42 0%, #1a2030 100%);
+  padding: 14px 20px; border-bottom: 1px solid #2d3748;
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+}
+.est-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: #0f1117; border: 1px solid #3b82f6;
+  border-radius: 8px; padding: 4px 10px;
+  font-size: 12px; font-weight: 700; color: #60a5fa;
+  white-space: nowrap;
+}
+.est-badge.filial { border-color: #22c55e; color: #4ade80; }
+.est-info { flex: 1; }
+.est-nome-cnpj { font-size: 14px; font-weight: 700; color: #e2e8f0; }
+.est-detalhes  { font-size: 12px; color: #64748b; margin-top: 2px; }
+.est-receita-wrap { text-align: right; }
+.est-receita-val  { font-size: 18px; font-weight: 700; color: #60a5fa; }
+.est-receita-pct  { font-size: 11px; color: #64748b; }
+
+/* Rateio barra dentro do estabelecimento */
+.est-body { padding: 16px 20px 4px; background: #131720; }
+.rateio-bar-wrap { margin-bottom: 8px; }
+.rateio-bar { height: 26px; border-radius: 8px; overflow: hidden; display: flex; }
+.rateio-seg { height: 100%; transition: width .8s ease; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: rgba(255,255,255,.85); overflow: hidden; white-space: nowrap; padding: 0 6px; }
+.rateio-legend { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; margin-bottom: 14px; }
+.rateio-leg-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #94a3b8; }
+.rateio-leg-dot  { width: 9px; height: 9px; border-radius: 3px; flex-shrink: 0; }
+
+/* Cards de atividade */
+.atividades-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px; padding: 0 20px 16px; background: #131720; }
+.atv-card { background: #1a1f2e; border: 1px solid #2d3748; border-radius: 12px; overflow: hidden; }
+.atv-card-header { padding: 11px 14px; border-bottom: 1px solid #2d3748; }
+.atv-tipo    { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 3px; }
+.atv-desc    { font-size: 11px; color: #94a3b8; line-height: 1.4; }
+.atv-receita { font-size: 17px; font-weight: 700; margin-top: 5px; }
+.atv-pct-rpa { font-size: 11px; color: #64748b; }
+
+.atv-tributos { padding: 10px 14px; }
+.atv-trib-row { display: flex; align-items: center; margin-bottom: 6px; gap: 6px; }
+.atv-trib-row:last-child { margin-bottom: 0; }
+.atv-trib-name { font-size: 11px; color: #64748b; min-width: 70px; }
+.atv-trib-bar-bg { flex: 1; height: 4px; background: #2d3748; border-radius: 999px; overflow: hidden; }
+.atv-trib-bar-fill { height: 100%; border-radius: 999px; }
+.atv-trib-val { font-size: 11px; min-width: 58px; text-align: right; font-variant-numeric: tabular-nums; }
+.atv-trib-pct { font-size: 10px; color: #64748b; min-width: 44px; text-align: right; font-variant-numeric: tabular-nums; }
+
+.atv-total-row { padding: 7px 14px; background: #0f1117; border-top: 1px solid #2d3748; display: flex; justify-content: space-between; align-items: center; }
+.atv-total-label { font-size: 11px; color: #64748b; font-weight: 600; }
+.atv-total-val   { font-size: 13px; font-weight: 700; }
+.atv-total-aliq  { font-size: 11px; color: #64748b; }
+
+/* Totais do estabelecimento */
+.est-totais { padding: 10px 20px 14px; background: #131720; border-top: 1px solid #2d3748; }
+.est-totais-title { font-size: 11px; color: #64748b; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 8px; }
+.est-totais-row { display: flex; flex-wrap: wrap; gap: 10px; }
+.est-trib-chip { background: #0f1117; border-radius: 8px; padding: 6px 10px; min-width: 80px; }
+.est-trib-chip .chip-name { font-size: 10px; color: #64748b; }
+.est-trib-chip .chip-val  { font-size: 13px; font-weight: 700; }
+.est-trib-chip .chip-pct  { font-size: 10px; color: #64748b; }
+.est-trib-chip.total-chip { background: #1a1f2e; border: 1px solid #3b82f6; }
+.est-trib-chip.total-chip .chip-val { color: #60a5fa; }
+
+/* Tabela consolidada */
+.card { background: #1a1f2e; border: 1px solid #2d3748; border-radius: 14px; overflow: hidden; }
+.card-header { padding: 14px 18px; border-bottom: 1px solid #2d3748; font-size: 13px; font-weight: 600; color: #cbd5e1; }
+
+table { width: 100%; border-collapse: collapse; }
+th { text-align: left; padding: 9px 18px; font-size: 10px; color: #64748b; text-transform: uppercase; letter-spacing: .05em; background: #131720; }
+td { padding: 11px 18px; font-size: 13px; border-top: 1px solid #1e2533; }
+tr:hover td { background: #1e2533; }
+.trib-name { font-weight: 600; color: #e2e8f0; }
+.valor { color: #94a3b8; font-variant-numeric: tabular-nums; }
+.pct-bar-wrap { display: flex; align-items: center; gap: 6px; }
+.pct-bar-bg   { flex: 1; height: 5px; background: #2d3748; border-radius: 999px; overflow: hidden; }
+.pct-bar-fill { height: 100%; border-radius: 999px; }
+.pct-text { font-size: 12px; font-variant-numeric: tabular-nums; min-width: 48px; text-align: right; }
+.total-row td { font-weight: 700; background: #131720; color: #f1f5f9; border-top: 2px solid #3b82f6; }
+
+/* Gráficos */
+.charts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 16px; margin-bottom: 20px; }
+.chart-wrap { padding: 16px 20px; }
+.chart-canvas-wrap { position: relative; width: 100%; max-width: 280px; margin: 0 auto; }
+
+.tag { display: inline-block; padding: 2px 7px; border-radius: 99px; font-size: 11px; font-weight: 600; }
+.tag-blue   { background: #1d3557; color: #60a5fa; }
+.tag-green  { background: #14532d; color: #4ade80; }
+.tag-yellow { background: #713f12; color: #fbbf24; }
+.tag-red    { background: #450a0a; color: #f87171; }
+.tag-gray   { background: #1e293b; color: #94a3b8; }
+
+/* ── Anexo III ─────────────────────────────────────────────── */
+#secAnexoIII { margin-bottom: 24px; }
+
+.anx-input-row {
+  display: flex; gap: 12px; flex-wrap: wrap; align-items: flex-end;
+  margin-bottom: 16px; padding: 14px 18px;
+  background: #131720; border-radius: 10px; border: 1px solid #2d3748;
+}
+.anx-input-row label { font-size: 11px; color: #64748b; display: block; margin-bottom: 4px; }
+.anx-input-row input {
+  background: #1a1f2e; border: 1px solid #2d3748; color: #e2e8f0;
+  padding: 7px 10px; border-radius: 6px; font-size: 13px; width: 200px;
+}
+.anx-input-row input:focus { outline: none; border-color: #52b788; }
+.btn-calc {
+  background: #1a3a2a; color: #74c69d; border: 1px solid #2d6a4f;
+  padding: 8px 18px; border-radius: 7px; font-size: 13px; font-weight: 600;
+  cursor: pointer; height: fit-content; transition: all .2s;
+}
+.btn-calc:hover { background: #2d6a4f; color: #d8f3dc; }
+
+.anx-table-wrap { overflow-x: auto; margin-bottom: 16px; }
+.anx-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.anx-table thead th {
+  background: #0d1f16; color: #52b788; padding: 8px 10px;
+  text-align: center; border: 1px solid #1a3a2a; font-size: 11px; white-space: nowrap;
+}
+.anx-table thead th:nth-child(2) { text-align: left; }
+.anx-table tbody td { border: 1px solid #1e2533; padding: 7px 10px; text-align: center; color: #94a3b8; white-space: nowrap; }
+.anx-table tbody td:nth-child(2) { text-align: left; }
+.anx-table tbody tr:nth-child(even) { background: #131720; }
+.anx-table tbody tr.anx-active { background: #0d1f16 !important; }
+.anx-table tbody tr.anx-active td { color: #74c69d; font-weight: 700; }
+.anx-table tbody tr.anx-active td:nth-child(1) { border-left: 3px solid #52b788; }
+
+.anx-result-header {
+  background: linear-gradient(135deg, #0d1f16 0%, #1a1f2e 100%);
+  border: 1px solid #2d6a4f; border-radius: 12px;
+  padding: 18px 22px; margin-bottom: 14px;
+}
+.anx-faixa-label { font-size: 11px; color: #52b788; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 4px; }
+.anx-faixa-value { font-size: 26px; font-weight: 800; color: #74c69d; }
+.anx-formula { font-size: 12px; color: #95d5b2; margin-top: 5px; }
+
+.anx-rep-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 10px; margin-bottom: 10px;
+}
+.anx-rep-card { background: #1a1f2e; border-radius: 10px; padding: 13px 14px; border-top: 3px solid; text-align: center; }
+.anx-rep-card .arc-name    { font-size: 11px; color: #94a3b8; margin-bottom: 4px; }
+.anx-rep-card .arc-pct     { font-size: 16px; font-weight: 700; }
+.anx-rep-card .arc-sub     { font-size: 10px; color: #64748b; margin-top: 1px; }
+.anx-rep-card .arc-efetivo { font-size: 12px; font-weight: 700; color: #e2e8f0; margin-top: 5px; border-top: 1px solid #2d3748; padding-top: 5px; }
+.anx-rep-card .arc-efsub   { font-size: 10px; color: #64748b; }
+.anx-rep-card .arc-val     { font-size: 12px; color: #64748b; margin-top: 3px; }
+
+.anx-note { font-size: 11px; color: #4a5568; font-style: italic; padding: 4px 2px; }
+
+/* Anexo I — variações amber */
+.anx-table tbody tr.anx1-active { background: #1c1000 !important; }
+.anx-table tbody tr.anx1-active td { color: #fbbf24; font-weight: 700; }
+.anx-table tbody tr.anx1-active td:nth-child(1) { border-left: 3px solid #d97706; }
+
+.anx1-result-header {
+  background: linear-gradient(135deg, #1c1200 0%, #1a1f2e 100%);
+  border: 1px solid #78350f; border-radius: 12px;
+  padding: 18px 22px; margin-bottom: 14px;
+}
+.anx1-result-header .anx-faixa-label { color: #d97706; }
+.anx1-result-header .anx-faixa-value { color: #fbbf24; }
+.anx1-result-header .anx-formula     { color: #fde68a; }
+
+/* Rodapé de direitos */
+.footer-rights {
+  text-align: center; margin-top: 32px; padding: 18px 24px;
+  background: linear-gradient(135deg, #1a1f2e 0%, #0f1117 100%);
+  border: 1px solid #2d3748; border-radius: 12px;
+}
+.footer-rights .fr-policy {
+  font-size: 13px; font-weight: 700; color: #60a5fa;
+  letter-spacing: .03em; margin-bottom: 4px;
+}
+.footer-rights .fr-copy {
+  font-size: 14px; font-weight: 800; color: #e2e8f0;
+  letter-spacing: .01em;
+}
+
+/* Receitas adicionais */
+.rec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; padding: 16px; }
+.rec-item { background: #131720; border-radius: 10px; padding: 12px; }
+.rec-item .rec-label { font-size: 11px; color: #64748b; margin-bottom: 5px; }
+.rec-item .rec-value { font-size: 15px; font-weight: 700; color: #cbd5e1; }
+
+/* Botão de impressão */
+.btn-print {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #1e2a42; border: 1px solid #3b82f6;
+  color: #60a5fa; padding: 9px 18px; border-radius: 8px;
+  font-size: 13px; font-weight: 600; cursor: pointer;
+  transition: all .2s; margin-bottom: 20px;
+}
+.btn-print:hover { background: #3b82f6; color: #fff; }
+
+/* ── Área de impressão (oculta na tela, visível ao imprimir) ── */
+#printArea { display: none; }
+
+@media print {
+  * { box-sizing: border-box; }
+  html, body { background: #fff !important; color: #000 !important; font-size: 9pt; }
+  header, .upload-zone, .status-bar, #dashboard, .btn-print, .container > *:not(#printArea) { display: none !important; }
+  #printArea { display: block !important; font-family: 'Courier New', monospace; color: #000; padding: 10px; }
+
+  .p-title-box { border: 1px solid #000; padding: 8px 12px; text-align: center; margin-bottom: 8px; }
+  .p-title-box strong { font-size: 11pt; display: block; }
+  .p-title-box span   { font-size: 9pt; }
+
+  .p-info-table { width: 100%; border-collapse: collapse; margin-bottom: 6px; font-size: 8.5pt; }
+  .p-info-table td { border: 1px solid #666; padding: 3px 6px; }
+  .p-info-table td:first-child { color: #444; white-space: nowrap; width: 1%; }
+
+  .p-resumo-box { display: flex; gap: 0; border: 1px solid #000; margin-bottom: 10px; }
+  .p-resumo-item { flex: 1; padding: 6px 10px; border-right: 1px solid #999; }
+  .p-resumo-item:last-child { border-right: none; }
+  .p-resumo-item .ri-label { font-size: 7.5pt; color: #555; }
+  .p-resumo-item .ri-value { font-size: 11pt; font-weight: bold; }
+  .p-resumo-item.destaque { background: #f0f0f0; }
+
+  .p-est-title {
+    font-size: 10pt; font-weight: bold;
+    border-left: 4px solid #000; padding: 4px 8px;
+    background: #f5f5f5; margin: 10px 0 5px;
+  }
+
+  .p-atv-box { border: 1px solid #bbb; margin-bottom: 7px; page-break-inside: avoid; }
+  .p-atv-head { background: #ebebeb; padding: 4px 8px; font-size: 8.5pt; border-bottom: 1px solid #bbb; }
+  .p-atv-head strong { font-size: 9pt; }
+
+  .p-trib-table { width: 100%; border-collapse: collapse; font-size: 8pt; }
+  .p-trib-table th { border: 1px solid #999; padding: 3px 4px; text-align: center; background: #ddd; font-weight: bold; white-space: nowrap; }
+  .p-trib-table td { border: 1px solid #ccc; padding: 3px 4px; text-align: right; white-space: nowrap; }
+  .p-trib-table td.p-label-col { text-align: left; background: #f5f5f5; font-weight: bold; font-size: 7.5pt; color: #444; padding-left: 6px; }
+  .p-val-row  td { font-weight: bold; }
+  .p-pct-row  td { color: #1a1a8c; background: #f0f0ff; font-style: italic; }
+  .p-total-row td { font-weight: bold; background: #e8e8e8; border-top: 2px solid #000; }
+
+  .p-totais-box { border: 1px solid #000; margin-top: 5px; page-break-inside: avoid; }
+  .p-totais-head { background: #ddd; padding: 4px 8px; font-size: 9pt; font-weight: bold; border-bottom: 1px solid #999; }
+
+  .p-geral-box { border: 2px solid #000; margin-top: 10px; page-break-inside: avoid; }
+  .p-geral-head { background: #ccc; padding: 5px 8px; font-size: 10pt; font-weight: bold; border-bottom: 2px solid #000; }
+
+  .p-legend { font-size: 7pt; color: #555; padding: 3px 6px; font-style: italic; }
+
+  .p-footer { margin-top: 14px; border-top: 1px solid #000; padding-top: 8px; font-size: 7.5pt; color: #333; text-align: center; }
+  .p-footer-rights { margin-top: 8px; padding: 8px; border: 2px solid #000; text-align: center; background: #f0f0f0; }
+  .p-footer-rights .pfr-policy { font-size: 9pt; font-weight: bold; }
+  .p-footer-rights .pfr-copy   { font-size: 10pt; font-weight: bold; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">📊</div>
+  <div>
+    <h1>Análise Tributária — Simples Nacional (PGDAS-D)</h1>
+    <p>Alíquotas efetivas por tributo · Rateio por atividade · Segregação por CNPJ Estabelecimento</p>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- Upload -->
+  <div class="upload-zone" id="dropZone">
+    <input type="file" id="pdfInput" accept=".pdf">
+    <div style="font-size:42px;margin-bottom:12px">📄</div>
+    <h2>Arraste o PDF do PGDAS-D aqui</h2>
+    <p>Suporte a declarações com matriz, filiais e múltiplas atividades por estabelecimento</p>
+    <div class="btn-upload">Selecionar PDF</div>
+  </div>
+
+  <div class="status-bar" id="statusBar">
+    <div class="spinner" id="spinner"></div>
+    <span id="statusMsg">Lendo PDF…</span>
+  </div>
+
+  <!-- Área de impressão (invisível na tela) -->
+  <div id="printArea"></div>
+
+  <!-- Dashboard -->
+  <div id="dashboard">
+
+    <!-- Botão Imprimir -->
+    <button class="btn-print" onclick="window.print()">🖨️ Imprimir Declaração com Alíquotas</button>
+
+    <!-- Empresa -->
+    <div class="empresa-card">
+      <div class="ef"><label>Empresa</label><span id="nomeEmpresa">—</span></div>
+      <div class="ef"><label>CNPJ Matriz</label><span id="cnpj">—</span></div>
+      <div class="ef"><label>Período de Apuração</label><span id="pa">—</span></div>
+      <div class="ef"><label>Nº Declaração</label><span id="numDecl">—</span></div>
+      <div class="ef"><label>Regime de Apuração</label><span id="regime">—</span></div>
+      <div class="ef"><label>Transmissão</label><span id="transmissao">—</span></div>
+    </div>
+
+    <!-- KPIs -->
+    <div class="kpis">
+      <div class="kpi blue">
+        <div class="kl">Receita Bruta do PA (RPA)</div>
+        <div class="kv" id="kpiRPA">—</div>
+        <div class="ks">Faturamento total do período</div>
+      </div>
+      <div class="kpi red">
+        <div class="kl">Total de Tributos (DAS)</div>
+        <div class="kv" id="kpiTotal">—</div>
+        <div class="ks">Débito declarado total</div>
+      </div>
+      <div class="kpi purple">
+        <div class="kl">Carga Tributária Efetiva</div>
+        <div class="kv" id="kpiCarga">—</div>
+        <div class="ks">% sobre o faturamento do PA</div>
+      </div>
+      <div class="kpi orange">
+        <div class="kl">Estabelecimentos</div>
+        <div class="kv" id="kpiEst">—</div>
+        <div class="ks">CNPJs declarados</div>
+      </div>
+      <div class="kpi green">
+        <div class="kl">Total de Atividades</div>
+        <div class="kv" id="kpiAtv">—</div>
+        <div class="ks">Blocos de rateio (todos os CNPJs)</div>
+      </div>
+    </div>
+
+    <!-- Carga total -->
+    <div class="carga-total">
+      <div class="ct-left">
+        <div class="ct-label">⚡ Carga Tributária Total sobre o Faturamento</div>
+        <div class="ct-value" id="ctValue">—</div>
+        <div class="ct-desc" id="ctDesc">—</div>
+      </div>
+      <div class="ct-right">
+        <div class="carga-bar-bg"><div class="carga-bar-fill" id="ctBar"></div></div>
+        <div class="carga-bar-labels"><span>0%</span><span>5%</span><span>10%</span><span>15%+</span></div>
+      </div>
+    </div>
+
+    <!-- Estabelecimentos -->
+    <div class="section-title">🏢 Informações por Estabelecimento</div>
+    <div id="estWrap"></div>
+
+    <!-- Consolidado por tributo -->
+    <div class="section-title">📋 Consolidado por Tributo — Total da Declaração</div>
+    <div class="card" style="margin-bottom:16px">
+      <div class="card-header">Detalhamento por Tributo (soma de todos os estabelecimentos)</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Tributo</th>
+            <th>Valor (R$)</th>
+            <th>Alíquota Efetiva</th>
+            <th style="min-width:150px">Participação no DAS</th>
+          </tr>
+        </thead>
+        <tbody id="tabelaTributos"></tbody>
+      </table>
+    </div>
+
+    <!-- Gráficos -->
+    <div class="charts-grid" id="chartsGrid">
+      <div class="card" id="cardChartEst" style="display:none">
+        <div class="card-header">🏢 Faturamento por Estabelecimento</div>
+        <div class="chart-wrap">
+          <div class="chart-canvas-wrap"><canvas id="chartEst"></canvas></div>
+        </div>
+      </div>
+      <div class="card" id="cardChartAtv" style="display:none">
+        <div class="card-header">🏷️ Faturamento por Atividade</div>
+        <div class="chart-wrap">
+          <div class="chart-canvas-wrap"><canvas id="chartAtv"></canvas></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">🧾 Distribuição dos Tributos</div>
+        <div class="chart-wrap">
+          <div class="chart-canvas-wrap"><canvas id="chartPizza"></canvas></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Receitas adicionais -->
+    <div class="card">
+      <div class="card-header">📈 Demais Informações da Declaração</div>
+      <div class="rec-grid" id="receitasGrid"></div>
+    </div>
+
+    <!-- Anexo I — Comércio -->
+    <div class="section-title">🛒 Cálculo pelo Anexo I — Comércio (Simples Nacional 2026)</div>
+    <div id="secAnexoI" style="display:none">
+
+      <!-- Entradas -->
+      <div class="anx-input-row">
+        <div>
+          <label>RBT12 — Receita Bruta 12 meses anteriores</label>
+          <input type="text" id="anx1Rbt12" placeholder="Ex: 1.308.467,43">
+        </div>
+        <div>
+          <label>RPA — Faturamento do Período de Apuração</label>
+          <input type="text" id="anx1Rpa" placeholder="Ex: 77.740,77">
+        </div>
+        <button class="btn-calc" style="background:#1c1200;border-color:#78350f;color:#fbbf24" onmouseover="this.style.background='#78350f'" onmouseout="this.style.background='#1c1200'" onclick="recalcAnexoI()">↺ Recalcular</button>
+      </div>
+
+      <!-- Tabela de faixas -->
+      <div class="anx-table-wrap">
+        <table class="anx-table">
+          <thead>
+            <tr>
+              <th style="background:#1c1200;color:#d97706;border-color:#78350f">Faixa</th>
+              <th style="background:#1c1200;color:#d97706;border-color:#78350f">Receita Bruta em 12 Meses (RBT12)</th>
+              <th style="background:#1c1200;color:#d97706;border-color:#78350f">Alíquota Nominal</th>
+              <th style="background:#1c1200;color:#d97706;border-color:#78350f">Parcela a Deduzir</th>
+              <th style="background:#1c1200;color:#d97706;border-color:#78350f">CPP</th>
+              <th style="background:#1c1200;color:#d97706;border-color:#78350f">CSLL</th>
+              <th style="background:#1c1200;color:#d97706;border-color:#78350f">ICMS</th>
+              <th style="background:#1c1200;color:#d97706;border-color:#78350f">IRPJ</th>
+              <th style="background:#1c1200;color:#d97706;border-color:#78350f">Cofins</th>
+              <th style="background:#1c1200;color:#d97706;border-color:#78350f">PIS/Pasep</th>
+            </tr>
+          </thead>
+          <tbody id="anx1FaixaTbody"></tbody>
+        </table>
+      </div>
+
+      <!-- Resultado -->
+      <div id="anx1Resultado"></div>
+
+    </div>
+
+    <!-- Anexo III — Serviços -->
+    <div class="section-title">📐 Cálculo pelo Anexo III — Serviços (Simples Nacional 2026)</div>
+    <div id="secAnexoIII" style="display:none">
+
+      <!-- Entradas (RBT12 / RPA) -->
+      <div class="anx-input-row">
+        <div>
+          <label>RBT12 — Receita Bruta 12 meses anteriores</label>
+          <input type="text" id="anxRbt12" placeholder="Ex: 1.308.467,43">
+        </div>
+        <div>
+          <label>RPA — Faturamento do Período de Apuração</label>
+          <input type="text" id="anxRpa" placeholder="Ex: 77.740,77">
+        </div>
+        <button class="btn-calc" onclick="recalcAnexoIII()">↺ Recalcular</button>
+      </div>
+
+      <!-- Tabela de faixas -->
+      <div class="anx-table-wrap">
+        <table class="anx-table">
+          <thead>
+            <tr>
+              <th>Faixa</th>
+              <th>Receita Bruta em 12 Meses (RBT12)</th>
+              <th>Alíquota Nominal</th>
+              <th>Parcela a Deduzir</th>
+              <th>CPP</th>
+              <th>ISS</th>
+              <th>CSLL</th>
+              <th>IRPJ</th>
+              <th>Cofins</th>
+              <th>PIS/Pasep</th>
+            </tr>
+          </thead>
+          <tbody id="anxFaixaTbody"></tbody>
+        </table>
+      </div>
+
+      <!-- Resultado -->
+      <div id="anxResultado"></div>
+
+    </div>
+
+  </div><!-- /#dashboard -->
+
+  <!-- Rodapé de direitos (sempre visível) -->
+  <div class="footer-rights">
+    <div class="fr-policy">Política de Privacidade</div>
+    <div class="fr-copy">Diekson Bernardes – Todos os direitos reservados 2026</div>
+  </div>
+
+</div>
+
+<script>
+pdfjsLib.GlobalWorkerOptions.workerSrc =
+  'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+const TRIB_COLORS = {
+  IRPJ:'#3b82f6', CSLL:'#8b5cf6', COFINS:'#06b6d4',
+  'PIS/Pasep':'#f59e0b', 'INSS/CPP':'#ef4444',
+  ICMS:'#22c55e', IPI:'#f97316', ISS:'#ec4899',
+};
+const ATV_COLORS = ['#3b82f6','#22c55e','#f59e0b','#8b5cf6','#ef4444','#06b6d4','#f97316','#ec4899'];
+const EST_COLORS = ['#3b82f6','#f97316','#8b5cf6','#06b6d4','#f59e0b','#ec4899'];
+
+const ANX_REP_COLORS  = { cpp:'#ef4444', iss:'#ec4899', csll:'#8b5cf6', irpj:'#3b82f6', cofins:'#06b6d4', pis:'#f59e0b' };
+const ANX1_REP_COLORS = { cpp:'#ef4444', csll:'#8b5cf6', icms:'#22c55e', irpj:'#3b82f6', cofins:'#06b6d4', pis:'#f59e0b' };
+
+// Tabela Anexo I — Comércio — Simples Nacional 2026
+const ANEXO_I = [
+  { f:'1ª', min:0,          max:180000,    lbl:'Até R$ 180.000,00',                   aliq:0.04,  ded:0,       cpp:41.50, csll:3.50, icms:34.00, irpj:5.50,  cofins:12.74, pis:2.76, icmsNota:''  },
+  { f:'2ª', min:180000.01,  max:360000,    lbl:'R$ 180.000,01 a R$ 360.000,00',       aliq:0.073, ded:5940,    cpp:41.50, csll:3.50, icms:34.00, irpj:5.50,  cofins:12.74, pis:2.76, icmsNota:''  },
+  { f:'3ª', min:360000.01,  max:720000,    lbl:'R$ 360.000,01 a R$ 720.000,00',       aliq:0.095, ded:13860,   cpp:42.00, csll:3.50, icms:33.50, irpj:5.50,  cofins:12.74, pis:2.76, icmsNota:''  },
+  { f:'4ª', min:720000.01,  max:1800000,   lbl:'R$ 720.000,01 a R$ 1.800.000,00',     aliq:0.107, ded:22500,   cpp:42.00, csll:3.50, icms:33.50, irpj:5.50,  cofins:12.74, pis:2.76, icmsNota:''  },
+  { f:'5ª', min:1800000.01, max:3600000,   lbl:'R$ 1.800.000,01 a R$ 3.600.000,00',   aliq:0.143, ded:87300,   cpp:42.00, csll:3.50, icms:33.50, irpj:5.50,  cofins:12.74, pis:2.76, icmsNota:''  },
+  { f:'6ª', min:3600000.01, max:4800000,   lbl:'R$ 3.600.000,01 a R$ 4.800.000,00',   aliq:0.19,  ded:378000,  cpp:42.10, csll:10.00,icms:0,     irpj:13.50, cofins:28.27, pis:6.13,  icmsNota:'—' },
+];
+
+// Tabela Anexo III — Simples Nacional 2026
+const ANEXO_III = [
+  { f:'1ª', min:0,          max:180000,    lbl:'Até R$ 180.000,00',                   aliq:0.06,  ded:0,       cpp:43.40, iss:33.50, csll:3.50,  irpj:4.00,  cofins:12.82, pis:2.78, issNota:''    },
+  { f:'2ª', min:180000.01,  max:360000,    lbl:'R$ 180.000,01 a R$ 360.000,00',       aliq:0.112, ded:9360,    cpp:43.40, iss:32.00, csll:3.50,  irpj:4.00,  cofins:14.05, pis:3.05, issNota:''    },
+  { f:'3ª', min:360000.01,  max:720000,    lbl:'R$ 360.000,01 a R$ 720.000,00',       aliq:0.135, ded:17640,   cpp:43.40, iss:32.50, csll:3.50,  irpj:4.00,  cofins:13.64, pis:2.96, issNota:''    },
+  { f:'4ª', min:720000.01,  max:1800000,   lbl:'R$ 720.000,01 a R$ 1.800.000,00',     aliq:0.16,  ded:35640,   cpp:43.40, iss:32.50, csll:3.50,  irpj:4.00,  cofins:13.64, pis:2.96, issNota:''    },
+  { f:'5ª', min:1800000.01, max:3600000,   lbl:'R$ 1.800.000,01 a R$ 3.600.000,00',   aliq:0.21,  ded:125640,  cpp:43.40, iss:33.50, csll:3.50,  irpj:4.00,  cofins:12.82, pis:2.78, issNota:'(*)' },
+  { f:'6ª', min:3600000.01, max:4800000,   lbl:'R$ 3.600.000,01 a R$ 4.800.000,00',   aliq:0.33,  ded:648000,  cpp:30.50, iss:0,     csll:15.00, irpj:35.00, cofins:16.03, pis:3.47, issNota:'—'   },
+];
+
+const charts = {};
+
+// ── Upload ──────────────────────────────────────────────────
+const dropZone = document.getElementById('dropZone');
+const pdfInput = document.getElementById('pdfInput');
+dropZone.addEventListener('dragover',  e => { e.preventDefault(); dropZone.classList.add('drag-over'); });
+dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag-over'));
+dropZone.addEventListener('drop', e => {
+  e.preventDefault(); dropZone.classList.remove('drag-over');
+  const f = e.dataTransfer.files[0];
+  if (f?.type === 'application/pdf') processPDF(f);
+});
+pdfInput.addEventListener('change', e => { if (e.target.files[0]) processPDF(e.target.files[0]); });
+
+async function processPDF(file) {
+  showStatus('Lendo PDF…', true);
+  try {
+    const buf = await file.arrayBuffer();
+    const pdf = await pdfjsLib.getDocument({ data: buf }).promise;
+    let fullText = '';
+    for (let i = 1; i <= pdf.numPages; i++) {
+      const page = await pdf.getPage(i);
+      const c    = await page.getTextContent();
+      fullText  += c.items.map(it => it.str).join(' ') + '\n';
+    }
+    showStatus('Extraindo dados…', true);
+    const dados = extrairDados(fullText);
+    if (!dados.rpa) { showStatus('⚠️ Não foi possível extrair automaticamente. Verifique o PDF.', false); return; }
+    const nEst = dados.estabelecimentos.length;
+    const nAtv = dados.estabelecimentos.reduce((s,e) => s + e.atividades.length, 0);
+    showStatus(`✅ Extraídos: ${nEst} estabelecimento(s) · ${nAtv} atividade(s) no total.`, false);
+    renderDashboard(dados);
+  } catch (err) {
+    console.error(err);
+    showStatus('❌ Erro ao processar o PDF: ' + err.message, false);
+  }
+}
+
+function showStatus(msg, spin) {
+  document.getElementById('statusBar').className = 'status-bar show';
+  document.getElementById('statusMsg').textContent = msg;
+  document.getElementById('spinner').style.display = spin ? 'block' : 'none';
+}
+
+// ── Helpers ─────────────────────────────────────────────────
+const parseBR = s => parseFloat((s||'0').replace(/\./g,'').replace(',','.')) || 0;
+const brl     = v => v.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
+const pct4    = v => v.toFixed(4).replace('.',',') + '%';
+const pct2    = v => v.toFixed(2).replace('.',',') + '%';
+const NUM     = '([\\d.]+,\\d{2})';
+
+function findVal(text, patterns) {
+  for (const re of patterns) {
+    const m = text.match(re); if (m) return parseBR(m[1]);
+  }
+  return 0;
+}
+
+const TRIB_RE = new RegExp(
+  `IRPJ\\s+CSLL\\s+COFINS\\s+PIS.Pasep\\s+INSS.CPP\\s+ICMS\\s+IPI\\s+ISS\\s+Total\\s+${NUM}\\s+${NUM}\\s+${NUM}\\s+${NUM}\\s+${NUM}\\s+${NUM}\\s+${NUM}\\s+${NUM}\\s+${NUM}`
+);
+
+function parseTributos(bloco) {
+  const m = bloco.match(TRIB_RE);
+  if (!m) return null;
+  return {
+    irpj:parseBR(m[1]), csll:parseBR(m[2]), cofins:parseBR(m[3]),
+    pis:parseBR(m[4]),  inss:parseBR(m[5]),  icms:parseBR(m[6]),
+    ipi:parseBR(m[7]),  iss:parseBR(m[8]),   total:parseBR(m[9]),
+  };
+}
+
+function zeroTributos() {
+  return { irpj:0, csll:0, cofins:0, pis:0, inss:0, icms:0, ipi:0, iss:0, total:0 };
+}
+
+// ── Extração principal ───────────────────────────────────────
+function extrairDados(raw) {
+  const t = raw.replace(/\s+/g, ' ');
+
+  // Cabeçalho geral
+  const nome    = (t.match(/Nome empresarial:\s*([A-ZÁÉÍÓÚÀÂÊÔÃÕÜÇ ]+?)(?:\s+Data|\s+CNPJ|\s+Opt)/i)||[])[1]?.trim() || '';
+  const cnpj    = (t.match(/CNPJ Matriz:\s*([\d.\/\-]+)/)||[])[1] || '';
+  const numDecl = (t.match(/Nº da Declaração:\s*(\d+)/)||[])[1] || '';
+  const regime  = (t.match(/Regime de Apuração:\s*([\wÀ-ž]+)/)||[])[1] || '';
+  const pa      = (t.match(/Período de Apuração:\s*([\d\/]+ a [\d\/]+)/)||[])[1] || '';
+  const transm  = (t.match(/Data e horário da transmissão[^:]*:\s*([\d\/]+ [\d:]+)/)||[])[1] || '';
+
+  // Receitas globais (seção 2.1)
+  const rpa   = findVal(t, [/Receita Bruta do PA \(RPA\)[^\d]+([\d.]+,\d{2})/]);
+  const rbt12 = findVal(t, [/ao PA \(RBT12\)\s*([\d.]+,\d{2})/]);
+  const rba   = findVal(t, [/ano-calendário corrente[^\d]+([\d.]+,\d{2})/]);
+  const rbaa  = findVal(t, [/ano-calendário anterior[^\d]+([\d.]+,\d{2})/]);
+
+  // ── Dividir por "CNPJ Estabelecimento:" ─────────────────
+  // Cada fragmento (exceto o [0]) corresponde a um estabelecimento (matriz ou filial)
+  const estFrags = t.split('CNPJ Estabelecimento:');
+  const estabelecimentos = [];
+
+  for (let ei = 1; ei < estFrags.length; ei++) {
+    const estBloco = estFrags[ei];
+
+    // CNPJ do estabelecimento
+    const cnpjEst = (estBloco.match(/^\s*([\d.\/\-]+)/)||[])[1]?.trim() || '';
+
+    // Município / UF
+    const munM = estBloco.match(/Município:\s*([A-ZÁÉÍÓÚÀÂÊÔÃÕÜÇ ]+?)\s+UF:\s*(\w+)/i);
+    const municipio = munM ? `${munM[1].trim()} / ${munM[2]}` : '';
+
+    // Sublimite
+    const sublimite = findVal(estBloco, [/Sublimite de Receita Anual[^\d]+([\d.]+,\d{2})/]);
+
+    // Impedido de recolher ICMS/ISS
+    const impedido = /Impedido de recolher ICMS\/ISS no DAS:\s*Sim/i.test(estBloco);
+
+    // ── Atividades do estabelecimento ───────────────────────
+    // Dividir por marcador de atividade
+    const atvFrags = estBloco.split('Valor do Débito por Tributo para a Atividade');
+    const atividades = [];
+
+    for (let ai = 1; ai < atvFrags.length; ai++) {
+      // Truncar antes de "Totais do Estabelecimento" para isolar a atividade
+      const corte = atvFrags[ai].search(/Totais do Estabelecimento/i);
+      const bloco = corte !== -1 ? atvFrags[ai].substring(0, corte) : atvFrags[ai];
+
+      if (!/Receita Bruta Informada/i.test(bloco)) continue;
+
+      // Descrição
+      const descM = bloco.match(/\(R\$\):\s*(.+?)Receita Bruta Informada/);
+      const descFull  = descM ? descM[1].trim() : 'Atividade';
+      const descCurta = abreviarDesc(descFull);
+
+      // Receita
+      const recM   = bloco.match(/Receita Bruta Informada:\s*R\$\s*([\d.]+,\d{2})/);
+      const receita = recM ? parseBR(recM[1]) : 0;
+
+      // Tributos
+      const trib = parseTributos(bloco);
+      if (!trib) continue;
+
+      atividades.push({ desc: descCurta, descFull, receita, ...trib });
+    }
+
+    // Se não achou atividades, tenta pegar a tabela única do bloco
+    if (atividades.length === 0) {
+      const trib = parseTributos(estBloco);
+      const recEst = findVal(estBloco, [/Valor Informado:\s*([\d.]+,\d{2})/]);
+      if (trib) atividades.push({ desc: 'Atividade Geral', descFull: '', receita: recEst || 0, ...trib });
+    }
+
+    // Totais do estabelecimento (bloco "Totais do Estabelecimento")
+    const totaisIdx = estBloco.search(/Totais do Estabelecimento/i);
+    let totais = zeroTributos();
+    if (totaisIdx !== -1) {
+      // Primeiro match de tributos após "Totais do Estabelecimento" = Total do Débito Declarado
+      const tribTotais = parseTributos(estBloco.substring(totaisIdx));
+      if (tribTotais) totais = tribTotais;
+    } else if (atividades.length > 0) {
+      // Fallback: soma das atividades
+      const soma = k => atividades.reduce((s,a) => s + a[k], 0);
+      totais = { irpj:soma('irpj'), csll:soma('csll'), cofins:soma('cofins'),
+                 pis:soma('pis'), inss:soma('inss'), icms:soma('icms'),
+                 ipi:soma('ipi'), iss:soma('iss'), total:soma('total') };
+    }
+
+    const receita = atividades.reduce((s,a) => s + a.receita, 0);
+    const isMatriz = cnpjEst === cnpj;
+
+    estabelecimentos.push({ cnpj: cnpjEst, municipio, sublimite, impedido, isMatriz, receita, atividades, totais });
+  }
+
+  // Se não encontrou nenhum estabelecimento (PDF sem seção 2.7 legível),
+  // monta um único bloco sintético com as atividades do texto completo
+  if (estabelecimentos.length === 0) {
+    const atvFrags = t.split('Valor do Débito por Tributo para a Atividade');
+    const atividades = [];
+    for (let ai = 1; ai < atvFrags.length; ai++) {
+      const corte = atvFrags[ai].search(/Totais do Estabelecimento/i);
+      const bloco = corte !== -1 ? atvFrags[ai].substring(0, corte) : atvFrags[ai];
+      if (!/Receita Bruta Informada/i.test(bloco)) continue;
+      const descM   = bloco.match(/\(R\$\):\s*(.+?)Receita Bruta Informada/);
+      const recM    = bloco.match(/Receita Bruta Informada:\s*R\$\s*([\d.]+,\d{2})/);
+      const trib    = parseTributos(bloco);
+      if (!trib) continue;
+      atividades.push({ desc: abreviarDesc(descM?.[1]?.trim()||''), descFull:'', receita: recM ? parseBR(recM[1]) : 0, ...trib });
+    }
+    const soma = k => atividades.reduce((s,a) => s + a[k], 0);
+    const totais = atividades.length > 0
+      ? { irpj:soma('irpj'), csll:soma('csll'), cofins:soma('cofins'), pis:soma('pis'),
+          inss:soma('inss'), icms:soma('icms'), ipi:soma('ipi'), iss:soma('iss'), total:soma('total') }
+      : parseTributos(t) || zeroTributos();
+    estabelecimentos.push({ cnpj, municipio: '', sublimite: 0, impedido: false, isMatriz: true,
+      receita: atividades.reduce((s,a) => s + a.receita, 0) || rpa, atividades, totais });
+  }
+
+  // Totais consolidados (soma dos totais de cada estabelecimento)
+  const soma = k => estabelecimentos.reduce((s,e) => s + e.totais[k], 0);
+  const totalGeral = { irpj:soma('irpj'), csll:soma('csll'), cofins:soma('cofins'),
+    pis:soma('pis'), inss:soma('inss'), icms:soma('icms'), ipi:soma('ipi'), iss:soma('iss'), total:soma('total') };
+
+  return { nome, cnpj, pa, numDecl, regime, transm, rpa, rbt12, rba, rbaa, estabelecimentos, ...totalGeral };
+}
+
+function abreviarDesc(s) {
+  // "retenc" não bate com "retenção" (ç ≠ c) — usamos "reten" como prefixo comum
+  if (/Revenda.*mercadoria/i.test(s))                    return 'Revenda de Mercadorias';
+  if (/Indústria/i.test(s))                              return 'Indústria';
+  if (/Anexo V/i.test(s))                                return 'Serviços (Anx. V)';
+  if (/sem reten|com ISS devido/i.test(s))               return 'Serviços s/ Retenção ISS';
+  if (/com reten|reten.*substitu/i.test(s))              return 'Serviços c/ Retenção ISS';
+  if (/Prestação.*Serviço/i.test(s))                     return 'Prestação de Serviços';
+  return s.substring(0, 48) + (s.length > 48 ? '…' : '');
+}
+
+// ── Anexo III ────────────────────────────────────────────────
+function calcAnexoIII(rbt12, rpa) {
+  const f = ANEXO_III.find(x => rbt12 >= x.min && rbt12 <= x.max);
+  if (!f) return null;
+  const aliqEfetiva = ((rbt12 * f.aliq) - f.ded) / rbt12;
+  const dasCalc     = rpa * aliqEfetiva;
+  return {
+    f, aliqEfetiva, dasCalc,
+    cpp:    dasCalc * f.cpp    / 100,
+    iss:    dasCalc * f.iss    / 100,
+    csll:   dasCalc * f.csll   / 100,
+    irpj:   dasCalc * f.irpj   / 100,
+    cofins: dasCalc * f.cofins / 100,
+    pis:    dasCalc * f.pis    / 100,
+  };
+}
+
+function renderAnexoIII(d) {
+  const seg  = segregarAnexos(d);
+  const rpa  = seg.rpaIII > 0 ? seg.rpaIII : (seg.nenhum ? d.rpa : 0);
+  const fmtBR = v => v.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  if (d.rbt12 > 0) document.getElementById('anxRbt12').value = fmtBR(d.rbt12);
+  if (rpa    > 0) document.getElementById('anxRpa').value    = fmtBR(rpa);
+  // Segregar por tipo de retenção ISS dentro das atividades Anexo III
+  const atvsIIISemRet = seg.atvsIII.filter(a => /s\/ Reten/i.test(a.desc));
+  const atvsIIIComRet = seg.atvsIII.filter(a => /c\/ Reten/i.test(a.desc));
+  const rpaSemRet = atvsIIISemRet.reduce((s,a) => s+a.receita, 0);
+  const rpaComRet = atvsIIIComRet.reduce((s,a) => s+a.receita, 0);
+  _renderAnexoIIICalc(d.rbt12 || 0, rpa, rpaSemRet, rpaComRet);
+  document.getElementById('secAnexoIII').style.display = '';
+}
+
+function recalcAnexoIII() {
+  _renderAnexoIIICalc(
+    parseBR(document.getElementById('anxRbt12').value),
+    parseBR(document.getElementById('anxRpa').value)
+  );
+}
+
+function _renderAnexoIIICalc(rbt12, rpa, rpaSemRet, rpaComRet) {
+  rpaSemRet = rpaSemRet || 0;
+  rpaComRet = rpaComRet || 0;
+  const temSegISS = rpaSemRet > 0 || rpaComRet > 0;
+  const calc = rbt12 > 0 ? calcAnexoIII(rbt12, rpa) : null;
+
+  // Tabela de faixas
+  const tbody = document.getElementById('anxFaixaTbody');
+  tbody.innerHTML = ANEXO_III.map(f => {
+    const active = calc && calc.f === f;
+    const issStr = f.iss === 0
+      ? '<span style="color:#4a5568">—</span>'
+      : pct2(f.iss) + (f.issNota ? ' ' + f.issNota : '');
+    return `<tr class="${active ? 'anx-active' : ''}">
+      <td>${f.f}${active ? ' ✓' : ''}</td>
+      <td>${f.lbl}</td>
+      <td>${pct2(f.aliq * 100)}</td>
+      <td>${f.ded > 0 ? brl(f.ded) : '—'}</td>
+      <td>${pct2(f.cpp)}</td>
+      <td>${issStr}</td>
+      <td>${pct2(f.csll)}</td>
+      <td>${pct2(f.irpj)}</td>
+      <td>${pct2(f.cofins)}</td>
+      <td>${pct2(f.pis)}</td>
+    </tr>`;
+  }).join('');
+
+  // Painel de resultado
+  const resEl = document.getElementById('anxResultado');
+  if (!calc) {
+    resEl.innerHTML = rbt12 === 0
+      ? `<p class="anx-note">Informe a RBT12 para calcular a alíquota efetiva do Anexo III.</p>`
+      : `<p class="anx-note">⚠️ RBT12 de ${brl(rbt12)} fora dos limites do Simples Nacional (máx. R$ 4.800.000,00).</p>`;
+    return;
+  }
+
+  const f   = calc.f;
+  const ae  = calc.aliqEfetiva;
+
+  /* Helper: gera HTML de sub-bloco (sem ou com retenção ISS) */
+  const buildSubBlocoHTML = (rpaB, comRet) => {
+    if (rpaB <= 0) return '';
+    const dasTotal  = rpaB * ae;
+    const issValor  = dasTotal * f.iss / 100;
+    const dasDAS    = comRet ? (dasTotal - issValor) : dasTotal;
+    const titulo    = comRet ? 'Serviços c/ Retenção ISS' : 'Serviços s/ Retenção ISS';
+    const corBorda  = comRet ? '#7c3aed' : '#3b82f6';
+    const corTitulo = comRet ? '#a78bfa' : '#60a5fa';
+    const cards = [
+      { k:'cpp',    n:'CPP',       v:dasTotal*f.cpp/100,    pct:f.cpp,    nota:'',        retido:false },
+      { k:'iss',    n:'ISS',       v:issValor,              pct:f.iss,    nota:f.issNota, retido:comRet },
+      { k:'csll',   n:'CSLL',      v:dasTotal*f.csll/100,   pct:f.csll,   nota:'',        retido:false },
+      { k:'irpj',   n:'IRPJ',      v:dasTotal*f.irpj/100,   pct:f.irpj,   nota:'',        retido:false },
+      { k:'cofins', n:'Cofins',    v:dasTotal*f.cofins/100,  pct:f.cofins, nota:'',        retido:false },
+      { k:'pis',    n:'PIS/Pasep', v:dasTotal*f.pis/100,    pct:f.pis,    nota:'',        retido:false },
+    ];
+    const cardsHtml = cards.map(c => {
+      if (c.retido) {
+        return `<div class="anx-rep-card" style="border-top-color:#6b7280;opacity:0.75">
+          <div class="arc-name">${c.n}</div>
+          <div class="arc-pct" style="color:#a78bfa">${c.pct > 0 ? pct2(c.pct) : '—'}</div>
+          <div class="arc-sub">% do DAS</div>
+          <div class="arc-efetivo" style="color:#a78bfa;font-size:9px;font-style:italic">Retido</div>
+          <div class="arc-efsub">pelo Tomador</div>
+          <div class="arc-val" style="color:#a78bfa;font-style:italic">${issValor > 0 ? brl(issValor) : '—'}</div>
+        </div>`;
+      }
+      return `<div class="anx-rep-card" style="border-top-color:${ANX_REP_COLORS[c.k]||'#64748b'}">
+        <div class="arc-name">${c.n}</div>
+        <div class="arc-pct" style="color:${ANX_REP_COLORS[c.k]||'#e2e8f0'}">${c.pct > 0 ? pct2(c.pct) : '—'}${c.nota ? ' ' + c.nota : ''}</div>
+        <div class="arc-sub">% do DAS</div>
+        <div class="arc-efetivo" style="color:${ANX_REP_COLORS[c.k]||'#e2e8f0'}">${c.pct > 0 ? pct4(c.pct * ae) : '—'}</div>
+        <div class="arc-efsub">% efetivo s/ RPA</div>
+        <div class="arc-val">${c.v > 0 ? brl(c.v) : '—'}</div>
+      </div>`;
+    }).join('');
+    return `
+      <div style="margin-top:14px;border-left:3px solid ${corBorda};padding-left:12px">
+        <div style="font-size:12px;font-weight:700;color:${corTitulo};margin-bottom:6px;display:flex;align-items:center;flex-wrap:wrap;gap:6px">
+          ${titulo}
+          <span style="font-weight:400;color:#94a3b8;font-size:11px">Receita: ${brl(rpaB)}</span>
+          <span style="font-weight:700;color:#74c69d;font-size:12px">→ DAS: ${brl(dasDAS)}</span>
+          ${comRet && issValor > 0 ? `<span style="font-weight:400;color:#a78bfa;font-size:11px">· ISS Retido: ${brl(issValor)}</span>` : ''}
+        </div>
+        <div class="anx-rep-grid">${cardsHtml}</div>
+      </div>`;
+  };
+
+  /* Total DAS descontando ISS retido */
+  const totalDAS = temSegISS
+    ? (rpaSemRet * ae) + (rpaComRet * ae * (100 - f.iss) / 100)
+    : calc.dasCalc;
+  const dasLabel = temSegISS && rpaComRet > 0
+    ? 'Total DAS Serviços (s/ ISS Retido)'
+    : `DAS calculado sobre RPA (${brl(rpa)})`;
+
+  /* Bloco único (sem segregação sem/com retenção) */
+  const singleBlockHTML = (() => {
+    const cards = [
+      { k:'cpp',    n:'CPP',       v:calc.cpp,    pct:f.cpp,    nota:'' },
+      { k:'iss',    n:'ISS',       v:calc.iss,    pct:f.iss,    nota:f.issNota },
+      { k:'csll',   n:'CSLL',      v:calc.csll,   pct:f.csll,   nota:'' },
+      { k:'irpj',   n:'IRPJ',      v:calc.irpj,   pct:f.irpj,   nota:'' },
+      { k:'cofins', n:'Cofins',    v:calc.cofins, pct:f.cofins, nota:'' },
+      { k:'pis',    n:'PIS/Pasep', v:calc.pis,    pct:f.pis,    nota:'' },
+    ];
+    return `<div class="anx-rep-grid">
+      ${cards.map(c => `
+        <div class="anx-rep-card" style="border-top-color:${ANX_REP_COLORS[c.k]||'#64748b'}">
+          <div class="arc-name">${c.n}</div>
+          <div class="arc-pct" style="color:${ANX_REP_COLORS[c.k]||'#e2e8f0'}">${c.pct > 0 ? pct2(c.pct) : '—'}${c.nota ? ' ' + c.nota : ''}</div>
+          <div class="arc-sub">% do DAS</div>
+          <div class="arc-efetivo" style="color:${ANX_REP_COLORS[c.k]||'#e2e8f0'}">${c.pct > 0 ? pct4(c.pct * ae) : '—'}</div>
+          <div class="arc-efsub">% efetivo s/ RPA</div>
+          <div class="arc-val">${c.v > 0 ? brl(c.v) : '—'}</div>
+        </div>`).join('')}
+    </div>`;
+  })();
+
+  resEl.innerHTML = `
+    <div class="anx-result-header">
+      <div class="anx-faixa-label">Enquadramento Anexo III 2026</div>
+      <div class="anx-faixa-value">${f.f} Faixa — Alíquota Efetiva: ${pct4(ae * 100)}</div>
+      <div class="anx-formula">
+        Fórmula: (${brl(rbt12)} × ${pct2(f.aliq * 100)} − ${f.ded > 0 ? brl(f.ded) : 'R$ 0,00'}) ÷ ${brl(rbt12)}
+        &nbsp;=&nbsp;<strong>${pct4(ae * 100)}</strong>
+      </div>
+      <div class="anx-formula" style="margin-top:7px">
+        ${dasLabel}:
+        <strong style="color:#74c69d;font-size:16px;margin-left:6px">${brl(totalDAS)}</strong>
+      </div>
+    </div>
+    ${temSegISS
+      ? buildSubBlocoHTML(rpaSemRet, false) + buildSubBlocoHTML(rpaComRet, true)
+      : singleBlockHTML
+    }
+    <p class="anx-note">
+      (*) Na 5ª faixa o ISS poderá ser recolhido diretamente ao Município quando assim determinado em lei municipal.
+      (—) Na 6ª faixa o ISS não compõe o DAS — deve ser recolhido separadamente.
+    </p>`;
+}
+
+// ── Segregação de receita por Anexo ──────────────────────────
+// Classifica cada atividade pelo Anexo correto com base na descrição
+// e soma as receitas. Fallback para rpa total quando nenhuma atividade
+// for classificada (PDF com atividade única não identificada).
+function segregarAnexos(d) {
+  const atv = d.estabelecimentos.flatMap(e => e.atividades);
+  const isI   = a => /Revenda de Mercadoria/i.test(a.desc)   || /Revenda.*mercadoria/i.test(a.descFull||'');
+  const isIII = a => /Serviço|Prestaç/i.test(a.desc)         || /Serviç|Prestaç|Locaç/i.test(a.descFull||'');
+  const atvsI   = atv.filter(isI);
+  const atvsIII = atv.filter(isIII);
+  const rpaI    = atvsI.reduce((s,a)   => s + a.receita, 0);
+  const rpaIII  = atvsIII.reduce((s,a) => s + a.receita, 0);
+  const nenhum  = atvsI.length === 0 && atvsIII.length === 0;
+  return { atvsI, atvsIII, rpaI, rpaIII, nenhum };
+}
+
+// ── Anexo I ──────────────────────────────────────────────────
+function calcAnexoI(rbt12, rpa) {
+  const f = ANEXO_I.find(x => rbt12 >= x.min && rbt12 <= x.max);
+  if (!f) return null;
+  const aliqEfetiva = ((rbt12 * f.aliq) - f.ded) / rbt12;
+  const dasCalc     = rpa * aliqEfetiva;
+  return {
+    f, aliqEfetiva, dasCalc,
+    cpp:    dasCalc * f.cpp    / 100,
+    csll:   dasCalc * f.csll   / 100,
+    icms:   dasCalc * f.icms   / 100,
+    irpj:   dasCalc * f.irpj   / 100,
+    cofins: dasCalc * f.cofins / 100,
+    pis:    dasCalc * f.pis    / 100,
+  };
+}
+
+function renderAnexoI(d) {
+  const seg  = segregarAnexos(d);
+  const rpa  = seg.rpaI > 0 ? seg.rpaI : (seg.nenhum ? d.rpa : 0);
+  const fmtBR = v => v.toLocaleString('pt-BR', { minimumFractionDigits:2, maximumFractionDigits:2 });
+  if (d.rbt12 > 0) document.getElementById('anx1Rbt12').value = fmtBR(d.rbt12);
+  if (rpa    > 0) document.getElementById('anx1Rpa').value    = fmtBR(rpa);
+  _renderAnexoICalc(d.rbt12 || 0, rpa);
+  document.getElementById('secAnexoI').style.display = '';
+}
+
+function recalcAnexoI() {
+  _renderAnexoICalc(
+    parseBR(document.getElementById('anx1Rbt12').value),
+    parseBR(document.getElementById('anx1Rpa').value)
+  );
+}
+
+function _renderAnexoICalc(rbt12, rpa) {
+  const calc = rbt12 > 0 ? calcAnexoI(rbt12, rpa) : null;
+
+  // Tabela de faixas
+  const tbody = document.getElementById('anx1FaixaTbody');
+  tbody.innerHTML = ANEXO_I.map(f => {
+    const active  = calc && calc.f === f;
+    const icmsStr = f.icms === 0
+      ? '<span style="color:#4a5568">—</span>'
+      : pct2(f.icms);
+    return `<tr class="${active ? 'anx1-active' : ''}">
+      <td>${f.f}${active ? ' ✓' : ''}</td>
+      <td>${f.lbl}</td>
+      <td>${pct2(f.aliq * 100)}</td>
+      <td>${f.ded > 0 ? brl(f.ded) : '—'}</td>
+      <td>${pct2(f.cpp)}</td>
+      <td>${pct2(f.csll)}</td>
+      <td>${icmsStr}</td>
+      <td>${pct2(f.irpj)}</td>
+      <td>${pct2(f.cofins)}</td>
+      <td>${pct2(f.pis)}</td>
+    </tr>`;
+  }).join('');
+
+  // Painel de resultado
+  const resEl = document.getElementById('anx1Resultado');
+  if (!calc) {
+    resEl.innerHTML = rbt12 === 0
+      ? `<p class="anx-note">Informe a RBT12 para calcular a alíquota efetiva do Anexo I.</p>`
+      : `<p class="anx-note">⚠️ RBT12 de ${brl(rbt12)} fora dos limites do Simples Nacional (máx. R$ 4.800.000,00).</p>`;
+    return;
+  }
+
+  const f = calc.f;
+  const cards = [
+    { k:'cpp',   n:'CPP',       v:calc.cpp,    pct:f.cpp    },
+    { k:'csll',  n:'CSLL',      v:calc.csll,   pct:f.csll   },
+    { k:'icms',  n:'ICMS',      v:calc.icms,   pct:f.icms,  nota:f.icmsNota },
+    { k:'irpj',  n:'IRPJ',      v:calc.irpj,   pct:f.irpj   },
+    { k:'cofins',n:'Cofins',    v:calc.cofins, pct:f.cofins },
+    { k:'pis',   n:'PIS/Pasep', v:calc.pis,    pct:f.pis    },
+  ];
+
+  resEl.innerHTML = `
+    <div class="anx1-result-header">
+      <div class="anx-faixa-label">Enquadramento Anexo I — Comércio 2026</div>
+      <div class="anx-faixa-value">${f.f} Faixa — Alíquota Efetiva: ${pct4(calc.aliqEfetiva * 100)}</div>
+      <div class="anx-formula">
+        Fórmula: (${brl(rbt12)} × ${pct2(f.aliq * 100)} − ${f.ded > 0 ? brl(f.ded) : 'R$ 0,00'}) ÷ ${brl(rbt12)}
+        &nbsp;=&nbsp;<strong>${pct4(calc.aliqEfetiva * 100)}</strong>
+      </div>
+      <div class="anx-formula" style="margin-top:7px">
+        DAS calculado sobre RPA (${brl(rpa)}):
+        <strong style="color:#fbbf24;font-size:16px;margin-left:6px">${brl(calc.dasCalc)}</strong>
+      </div>
+    </div>
+
+    <div class="anx-rep-grid">
+      ${cards.map(c => `
+        <div class="anx-rep-card" style="border-top-color:${ANX1_REP_COLORS[c.k]||'#64748b'}">
+          <div class="arc-name">${c.n}</div>
+          <div class="arc-pct" style="color:${ANX1_REP_COLORS[c.k]||'#e2e8f0'}">${c.pct > 0 ? pct2(c.pct) : '—'}${c.nota ? ' ' + c.nota : ''}</div>
+          <div class="arc-sub">% do DAS</div>
+          <div class="arc-efetivo" style="color:${ANX1_REP_COLORS[c.k]||'#e2e8f0'}">${c.pct > 0 ? pct4(c.pct * calc.aliqEfetiva) : '—'}</div>
+          <div class="arc-efsub">% efetivo s/ RPA</div>
+          <div class="arc-val">${c.v > 0 ? brl(c.v) : '—'}</div>
+        </div>`).join('')}
+    </div>
+    <p class="anx-note">
+      (—) Na 6ª faixa o ICMS não compõe o DAS — deve ser recolhido diretamente ao Estado.
+    </p>`;
+}
+
+// ── Render ───────────────────────────────────────────────────
+const TRIB_KEYS = [
+  {k:'irpj',n:'IRPJ'},{k:'csll',n:'CSLL'},{k:'cofins',n:'COFINS'},
+  {k:'pis',n:'PIS/Pasep'},{k:'inss',n:'INSS/CPP'},{k:'icms',n:'ICMS'},
+  {k:'ipi',n:'IPI'},{k:'iss',n:'ISS'},
+];
+
+function renderDashboard(d) {
+  // Empresa
+  document.getElementById('nomeEmpresa').textContent = d.nome    || '—';
+  document.getElementById('cnpj').textContent        = d.cnpj    || '—';
+  document.getElementById('pa').textContent          = d.pa      || '—';
+  document.getElementById('numDecl').textContent     = d.numDecl || '—';
+  document.getElementById('regime').textContent      = d.regime  || '—';
+  document.getElementById('transmissao').textContent = d.transm  || '—';
+
+  const cargaPct = d.rpa > 0 ? (d.total / d.rpa) * 100 : 0;
+  const totalAtv = d.estabelecimentos.reduce((s,e) => s + e.atividades.length, 0);
+
+  // KPIs
+  document.getElementById('kpiRPA').textContent   = brl(d.rpa);
+  document.getElementById('kpiTotal').textContent = brl(d.total);
+  document.getElementById('kpiCarga').textContent = pct2(cargaPct);
+  document.getElementById('kpiEst').textContent   = d.estabelecimentos.length;
+  document.getElementById('kpiAtv').textContent   = totalAtv;
+
+  // Carga destaque
+  document.getElementById('ctValue').textContent = pct2(cargaPct);
+  document.getElementById('ctDesc').textContent  = `${brl(d.total)} de tributos sobre ${brl(d.rpa)} de faturamento`;
+  setTimeout(() => {
+    document.getElementById('ctBar').style.width = Math.min((cargaPct / 15) * 100, 100) + '%';
+  }, 100);
+
+  // ── Seção de estabelecimentos ─────────────────────────────
+  const estWrap = document.getElementById('estWrap');
+  estWrap.innerHTML = '';
+
+  // Índice de cor global de atividade (contínuo entre estabelecimentos)
+  let atvColorIdx = 0;
+
+  d.estabelecimentos.forEach((est, ei) => {
+    const estCor   = EST_COLORS[ei % EST_COLORS.length];
+    const pctEst   = d.rpa > 0 ? (est.receita / d.rpa) * 100 : 0;
+    const cargaEst = est.receita > 0 ? (est.totais.total / est.receita) * 100 : 0;
+
+    const container = document.createElement('div');
+    container.className = 'est-container';
+    container.style.borderTop = `3px solid ${estCor}`;
+
+    // Header do estabelecimento
+    const tipoLabel = est.isMatriz ? 'Matriz' : `Filial ${ei}`;
+    const hdr = document.createElement('div');
+    hdr.className = 'est-header';
+    hdr.innerHTML = `
+      <div class="est-badge ${est.isMatriz ? '' : 'filial'}">🏢 ${tipoLabel}</div>
+      <div class="est-info">
+        <div class="est-nome-cnpj" style="color:${estCor}">${est.cnpj}</div>
+        <div class="est-detalhes">${est.municipio || '—'}
+          ${est.sublimite ? ' · Sublimite: ' + brl(est.sublimite) : ''}
+          ${est.impedido  ? ' · <span style="color:#f87171">Impedido ICMS/ISS</span>' : ''}
+        </div>
+      </div>
+      <div class="est-receita-wrap">
+        <div class="est-receita-val">${brl(est.receita)}</div>
+        <div class="est-receita-pct">${pct2(pctEst)} do RPA · Carga: ${pct2(cargaEst)}</div>
+      </div>`;
+    container.appendChild(hdr);
+
+    // Corpo: rateio de atividades + cards
+    const body = document.createElement('div');
+    body.className = 'est-body';
+
+    // Barra de rateio de atividades
+    if (est.atividades.length > 1) {
+      const barEl  = document.createElement('div');
+      barEl.className = 'rateio-bar-wrap';
+      const barInner = document.createElement('div');
+      barInner.className = 'rateio-bar';
+
+      const legEl = document.createElement('div');
+      legEl.className = 'rateio-legend';
+
+      est.atividades.forEach((atv, ai) => {
+        const cor  = ATV_COLORS[(atvColorIdx + ai) % ATV_COLORS.length];
+        const pctW = est.receita > 0 ? (atv.receita / est.receita) * 100 : 0;
+        const seg  = document.createElement('div');
+        seg.className = 'rateio-seg';
+        seg.style.cssText = `width:${pctW}%;background:${cor}`;
+        seg.title = `${atv.desc}: ${brl(atv.receita)} (${pct2(pctW)})`;
+        if (pctW > 9) seg.textContent = pct2(pctW);
+        barInner.appendChild(seg);
+
+        const leg = document.createElement('div');
+        leg.className = 'rateio-leg-item';
+        leg.innerHTML = `<div class="rateio-leg-dot" style="background:${cor}"></div>
+          <span><strong style="color:#e2e8f0">${atv.desc}</strong> — ${brl(atv.receita)} (${pct2(pctW)})</span>`;
+        legEl.appendChild(leg);
+      });
+
+      barEl.appendChild(barInner);
+      body.appendChild(barEl);
+      body.appendChild(legEl);
+    }
+
+    container.appendChild(body);
+
+    // Grid de cards de atividade
+    const grid = document.createElement('div');
+    grid.className = 'atividades-grid';
+    grid.style.background = '#131720';
+
+    est.atividades.forEach((atv, ai) => {
+      const cor      = ATV_COLORS[(atvColorIdx + ai) % ATV_COLORS.length];
+      const pctRPA   = d.rpa > 0 ? (atv.receita / d.rpa) * 100 : 0;
+      const pctEst_  = est.receita > 0 ? (atv.receita / est.receita) * 100 : 0;
+      const cargaAtv = atv.receita > 0 ? (atv.total / atv.receita) * 100 : 0;
+      const maxTrib  = Math.max(...TRIB_KEYS.map(t => atv[t.k]));
+
+      const card = document.createElement('div');
+      card.className = 'atv-card';
+      card.style.borderTop = `3px solid ${cor}`;
+
+      const tribRows = TRIB_KEYS.map(t => {
+        const val  = atv[t.k];
+        const aliq = atv.receita > 0 ? (val / atv.receita) * 100 : 0;
+        const barW = maxTrib > 0 ? (val / maxTrib) * 100 : 0;
+        return `<div class="atv-trib-row">
+          <span class="atv-trib-name">${t.n}</span>
+          <div class="atv-trib-bar-bg"><div class="atv-trib-bar-fill" style="width:${barW}%;background:${TRIB_COLORS[t.n]||cor}"></div></div>
+          <span class="atv-trib-val" style="color:${val>0?TRIB_COLORS[t.n]||cor:'#4a5568'}">${brl(val)}</span>
+          <span class="atv-trib-pct">${pct4(aliq)}</span>
+        </div>`;
+      }).join('');
+
+      card.innerHTML = `
+        <div class="atv-card-header">
+          <div class="atv-tipo" style="color:${cor}">Atividade ${ai+1}</div>
+          <div class="atv-desc">${atv.desc}</div>
+          <div class="atv-receita" style="color:${cor}">${brl(atv.receita)}</div>
+          <div class="atv-pct-rpa">${pct2(pctEst_)} do estab. · ${pct2(pctRPA)} do PA total</div>
+        </div>
+        <div class="atv-tributos">${tribRows}</div>
+        <div class="atv-total-row">
+          <span class="atv-total-label">TOTAL TRIBUTOS</span>
+          <span class="atv-total-val" style="color:${cor}">${brl(atv.total)}</span>
+          <span class="atv-total-aliq">Carga: ${pct2(cargaAtv)}</span>
+        </div>`;
+      grid.appendChild(card);
+    });
+
+    container.appendChild(grid);
+
+    // Totais do estabelecimento
+    const totDiv = document.createElement('div');
+    totDiv.className = 'est-totais';
+    totDiv.innerHTML = `<div class="est-totais-title">Totais do Estabelecimento</div><div class="est-totais-row" id="estTotRow-${ei}"></div>`;
+    container.appendChild(totDiv);
+    estWrap.appendChild(container);
+
+    // Preencher chips de totais
+    const row = document.getElementById(`estTotRow-${ei}`);
+    TRIB_KEYS.forEach(t => {
+      const val  = est.totais[t.k];
+      const aliq = est.receita > 0 ? (val / est.receita) * 100 : 0;
+      const chip = document.createElement('div');
+      chip.className = 'est-trib-chip';
+      chip.innerHTML = `<div class="chip-name">${t.n}</div>
+        <div class="chip-val" style="color:${val>0?TRIB_COLORS[t.n]:'#4a5568'}">${brl(val)}</div>
+        <div class="chip-pct">${pct4(aliq)}</div>`;
+      row.appendChild(chip);
+    });
+    // Chip total
+    const chipTotal = document.createElement('div');
+    chipTotal.className = 'est-trib-chip total-chip';
+    chipTotal.innerHTML = `<div class="chip-name">TOTAL DAS</div>
+      <div class="chip-val">${brl(est.totais.total)}</div>
+      <div class="chip-pct">Carga: ${pct2(cargaEst)}</div>`;
+    row.appendChild(chipTotal);
+
+    atvColorIdx += est.atividades.length;
+  });
+
+  // ── Tabela consolidada ────────────────────────────────────
+  const tributos = TRIB_KEYS.map(t => ({ n: t.n, v: d[t.k] }));
+  const tbody = document.getElementById('tabelaTributos');
+  tbody.innerHTML = '';
+  tributos.forEach(tr => {
+    const aliq = d.rpa > 0 ? (tr.v / d.rpa) * 100 : 0;
+    const part = d.total > 0 ? (tr.v / d.total) * 100 : 0;
+    const cor  = TRIB_COLORS[tr.n] || '#64748b';
+    const tagCls = tr.v===0?'tag-gray':aliq<0.5?'tag-blue':aliq<2?'tag-green':aliq<3?'tag-yellow':'tag-red';
+    const row = document.createElement('tr');
+    row.innerHTML = `
+      <td><span class="trib-name">${tr.n}</span></td>
+      <td class="valor">${brl(tr.v)}</td>
+      <td><span class="tag ${tagCls}">${pct4(aliq)}</span></td>
+      <td><div class="pct-bar-wrap">
+        <div class="pct-bar-bg"><div class="pct-bar-fill" style="width:${part}%;background:${cor}"></div></div>
+        <span class="pct-text" style="color:${cor}">${pct2(part)}</span>
+      </div></td>`;
+    tbody.appendChild(row);
+  });
+  const rowTotal = document.createElement('tr');
+  rowTotal.className = 'total-row';
+  rowTotal.innerHTML = `<td>TOTAL</td><td>${brl(d.total)}</td><td><span class="tag tag-red">${pct4(cargaPct)}</span></td><td><span style="color:#f87171">100,00%</span></td>`;
+  tbody.appendChild(rowTotal);
+
+  // ── Gráficos ──────────────────────────────────────────────
+  const mkChart = (id, labels, data, colors, rpaRef) => {
+    if (charts[id]) { charts[id].destroy(); delete charts[id]; }
+    charts[id] = new Chart(document.getElementById(id), {
+      type: 'doughnut',
+      data: { labels, datasets: [{ data, backgroundColor: colors, borderColor: '#0f1117', borderWidth: 3, hoverOffset: 8 }] },
+      options: {
+        responsive: true, maintainAspectRatio: true,
+        plugins: {
+          legend: { position: 'bottom', labels: { color:'#94a3b8', font:{size:10}, padding:10, boxWidth:10 } },
+          tooltip: { callbacks: { label: ctx => ` ${brl(ctx.parsed)} (${pct2(rpaRef>0?ctx.parsed/rpaRef*100:0)} do PA)` } }
+        },
+        cutout: '58%',
+      }
+    });
+  };
+
+  // Gráfico: Tributos (sempre visível)
+  const ativos = tributos.filter(t => t.v > 0);
+  mkChart('chartPizza', ativos.map(t=>t.n), ativos.map(t=>t.v), ativos.map(t=>TRIB_COLORS[t.n]||'#64748b'), d.rpa);
+
+  // Gráfico: Estabelecimentos (só se > 1)
+  const cardEst = document.getElementById('cardChartEst');
+  if (d.estabelecimentos.length > 1) {
+    cardEst.style.display = '';
+    mkChart('chartEst',
+      d.estabelecimentos.map((e,i) => (e.isMatriz?'Matriz':('Filial '+i))+': '+e.cnpj),
+      d.estabelecimentos.map(e => e.receita),
+      d.estabelecimentos.map((_,i) => EST_COLORS[i%EST_COLORS.length]),
+      d.rpa);
+  } else {
+    cardEst.style.display = 'none';
+  }
+
+  // Gráfico: Atividades (só se total > 1 atividade somando todos os estabelecimentos)
+  const cardAtv = document.getElementById('cardChartAtv');
+  const todasAtv = d.estabelecimentos.flatMap((e,ei) =>
+    e.atividades.map((a,ai) => ({ label: `${a.desc}`, receita: a.receita, cor: ATV_COLORS[(ei*10+ai)%ATV_COLORS.length] }))
+  );
+  if (todasAtv.length > 1) {
+    cardAtv.style.display = '';
+    mkChart('chartAtv', todasAtv.map(a=>a.label), todasAtv.map(a=>a.receita), todasAtv.map(a=>a.cor), d.rpa);
+  } else {
+    cardAtv.style.display = 'none';
+  }
+
+  // ── Receitas adicionais ───────────────────────────────────
+  const rg = document.getElementById('receitasGrid');
+  const infos = [
+    { l:'Receita Bruta do PA (RPA)',   v: brl(d.rpa) },
+    { l:'RBT12 (12 meses anteriores)', v: d.rbt12 ? brl(d.rbt12) : '—' },
+    { l:'RBA (ano corrente)',           v: d.rba   ? brl(d.rba)   : '—' },
+    { l:'RBAA (ano anterior)',          v: d.rbaa  ? brl(d.rbaa)  : '—' },
+    { l:'Total Débito Declarado',       v: brl(d.total) },
+    { l:'Carga Efetiva s/ Faturamento', v: pct2(cargaPct) },
+  ];
+  rg.innerHTML = infos.map(i=>`<div class="rec-item"><div class="rec-label">${i.l}</div><div class="rec-value">${i.v}</div></div>`).join('');
+
+  document.getElementById('dashboard').className = 'show';
+
+  renderAnexoI(d);    // Anexo I — Comércio (primeiro)
+  renderAnexoIII(d);  // Anexo III — Serviços (segundo)
+  renderPrintArea(d);
+}
+
+// ── Área de impressão no estilo PGDAS-D ──────────────────────
+function renderPrintArea(d) {
+  const cargaPct = d.rpa > 0 ? (d.total / d.rpa) * 100 : 0;
+
+  // Linha de cabeçalho da tabela de tributos
+  const thCols = `<th class="p-label-col"></th>
+    <th>IRPJ</th><th>CSLL</th><th>COFINS</th><th>PIS/Pasep</th>
+    <th>INSS/CPP</th><th>ICMS</th><th>IPI</th><th>ISS</th><th>Total</th>`;
+
+  // Monta linhas valor + alíquota para um objeto { irpj, csll, ... , total } e uma receita base
+  function linhasTrib(obj, base, labelVal, labelPct) {
+    const v = k => (obj[k]||0);
+    const aliq = k => base > 0 ? v(k) / base * 100 : 0;
+    return `
+      <tr class="p-val-row">
+        <td class="p-label-col">${labelVal}</td>
+        <td>${brl(v('irpj'))}</td><td>${brl(v('csll'))}</td><td>${brl(v('cofins'))}</td>
+        <td>${brl(v('pis'))}</td><td>${brl(v('inss'))}</td><td>${brl(v('icms'))}</td>
+        <td>${brl(v('ipi'))}</td><td>${brl(v('iss'))}</td>
+        <td>${brl(v('total'))}</td>
+      </tr>
+      <tr class="p-pct-row">
+        <td class="p-label-col">${labelPct}</td>
+        <td>${pct4(aliq('irpj'))}</td><td>${pct4(aliq('csll'))}</td><td>${pct4(aliq('cofins'))}</td>
+        <td>${pct4(aliq('pis'))}</td><td>${pct4(aliq('inss'))}</td><td>${pct4(aliq('icms'))}</td>
+        <td>${pct4(aliq('ipi'))}</td><td>${pct4(aliq('iss'))}</td>
+        <td>${pct2(base>0?v('total')/base*100:0)}</td>
+      </tr>`;
+  }
+
+  let html = `
+    <!-- Cabeçalho -->
+    <div class="p-title-box">
+      <strong>Programa Gerador do Documento de Arrecadação do Simples Nacional — Declaratório</strong>
+      <span>Análise Tributária com Alíquotas Efetivas · Período de Apuração: <strong>${d.pa}</strong></span>
+    </div>
+
+    <!-- Identificação -->
+    <table class="p-info-table">
+      <tr><td>CNPJ Matriz:</td><td><strong>${d.cnpj}</strong></td><td>Nome Empresarial:</td><td><strong>${d.nome}</strong></td></tr>
+      <tr><td>Nº da Declaração:</td><td>${d.numDecl}</td><td>Regime de Apuração:</td><td>${d.regime}</td></tr>
+      <tr><td>Transmissão:</td><td>${d.transm||'—'}</td><td>Estabelecimentos:</td><td>${d.estabelecimentos.length} CNPJ(s)</td></tr>
+    </table>
+
+    <!-- Resumo RPA / Total / Carga -->
+    <div class="p-resumo-box">
+      <div class="p-resumo-item">
+        <div class="ri-label">Receita Bruta do PA (RPA)</div>
+        <div class="ri-value">${brl(d.rpa)}</div>
+      </div>
+      <div class="p-resumo-item">
+        <div class="ri-label">Valor Total do Débito Declarado (R$)</div>
+        <div class="ri-value">${brl(d.total)}</div>
+      </div>
+      <div class="p-resumo-item destaque">
+        <div class="ri-label">⚡ Carga Tributária Efetiva s/ Faturamento</div>
+        <div class="ri-value">${pct2(cargaPct)}</div>
+      </div>
+    </div>`;
+
+  // ── Por estabelecimento ──────────────────────────────────────
+  d.estabelecimentos.forEach((est, ei) => {
+    const cargaEst = est.receita > 0 ? est.totais.total / est.receita * 100 : 0;
+    const tipoEst  = est.isMatriz ? 'Matriz' : `Filial ${ei}`;
+
+    html += `
+      <div class="p-est-title">
+        Estabelecimento ${tipoEst} — CNPJ: ${est.cnpj}
+        ${est.municipio ? '· ' + est.municipio : ''}
+        ${est.sublimite ? '· Sublimite: ' + brl(est.sublimite) : ''}
+      </div>`;
+
+    // Atividades
+    est.atividades.forEach((atv, ai) => {
+      html += `
+        <div class="p-atv-box">
+          <div class="p-atv-head">
+            <strong>Atividade ${ai+1}: ${atv.desc}</strong>
+            &nbsp;|&nbsp; Receita Bruta Informada: <strong>${brl(atv.receita)}</strong>
+            &nbsp;|&nbsp; Carga da Atividade: <strong>${pct2(atv.receita>0?atv.total/atv.receita*100:0)}</strong>
+          </div>
+          <table class="p-trib-table">
+            <thead><tr>${thCols}</tr></thead>
+            <tbody>
+              ${linhasTrib(atv, atv.receita, 'Valor (R$)', 'Alíquota s/ Receita')}
+            </tbody>
+          </table>
+          <div class="p-legend">Alíquota = Valor do tributo ÷ Receita Bruta Informada da atividade</div>
+        </div>`;
+    });
+
+    // Totais do estabelecimento
+    html += `
+      <div class="p-totais-box">
+        <div class="p-totais-head">
+          Totais do Estabelecimento — Valor Informado: ${brl(est.receita)}
+          &nbsp;·&nbsp; Carga: ${pct2(cargaEst)}
+        </div>
+        <table class="p-trib-table">
+          <thead><tr>${thCols}</tr></thead>
+          <tbody>
+            ${linhasTrib(est.totais, est.receita, 'Total Débito (R$)', 'Alíquota s/ Receita')}
+          </tbody>
+        </table>
+      </div>`;
+  });
+
+  // ── Total Geral da Empresa ───────────────────────────────────
+  html += `
+    <div class="p-geral-box">
+      <div class="p-geral-head">
+        Total Geral da Empresa — Receita Bruta do PA: ${brl(d.rpa)}
+        &nbsp;·&nbsp; Carga Tributária Total: ${pct2(cargaPct)}
+      </div>
+      <table class="p-trib-table">
+        <thead><tr>${thCols}</tr></thead>
+        <tbody>
+          ${linhasTrib(d, d.rpa, 'Débito Exigível (R$)', 'Alíquota Efetiva s/ PA')}
+        </tbody>
+      </table>
+      <div class="p-legend">Alíquota Efetiva = Valor do tributo ÷ Receita Bruta do PA (RPA)</div>
+    </div>
+
+    ${(() => {
+      /* ── Anexo I (Comércio) — PRIMEIRO ── */
+      const seg  = segregarAnexos(d);
+      const rpa  = seg.rpaI > 0 ? seg.rpaI : (seg.nenhum ? d.rpa : 0);
+      if (!d.rbt12 || !rpa) return '';
+      const a1 = calcAnexoI(d.rbt12, rpa);
+      if (!a1) return '';
+      const f = a1.f;
+      const atvLabel = seg.atvsI.length > 0
+        ? seg.atvsI.map(a => `${a.desc}: ${brl(a.receita)}`).join(' · ')
+        : 'Receita total (sem segregação identificada)';
+      const td = (v) => `<td style="border:1px solid #ccc;padding:3px 5px;text-align:center">${v}</td>`;
+      return `
+    <div style="margin-top:12px;page-break-inside:avoid">
+      <div style="font-size:10pt;font-weight:bold;border-left:4px solid #000;padding:4px 8px;background:#f5f5f5;margin-bottom:5px">
+        Cálculo pelo Anexo I — Comércio (Simples Nacional 2026)
+      </div>
+      <div style="font-size:7.5pt;color:#555;padding:2px 4px;margin-bottom:4px;background:#fffdf5;border-left:3px solid #d97706">
+        Atividades Comércio: ${atvLabel}
+      </div>
+      <table style="width:100%;border-collapse:collapse;font-size:8pt;margin-bottom:5px">
+        <tr>
+          <td style="border:1px solid #999;padding:3px 6px;color:#444;white-space:nowrap">RBT12 (12 meses)</td>
+          <td style="border:1px solid #999;padding:3px 6px;font-weight:bold">${brl(d.rbt12)}</td>
+          <td style="border:1px solid #999;padding:3px 6px;color:#444;white-space:nowrap">Faixa enquadrada</td>
+          <td style="border:1px solid #999;padding:3px 6px;font-weight:bold">${f.f} — ${f.lbl}</td>
+        </tr>
+        <tr>
+          <td style="border:1px solid #999;padding:3px 6px;color:#444;white-space:nowrap">Alíquota Nominal</td>
+          <td style="border:1px solid #999;padding:3px 6px;font-weight:bold">${pct2(f.aliq*100)}</td>
+          <td style="border:1px solid #999;padding:3px 6px;color:#444;white-space:nowrap">Parcela a Deduzir</td>
+          <td style="border:1px solid #999;padding:3px 6px;font-weight:bold">${f.ded > 0 ? brl(f.ded) : '—'}</td>
+        </tr>
+        <tr style="background:#fff8e8">
+          <td style="border:1px solid #999;padding:3px 6px;color:#444;white-space:nowrap">Alíquota Efetiva</td>
+          <td style="border:1px solid #999;padding:3px 6px;font-weight:bold;color:#92400e">${pct4(a1.aliqEfetiva*100)}</td>
+          <td style="border:1px solid #999;padding:3px 6px;color:#444;white-space:nowrap">DAS Calculado s/ Receita Comércio (${brl(rpa)})</td>
+          <td style="border:1px solid #999;padding:3px 6px;font-weight:bold;color:#92400e">${brl(a1.dasCalc)}</td>
+        </tr>
+      </table>
+      <table style="width:100%;border-collapse:collapse;font-size:8pt">
+        <thead>
+          <tr style="background:#ddd">
+            <th style="border:1px solid #999;padding:3px 5px;text-align:left;min-width:90px"></th>
+            <th style="border:1px solid #999;padding:3px 5px;text-align:center">CPP</th>
+            <th style="border:1px solid #999;padding:3px 5px;text-align:center">CSLL</th>
+            <th style="border:1px solid #999;padding:3px 5px;text-align:center">ICMS</th>
+            <th style="border:1px solid #999;padding:3px 5px;text-align:center">IRPJ</th>
+            <th style="border:1px solid #999;padding:3px 5px;text-align:center">Cofins</th>
+            <th style="border:1px solid #999;padding:3px 5px;text-align:center">PIS/Pasep</th>
+            <th style="border:1px solid #999;padding:3px 5px;text-align:center">TOTAL DAS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background:#fff8e8;font-style:italic;color:#92400e">
+            <td style="border:1px solid #ccc;padding:3px 5px;font-size:7pt;color:#666">% do DAS</td>
+            ${td(pct2(f.cpp))}${td(pct2(f.csll))}${td(f.icms>0?pct2(f.icms):'—')}
+            ${td(pct2(f.irpj))}${td(pct2(f.cofins))}${td(pct2(f.pis))}
+            <td style="border:1px solid #ccc;padding:3px 5px;text-align:center;font-weight:bold;color:#000">100,00%</td>
+          </tr>
+          <tr style="background:#fffdf5;font-style:italic;color:#78350f">
+            <td style="border:1px solid #ccc;padding:3px 5px;font-size:7pt;color:#666">% efetivo s/ RPA</td>
+            ${td(pct4(f.cpp*a1.aliqEfetiva))}${td(pct4(f.csll*a1.aliqEfetiva))}${td(f.icms>0?pct4(f.icms*a1.aliqEfetiva):'—')}
+            ${td(pct4(f.irpj*a1.aliqEfetiva))}${td(pct4(f.cofins*a1.aliqEfetiva))}${td(pct4(f.pis*a1.aliqEfetiva))}
+            <td style="border:1px solid #ccc;padding:3px 5px;text-align:center;font-weight:bold">${pct4(a1.aliqEfetiva*100)}</td>
+          </tr>
+          <tr style="font-weight:bold">
+            <td style="border:1px solid #ccc;padding:3px 5px;font-size:7pt;color:#666">Valor (R$)</td>
+            ${td(brl(a1.cpp))}${td(brl(a1.csll))}${td(a1.icms>0?brl(a1.icms):'—')}
+            ${td(brl(a1.irpj))}${td(brl(a1.cofins))}${td(brl(a1.pis))}
+            <td style="border:1px solid #ccc;padding:3px 5px;text-align:center;background:#e8e8e8">${brl(a1.dasCalc)}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="font-size:7pt;color:#555;font-style:italic;padding:2px 0;margin-top:2px">
+        Fórmula: Alíquota Efetiva = (RBT12 × Alíq. Nominal − Dedução) ÷ RBT12 · % Efetivo por tributo = % Rateio × Alíquota Efetiva
+        ${f.icms === 0 ? ' · (—) Na 6ª faixa o ICMS não compõe o DAS.' : ''}
+      </div>
+    </div>`;
+    })()}
+
+    ${(() => {
+      /* ── Anexo III (Serviços) — SEGUNDO ── */
+      const seg  = segregarAnexos(d);
+      const rpa  = seg.rpaIII > 0 ? seg.rpaIII : (seg.nenhum ? d.rpa : 0);
+      if (!d.rbt12 || !rpa) return '';
+      const ac = calcAnexoIII(d.rbt12, rpa);
+      if (!ac) return '';
+      const f = ac.f;
+      /* Segregar sem/com retenção ISS */
+      const atvsIIISemRet = seg.atvsIII.filter(a => /s\/ Reten/i.test(a.desc));
+      const atvsIIIComRet = seg.atvsIII.filter(a => /c\/ Reten/i.test(a.desc));
+      const rpaSemRet = atvsIIISemRet.reduce((s,a) => s+a.receita, 0);
+      const rpaComRet = atvsIIIComRet.reduce((s,a) => s+a.receita, 0);
+      const temSeg    = rpaSemRet > 0 || rpaComRet > 0;
+      const atvLabel  = seg.atvsIII.length > 0
+        ? seg.atvsIII.map(a => `${a.desc}: ${brl(a.receita)}`).join(' · ')
+        : 'Receita total (sem segregação identificada)';
+      const td = (v) => `<td style="border:1px solid #ccc;padding:3px 5px;text-align:center">${v}</td>`;
+      /* Total DAS descontando ISS retido */
+      const totalDAS = (() => {
+        if (!temSeg) return ac.dasCalc;
+        const sr = rpaSemRet * ac.aliqEfetiva;
+        const cr = rpaComRet * ac.aliqEfetiva;
+        return sr + cr * (100 - f.iss) / 100;
+      })();
+      /* Subbloco por tipo de retenção */
+      const subBloco = (titulo, rpaB, comRet) => {
+        if (rpaB <= 0) return '';
+        const ae       = ac.aliqEfetiva;
+        const dasTotal = rpaB * ae;
+        const issValor = dasTotal * f.iss / 100;
+        const dasDAS   = comRet ? (dasTotal - issValor) : dasTotal;
+        const cpp_v    = dasTotal * f.cpp    / 100;
+        const csll_v   = dasTotal * f.csll   / 100;
+        const irpj_v   = dasTotal * f.irpj   / 100;
+        const cofins_v = dasTotal * f.cofins  / 100;
+        const pis_v    = dasTotal * f.pis    / 100;
+        const corH  = comRet ? '#6d28d9' : '#1a1a8c';
+        const bgH   = comRet ? '#f5f0ff' : '#f0f0ff';
+        const bgH2  = comRet ? '#ede9fe' : '#eeeeff';
+        const issStr_p = f.iss > 0
+          ? (comRet ? `${pct2(f.iss)}<br><span style="font-size:6.5pt;color:#9f7aea;font-style:italic">(Retido)</span>`
+                    : pct2(f.iss)+(f.issNota?' '+f.issNota:''))
+          : '—';
+        const issStr_e = f.iss > 0
+          ? (comRet ? `<span style="color:#9f7aea;font-style:italic">Retido</span>` : pct4(f.iss*ae))
+          : '—';
+        const issStr_v = f.iss > 0
+          ? (comRet ? `<span style="color:#9f7aea;font-style:italic">Retido<br>${brl(issValor)}</span>` : brl(issValor))
+          : '—';
+        return `
+          <div style="margin-top:7px;padding:5px 7px;border:1px solid ${comRet?'#c4b5fd':'#b8b8e0'};border-radius:3px;background:${comRet?'#fdfbff':'#fafaff'}">
+            <div style="font-size:8.5pt;font-weight:bold;color:${corH};margin-bottom:4px;border-left:3px solid ${corH};padding-left:5px">
+              ${titulo}
+              <span style="font-weight:normal;font-size:7.5pt;color:#555;margin-left:8px">Receita: ${brl(rpaB)}</span>
+              ${comRet ? `<span style="font-weight:normal;font-size:7pt;color:#7c3aed;margin-left:8px">[ISS retido pelo tomador do serviço]</span>` : ''}
+            </div>
+            <table style="width:100%;border-collapse:collapse;font-size:8pt">
+              <thead>
+                <tr style="background:#ddd">
+                  <th style="border:1px solid #999;padding:3px 5px;text-align:left;min-width:90px"></th>
+                  <th style="border:1px solid #999;padding:3px 5px;text-align:center">CPP</th>
+                  <th style="border:1px solid #999;padding:3px 5px;text-align:center">ISS</th>
+                  <th style="border:1px solid #999;padding:3px 5px;text-align:center">CSLL</th>
+                  <th style="border:1px solid #999;padding:3px 5px;text-align:center">IRPJ</th>
+                  <th style="border:1px solid #999;padding:3px 5px;text-align:center">Cofins</th>
+                  <th style="border:1px solid #999;padding:3px 5px;text-align:center">PIS/Pasep</th>
+                  <th style="border:1px solid #999;padding:3px 5px;text-align:center">${comRet?'DAS (s/ ISS)':'TOTAL DAS'}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="background:${bgH};font-style:italic;color:${corH}">
+                  <td style="border:1px solid #ccc;padding:3px 5px;font-size:7pt;color:#666">% do DAS</td>
+                  ${td(pct2(f.cpp))}${td(issStr_p)}${td(pct2(f.csll))}
+                  ${td(pct2(f.irpj))}${td(pct2(f.cofins))}${td(pct2(f.pis))}
+                  <td style="border:1px solid #ccc;padding:3px 5px;text-align:center;font-weight:bold;color:#000">${comRet?pct2(100-f.iss):'100,00%'}</td>
+                </tr>
+                <tr style="background:${bgH2};font-style:italic;color:${corH}">
+                  <td style="border:1px solid #ccc;padding:3px 5px;font-size:7pt;color:#666">% efetivo s/ RPA</td>
+                  ${td(pct4(f.cpp*ae))}${td(issStr_e)}${td(pct4(f.csll*ae))}
+                  ${td(pct4(f.irpj*ae))}${td(pct4(f.cofins*ae))}${td(pct4(f.pis*ae))}
+                  <td style="border:1px solid #ccc;padding:3px 5px;text-align:center;font-weight:bold">${comRet?pct4((100-f.iss)*ae):pct4(ae*100)}</td>
+                </tr>
+                <tr style="font-weight:bold">
+                  <td style="border:1px solid #ccc;padding:3px 5px;font-size:7pt;color:#666">Valor (R$)</td>
+                  ${td(brl(cpp_v))}${td(issStr_v)}${td(brl(csll_v))}
+                  ${td(brl(irpj_v))}${td(brl(cofins_v))}${td(brl(pis_v))}
+                  <td style="border:1px solid #ccc;padding:3px 5px;text-align:center;background:#e8e8e8;font-weight:bold">${brl(dasDAS)}</td>
+                </tr>
+              </tbody>
+            </table>
+            ${comRet && issValor > 0 ? `<div style="font-size:7.5pt;color:#7c3aed;font-style:italic;margin-top:3px">ISS Retido (recolhido ao Município pelo tomador): ${brl(issValor)}</div>` : ''}
+          </div>`;
+      };
+      return `
+    <div style="margin-top:12px;page-break-inside:avoid">
+      <div style="font-size:10pt;font-weight:bold;border-left:4px solid #000;padding:4px 8px;background:#f5f5f5;margin-bottom:5px">
+        Cálculo pelo Anexo III — Serviços (Simples Nacional 2026)
+      </div>
+      <div style="font-size:7.5pt;color:#555;padding:2px 4px;margin-bottom:4px;background:#f5f5ff;border-left:3px solid #4c1d95">
+        Atividades Serviços: ${atvLabel}
+      </div>
+      <table style="width:100%;border-collapse:collapse;font-size:8pt;margin-bottom:5px">
+        <tr>
+          <td style="border:1px solid #999;padding:3px 6px;color:#444;white-space:nowrap">RBT12 (12 meses)</td>
+          <td style="border:1px solid #999;padding:3px 6px;font-weight:bold">${brl(d.rbt12)}</td>
+          <td style="border:1px solid #999;padding:3px 6px;color:#444;white-space:nowrap">Faixa enquadrada</td>
+          <td style="border:1px solid #999;padding:3px 6px;font-weight:bold">${f.f} — ${f.lbl}</td>
+        </tr>
+        <tr>
+          <td style="border:1px solid #999;padding:3px 6px;color:#444;white-space:nowrap">Alíquota Nominal</td>
+          <td style="border:1px solid #999;padding:3px 6px;font-weight:bold">${pct2(f.aliq*100)}</td>
+          <td style="border:1px solid #999;padding:3px 6px;color:#444;white-space:nowrap">Parcela a Deduzir</td>
+          <td style="border:1px solid #999;padding:3px 6px;font-weight:bold">${f.ded > 0 ? brl(f.ded) : '—'}</td>
+        </tr>
+        <tr style="background:#f0f0ff">
+          <td style="border:1px solid #999;padding:3px 6px;color:#444;white-space:nowrap">Alíquota Efetiva</td>
+          <td style="border:1px solid #999;padding:3px 6px;font-weight:bold;color:#1a1a8c">${pct4(ac.aliqEfetiva*100)}</td>
+          <td style="border:1px solid #999;padding:3px 6px;color:#444;white-space:nowrap">Total DAS Serviços${temSeg && rpaComRet > 0 ? ' (s/ ISS Retido)' : ''}</td>
+          <td style="border:1px solid #999;padding:3px 6px;font-weight:bold;color:#1a1a8c">${brl(totalDAS)}</td>
+        </tr>
+      </table>
+      ${temSeg
+        ? subBloco('Serviços s/ Retenção ISS', rpaSemRet, false) + subBloco('Serviços c/ Retenção ISS', rpaComRet, true)
+        : `<table style="width:100%;border-collapse:collapse;font-size:8pt">
+            <thead>
+              <tr style="background:#ddd">
+                <th style="border:1px solid #999;padding:3px 5px;text-align:left;min-width:90px"></th>
+                <th style="border:1px solid #999;padding:3px 5px;text-align:center">CPP</th>
+                <th style="border:1px solid #999;padding:3px 5px;text-align:center">ISS</th>
+                <th style="border:1px solid #999;padding:3px 5px;text-align:center">CSLL</th>
+                <th style="border:1px solid #999;padding:3px 5px;text-align:center">IRPJ</th>
+                <th style="border:1px solid #999;padding:3px 5px;text-align:center">Cofins</th>
+                <th style="border:1px solid #999;padding:3px 5px;text-align:center">PIS/Pasep</th>
+                <th style="border:1px solid #999;padding:3px 5px;text-align:center">TOTAL DAS</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background:#f0f0ff;font-style:italic;color:#1a1a8c">
+                <td style="border:1px solid #ccc;padding:3px 5px;font-size:7pt;color:#666">% do DAS</td>
+                ${td(pct2(f.cpp))}${td(f.iss>0?pct2(f.iss)+(f.issNota?' '+f.issNota:''):'—')}${td(pct2(f.csll))}
+                ${td(pct2(f.irpj))}${td(pct2(f.cofins))}${td(pct2(f.pis))}
+                <td style="border:1px solid #ccc;padding:3px 5px;text-align:center;font-weight:bold;color:#000">100,00%</td>
+              </tr>
+              <tr style="background:#f5f5ff;font-style:italic;color:#312e81">
+                <td style="border:1px solid #ccc;padding:3px 5px;font-size:7pt;color:#666">% efetivo s/ RPA</td>
+                ${td(pct4(f.cpp*ac.aliqEfetiva))}${td(f.iss>0?pct4(f.iss*ac.aliqEfetiva):'—')}${td(pct4(f.csll*ac.aliqEfetiva))}
+                ${td(pct4(f.irpj*ac.aliqEfetiva))}${td(pct4(f.cofins*ac.aliqEfetiva))}${td(pct4(f.pis*ac.aliqEfetiva))}
+                <td style="border:1px solid #ccc;padding:3px 5px;text-align:center;font-weight:bold">${pct4(ac.aliqEfetiva*100)}</td>
+              </tr>
+              <tr style="font-weight:bold">
+                <td style="border:1px solid #ccc;padding:3px 5px;font-size:7pt;color:#666">Valor (R$)</td>
+                ${td(brl(ac.cpp))}${td(ac.iss>0?brl(ac.iss):'—')}${td(brl(ac.csll))}
+                ${td(brl(ac.irpj))}${td(brl(ac.cofins))}${td(brl(ac.pis))}
+                <td style="border:1px solid #ccc;padding:3px 5px;text-align:center;background:#e8e8e8">${brl(ac.dasCalc)}</td>
+              </tr>
+            </tbody>
+          </table>`
+      }
+      <div style="font-size:7pt;color:#555;font-style:italic;padding:2px 0;margin-top:4px">
+        Fórmula: Alíquota Efetiva = (RBT12 × Alíq. Nominal − Dedução) ÷ RBT12 · % Efetivo por tributo = % Rateio × Alíquota Efetiva
+        ${f.issNota === '(*)' ? ' · (*) ISS pode ser recolhido ao Município na 5ª faixa.' : ''}
+        ${f.iss === 0 ? ' · (—) Na 6ª faixa o ISS não compõe o DAS.' : ''}
+      </div>
+    </div>`;
+    })()}
+
+    <div class="p-footer">
+      Nº da Declaração: ${d.numDecl}
+      &nbsp;·&nbsp; Período: ${d.pa}
+      &nbsp;·&nbsp; Documento gerado pela Análise Tributária PGDAS-D
+    </div>
+    <div class="p-footer-rights">
+      <div class="pfr-policy">Política de Privacidade</div>
+      <div class="pfr-copy">Diekson Bernardes – Todos os direitos reservados 2026</div>
+    </div>`;
+
+  document.getElementById('printArea').innerHTML = html;
+}
+
+// Nenhum dado pré-carregado — aguarda upload do PDF.
+</script>
+</body>
+</html>

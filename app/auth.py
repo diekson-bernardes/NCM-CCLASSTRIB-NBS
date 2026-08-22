@@ -11,6 +11,10 @@ repositorio. Em servidor, cada senha pode ser trocada por variavel de ambiente
 (RTC_SENHA_ADMIN, RTC_SENHA_TESTE, RTC_SENHA_CLIENTE) - util para publicar sem
 usar as senhas de desenvolvimento.
 
+Os usuarios criados no painel e a contagem de consultas vao para o destino
+escolhido em `armazenamento` (banco PostgreSQL quando ha DATABASE_URL, arquivos
+JSON em var/ caso contrario), de modo que sobrevivam a um novo deploy.
+
 Contam como consulta as acoes que produzem enquadramento: analise do cartao CNPJ,
 consulta de um NCM, consulta em lote e o detalhe de um CNAE. Navegar pelas telas,
 buscar nas tabelas e baixar um relatorio ja gerado nao consomem cota.
@@ -18,19 +22,13 @@ buscar nas tabelas e baixar um relatorio ja gerado nao consomem cota.
 
 from __future__ import annotations
 
-import json
 import os
 import threading
 from datetime import datetime
-from pathlib import Path
 
 from werkzeug.security import check_password_hash, generate_password_hash
 
-RAIZ = Path(__file__).resolve().parents[1]
-ARQUIVO_USO = Path(os.environ.get("RTC_ARQUIVO_USO", RAIZ / "var" / "uso.json"))
-ARQUIVO_USUARIOS = Path(
-    os.environ.get("RTC_ARQUIVO_USUARIOS", RAIZ / "var" / "usuarios.json")
-)
+from . import armazenamento
 
 LIMITE_TESTE = 10
 MULTIPLO_CONSULTAS = 50  # cotas criadas pelo administrador vao de 50 em 50
@@ -53,6 +51,11 @@ ROTINAS: dict[str, dict] = {
         "nome": "Consulta de NCM em lote",
         "descricao": "Lista ou planilha de produtos processada de uma vez",
         "rota": "ncm_lote",
+    },
+    "pgdas": {
+        "nome": "Declaração PGDAS-D",
+        "descricao": "Carga efetiva por tributo, estabelecimento e atividade do Simples Nacional",
+        "rota": "pgdas",
     },
     "cesta": {
         "nome": "Cesta e relatório consolidado",
@@ -123,10 +126,7 @@ def _carrega_usuarios() -> None:
     if _USUARIOS_CARREGADOS:
         return
     _USUARIOS_CARREGADOS = True
-    try:
-        dados = json.loads(ARQUIVO_USUARIOS.read_text(encoding="utf-8"))
-    except (OSError, ValueError):
-        return
+    dados = armazenamento.armazem().ler("usuarios") or {}
     for login, registro in (dados.get("usuarios") or {}).items():
         if login in EMBUTIDOS:
             continue
@@ -148,21 +148,13 @@ def _grava_usuarios() -> None:
         for login, dados in USUARIOS.items()
         if login not in EMBUTIDOS
     }
-    try:
-        ARQUIVO_USUARIOS.parent.mkdir(parents=True, exist_ok=True)
-        ARQUIVO_USUARIOS.write_text(
-            json.dumps(
-                {
-                    "atualizado_em": datetime.now().isoformat(timespec="seconds"),
-                    "usuarios": criados,
-                },
-                ensure_ascii=False,
-                indent=1,
-            ),
-            encoding="utf-8",
-        )
-    except OSError:
-        pass
+    armazenamento.armazem().gravar(
+        "usuarios",
+        {
+            "atualizado_em": datetime.now().isoformat(timespec="seconds"),
+            "usuarios": criados,
+        },
+    )
 
 
 def _busca_login(login: str) -> str | None:
@@ -349,30 +341,22 @@ def _carrega() -> None:
     if _CARREGADO:
         return
     _CARREGADO = True
-    try:
-        dados = json.loads(ARQUIVO_USO.read_text(encoding="utf-8"))
-        _USO.update({k: int(v) for k, v in dados.get("consultas", {}).items()})
-    except (OSError, ValueError):
-        pass
+    dados = armazenamento.armazem().ler("uso") or {}
+    for login, quantidade in (dados.get("consultas") or {}).items():
+        try:
+            _USO[login] = int(quantidade)
+        except (TypeError, ValueError):
+            continue
 
 
 def _grava() -> None:
-    try:
-        ARQUIVO_USO.parent.mkdir(parents=True, exist_ok=True)
-        ARQUIVO_USO.write_text(
-            json.dumps(
-                {
-                    "atualizado_em": datetime.now().isoformat(timespec="seconds"),
-                    "consultas": _USO,
-                },
-                ensure_ascii=False,
-                indent=1,
-            ),
-            encoding="utf-8",
-        )
-    except OSError:
-        # sem permissao de escrita (host efemero): a contagem segue so em memoria
-        pass
+    armazenamento.armazem().gravar(
+        "uso",
+        {
+            "atualizado_em": datetime.now().isoformat(timespec="seconds"),
+            "consultas": _USO,
+        },
+    )
 
 
 def consumo(login: str) -> int:
@@ -416,6 +400,17 @@ def zerar(login: str | None = None) -> None:
         else:
             _USO.pop(login, None)
         _grava()
+
+
+def recarregar() -> None:
+    """Descarta o que esta em memoria e le tudo de novo do armazenamento."""
+    global _CARREGADO, _USUARIOS_CARREGADOS
+    with _TRAVA:
+        for login in [nome for nome in USUARIOS if nome not in EMBUTIDOS]:
+            USUARIOS.pop(login, None)
+        _USO.clear()
+        _CARREGADO = False
+        _USUARIOS_CARREGADOS = False
 
 
 def painel() -> list[dict]:

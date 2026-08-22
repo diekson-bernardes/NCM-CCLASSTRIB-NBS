@@ -15,9 +15,10 @@ from flask import (Flask, Response, abort, g, redirect, render_template, request
                    session, url_for)
 from werkzeug.middleware.proxy_fix import ProxyFix
 
-from . import auth
+from . import armazenamento, auth
 from . import cesta as mod_cesta
 from . import lote as mod_lote
+from . import pgdas as mod_pgdas
 from .correlacao import correlacionar, linhas_detalhe, resumo
 from .dados import base, normaliza
 from .ncm import consultar as consultar_ncm
@@ -44,7 +45,8 @@ app.secret_key = os.environ.get("RTC_SECRET_KEY") or secrets.token_hex(32)
 
 # Telas abertas (sem login) e acoes que consomem cota de consulta
 LIVRES = {"entrar", "sair", "static"}
-CONSOME_COTA = {"analisar", "ncm_detalhe", "ncm_lote", "detalhe_cnae"}
+CONSOME_COTA = {"analisar", "ncm_detalhe", "ncm_lote", "detalhe_cnae",
+                "pgdas_registrar"}
 
 # Cada endpoint pertence a uma rotina; a liberacao e definida pelo administrador
 # no cadastro do usuario. Endpoints fora deste mapa (ex.: /usuarios) tem regra
@@ -54,6 +56,7 @@ ROTINA_DO_ENDPOINT = {
     "download": "cartao",
     "ncm_busca": "ncm", "ncm_detalhe": "ncm", "download_ncm": "ncm",
     "ncm_lote": "lote", "download_lote": "lote",
+    "pgdas": "pgdas", "pgdas_ferramenta": "pgdas", "pgdas_registrar": "pgdas",
     "cesta_ver": "cesta", "cesta_adicionar": "cesta", "cesta_remover": "cesta",
     "cesta_limpar": "cesta", "cesta_download": "cesta",
     "consulta": "tabelas",
@@ -183,6 +186,7 @@ def _tela_usuarios(erro: str = "", criado: str = "", formulario: dict | None = N
         linhas=auth.painel(),
         opcoes=auth.opcoes_de_limite(),
         rotinas=auth.ROTINAS,
+        armazenamento=armazenamento.situacao(),
         erro=erro,
         criado=criado,
         alterado=alterado,
@@ -464,6 +468,38 @@ def ncm_lote():
         linhas=mod_lote.linhas_resumo(lote),
         token=token,
     )
+
+
+# ------------------------------------------------------------------ PGDAS-D
+
+
+@app.get("/pgdas")
+def pgdas():
+    """Tela que apresenta a ferramenta de leitura da declaracao."""
+    return render_template("pgdas.html")
+
+
+@app.get("/pgdas/ferramenta")
+def pgdas_ferramenta():
+    """A ferramenta em si, servida sem passar pelo Jinja (ver app/pgdas.py)."""
+    return Response(
+        mod_pgdas.pagina(url_for("pgdas_registrar")),
+        mimetype="text/html",
+        headers={"Content-Type": "text/html; charset=utf-8"},
+    )
+
+
+@app.post("/pgdas/registrar")
+def pgdas_registrar():
+    """Debita uma consulta por declaracao lida.
+
+    Chamada pela ferramenta antes de abrir o PDF. Com a cota esgotada o
+    before_request ja respondeu 403 e a leitura nem comeca. O debito e feito aqui
+    (e nao no after_request) para que a resposta leve o saldo atualizado.
+    """
+    auth.registrar_consulta(g.usuario["login"], 1)
+    g.cobrar_consulta = False
+    return {"restante": auth.restante(g.usuario["login"])}
 
 
 @app.get("/download-lote/<token>/<formato>")

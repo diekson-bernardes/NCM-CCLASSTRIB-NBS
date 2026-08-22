@@ -19,6 +19,7 @@
       {% if pode('cartao') %}<a href="{{ url_for('inicio') }}">Análise do cartão CNPJ</a>{% endif %}
       {% if pode('ncm') %}<a href="{{ url_for('ncm_busca') }}">Consulta por NCM</a>{% endif %}
       {% if pode('lote') %}<a href="{{ url_for('ncm_lote') }}">NCM em lote</a>{% endif %}
+      {% if pode('pgdas') %}<a href="{{ url_for('pgdas') }}">PGDAS-D</a>{% endif %}
       {% if pode('tabelas') %}<a href="{{ url_for('consulta') }}">Consulta de tabelas</a>{% endif %}
       {% if pode('fontes') %}<a href="{{ url_for('fontes') }}">Fontes (KB)</a>{% endif %}
       {% if pode('apresentacao') %}<a href="{{ url_for('apresentacao') }}">Apresentação</a>{% endif %}

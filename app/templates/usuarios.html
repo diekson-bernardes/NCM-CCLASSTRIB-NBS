@@ -128,13 +128,42 @@
 </section>
 
 <section class="cartao">
+  <h2>Onde o cadastro fica gravado</h2>
+
+  <p class="armazenamento">
+    {% if armazenamento.persistente %}
+      <span class="tag alta">permanente</span>
+    {% else %}
+      <span class="tag media">temporário</span>
+    {% endif %}
+    {{ armazenamento.destino }} — <code>{{ armazenamento.detalhe }}</code>
+  </p>
+
+  {% if armazenamento.erro %}
+    <div class="alerta erro">{{ armazenamento.erro }}</div>
+  {% endif %}
+
+  <p class="ajuda">
+    {% if armazenamento.persistente %}
+      Os usuários criados aqui e a contagem de consultas ficam no banco, fora da máquina do
+      site: continuam valendo depois de um novo deploy, de um reinício ou da hibernação.
+    {% else %}
+      Os usuários criados aqui e a contagem de consultas estão em arquivo, no disco do
+      servidor. Em hospedagem gratuita esse disco é apagado a cada deploy ou reinício —
+      para que o cadastro permaneça, defina a variável de ambiente
+      <code>DATABASE_URL</code> apontando para um banco PostgreSQL. Na primeira subida o
+      conteúdo dos arquivos é copiado para o banco automaticamente.
+    {% endif %}
+    Os três usuários de fábrica vivem no código e nunca se perdem.
+  </p>
+
   <h2>Como trocar as senhas em produção</h2>
   <p class="ajuda">
     As senhas dos usuários fixos ficam gravadas como hash no código. No servidor, defina as
     variáveis de ambiente <code>RTC_SENHA_ADMIN</code>, <code>RTC_SENHA_CLIENTE</code> e
     <code>RTC_SENHA_TESTE</code> para substituí-las sem alterar o repositório — e
-    <code>RTC_SECRET_KEY</code> para que as sessões sobrevivam a um reinício. Os usuários
-    criados aqui ficam em <code>var/usuarios.json</code>, também com a senha em hash.
+    <code>RTC_SECRET_KEY</code> para que as sessões sobrevivam a um reinício. As senhas dos
+    usuários criados aqui também são guardadas apenas como hash.
   </p>
 </section>
 {% endblock %}

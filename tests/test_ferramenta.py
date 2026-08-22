@@ -20,7 +20,8 @@ _TEMP = Path(tempfile.mkdtemp())
 os.environ.setdefault("RTC_ARQUIVO_USO", str(_TEMP / "uso_teste.json"))
 os.environ.setdefault("RTC_ARQUIVO_USUARIOS", str(_TEMP / "usuarios_teste.json"))
 
-from app import auth, lote  # noqa: E402
+from app import armazenamento, auth, lote  # noqa: E402
+from app import pgdas as mod_pgdas  # noqa: E402
 from app.cesta import COLUNAS  # noqa: E402
 from app.correlacao import correlacionar, linhas_detalhe, resumo  # noqa: E402
 from app.dados import base  # noqa: E402
@@ -642,6 +643,286 @@ class TestGestaoDeUsuarios(unittest.TestCase):
                 403,
             )
         self.assertIsNone(auth.obter("invasor"))
+
+
+class ArmazemFalso:
+    """Destino de teste: guarda os documentos JSON so na memoria."""
+
+    persistente = True
+    destino = "memória"
+    detalhe = "teste"
+
+    def __init__(self) -> None:
+        self.dados: dict[str, dict] = {}
+        self.erro = ""
+
+    def ler(self, chave):
+        return self.dados.get(chave)
+
+    def gravar(self, chave, dados):
+        self.dados[chave] = dados
+        return True
+
+
+class TestPGDAS(unittest.TestCase):
+    """Rotina de importacao da declaracao PGDAS-D.
+
+    A leitura do PDF acontece no navegador; ao servidor cabem a permissao da
+    rotina, o debito de uma consulta por declaracao e servir a ferramenta
+    intacta, sem passar pelo Jinja.
+    """
+
+    def setUp(self) -> None:
+        app.config["TESTING"] = True
+        self.admin = cliente_logado("admin", "2026")
+        self._criados: list[str] = []
+
+    def tearDown(self) -> None:
+        for login in self._criados:
+            try:
+                auth.remover_usuario(login)
+            except ValueError:
+                pass
+        auth.zerar()
+
+    def _cliente(self, login: str, rotinas, limite="50"):
+        self._criados.append(login)
+        auth.criar_usuario(login, "senha123", limite, rotinas=rotinas)
+        return cliente_logado(login, "senha123")
+
+    def test_tela_traz_o_quadro_e_o_aviso_de_privacidade(self):
+        resposta = self.admin.get("/pgdas")
+        self.assertEqual(resposta.status_code, 200)
+        html = resposta.get_data(as_text=True)
+        self.assertIn('id="quadro-pgdas"', html)
+        self.assertIn("/pgdas/ferramenta", html)
+        self.assertIn("lido no seu navegador", html)
+        self.assertIn(">PGDAS-D</a>", html)  # entrada no menu
+
+    def test_ferramenta_vem_inteira_e_com_a_integracao(self):
+        resposta = self.admin.get("/pgdas/ferramenta")
+        self.assertEqual(resposta.status_code, 200)
+        html = resposta.get_data(as_text=True)
+
+        # a ferramenta original, byte a byte ate o </body>
+        original = mod_pgdas._original()
+        self.assertIn(original[:2000], html)
+        self.assertIn("pdfjsLib", html)
+        self.assertIn("Anexo III", html)
+
+        # e o script de integracao, antes do fechamento do body
+        self.assertIn("/pgdas/registrar", html)
+        self.assertIn("altura-pgdas", html)
+        self.assertLess(html.rfind("altura-pgdas"), html.rfind("</body>"))
+
+        # a regra `body { min-height: 100vh }` da ferramenta e neutralizada dentro
+        # do quadro: sem isso, medir o corpo para redimensiona-lo vira um laco
+        self.assertIn("min-height:0!important", html)
+        self.assertIn("window.parent !== window", html)
+
+    def test_cada_declaracao_debita_uma_consulta(self):
+        cliente = self._cliente("cliente_pgdas", ["pgdas"])
+        for restante in (49, 48, 47):
+            resposta = cliente.post("/pgdas/registrar")
+            self.assertEqual(resposta.status_code, 200)
+            self.assertEqual(resposta.get_json()["restante"], restante)
+        self.assertEqual(auth.consumo("cliente_pgdas"), 3)
+
+    def test_sem_cota_a_leitura_nao_comeca(self):
+        cliente = self._cliente("cota_curta", ["pgdas"])
+        auth.registrar_consulta("cota_curta", 50)
+        # 403 antes de qualquer leitura: a ferramenta so abre o PDF se passar aqui
+        self.assertEqual(cliente.post("/pgdas/registrar").status_code, 403)
+
+    def test_rotina_nao_liberada_bloqueia_todas_as_rotas(self):
+        cliente = self._cliente("sem_pgdas", ["ncm"])
+        self.assertEqual(cliente.get("/pgdas").status_code, 403)
+        self.assertEqual(cliente.get("/pgdas/ferramenta").status_code, 403)
+        self.assertEqual(cliente.post("/pgdas/registrar").status_code, 403)
+        self.assertNotIn(">PGDAS-D</a>", cliente.get("/ncm").get_data(as_text=True))
+
+    def test_exige_login(self):
+        anonimo = app.test_client()
+        self.assertEqual(anonimo.get("/pgdas").status_code, 302)
+        self.assertEqual(anonimo.get("/pgdas/ferramenta").status_code, 302)
+
+
+class CursorFalso:
+    """Executa, em memoria, os tres comandos usados pelo ArmazemPostgres."""
+
+    def __init__(self, banco: dict):
+        self.banco = banco
+        self._resposta = None
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *_):
+        return False
+
+    def execute(self, sql, parametros=()):
+        self.banco["sql"].append(sql)
+        if sql.startswith("SELECT"):
+            valor = self.banco["linhas"].get(parametros[0])
+            self._resposta = (valor,) if valor is not None else None
+        elif sql.startswith("INSERT"):
+            self.banco["linhas"][parametros[0]] = parametros[1]
+
+    def fetchone(self):
+        return self._resposta
+
+
+class ConexaoFalsa:
+    """Imita o minimo do driver: cursor de contexto, commit e close."""
+
+    def __init__(self, banco: dict, url: str):
+        self.banco = banco
+        banco["urls"].append(url)
+
+    def cursor(self):
+        return CursorFalso(self.banco)
+
+    def commit(self):
+        self.banco["commits"] += 1
+
+    def close(self):
+        self.banco["fechadas"] += 1
+
+
+class TestArmazenamento(unittest.TestCase):
+    """Cadastro e cota precisam sobreviver ao reinicio do processo (host efemero)."""
+
+    def setUp(self) -> None:
+        self._criados: list[str] = []
+
+    def tearDown(self) -> None:
+        for login in self._criados:
+            try:
+                auth.remover_usuario(login)
+            except ValueError:
+                pass
+        auth.zerar()
+        armazenamento.redefinir()  # volta ao destino definido pelo ambiente
+        auth.recarregar()
+
+    def test_destino_padrao_e_arquivo(self):
+        situacao = armazenamento.situacao()
+        self.assertEqual(situacao["destino"], "arquivos JSON")
+        self.assertFalse(situacao["persistente"])
+        self.assertFalse(situacao["erro"])
+
+    def test_usuario_e_cota_sobrevivem_ao_reinicio(self):
+        self._criados.append("perene")
+        auth.criar_usuario("perene", "senha123", 100, nome="Cliente Perene",
+                           rotinas=["ncm", "lote"])
+        auth.registrar_consulta("perene", 30)
+
+        auth.recarregar()  # equivale a subir o processo de novo
+
+        usuario = auth.obter("perene")
+        self.assertIsNotNone(usuario)
+        self.assertEqual(usuario["nome"], "Cliente Perene")
+        self.assertEqual(usuario["limite"], 100)
+        self.assertEqual(usuario["rotinas"], ["ncm", "lote"])
+        self.assertEqual(auth.consumo("perene"), 30)
+        self.assertEqual(auth.restante("perene"), 70)
+        self.assertIsNotNone(auth.autenticar("perene", "senha123"))
+
+    def test_grava_no_destino_configurado(self):
+        falso = ArmazemFalso()
+        armazenamento.redefinir(falso)
+        auth.recarregar()
+
+        self._criados.append("no_banco")
+        auth.criar_usuario("no_banco", "senha123", 50)
+        auth.registrar_consulta("no_banco", 5)
+
+        self.assertIn("no_banco", falso.dados["usuarios"]["usuarios"])
+        self.assertEqual(falso.dados["uso"]["consultas"]["no_banco"], 5)
+        # a senha vai como hash, nunca em texto puro
+        self.assertNotIn("senha123", json.dumps(falso.dados, ensure_ascii=False))
+
+        auth.recarregar()
+        self.assertEqual(auth.obter("no_banco")["limite"], 50)
+
+    def test_migracao_do_arquivo_para_o_banco(self):
+        arquivos = armazenamento._arquivos()
+        origem = armazenamento.ArmazemArquivo(arquivos)
+        origem.gravar("usuarios", {"usuarios": {"antigo": {"nome": "Antigo"}}})
+
+        banco = ArmazemFalso()
+        armazenamento._migrar(arquivos, banco)
+        self.assertIn("antigo", banco.dados["usuarios"]["usuarios"])
+
+        # com o banco ja preenchido, o arquivo nao sobrescreve nada
+        origem.gravar("usuarios", {"usuarios": {"outro": {"nome": "Outro"}}})
+        armazenamento._migrar(arquivos, banco)
+        self.assertNotIn("outro", banco.dados["usuarios"]["usuarios"])
+
+        origem.gravar("usuarios", {"usuarios": {}})
+        auth.recarregar()
+
+    def test_url_do_banco_normalizada(self):
+        anterior = os.environ.get("DATABASE_URL")
+        os.environ["DATABASE_URL"] = "postgres://u:s@host:5432/base"
+        try:
+            self.assertEqual(armazenamento._url(), "postgresql://u:s@host:5432/base")
+        finally:
+            if anterior is None:
+                os.environ.pop("DATABASE_URL", None)
+            else:
+                os.environ["DATABASE_URL"] = anterior
+
+    def test_banco_indisponivel_nao_derruba_o_site(self):
+        anterior = os.environ.get("DATABASE_URL")
+        espera = armazenamento.ESPERA_CONEXAO
+        os.environ["DATABASE_URL"] = "postgresql://u:s@127.0.0.1:1/inexistente"
+        armazenamento.ESPERA_CONEXAO = 2  # o teste nao espera os 10s de produção
+        armazenamento.redefinir()
+        try:
+            situacao = armazenamento.situacao()
+            self.assertFalse(situacao["persistente"])   # cai para arquivo
+            self.assertIn("não respondeu", situacao["erro"])
+        finally:
+            armazenamento.ESPERA_CONEXAO = espera
+            if anterior is None:
+                os.environ.pop("DATABASE_URL", None)
+            else:
+                os.environ["DATABASE_URL"] = anterior
+
+    def test_ciclo_completo_no_banco(self):
+        banco = {"linhas": {}, "sql": [], "urls": [], "commits": 0, "fechadas": 0}
+        original = armazenamento._conectar
+        armazenamento._conectar = lambda: (lambda url: ConexaoFalsa(banco, url))
+        try:
+            destino = armazenamento.ArmazemPostgres("postgresql://u:s@host/base")
+            armazenamento.redefinir(destino)
+            auth.recarregar()
+
+            self._criados.append("cadastro_no_banco")
+            auth.criar_usuario("cadastro_no_banco", "senha123", 150)
+            auth.registrar_consulta("cadastro_no_banco", 7)
+            auth.recarregar()
+
+            usuario = auth.obter("cadastro_no_banco")
+            self.assertEqual(usuario["limite"], 150)
+            self.assertEqual(auth.consumo("cadastro_no_banco"), 7)
+        finally:
+            armazenamento._conectar = original
+
+        self.assertTrue(any("CREATE TABLE IF NOT EXISTS rtc_estado" in s for s in banco["sql"]))
+        self.assertTrue(any("ON CONFLICT (chave) DO UPDATE" in s for s in banco["sql"]))
+        self.assertEqual(set(banco["linhas"]), {"usuarios", "uso"})
+        # toda conexao aberta foi encerrada, e as gravacoes foram confirmadas
+        self.assertEqual(banco["fechadas"], len(banco["urls"]))
+        self.assertTrue(banco["commits"] >= 2)
+        self.assertTrue(all("connect_timeout=" in u for u in banco["urls"]))
+
+    def test_detalhe_do_banco_esconde_a_senha(self):
+        banco = object.__new__(armazenamento.ArmazemPostgres)
+        banco.url = "postgresql://user:segredo@dpg-abc.oregon-postgres.render.com/base?sslmode=require"
+        self.assertEqual(banco.detalhe, "dpg-abc.oregon-postgres.render.com/base")
+        self.assertNotIn("segredo", banco.detalhe)
 
 
 def _planilha_de_ncms(linhas: list[list[str]]) -> io.BytesIO:

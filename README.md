@@ -61,6 +61,15 @@ Telas:
   não localizados, os do Imposto Seletivo e os citados em exceção, e exporta em XLSX (abas
   *Resumo por NCM*, *Detalhado*, *Indicadores* e *Fontes*), CSV e JSON. A coluna de NCM é
   achada pelo cabeçalho; as demais colunas de texto viram a referência do item.
+- **Declaração PGDAS-D** (`/pgdas`) — importa o PDF da declaração do Simples Nacional e
+  mostra a carga tributária efetiva por tributo, por estabelecimento (matriz e filiais) e por
+  atividade, com o enquadramento nos Anexos I (comércio) e III (serviços), a segregação de
+  serviços com e sem retenção de ISS e uma versão para impressão no formato da declaração.
+  **O PDF é lido no navegador** (pdf.js) e não sobe para o servidor; ao servidor cabem apenas
+  a permissão da rotina e o débito de uma consulta por declaração importada. A ferramenta é
+  servida inteira a partir de [`app/recursos/pgdas_ferramenta.html`](app/recursos/pgdas_ferramenta.html)
+  — atualizá-la é trocar esse arquivo. Ela usa pdf.js e Chart.js via CDN, então precisa de
+  acesso à internet.
 - **Consulta de tabelas** — busca por CNAE, item da LC 116, NBS, NCM, cClassTrib e indOP.
   Um código NBS abre a tela `/nbs/<código>` com as **notas explicativas (NEBS)** do próprio
   código e dos níveis superiores, mais os itens da LC 116 correlacionados. Nos resultados do
@@ -88,7 +97,10 @@ app/                aplicação Flask
   ncm.py            motor de consulta por NCM (anexos da LC 214/2025)
   lote.py           leitura da lista/planilha de NCM e consulta em lote
   cesta.py          acúmulo das consultas e consolidação em colunas únicas
+  pgdas.py          serve a ferramenta do PGDAS-D e injeta a integração
+  recursos/         ferramenta do PGDAS-D (HTML autônomo, lido no navegador)
   relatorio.py      exportação XLSX / CSV / JSON
+  armazenamento.py  destino do cadastro e da cota (banco ou arquivos JSON)
   main.py           rotas web
 scripts/
   atualizar_kb.py   rebaixa as fontes catalogadas em KB/fontes.json
@@ -134,21 +146,49 @@ O administrador cria novos usuários em `/usuarios`, informando login, senha, a 
 análise do cartão CNPJ, consulta por NCM, NCM em lote, cesta, consulta de tabelas, fontes
 e apresentação. O menu se ajusta ao que o usuário pode acessar, uma rotina bloqueada
 responde com a tela “Rotina não liberada”, e o login leva à primeira rotina disponível.
-Só o administrador libera rotinas — e ele mesmo acessa todas. Os usuários criados têm perfil de cliente e ficam em
-`var/usuarios.json` (senha em hash, fora do versionamento). No painel o administrador
+Só o administrador libera rotinas — e ele mesmo acessa todas. Os usuários criados têm perfil
+de cliente e são gravados com a senha em hash. No painel o administrador
 também **edita** (nome, senha, cota e rotinas — senha em branco mantém a atual) e
 **remove** esses usuários; os três de fábrica não são editáveis nem removíveis, pois vivem
 no código e mudam por variável de ambiente.
 
 As senhas ficam no repositório apenas como hash (pbkdf2-sha256) e podem ser trocadas por
-variável de ambiente. A contagem de uso é gravada em `var/uso.json` (fora do versionamento).
+variável de ambiente.
+
+### Onde o cadastro fica gravado
+
+Os usuários criados no painel e a contagem de consultas têm dois destinos possíveis, e a
+escolha é automática:
+
+| Situação | Destino |
+|---|---|
+| `DATABASE_URL` definida | tabela `rtc_estado` num PostgreSQL — sobrevive a deploy, reinício e hibernação |
+| sem `DATABASE_URL` | `var/usuarios.json` e `var/uso.json`, fora do versionamento (padrão local) |
+
+Hospedagem gratuita costuma ter disco efêmero, que volta ao conteúdo do repositório a cada
+deploy — daí o banco. O conteúdo gravado é o mesmo JSON nos dois casos e, na primeira subida
+com banco, o que estiver nos arquivos é copiado para lá. O painel **Usuários e uso** mostra
+o destino em vigor, com a etiqueta *permanente* ou *temporário*. Detalhes em
+[`Docs/DEPLOY.md`](Docs/DEPLOY.md).
 
 ## Publicação
 
 A ferramenta precisa de um host que execute Python — GitHub Pages não serve (só arquivos
-estáticos). O repositório já traz `wsgi.py`, `render.yaml` e `Procfile`; o passo a passo
-para publicar no Render, com deploy automático a cada push, está em
-[`Docs/DEPLOY.md`](Docs/DEPLOY.md).
+estáticos). Há dois caminhos prontos:
+
+**Docker Compose** — site + PostgreSQL em qualquer máquina (VPS, servidor do escritório ou
+a própria estação), com o cadastro num volume que sobrevive à troca da imagem:
+
+```bash
+cp .env.example .env          # preencha POSTGRES_PASSWORD e RTC_SECRET_KEY
+docker compose up -d --build  # http://localhost:8000
+```
+
+Passo a passo, backup do banco e publicação atrás de proxy com TLS em
+[`Docs/DOCKER.md`](Docs/DOCKER.md).
+
+**Render** — deploy automático a cada push, a partir do `render.yaml`, que já cria o banco
+junto: [`Docs/DEPLOY.md`](Docs/DEPLOY.md).
 
 Em servidor, use sempre **um worker**:
 
@@ -161,7 +201,8 @@ workers os downloads falhariam de forma intermitente.
 
 Defina `RTC_SECRET_KEY` no host para que as sessões de login sobrevivam a um reinício, e
 `RTC_SENHA_ADMIN` / `RTC_SENHA_CLIENTE` / `RTC_SENHA_TESTE` para publicar com senhas
-diferentes das de desenvolvimento.
+diferentes das de desenvolvimento. O `render.yaml` já cria o banco e injeta a
+`DATABASE_URL`, para que os usuários cadastrados no painel não se percam no deploy seguinte.
 
 ## Manutenção
 

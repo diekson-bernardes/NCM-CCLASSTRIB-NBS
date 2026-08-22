@@ -27,3 +27,8 @@ nul
 
 # Contagem de uso por usuario (nao versionada)
 var/
+
+# Configuracao do docker compose: contem senhas (o modelo e o .env.example)
+.env
+.env.*
+!.env.example

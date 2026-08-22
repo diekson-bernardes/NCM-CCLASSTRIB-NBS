@@ -1,5 +1,8 @@
 # Publicação da ferramenta (Render)
 
+> Para publicar em máquina própria (VPS, servidor do escritório) em vez de um host
+> gerenciado, veja [`DOCKER.md`](DOCKER.md) — site e PostgreSQL em `docker compose`.
+
 O GitHub Pages não serve esta aplicação: ele publica só arquivos estáticos e aqui há
 Python no servidor (leitura do PDF do cartão CNPJ, geração das planilhas, cesta em
 memória). A publicação é feita em um host que executa Python — abaixo, o Render, com
@@ -10,9 +13,9 @@ deploy automático a cada `git push`.
 | Arquivo | Papel |
 |---|---|
 | [`wsgi.py`](../wsgi.py) | ponto de entrada WSGI; carrega os datasets no start |
-| [`render.yaml`](../render.yaml) | descreve o serviço (plano, build, start, versão do Python) |
+| [`render.yaml`](../render.yaml) | descreve o serviço e o banco (plano, build, start, versão do Python) |
 | [`Procfile`](../Procfile) | mesmo comando de start, para hosts que leem Procfile (Railway, Heroku) |
-| [`requirements.txt`](../requirements.txt) | Flask, openpyxl, pdfplumber e gunicorn |
+| [`requirements.txt`](../requirements.txt) | Flask, openpyxl, pdfplumber, gunicorn e psycopg |
 
 Os datasets (`data/*.json`) estão versionados, então o build **não** precisa reprocessar
 a pasta `KB` — sobe direto.
@@ -24,9 +27,13 @@ a pasta `KB` — sobe direto.
 3. Autorize o Render a ver o repositório `diekson-bernardes/NCM-CCLASSTRIB-NBS`
    (é privado — na tela de permissões do GitHub marque **Only select repositories** e
    selecione esse).
-4. O Render lê o `render.yaml` e propõe o serviço `correlacao-rtc`. Confirme com **Apply**.
+4. O Render lê o `render.yaml` e propõe **dois** recursos: o serviço web `correlacao-rtc` e
+   o banco `correlacao-rtc-db`. Confirme com **Apply**.
 5. O primeiro build leva alguns minutos. Ao final, a URL aparece no topo do serviço, no
    formato `https://correlacao-rtc.onrender.com`.
+
+O banco é criado junto e a variável `DATABASE_URL` já entra no serviço apontando para ele —
+não há nada a digitar. A tabela usada (`rtc_estado`) é criada sozinha na primeira subida.
 
 A partir daí, todo `git push` no branch `master` dispara um novo deploy.
 
@@ -61,11 +68,36 @@ RTC_SENHA_TESTE  = <senha da demonstração>
 desconecta quem estava logado. As três senhas substituem as de desenvolvimento sem
 alterar o repositório; as senhas nunca ficam no código em texto puro, só como hash.
 
-**Atenção ao plano gratuito:** a contagem de consultas (`var/uso.json`) e os usuários
-criados pelo administrador (`var/usuarios.json`) ficam em disco, e o disco do Render free
-é efêmero — a cada deploy ou hibernação, a contagem zera e os usuários criados pelo painel
-desaparecem (os três de fábrica continuam, pois estão no código). Para que persistam, o
-caminho é um banco (Postgres do próprio Render) ou um disco persistente no plano pago.
+## Onde ficam os usuários criados no painel
+
+O disco do Render é efêmero: a cada deploy, reinício ou saída da hibernação a máquina volta
+ao conteúdo do repositório e tudo que a aplicação gravou em `var/` some. Por isso o cadastro
+de usuários e a contagem de consultas **não** ficam em arquivo quando há banco:
+
+| Ambiente | Destino | Sobrevive a deploy? |
+|---|---|---|
+| Local (sem `DATABASE_URL`) | `var/usuarios.json` e `var/uso.json` | — |
+| Render (com `DATABASE_URL`) | tabela `rtc_estado` no PostgreSQL | sim |
+
+A escolha é automática: existindo `DATABASE_URL`, a aplicação usa o banco; senão, os
+arquivos. O conteúdo gravado é o mesmo JSON nos dois casos, e **na primeira subida com banco
+o que estiver nos arquivos é copiado para lá** — nada se perde na migração. Se a
+`DATABASE_URL` estiver definida mas o banco não responder, o site continua no ar usando
+arquivo e o aviso aparece em vermelho no painel do administrador.
+
+O painel **Usuários e uso** mostra o destino em vigor: a etiqueta *permanente* (banco) ou
+*temporário* (arquivo). É a forma rápida de confirmar, depois de publicar, que o cadastro
+está protegido.
+
+As senhas dos três usuários de fábrica não dependem disso — eles vivem no código e mudam
+por variável de ambiente.
+
+> **Banco gratuito do Render:** o plano free do PostgreSQL expira depois de 30 dias, e o
+> banco é removido. Para uso contínuo, ou passe o banco para o plano pago no painel do
+> Render, ou aponte `DATABASE_URL` para um Postgres gratuito sem prazo (Neon, Supabase) —
+> nesse caso basta colar a URL em **Environment**, no serviço web, e remover o bloco
+> `databases:` do `render.yaml`. URLs externas exigem TLS; a aplicação acrescenta
+> `sslmode=require` sozinha se a URL não trouxer.
 
 ## Atualizações
 

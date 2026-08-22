@@ -1,0 +1,37 @@
+# Fora da imagem: nada disso e lido em producao.
+.git
+.gitignore
+.claude
+.venv
+venv
+env
+__pycache__
+**/__pycache__
+*.py[cod]
+
+# Base de conhecimento (19 MB): entra no build_dataset.py, nao no site
+KB
+
+# Material de trabalho e documentacao
+Docs
+Prompts
+tests
+scripts
+*.md
+LICENSE
+
+# Estado local (cadastro e contagem de uso da maquina do desenvolvedor)
+var
+saidas
+*.log
+*.tmp
+
+# Configuracao de outros hospedes
+render.yaml
+Procfile
+docker-compose.yml
+docker-compose.override.yml
+Dockerfile
+.dockerignore
+.env
+.env.*

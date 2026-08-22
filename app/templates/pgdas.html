@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block titulo %}Declaração PGDAS-D{% endblock %}
+{% block conteudo %}
+
+<section class="cartao">
+  <h1>Importação da declaração PGDAS-D</h1>
+  <p class="ajuda">
+    Envie o PDF da declaração do Simples Nacional para ver a carga tributária efetiva —
+    por tributo, por estabelecimento (matriz e filiais) e por atividade —, além do
+    enquadramento nos Anexos I (comércio) e III (serviços) e da versão para impressão.
+    <strong>O arquivo é lido no seu navegador</strong>: o PDF não é enviado ao servidor
+    nem fica guardado aqui.
+  </p>
+  {% if consultas_restantes is not none %}
+  <p class="ajuda">
+    Cada declaração importada consome <strong>uma consulta</strong> da sua cota
+    ({{ consultas_restantes }} restante(s)).
+  </p>
+  {% endif %}
+  <p class="ajuda">
+    Para imprimir, use o botão <em>Imprimir Declaração com Alíquotas</em> dentro do quadro.
+    <a href="{{ url_for('pgdas_ferramenta') }}" target="_blank" rel="noopener">
+      Abrir em tela cheia</a> — mesma ferramenta, ocupando a janela inteira.
+  </p>
+</section>
+
+<iframe id="quadro-pgdas" class="quadro-pgdas"
+        src="{{ url_for('pgdas_ferramenta') }}"
+        title="Análise tributária da declaração PGDAS-D"></iframe>
+
+<script>
+  // A ferramenta avisa a altura do próprio conteúdo; o quadro acompanha, sem
+  // barra de rolagem dupla. O teto é uma trava de segurança: se algum dia a
+  // medição voltar a se realimentar, a tela para de crescer em vez de travar.
+  var TETO = 30000;
+  window.addEventListener('message', function (evento) {
+    if (evento.origin !== window.location.origin) return;
+    var dados = evento.data || {};
+    if (dados.rtc !== 'altura-pgdas' || !dados.altura) return;
+    var altura = Math.min(dados.altura + 8, TETO);
+    document.getElementById('quadro-pgdas').style.height = altura + 'px';
+  });
+</script>
+{% endblock %}

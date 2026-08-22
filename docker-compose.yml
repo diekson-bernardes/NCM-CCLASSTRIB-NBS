@@ -1,0 +1,58 @@
+# Classificador da Reforma Tributaria - dois servicos:
+#
+#   banco  PostgreSQL, onde ficam os usuarios criados no painel e a contagem de
+#          consultas. Fica num volume nomeado, entao sobrevive a `down` e a novas
+#          versoes da imagem.
+#   site   a aplicacao Flask servida por gunicorn.
+#
+#   cp .env.example .env      # e preencha as senhas
+#   docker compose up -d --build
+#   http://localhost:8000
+#
+# As variaveis vem do arquivo .env (que o compose le sozinho). As marcadas com
+# `:?` sao obrigatorias: sem elas o compose para com a mensagem, em vez de subir
+# um site com senha em branco.
+
+services:
+  banco:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-correlacao_rtc}
+      POSTGRES_USER: ${POSTGRES_USER:-rtc}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?defina POSTGRES_PASSWORD no arquivo .env}
+    volumes:
+      - dados-banco:/var/lib/postgresql/data
+    healthcheck:
+      # o site so sobe depois que o banco aceita conexao
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-rtc} -d ${POSTGRES_DB:-correlacao_rtc}"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 20s
+    restart: unless-stopped
+
+  site:
+    build: .
+    image: classificador-rtc:local
+    depends_on:
+      banco:
+        condition: service_healthy
+    environment:
+      # cadastro e cota no banco; a tabela rtc_estado e criada na primeira subida
+      DATABASE_URL: postgresql://${POSTGRES_USER:-rtc}:${POSTGRES_PASSWORD}@banco:5432/${POSTGRES_DB:-correlacao_rtc}
+      # sessoes de login sobrevivem a um reinicio do container
+      RTC_SECRET_KEY: ${RTC_SECRET_KEY:?defina RTC_SECRET_KEY no arquivo .env}
+      # senhas dos usuarios de fabrica; em branco, valem as de desenvolvimento
+      RTC_SENHA_ADMIN: ${RTC_SENHA_ADMIN:-}
+      RTC_SENHA_CLIENTE: ${RTC_SENHA_CLIENTE:-}
+      RTC_SENHA_TESTE: ${RTC_SENHA_TESTE:-}
+      # 0 = acesso direto ao container. Ponha 1 apenas se houver um proxy
+      # (Nginx, Traefik, Caddy) na frente, senao o cabecalho X-Forwarded-* passa
+      # a ser aceito de qualquer cliente.
+      RTC_ATRAS_DE_PROXY: ${RTC_ATRAS_DE_PROXY:-0}
+    ports:
+      - "${PORTA:-8000}:8000"
+    restart: unless-stopped
+
+volumes:
+  dados-banco:

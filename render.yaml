@@ -14,5 +14,20 @@ services:
     envVars:
       - key: PYTHON_VERSION
         value: "3.12.7"
-      # Para exigir usuario e senha, defina RTC_USUARIO e RTC_SENHA no painel do
-      # Render (Environment). Sem essas variaveis o acesso e aberto.
+      # Cadastro de usuarios e contagem de consultas: vao para o banco abaixo, e nao
+      # para o disco (que o Render apaga a cada deploy, reinicio ou hibernacao).
+      - key: DATABASE_URL
+        fromDatabase:
+          name: correlacao-rtc-db
+          property: connectionString
+      # Sessoes: sem esta chave fixa, cada deploy desconecta quem estava logado.
+      - key: RTC_SECRET_KEY
+        generateValue: true
+      # Senhas dos usuarios de fabrica - defina em Environment, no painel do Render:
+      # RTC_SENHA_ADMIN, RTC_SENHA_CLIENTE, RTC_SENHA_TESTE.
+
+databases:
+  - name: correlacao-rtc-db
+    databaseName: correlacao_rtc
+    plan: free
+    region: oregon
